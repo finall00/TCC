@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+body{
+    background-color: white;
+    display: flex;
+    padding: 10px;
+}
+
+.card{
+    max-width: 380px;
+    width: 100%;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px 30px 30px; 
+    margin: 10px;
+}
+
+.carrinho-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carrinho-logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.carrinho-logo i {
+    font-size: 38px;
+    color: #707070;
+    cursor: pointer;
+    transition: color 0.3s linear;
+}
+.carrinho-logo i:hover{
+    color: black;
+}
+
+.card .produto {
+    position: relative;
+    height: 290px;
+}
+
+.card .produto img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    left: 12px;
+    position:absolute;
+    top: -40px;
+    z-index: -1;
+}
+
+.card .detalhes .nome{
+    font-size: 24px;
+    font-weight: 500;
+    color: #161616;
+}
+
+.card .detalhes p{
+    font-size: 12px;
+    color: #333;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.card .preco {
+    display: flex;
+    flex-direction: row;
+    align-items:center ;
+    justify-content: space-between;
+}
+
+.card .preco .num-preco {
+    font-size: 25px;
+    font-weight: 600;
+    color: #333 ;
+}
+
+.card .preco .num-letra {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333 ;
+    
+}
+.card .button { 
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    margin-top: 30px;
+    background-image: linear-gradient(135deg,#d87ccf, #dbc8c8);
+}
+ 
+.card .button button {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: none;
+    outline: none;
+    border:none;    
+    font-size:18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+/*************************************** Adiconar o box shadow ****************************/
+.card .plus-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.card .plus-icon i {
+    font-size: 230px;
+    color: #707070;
+    cursor: pointer;
+    transition: color 0.3s linear;
+    text-shadow:  0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card .plus-icon button {
+    background: none;
+    outline: none;
+    border:none;
+}
+
+.card .plus-icon i:hover {
+    color: black;
+}
+   
+/*.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-conteudo {
+    height: 600px;
+    width: 500px;
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px 30px 30px; 
+    margin: 10px;
+}*/
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-conteudo {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    
+    max-width: 600px;
+    width: 100%;
+    
+    border-radius: 25px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .container-form form .register-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  form .register-details .input-box {
+    margin-top: 20px;
+    width: calc(100% / 2 - 20px);
+  }
+
+  .register-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 16px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #707070;
+    transition: all 0.3s ease;
+  }
+
+  .register-details .input-box input:focus, .register-details .input-box input:valid {
+    border-color: black;
+  }
