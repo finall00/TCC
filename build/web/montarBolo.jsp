@@ -1,3 +1,6 @@
+<%@page import="model.Cliente"%>
+<%@page import="model.FormatoBolo"%>
+<%@page import="model.CoberturaBolo"%>
 <%@page import="model.RecheioBolo"%>
 <%@page import="model.SaborBolo"%>
 <%@page import="model.MontaBolo"%>
@@ -8,8 +11,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--
 <%
-    Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if (funcionarios != null) {
+    Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
+    Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
+    if (funcionario != null || cliente != null) {
 %>
 -->
 <jsp:include page="/cabecalho.jsp"/>
@@ -23,13 +27,17 @@
             <div class="row w-75 mx-auto">
                 <div hidden="" class="form-group col-6">
                     <label for="codigoPessoa">Código:</label>
-                    <input class="form-control" type="text" id="codigoPessoa" name="codigoPessoa" readonly value="${funcionario.codigoPessoa > 0 ? funcionario.codigoPessoa : ""}"/>
+                    <input class="form-control" type="text" id="codigoPessoa" name="codigoPessoa" readonly value="${cliente.codigoPessoa > 0 ? cliente.codigoPessoa : ""}"/>
+                </div>
+                
+                <div hidden="">
+                    <input type="text" name="codigoBolo" id="codigoBolo" readonly>
                 </div>
                 
                 
                 
                 <div class="row w-75 mx-auto">  
-                <div class="form-group col-6">
+                <div class="form-group col-12">
                     <label for="codigoPeso">Peso:</label>
                     <%
                         List<PesoBolo> listaP = (List<PesoBolo>) request.getAttribute("peso");
@@ -52,8 +60,8 @@
                 </div>
                 </div>
                 <div class="row w-75 mx-auto">  
-                <div class="form-group col-6">
-                    <label for="codigoCargo">Cargo:</label>
+                <div class="form-group col-12">
+                    <label for="codigoCargo">Sabor do Bolo:</label>
                     <%
                         List<SaborBolo> listaS = (List<SaborBolo>) request.getAttribute("sabor");
                         
@@ -75,8 +83,8 @@
                 </div>
                 </div>
                 <div class="row w-75 mx-auto">  
-                <div class="form-group col-6">
-                    <label for="codigoCargo">Cargo:</label>
+                <div class="form-group col-12">
+                    <label for="codigoCargo">Recheio:</label>
                     <%
                         List<RecheioBolo> listaR = (List<RecheioBolo>) request.getAttribute("recheio");
                         
@@ -97,7 +105,58 @@
                     </select>
                 </div>
                 </div>
-                        <!<!-- falta cobertura, formato, descrição, e puxar o codigo do cliente -->
+                      <div class="row w-75 mx-auto">  
+                <div class="form-group col-12">
+                    <label for="codigoCobertura">Cobertura:</label>
+                    <%
+                        List<CoberturaBolo> listaC = (List<CoberturaBolo>) request.getAttribute("cobertura");
+                        
+                        
+                    %>
+                    <select id="codigoCobertura" 
+                            name="codigoCobertura" class="form-control" required>
+                        <option value="">Selecione...</option>
+                        <%
+                            for (CoberturaBolo coberturaBolo : listaC) {
+                        %>
+                        <option value="<%= coberturaBolo.getCodigoCobertura()%>" <%= montaBolo.getCoberturaBolo().getCodigoCobertura()== coberturaBolo.getCodigoCobertura()? "selected" : ""%> ><%= coberturaBolo.getCoberturaB()%></option>
+                       
+                        <%
+                            }
+                        %>
+                        
+                    </select>
+                </div>
+                </div>     <div class="row w-75 mx-auto">  
+                <div class="form-group col-12">
+                    <label for="codigoFormato">Formato:</label>
+                    <%
+                        List<FormatoBolo> listaF = (List<FormatoBolo>) request.getAttribute("formato");
+                        
+                        
+                    %>
+                    <select id="codigoFormato" 
+                            name="codigoFormato" class="form-control" required>
+                        <option value="">Selecione...</option>
+                        <%
+                            for (FormatoBolo formatoBolo : listaF) {
+                        %>
+                        <option value="<%= formatoBolo.getCodigoFormato()%>" <%= montaBolo.getFormatoBolo().getCodigoFormato()== formatoBolo.getCodigoFormato()? "selected" : ""%> ><%= formatoBolo.getFormatoB()%></option>
+
+                        <%
+                            }
+                        %>
+                        
+                    </select>
+                </div>
+                </div>
+                 <div class="form-group col-12">
+                    <label for="decoracao">Descreva a decoracao:</label>
+                    <input class="form-control" type="text" id="decoracao" name="decoracao" placeholder="Nome" />
+                </div>     
+                  
+                        
+                        <!<!-- falta descrição, e puxar o codigo do cliente -->
             </div>
                 <div class="row mt-3">
                 <div class="form-group col-12 text-center">

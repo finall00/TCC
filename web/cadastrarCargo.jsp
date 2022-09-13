@@ -25,8 +25,8 @@
                     <input class="form-control" type="text" id="nomeCargo" name="nomeCargo" placeholder="Nome" required value="${cargo.nomeCargo}"/>
                 </div>
                 <div class="form-group col-6">
-                    <label for="descCargo">Descrição:</label>
-                    <input class="form-control" type="text" id="descCargo" name="descCargo" placeholder="Nome" required value="${cargo.descCargo}"/>
+                    <label for="decoracao">Descreva a decoracao:</label>
+                    <input class="form-control" type="text" id="decoracao" name="decoracao" placeholder="Nome" />
                 </div>
 
             </div>
