@@ -11,6 +11,7 @@ public class Produto {
     private double vlrVenda;
     private String codigoBarra;
     private String descricaoProduto;
+    private String imagem;
    
 
     public Produto(int codigoProduto, String nomeProduto, String dataValidade, int estoqueProduto, double vlrCusto, double vlrVenda, String codigoBarra, String descricaoProduto) {
@@ -24,6 +25,20 @@ public class Produto {
         this.descricaoProduto = descricaoProduto;
        
     }
+
+    public Produto(int codigoProduto, String nomeProduto, String dataValidade, int estoqueProduto, double vlrCusto, double vlrVenda, String codigoBarra, String descricaoProduto, String imagem) {
+        this.codigoProduto = codigoProduto;
+        this.nomeProduto = nomeProduto;
+        this.dataValidade = dataValidade;
+        this.estoqueProduto = estoqueProduto;
+        this.vlrCusto = vlrCusto;
+        this.vlrVenda = vlrVenda;
+        this.codigoBarra = codigoBarra;
+        this.descricaoProduto = descricaoProduto;
+        this.imagem = imagem;
+    }
+    
+    
 
     public Produto() {
     }
@@ -92,6 +107,14 @@ public class Produto {
 
     public void setDescricaoProduto(String descricaoProduto) {
         this.descricaoProduto = descricaoProduto;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
  

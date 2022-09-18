@@ -27,7 +27,7 @@ public class ProdutoDAO implements DAOGenerica {
 
     @Override
     public void cadastrar(Object objeto) throws SQLException {
-        String sql = "call cadastrarProduto(?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "call cadastrarProduto(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Produto produto = (Produto) objeto;
         PreparedStatement stmt = null;
         try {
@@ -40,6 +40,7 @@ public class ProdutoDAO implements DAOGenerica {
             stmt.setDouble(6, produto.getVlrVenda());
             stmt.setString(7, produto.getCodigoBarra());
             stmt.setString(8, produto.getDescricaoProduto());
+            stmt.setString(9, produto.getImagem());
 
             stmt.execute();
 
@@ -62,7 +63,7 @@ public class ProdutoDAO implements DAOGenerica {
             stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), rs.getString("dataValidade"), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"));
+                produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), rs.getString("dataValidade"), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"), rs.getString("imagem"));
             }
         } catch (SQLException ex) {
             throw new SQLException("Erro ao consultar Produto");
@@ -83,7 +84,7 @@ public class ProdutoDAO implements DAOGenerica {
             stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                Produto produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), new SimpleDateFormat("dd-MM-yyyy").format(rs.getDate("dataValidade")), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"));
+                Produto produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), new SimpleDateFormat("dd-MM-yyyy").format(rs.getDate("dataValidade")), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"), rs.getString("imagem"));
                 lista.add(produto);
             }
         } catch (SQLException ex) {
@@ -121,7 +122,7 @@ public class ProdutoDAO implements DAOGenerica {
             stmt.setString(1,nome);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), rs.getString("dataValidade"), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"));
+                produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), rs.getString("dataValidade"), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"), rs.getString("imagem"));
             listar.add(produto);
             }
         } catch (SQLException ex) {

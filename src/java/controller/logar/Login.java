@@ -57,28 +57,8 @@ public class Login extends HttpServlet {
                  request.setAttribute("mensagem", "Usuário ou senha invalida");
                 request.getRequestDispatcher("paginaLogin.jsp").forward(request, response);
             }
-            
-            
-            
-            
-//            
-//            
-//            
-//            if(cliente == null) {
-//                request.setAttribute("mensagem", "Usuário ou senha invalida");
-//                request.getRequestDispatcher("paginaLogin.jsp").forward(request, response);
-//            } else {
-//                HttpSession sessao = request.getSession(true);
-//                sessao.setAttribute("cliente", cliente);
-//                sessao.setAttribute("funcionario", funcionario);
-//                request.getRequestDispatcher("home.jsp").forward(request, response);
-//            }
-//            
-//            
-            
-            
-            
-            
+ 
+                       
         } catch(SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }

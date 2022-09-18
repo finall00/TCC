@@ -1,16 +1,15 @@
-
 <%@page import="model.Funcionario"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
- <%
-   
+<%@page import="dao.itensBoloDAO"%>
+<%@page import="model.Produto"%>    
+<%@page import="java.util.List"%>
+<%
+
     Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if ( funcionarios != null) {
+    if (funcionarios != null) {
 %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-    <%@page import="model.Produto"%>    
-    <%@page import="java.util.List"%>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,47 +22,41 @@
 
     <form action="PesquisarProduto">
         <label for="nomeProduto">nome Produto:</label>
-        <input class="form-control" type="text" id="nomeProduto" name="nomeProduto" placeholder="Nome" =/>
+        <input class="form-control" type="text" id="nomeProduto" name="nomeProduto" placeholder="Nome" />
 
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Pesquisar">
     </form>  
     <%
         List<Produto> lista = (List<Produto>) request.getAttribute("produto");
 
         if (lista == null) {
     %>
-    
+
     <div class="alert alert-primary" role="alert">
-      <br>
-    <br>
-    <br>  
+        <br>
+        <br>
+        <br>  
         ${mensagem}
     </div>
     <%
     } else {
-
-
     %>
-
 
     <body>
         <div class="button-form">
-
-
-            
         </div>
+        <h2>${erro}</h2>
         <%            for (Produto produto : lista) {
         %>
         <div class="card">
             <div class="carrinho-logo">
-                <img src="./images/—Pngtree—blue gradient birthday cake 3d_5378657.png" alt="logo teste ">
+                <img src="" alt="logo teste ">
                 <i class='bx bxs-cart-add'></i> 
             </div>
             <div class="produto">
-                <img src="./images/—Pngtree—blue gradient birthday cake 3d_5378657.png" alt="foto do produto">
+
+                <img src="<%= (String) request.getContextPath() + "/imagems/" + produto.getImagem()%>">
             </div>
-
-
 
             <div class="detalhes">
                 <span hidden="" class="nome" ><%= produto.getCodigoProduto()%></span>
@@ -80,8 +73,6 @@
                 <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>">mais info</a>
             </div>
         </div>
-
-
         <%
                 }
             }
@@ -104,7 +95,7 @@
                 <span class="title">Cadastar Produto</span>
 
                 <div class="container-form">
-                    <form action="CadastrarProduto" method="post">
+                    <form action="CadastrarProduto" method="post" enctype="multipart/form-data" >
                         <div class="register-details">
 
                             <div hidden="" class="input-box">
@@ -140,11 +131,14 @@
 
                             <div class="input-box">
 
-                                <input class="form-control" placeholder="Descrição" type="text" id="descricaoProduto" name="descricaoProduto" required />
+                                <input class="form-control" placeholder="Descri��o" type="text" id="descricaoProduto" name="descricaoProduto" required />
                             </div>
                             <div class="input-box">
 
                                 <input class="form-control" type="text" placeholder="codigo de Barra" id="codigoBarra" name="codigoBarra" required />
+                            </div>
+                            <div>                               
+                                <input type="file" name="file" id="file">
                             </div>
 
 
@@ -167,12 +161,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <%
-    } else {
-        response.sendRedirect(request.getContextPath() + "/");
-    }
-%>
+        } else {
+            response.sendRedirect(request.getContextPath() + "/");
+        }
+    %>
 </html>
-
-
-
-

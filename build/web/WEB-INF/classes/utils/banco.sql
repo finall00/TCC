@@ -1,9 +1,3 @@
-create table marca(
-    codigoMarca serial not null primary key,
-    nomeMarca varchar(50) not null	
-);
-
-
 
 create table cargo(
     codigoCargo serial not null primary key,
@@ -23,7 +17,8 @@ create table produto(
      vlrCusto decimal not null,
      vlrVenda decimal not null,
      codigoBarra varchar(40) not null,
-     descricaoProduto varchar(800) not null
+     descricaoProduto varchar(800) not null,
+     imagem varchar(80)
    
 );
 
@@ -69,8 +64,34 @@ create table Fornecedor(
 );
 
 
+-- itenas bolo
 
+create table CoberturaBolo(
+codigoCobertura serial not null primary key,
+coberturaB varchar
+);
 
+create table FormatoBolo (
+ codigoFormato  serial not null primary key,
+  formatoB varchar   
+);
+
+create table PesoBolo(
+ codigoPeso  serial not null primary key,
+  pesoB varchar   
+);
+
+create table RecheioBolo(
+ codigoRecheio  serial not null primary key,
+  recheioB varchar   
+);
+
+create table Saborbolo (
+ codigoSabor  serial not null primary key,
+  saborB varchar   
+);
+
+-- falta a tabela de montaBolo
 
  -- functions
 
@@ -110,13 +131,13 @@ create or replace procedure cadastrarCargo(codigo_Cargo int, nome_Cargo varchar,
 $$ language plpgsql;
 
 
-create or replace procedure cadastrarProduto(codigo_Produto int, nome_Produto varchar, data_Validade Date, estoque_Produto int, vlr_Custo float, vlr_Venda float, codigo_Barra varchar, descricao_Produto varchar) as $$          
+create or replace procedure cadastrarProduto(codigo_Produto int, nome_Produto varchar, data_Validade Date, estoque_Produto int, vlr_Custo float, vlr_Venda float, codigo_Barra varchar, descricao_Produto varchar, imagem_Produto varchar) as $$          
     begin
      
         if codigo_Produto > 0 then
-           update produto set codigoProduto = codigo_Produto, nomeProduto = nome_Produto, dataValidade = data_Validade, estoqueProduto = estoque_Produto, vlrCusto = vlr_Custo, vlrVenda = vlr_Venda, codigoBarra = codigo_Barra, descricaoProduto = descricao_Produto where codigoProduto = codigo_Produto;
+           update produto set codigoProduto = codigo_Produto, nomeProduto = nome_Produto, dataValidade = data_Validade, estoqueProduto = estoque_Produto, vlrCusto = vlr_Custo, vlrVenda = vlr_Venda, codigoBarra = codigo_Barra, descricaoProduto = descricao_Produto, imagem = imagem_Produto where codigoProduto = codigo_Produto;
         else
-            insert into produto values(default, nome_Produto, data_Validade, estoque_Produto, vlr_Custo, vlr_Venda, codigo_Barra, descricao_Produto);
+            insert into produto values(default, nome_Produto, data_Validade, estoque_Produto, vlr_Custo, vlr_Venda, codigo_Barra, descricao_Produto, imagem_Produto);
         end if;
     end;
 $$ language plpgsql;
@@ -170,6 +191,47 @@ create or replace procedure cadastrarFornecedor(codigo_Pessoa int, nome_Pessoa v
     end;
 $$ language plpgsql;
 
+-- procedure de itens Bolo
+
+create or replace procedure cadastrarCobertura(codigo_Cobertura int, cobertura_B varchar) as $$
+    begin
+        if codigo_Cobertura > 0 then
+            update coberturabolo set  coberturaB = cobertura_B where codigoCobertura = codigo_Cobertura;
+        else
+            insert into coberturabolo values(default, cobertura_B);
+        end if;
+    end;
+$$ language plpgsql;
+
+create or replace procedure cadastrarFormato (codigo_Formato int, formato_B varchar) as $$
+    begin
+        if codigo_Formato > 0 then
+            update formatobolo set formatoB = formato_B  where codigoFormato = codigo_Formato;
+        else
+            insert into formatobolo values(default, formato_B);
+        end if;
+    end;
+$$ language plpgsql;
+
+create or replace procedure cadastrarPeso(codigo_Peso int, peso_B varchar) as $$
+    begin
+        if codigo_Peso > 0 then
+            update pesobolo set pesoB = peso_B  where codigoPeso = codigo_Peso;
+        else
+            insert into pesobolo values (default,peso_B  );
+        end if;
+    end;
+$$ language plpgsql;
+
+create or replace procedure cadastrarRecheio(codigo_Recheio int, recheio_B varchar) as $$
+    begin
+        if codigo_Recheio > 0 then
+            update recheiobolo set recheioB = recheio_B where codigoRecheio = codigo_Recheio;
+        else
+            insert into recheiobolo values (default, recheio_B );
+        end if;
+    end;
+$$ language plpgsql;
 
 
 
@@ -192,11 +254,3 @@ select * from cliente cl inner join pessoa pe on cl.codigoCliente = pe.codigoPes
 SELECT * FROM pessoa
 
 SELECT * FROM cliente
-
-
-
-
-
-
-
-
