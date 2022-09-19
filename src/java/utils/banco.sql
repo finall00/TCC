@@ -1,7 +1,3 @@
-create table marca(
-    codigoMarca serial not null primary key,
-    nomeMarca varchar(50) not null	
-);
 
 
 
@@ -70,6 +66,35 @@ create table Fornecedor(
 
 
 
+
+-- itenas bolo
+
+create table CoberturaBolo(
+codigoCobertura serial not null primary key,
+coberturaB varchar
+);
+
+create table FormatoBolo (
+ codigoFormato  serial not null primary key,
+  formatoB varchar   
+);
+
+create table PesoBolo(
+ codigoPeso  serial not null primary key,
+  pesoB varchar   
+);
+
+create table RecheioBolo(
+ codigoRecheio  serial not null primary key,
+  recheioB varchar   
+);
+
+create table Saborbolo (
+ codigoSabor  serial not null primary key,
+  saborB varchar   
+);
+
+-- falta a tabela de montaBolo
 
 
  -- functions
@@ -171,6 +196,58 @@ create or replace procedure cadastrarFornecedor(codigo_Pessoa int, nome_Pessoa v
 $$ language plpgsql;
 
 
+
+-- procedure de itens Bolo
+
+create or replace procedure cadastrarCobertura(codigo_Cobertura int, cobertura_B varchar) as $$
+    begin
+        if codigo_Cobertura > 0 then
+            update coberturabolo set  coberturaB = cobertura_B where codigoCobertura = codigo_Cobertura;
+        else
+            insert into coberturabolo values(default, cobertura_B);
+        end if;
+    end;
+$$ language plpgsql;
+
+create or replace procedure cadastrarFormato (codigo_Formato int, formato_B varchar) as $$
+    begin
+        if codigo_Formato > 0 then
+            update formatobolo set formatoB = formato_B  where codigoFormato = codigo_Formato;
+        else
+            insert into formatobolo values(default, formato_B);
+        end if;
+    end;
+$$ language plpgsql;
+
+create or replace procedure cadastrarPeso(codigo_Peso int, peso_B varchar,) as $$
+    begin
+        if codigo_Peso > 0 then
+            update pesobolo set pesoB = peso_B  where codigoPeso = codigo_Peso;
+        else
+            insert into pesobolo values (default,peso_B  );
+        end if;
+    end;
+$$ language plpgsql;
+
+create or replace procedure cadastrarRecheio(codigo_Recheio int, recheio_B varchar,) as $$
+    begin
+        if codigo_Recheio > 0 then
+            update recheiobolo set recheioB = recheio_B where codigoRecheio = codigo_Recheio;
+        else
+            insert into recheiobolo values (default, recheio_B );
+        end if;
+    end;
+$$ language plpgsql;
+
+create or replace procedure cadastrarSabor(codigo_Sabor int, sabor_B varchar,) as $$
+    begin
+        if codigo_Sabor > 0 then
+            update saborbolo set saborB = sabor_B where codigoSabor = codigo_Sabor;
+        else
+            insert into saborbolo values (default, sabor_B );
+        end if;
+    end;
+$$ language plpgsql;
 
 
 --> teste

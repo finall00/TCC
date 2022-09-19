@@ -19,9 +19,9 @@ public class NovoRecheioB extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
-        request.setAttribute("RecheioBolo", new RecheioBolo());
+        request.setAttribute("recheio", new RecheioBolo());
         
-        request.getRequestDispatcher("").forward(request, response);
+        request.getRequestDispatcher("bolo_pages/cadastrarRecheio.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

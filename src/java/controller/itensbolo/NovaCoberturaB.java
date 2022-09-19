@@ -19,9 +19,9 @@ public class NovaCoberturaB extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
-        request.setAttribute("CoberturaBolo", new CoberturaBolo());
+        request.setAttribute("cobertura", new CoberturaBolo());
         
-        request.getRequestDispatcher("").forward(request, response);
+        request.getRequestDispatcher("bolo_pages/cadastrarCobertura.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

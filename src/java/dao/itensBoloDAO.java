@@ -232,18 +232,18 @@ public class itensBoloDAO {
     }
     
     public List<Object> listarCobertura() throws SQLException {
-        String sql = "select * From saborBolo";
+        String sql = "select * From coberturaBolo";
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<Object> lista = new ArrayList<>();
+        List<Object> listaC = new ArrayList<>();
 
-        try {
+        try {           
             stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
-
+            
             while (rs.next()) {
                 CoberturaBolo cobertura = new CoberturaBolo(rs.getInt("codigoCobertura"), rs.getString("coberturaB"));
-                lista.add(cobertura);
+                listaC.add(cobertura);
 
             }
 
@@ -252,11 +252,11 @@ public class itensBoloDAO {
         } finally {
             Conexao.encerrarConexao(conexao, stmt, rs);
         }
-        return lista;
+        return listaC;
     }
 
     public void excluirCobertura(int codigoC) throws SQLException {
-        String sql = "delete from CoberturaBolo where codigoCobertura = ?";
+        String sql = "delete from coberturaBolo where codigoCobertura = ?";
         PreparedStatement stmt = null;
         try {
             stmt = conexao.prepareStatement(sql);
@@ -316,25 +316,25 @@ public class itensBoloDAO {
     public List<Object> listarPeso() throws SQLException {
         String sql = "select * From pesoBolo";
         PreparedStatement stmt = null;
-        ResultSet rs = null;
-        List<Object> lista = new ArrayList<>();
+        ResultSet rsp = null;
+        List<Object> listaP = new ArrayList<>();
 
         try {
             stmt = conexao.prepareStatement(sql);
-            rs = stmt.executeQuery();
+            rsp = stmt.executeQuery();
 
-            while (rs.next()) {
-                PesoBolo  peso = new PesoBolo(rs.getInt("codigoPeso"), rs.getString("pesoB"));
-                lista.add(peso);
+            while (rsp.next()) {
+                PesoBolo  peso = new PesoBolo(rsp.getInt("codigoPeso"), rsp.getString("pesoB"));
+                listaP.add(peso);
 
             }
 
         } catch (SQLException ex) {
 
         } finally {
-            Conexao.encerrarConexao(conexao, stmt, rs);
+            Conexao.encerrarConexao(conexao, stmt, rsp);
         }
-        return lista;
+        return listaP;
     }
 
     public void excluirPeso(int codigoP) throws SQLException {

@@ -26,8 +26,8 @@
         <form action="CadastrarBolo" method="post">
             <div class="row w-75 mx-auto">
                 <div hidden="" class="form-group col-6">
-                    <label for="codigoPessoa">Código:</label>
-                    <input class="form-control" type="text" id="codigoPessoa" name="codigoPessoa" readonly value="${cliente.codigoPessoa > 0 ? cliente.codigoPessoa : ""}"/>
+                    <label for="codigoPessoa">Código:</label><!<!-- value="${cliente.codigoPessoa > 0 ? cliente.codigoPessoa : ""}" -->
+                    <input class="form-control" type="text" id="codigoPessoa" name="codigoPessoa" readonly value="${funcionario.codigoPessoa > 0 ? funcionario.codigoPessoa : ""}" />
                 </div>
                 
                 <div hidden="">
@@ -38,7 +38,7 @@
                 
                 <div class="row w-75 mx-auto">  
                 <div class="form-group col-12">
-                    <label for="codigoPeso">Peso:</label>
+                    <label for="">Peso:</label>
                     <%
                         List<PesoBolo> listaP = (List<PesoBolo>) request.getAttribute("peso");
                         
@@ -51,17 +51,17 @@
                             for (PesoBolo pesoBolo : listaP) {
                         %>
                         <option value="<%= pesoBolo.getCodigoPeso()%>" <%= montaBolo.getPesoBolo().getCodigoPeso()== pesoBolo.getCodigoPeso()? "selected" : ""%> ><%= pesoBolo.getPesoB()%></option>
-                       
+                        
                         <%
                             }
                         %>
-                        
+                        <option value=""></option>
                     </select>
                 </div>
                 </div>
                 <div class="row w-75 mx-auto">  
                 <div class="form-group col-12">
-                    <label for="codigoCargo">Sabor do Bolo:</label>
+                    <label for="">Sabor do Bolo:</label>
                     <%
                         List<SaborBolo> listaS = (List<SaborBolo>) request.getAttribute("sabor");
                         
@@ -84,14 +84,14 @@
                 </div>
                 <div class="row w-75 mx-auto">  
                 <div class="form-group col-12">
-                    <label for="codigoCargo">Recheio:</label>
+                    <label for="">Recheio:</label>
                     <%
                         List<RecheioBolo> listaR = (List<RecheioBolo>) request.getAttribute("recheio");
                         
                         
                     %>
                     <select id="codigoSabor" 
-                            name="codigoSabor" class="form-control" required>
+                            name="codigoRecheio" class="form-control" required>
                         <option value="">Selecione...</option>
                         <%
                             for (RecheioBolo recheioBolo : listaR) {
@@ -107,7 +107,7 @@
                 </div>
                       <div class="row w-75 mx-auto">  
                 <div class="form-group col-12">
-                    <label for="codigoCobertura">Cobertura:</label>
+                    <label for="">Cobertura:</label>
                     <%
                         List<CoberturaBolo> listaC = (List<CoberturaBolo>) request.getAttribute("cobertura");
                         
@@ -129,7 +129,7 @@
                 </div>
                 </div>     <div class="row w-75 mx-auto">  
                 <div class="form-group col-12">
-                    <label for="codigoFormato">Formato:</label>
+                    <label for="">Formato:</label>
                     <%
                         List<FormatoBolo> listaF = (List<FormatoBolo>) request.getAttribute("formato");
                         
@@ -151,7 +151,7 @@
                 </div>
                 </div>
                  <div class="form-group col-12">
-                    <label for="decoracao">Descreva a decoracao:</label>
+                    <label for="">Descreva a decoracao:</label>
                     <input class="form-control" type="text" id="decoracao" name="decoracao" placeholder="Nome" />
                 </div>     
                   

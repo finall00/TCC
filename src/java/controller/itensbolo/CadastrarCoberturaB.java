@@ -22,7 +22,7 @@ public class CadastrarCoberturaB extends HttpServlet {
         try {
             int codigoCobertura = request.getParameter("codigoCobertura").isEmpty() ? 0 : Integer.parseInt(request.getParameter("codigoCobertura"));
 
-            String coberturaB = request.getParameter("recheioB");
+            String coberturaB = request.getParameter("coberturaB");
 
             CoberturaBolo coberturaBolo = new CoberturaBolo(codigoCobertura, coberturaB);
 
@@ -33,7 +33,7 @@ public class CadastrarCoberturaB extends HttpServlet {
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mesagem", ex.getMessage());
         }
-        request.getRequestDispatcher("").forward(request, response);
+        request.getRequestDispatcher("NovoBolo").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

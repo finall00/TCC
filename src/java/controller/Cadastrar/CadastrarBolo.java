@@ -2,14 +2,12 @@ package controller.Cadastrar;
 
 import dao.MontaBoloDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Cliente;
 import model.CoberturaBolo;
 import model.FormatoBolo;
 import model.MontaBolo;
@@ -23,12 +21,12 @@ public class CadastrarBolo extends HttpServlet {
 
   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        request.setCharacterEncoding("UTF-8");
        
        try{
-           int codigoBolo = request.getParameter("codigoBolo").isEmpty() ? 0 : Integer.parseInt(request.getParameter("codigoBolo"));
+            int codigoBolo = request.getParameter("codigoBolo").isEmpty() ? 0 : Integer.parseInt(request.getParameter("codigoBolo"));
            
            String decoracao = request.getParameter("decoracao");
            

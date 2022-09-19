@@ -44,7 +44,7 @@ public class CadastrarSaborB extends HttpServlet {
         } catch (SQLException |ClassNotFoundException ex ) {
        request.setAttribute("mesagem", ex.getMessage());
     }
-         request.getRequestDispatcher("").forward(request, response);
+         request.getRequestDispatcher("NovoBolo").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

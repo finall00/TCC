@@ -30,15 +30,24 @@ public class NovoBolo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
      
         
-        try{ 
-        
+        try{         
             request.setAttribute("montaBolo", new MontaBolo(new PesoBolo(), new SaborBolo(), new CoberturaBolo(), new RecheioBolo(), new FormatoBolo(), new Pessoa()));
-            itensBoloDAO itensBoloDAO = new itensBoloDAO();
-            request.setAttribute("peso", itensBoloDAO.listarPeso());
-            request.setAttribute("sabor", itensBoloDAO.listarSabor());
-            request.setAttribute("cobertura", itensBoloDAO.listarCobertura());
-            request.setAttribute("recheio", itensBoloDAO.listarRecheio());
-            request.setAttribute("formato", itensBoloDAO.listarFormato());           
+            
+            itensBoloDAO recheios = new itensBoloDAO();
+            request.setAttribute("recheio", recheios.listarRecheio());
+            
+            itensBoloDAO pesos = new itensBoloDAO();
+            request.setAttribute("peso", pesos.listarPeso());
+            
+            itensBoloDAO sabores = new itensBoloDAO();
+            request.setAttribute("sabor", sabores.listarSabor());
+            
+            itensBoloDAO coberturas = new itensBoloDAO();
+            request.setAttribute("cobertura", coberturas.listarCobertura());
+            
+            itensBoloDAO formatos = new itensBoloDAO();
+            request.setAttribute("formato", formatos.listarFormato());    
+            
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }

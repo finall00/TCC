@@ -22,9 +22,9 @@ public class NovoSaborB extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
-        request.setAttribute("saborBolo", new SaborBolo());
+        request.setAttribute("sabor", new SaborBolo());
         
-        request.getRequestDispatcher("").forward(request, response);
+        request.getRequestDispatcher("bolo_pages/cadastrarSabor.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -32,9 +32,9 @@ public class NovoFormatoB extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
-         request.setAttribute("FormatoBolo", new FormatoBolo());
+         request.setAttribute("formato", new FormatoBolo());
         
-        request.getRequestDispatcher("").forward(request, response);
+        request.getRequestDispatcher("bolo_pages/cadastrarFormato.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
