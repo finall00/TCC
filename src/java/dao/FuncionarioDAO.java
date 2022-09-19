@@ -124,9 +124,9 @@ public class FuncionarioDAO implements DAOGenerica {
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                funcionario = new Funcionario(rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("yyyy-MM-dd").format(rs.getDate("dataNascimento")), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"));
+                funcionario = new Funcionario(rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("yyyy-MM-dd").format(rs.getDate("dataNascimento")), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), (Cargo) new CargoDAO().consultar(rs.getInt("codigoCargo")));
             }
-        } catch (SQLException ex) {
+        } catch (SQLException |ClassNotFoundException ex) {
             throw new SQLException("Erro ao buscar usuario");
 
         } finally {
