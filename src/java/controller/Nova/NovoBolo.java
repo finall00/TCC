@@ -1,67 +1,59 @@
 
-package controller.logar;
+package controller.Nova;
 
-
-import dao.ClienteDAO;
-import dao.FuncionarioDAO;
+import dao.MontaBoloDAO;
+import dao.PessoaDAO;
+import dao.itensBoloDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Cliente;
-import model.Funcionario;
+import model.CoberturaBolo;
+import model.FormatoBolo;
+import model.MontaBolo;
+import model.PesoBolo;
+import model.Pessoa;
+import model.RecheioBolo;
+import model.SaborBolo;
 
 
-/**
- *
- * @author smili08
- */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "NovoBolo", urlPatterns = {"/NovoBolo"})
+public class NovoBolo extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         response.setContentType("text/html;charset=UTF-8");
-           try {
-            String login = request.getParameter("login");
-            String senha = request.getParameter("senha");
-            Cliente cliente = new ClienteDAO().pesquisarCliente(login, senha);
-            Funcionario funcionario = new FuncionarioDAO().pesquisarFuncionario(login, senha);
+     
+        
+        try{         
+            request.setAttribute("montaBolo", new MontaBolo(new PesoBolo(), new SaborBolo(), new CoberturaBolo(), new RecheioBolo(), new FormatoBolo(), new Pessoa()));
             
-            if(cliente != null){
-             
-                HttpSession sessao = request.getSession(true);
-                sessao.setAttribute("cliente", cliente);               
-                request.getRequestDispatcher("homeCliente.jsp").forward(request, response);          
-            }
-            else if(funcionario != null){
-                HttpSession sessao = request.getSession(true);               
-                sessao.setAttribute("funcionario", funcionario);
-                request.getRequestDispatcher("homeFuncionario.jsp").forward(request, response);
-             }
-            else{
-                 request.setAttribute("mensagem", "Usuário ou senha invalida");
-                request.getRequestDispatcher("paginaLogin.jsp").forward(request, response);
-            }
-
-        } catch(SQLException | ClassNotFoundException ex) {
+            itensBoloDAO recheios = new itensBoloDAO();
+            request.setAttribute("recheio", recheios.listarRecheio());
+            
+            itensBoloDAO pesos = new itensBoloDAO();
+            request.setAttribute("peso", pesos.listarPeso());
+            
+            itensBoloDAO sabores = new itensBoloDAO();
+            request.setAttribute("sabor", sabores.listarSabor());
+            
+            itensBoloDAO coberturas = new itensBoloDAO();
+            request.setAttribute("cobertura", coberturas.listarCobertura());
+            
+            itensBoloDAO formatos = new itensBoloDAO();
+            request.setAttribute("formato", formatos.listarFormato());    
+            
+        } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-    
+         
+        request.getRequestDispatcher("montarBolo.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

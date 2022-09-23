@@ -1,4 +1,3 @@
-
 create table cargo(
     codigoCargo serial not null primary key,
     nomeCargo varchar(40) not null,	
@@ -63,7 +62,16 @@ create table Fornecedor(
     obsFornecedor varchar(500)
 );
 
-
+create table Bolo(
+	codigoBolo serial not null primary key,
+    decoracaobolo varchar,
+    saborBolo int not null references saborbolo(codigoSabor),
+    coberturaBolo int not null references coberturabolo(codigoCobertura),
+    recheioBolo int not null references recheioBolo(codigoRecheio),
+    pesoBolo int not null references pesoBolo(codigoPeso),
+    formatoBolo int not null references formatoBolo(codigoFormato),
+    codigopessoa int not null references pessoa(codigoPessoa)
+);
 -- itenas bolo
 
 create table CoberturaBolo(
@@ -92,6 +100,7 @@ create table Saborbolo (
 );
 
 -- falta a tabela de montaBolo
+
 
  -- functions
 
@@ -218,7 +227,7 @@ create or replace procedure cadastrarPeso(codigo_Peso int, peso_B varchar) as $$
         if codigo_Peso > 0 then
             update pesobolo set pesoB = peso_B  where codigoPeso = codigo_Peso;
         else
-            insert into pesobolo values (default,peso_B  );
+            insert into pesobolo values (default,peso_B);
         end if;
     end;
 $$ language plpgsql;
@@ -233,6 +242,26 @@ create or replace procedure cadastrarRecheio(codigo_Recheio int, recheio_B varch
     end;
 $$ language plpgsql;
 
+create or replace procedure cadastrarSabor(codigo_Sabor int, sabor_B varchar) as $$
+    begin
+        if codigo_Sabor > 0 then
+            update saborbolo set saborB = sabor_B where codigoSabor = codigo_Sabor;
+        else
+            insert into saborbolo values (default, sabor_B );
+        end if;
+    end;
+$$ language plpgsql;
+
+create or replace procedure cadastrarBolo(Codigo_Bolo int , Decoracao_bolo varchar, Sabor_Bolo  int, Cobertura_Bolo int, Recheio_Bolo int, Peso_Bolo int, Formato_Bolo int, Codigo_Pessoa int) as $$          
+    begin
+     
+        if Codigo_Bolo > 0 then
+           update bolo set codigo_Bolo = codigo_Bolo, decoracaobolo = Decoracao_Bolo, SaborBolo = Sabor_Bolo, CoberturaBolo = Cobertura_Bolo, recheioBolo = Recheio_Bolo, pesoBolo = Peso_Bolo, formatoBolo = Formato_Bolo, codigo_pessoa = Codigo_Pessoa where codigobolo = codigo_Bolo;
+        else
+            insert into bolo values(default, Decoracao_bolo, Sabor_Bolo, Cobertura_Bolo, Recheio_Bolo, Peso_Bolo, Formato_Bolo, Codigo_Pessoa);
+        end if;
+    end;
+$$ language plpgsql;
 
 
 --> teste

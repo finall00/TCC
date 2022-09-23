@@ -8,32 +8,29 @@
 <jsp:include page="/cabecalho.jsp"/>
 <div class="card">
     <div class="card-header text-center">
-        <h3>Cadastrar Cargo</h3>
+        <h3>Cadastrar Peso</h3>
     </div>
     <div class="card-body">
 
-        <form action="CadastrarCargo" method="post">
+        <form action="CadastrarRecheioB" method="post">
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
 
-                    <label for="codigoCargo">Código:</label>
-                    <input class="form-control" type="text" id="codigoCargo" name="codigoCargo" readonly value="${cargo.codigoCargo > 0 ? cargo.codigoCargo : ""}"/>
+                    <label for="codigoRecheio">Código:</label>
+                    <input class="form-control" type="text" id="codigoRecheio" name="codigoRecheio" readonly value="${Peso.codigoRecheio > 0 ? Peso.codigoRecheio : ""}"/>
                 </div>
 
                 <div class="form-group col-6">
-                    <label for="nomeCargo">Nome Cargo:</label>
-                    <input class="form-control" type="text" id="nomeCargo" name="nomeCargo" placeholder="Nome" required value="${cargo.nomeCargo}"/>
+                    <label for="Recheio">Recheioo:</label>
+                    <input class="form-control" type="text" id="recheioB" name="recheioB" placeholder="Nome" required value="${recheio.recheioB}"/>
                 </div>
-                <div class="form-group col-6">
-                    <label for="decoracao">Descreva a decoracao:</label>
-                    <input class="form-control" type="text" id="decoracao" name="decoracao" placeholder="Nome" />
-                </div>
+               
 
             </div>
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
                     <button class="btn btn-success" type="submit">Gravar</button>
-                    <a class="btn btn-secondary" href="ListarCargo">Voltar</a>
+                    <a class="btn btn-secondary" href="NovoBolo">Voltar</a>
                 </div>
             </div>
         </form>

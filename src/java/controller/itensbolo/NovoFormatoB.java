@@ -1,27 +1,23 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+package controller.itensbolo;
 
-package controller.logar;
-
-
-import dao.ClienteDAO;
-import dao.FuncionarioDAO;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Cliente;
-import model.Funcionario;
-
-
+import model.FormatoBolo;
 /**
  *
  * @author smili08
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "NovoFormatoB", urlPatterns = {"/NovoFormatoB"})
+public class NovoFormatoB extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,34 +30,11 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         response.setContentType("text/html;charset=UTF-8");
-           try {
-            String login = request.getParameter("login");
-            String senha = request.getParameter("senha");
-            Cliente cliente = new ClienteDAO().pesquisarCliente(login, senha);
-            Funcionario funcionario = new FuncionarioDAO().pesquisarFuncionario(login, senha);
-            
-            if(cliente != null){
-             
-                HttpSession sessao = request.getSession(true);
-                sessao.setAttribute("cliente", cliente);               
-                request.getRequestDispatcher("homeCliente.jsp").forward(request, response);          
-            }
-            else if(funcionario != null){
-                HttpSession sessao = request.getSession(true);               
-                sessao.setAttribute("funcionario", funcionario);
-                request.getRequestDispatcher("homeFuncionario.jsp").forward(request, response);
-             }
-            else{
-                 request.setAttribute("mensagem", "Usuário ou senha invalida");
-                request.getRequestDispatcher("paginaLogin.jsp").forward(request, response);
-            }
-
-        } catch(SQLException | ClassNotFoundException ex) {
-            request.setAttribute("mensagem", ex.getMessage());
-        }
-    
+       
+         request.setAttribute("formato", new FormatoBolo());
+        
+        request.getRequestDispatcher("bolo_pages/cadastrarFormato.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

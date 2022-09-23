@@ -1,27 +1,20 @@
 
-package controller.logar;
+package controller.itensbolo;
 
-
-import dao.ClienteDAO;
-import dao.FuncionarioDAO;
+import dao.itensBoloDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Cliente;
-import model.Funcionario;
+import model.SaborBolo;
 
 
-/**
- *
- * @author smili08
- */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "CadastrarSaborB", urlPatterns = {"/CadastrarSaborB"})
+public class CadastrarSaborB extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,34 +27,24 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         response.setContentType("text/html;charset=UTF-8");
-           try {
-            String login = request.getParameter("login");
-            String senha = request.getParameter("senha");
-            Cliente cliente = new ClienteDAO().pesquisarCliente(login, senha);
-            Funcionario funcionario = new FuncionarioDAO().pesquisarFuncionario(login, senha);
+        request.setCharacterEncoding("UTF-8");
+        
+         try {
+            int codigoSabor = request.getParameter("codigoSabor").isEmpty() ? 0 : Integer.parseInt(request.getParameter("codigoSabor"));
             
-            if(cliente != null){
-             
-                HttpSession sessao = request.getSession(true);
-                sessao.setAttribute("cliente", cliente);               
-                request.getRequestDispatcher("homeCliente.jsp").forward(request, response);          
-            }
-            else if(funcionario != null){
-                HttpSession sessao = request.getSession(true);               
-                sessao.setAttribute("funcionario", funcionario);
-                request.getRequestDispatcher("homeFuncionario.jsp").forward(request, response);
-             }
-            else{
-                 request.setAttribute("mensagem", "Usuário ou senha invalida");
-                request.getRequestDispatcher("paginaLogin.jsp").forward(request, response);
-            }
-
-        } catch(SQLException | ClassNotFoundException ex) {
-            request.setAttribute("mensagem", ex.getMessage());
-        }
-    
+            String saborB = request.getParameter("saborB");
+            
+            SaborBolo  saborBolo = new SaborBolo(codigoSabor, saborB);
+            
+            itensBoloDAO saborBoloDAO = new itensBoloDAO();
+            
+            saborBoloDAO.cadastrarSabor(saborBolo);
+          request.setAttribute("mensagem", "Gravado com sucesso!");
+        } catch (SQLException |ClassNotFoundException ex ) {
+       request.setAttribute("mesagem", ex.getMessage());
+    }
+         request.getRequestDispatcher("NovoBolo").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

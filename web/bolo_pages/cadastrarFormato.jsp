@@ -8,32 +8,29 @@
 <jsp:include page="/cabecalho.jsp"/>
 <div class="card">
     <div class="card-header text-center">
-        <h3>Cadastrar Cargo</h3>
+        <h3>Cadastrar Formato</h3>
     </div>
     <div class="card-body">
 
-        <form action="CadastrarCargo" method="post">
+        <form action="CadastrarFormatoB" method="post">
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
 
-                    <label for="codigoCargo">Código:</label>
-                    <input class="form-control" type="text" id="codigoCargo" name="codigoCargo" readonly value="${cargo.codigoCargo > 0 ? cargo.codigoCargo : ""}"/>
+                    <label for="codigoPesoB">Código:</label>
+                    <input class="form-control" type="text" id="codigoFormato" name="codigoFormato" readonly value="${formato.codigoFormato > 0 ? formato.codigoFormato : ""}"/>
                 </div>
 
                 <div class="form-group col-6">
-                    <label for="nomeCargo">Nome Cargo:</label>
-                    <input class="form-control" type="text" id="nomeCargo" name="nomeCargo" placeholder="Nome" required value="${cargo.nomeCargo}"/>
+                    <label for="formato">formato:</label>
+                    <input class="form-control" type="text" id="formatoB" name="formatoB" placeholder="Nome" required value="${formato.formatoB}"/>
                 </div>
-                <div class="form-group col-6">
-                    <label for="decoracao">Descreva a decoracao:</label>
-                    <input class="form-control" type="text" id="decoracao" name="decoracao" placeholder="Nome" />
-                </div>
+               
 
             </div>
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
                     <button class="btn btn-success" type="submit">Gravar</button>
-                    <a class="btn btn-secondary" href="ListarCargo">Voltar</a>
+                    <a class="btn btn-secondary" href="NovoBolo">Voltar</a>
                 </div>
             </div>
         </form>

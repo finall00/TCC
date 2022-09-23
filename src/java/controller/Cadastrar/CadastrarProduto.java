@@ -74,7 +74,6 @@ public class CadastrarProduto extends HttpServlet {
                     int read = 0;
                     while ((read = is.read()) != -1) {
                         os.write(read);
-
                     }
                 }
 
