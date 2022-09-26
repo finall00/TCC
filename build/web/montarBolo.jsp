@@ -36,8 +36,10 @@
                 
                 
                 
-                <div class="row w-75 mx-auto">  
-                <div class="form-group col-12">
+                <div class="row w-75 mx-auto">
+                     
+                <div class="form-group col-6">
+                    <a class="btn btn-primary" href="NovoPesoB">+</a>
                     <label for="">Peso:</label>
                     <%
                         List<PesoBolo> listaP = (List<PesoBolo>) request.getAttribute("peso");
@@ -54,13 +56,15 @@
                         <%
                             }
                         %>                        
-                        
-                        
+                                             
                     </select>
+                        
                 </div>
                 </div>
                 <div class="row w-75 mx-auto">  
-                <div class="form-group col-12">
+                   
+                <div class="form-group col-6">
+                     <a class="btn btn-primary" href="NovoSaborB">+</a>
                     <label for="">Sabor do Bolo:</label>
                     <%
                         List<SaborBolo> listaS = (List<SaborBolo>) request.getAttribute("sabor");
@@ -81,7 +85,8 @@
                 </div>
                 </div>
                 <div class="row w-75 mx-auto">  
-                <div class="form-group col-12">
+                <div class="form-group col-6">
+                     <a class="btn btn-primary" href="NovoRecheioB">+</a>
                     <label for="">Recheio:</label>
                     <%
                         List<RecheioBolo> listaR = (List<RecheioBolo>) request.getAttribute("recheio");
@@ -103,7 +108,8 @@
                 </div>
                 </div>
                       <div class="row w-75 mx-auto">  
-                <div class="form-group col-12">
+                <div class="form-group col-6">
+                     <a class="btn btn-primary" href="NovaCoberturaB">+</a>
                     <label for="">Cobertura:</label>
                     <%
                         List<CoberturaBolo> listaC = (List<CoberturaBolo>) request.getAttribute("cobertura");
@@ -123,15 +129,17 @@
                    
                     </select>
                 </div>
-                </div>     <div class="row w-75 mx-auto">  
-                <div class="form-group col-12">
+                </div> 
+               <div class="row w-75 mx-auto">  
+                <div class="form-group col-6">
+                   <a class="btn btn-primary" href="NovoFormatoB">+</a>    
                     <label for="">Formato:</label>
+                     
                     <%
-                        List<FormatoBolo> listaF = (List<FormatoBolo>) request.getAttribute("formato");
-                        
-                        
+                        List<FormatoBolo> listaF = (List<FormatoBolo>) request.getAttribute("formato");                                               
                     %>
-                    <select id="codigoFormato" name="codigoFormato" class="form-control" required>
+                    
+                    <select id="codigoFormato" name="codigoFormato" class="form-control" required>                     
                         <option value="">Selecione...</option>
                         <%
                             for (FormatoBolo formatoBolo : listaF) {
@@ -140,12 +148,12 @@
 
                         <%
                             }
-                        %>
-                  
+                        %>              
                     </select>
+                 
                 </div>
                 </div>
-                 <div class="form-group col-12">
+                 <div class="form-group col-6">
                     <label for="">Descreva a decoracao:</label>
                     <input class="form-control" type="text" id="decoracao" name="decoracao" placeholder="Nome" />
                 </div>     
@@ -154,7 +162,7 @@
                         <!--  e puxar o codigo do cliente -->
             </div>
                 <div class="row mt-3">
-                <div class="form-group col-12 text-center">
+                <div class="form-group col-6 text-center">
                     <button class="btn btn-success" type="submit">Gravar</button>
                     <a class="btn btn-secondary" href="homeFuncionario.jsp">Voltar</a>
                 </div>

@@ -4,10 +4,6 @@ create table cargo(
     descCargo varchar(200) not null	
 );
 
-
-
-
-
 create table produto(
      codigoProduto serial not null primary key,
      nomeProduto varchar(40) not null,

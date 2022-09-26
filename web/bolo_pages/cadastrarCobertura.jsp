@@ -14,13 +14,12 @@
 
         <form action="CadastrarCoberturaB" method="post">
             <div class="row w-75 mx-auto">
-                <div class="form-group col-6">
-
+                <div hidden="" class="form-group col-6">
                     <label for="codigoCobertura">Código:</label>
                     <input class="form-control" type="text" id="codigoCobertura" name="codigoCobertura" readonly value="${cobertura.codigoCobertura > 0 ? cobertura.codigoCobertura : ""}"/>
                 </div>
 
-                <div class="form-group col-6">
+                <div class="form-group col-12">
                     <label for="Cobertura">Cobertura:</label>
                     <input class="form-control" type="text" id="coberturaB" name="coberturaB" placeholder="Nome" required value="${cobertura.coberturaB}"/>
                 </div>

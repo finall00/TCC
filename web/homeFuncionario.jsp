@@ -23,23 +23,10 @@
         <a href="Logout" class="btn btn-danger">logout</a>
         <a href="home.jsp" class="btn btn-danger">home</a>
         <a href="NovoBolo" class="btn btn-danger">Montar seu Bolo</a>
-        <a href="NovoPesoB" class="btn btn-danger">peso</a>
-        
     </div>
-       <div class="card-body text-center">
-        <a href="NovoPesoB" class="btn btn-danger">peso</a>   
-        <a href="NovoRecheioB" class="btn btn-danger">Recheio</a>   
-        <a href="NovoFormatoB" class="btn btn-danger">Formato</a>   
-        <a href="NovaCoberturaB" class="btn btn-danger">Cobertura</a>   
-        <a href="NovoSaborB" class="btn btn-danger">Sabor</a>   
-           
-       </div>
+      
 </div>
 <jsp:include page="/rodape.jsp"/>
-
-
-
-
 <%
     } else {
         response.sendRedirect(request.getContextPath() + "/");

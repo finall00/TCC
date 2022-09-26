@@ -14,13 +14,13 @@
 
         <form action="CadastrarSaborB" method="post">
             <div class="row w-75 mx-auto">
-                <div class="form-group col-6">
+                <div hidden="" class="form-group col-6">
 
                     <label for="codigoSabor">Código:</label>
                     <input class="form-control" type="text" id="codigoSabor" name="codigoSabor" readonly value="${sabor.codigoSabor > 0 ? sabor.codigoSabor : ""}"/>
                 </div>
 
-                <div class="form-group col-6">
+                <div class="form-group col-12">
                     <label for="sabor">Sabor:</label>
                     <input class="form-control" type="text" id="saborB" name="saborB" placeholder="Nome" required value="${sabor.saborB}"/>
                 </div>

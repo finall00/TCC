@@ -14,13 +14,13 @@
 
         <form action="CadastrarPesoB" method="post">
             <div class="row w-75 mx-auto">
-                <div class="form-group col-6">
+                <div hidden="" class="form-group col-6">
 
                     <label for="codigoPesoB">Código:</label>
                     <input class="form-control" type="text" id="codigoPeso" name="codigoPeso" readonly value="${Peso.codigoPeso > 0 ? Peso.codigoPeso : ""}"/>
                 </div>
 
-                <div class="form-group col-6">
+                <div class="form-group col-12">
                     <label for="Peso">Peso:</label>
                     <input class="form-control" type="text" id="pesoB" name="pesoB" placeholder="Nome" required value="${peso.pesoB}"/>
                 </div>

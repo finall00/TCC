@@ -14,13 +14,13 @@
 
         <form action="CadastrarFormatoB" method="post">
             <div class="row w-75 mx-auto">
-                <div class="form-group col-6">
+                <div hidden="" class="form-group col-6">
 
                     <label for="codigoPesoB">Código:</label>
                     <input class="form-control" type="text" id="codigoFormato" name="codigoFormato" readonly value="${formato.codigoFormato > 0 ? formato.codigoFormato : ""}"/>
                 </div>
 
-                <div class="form-group col-6">
+                <div class="form-group col-12">
                     <label for="formato">formato:</label>
                     <input class="form-control" type="text" id="formatoB" name="formatoB" placeholder="Nome" required value="${formato.formatoB}"/>
                 </div>

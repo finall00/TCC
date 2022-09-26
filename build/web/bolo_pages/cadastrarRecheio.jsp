@@ -14,13 +14,13 @@
 
         <form action="CadastrarRecheioB" method="post">
             <div class="row w-75 mx-auto">
-                <div class="form-group col-6">
+                <div hidden="" class="form-group col-6">
 
                     <label for="codigoRecheio">Código:</label>
                     <input class="form-control" type="text" id="codigoRecheio" name="codigoRecheio" readonly value="${Peso.codigoRecheio > 0 ? Peso.codigoRecheio : ""}"/>
                 </div>
 
-                <div class="form-group col-6">
+                <div class="form-group col-12">
                     <label for="Recheio">Recheioo:</label>
                     <input class="form-control" type="text" id="recheioB" name="recheioB" placeholder="Nome" required value="${recheio.recheioB}"/>
                 </div>
