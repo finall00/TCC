@@ -69,8 +69,8 @@
                 <span class="num-letra"><%= produto.getDataValidade()%></span>
             </div>
             <div class="button">
-                <button>Realizar Pedido</button>
-                <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>">mais info</a>
+                <button><a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">Fazer Pedido</a>/button>
+                <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
             </div>
         </div>
         <%
