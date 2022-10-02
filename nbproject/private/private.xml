@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/ProdutoDAO.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Telas%20Funcionario/produtos.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Cadastrar/CadastrarProduto.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/homeFuncionario.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/logar/Login.java</file>
+        </group>
     </open-files>
 </project-private>

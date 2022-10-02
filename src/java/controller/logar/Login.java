@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
             else if(funcionario != null){
                 HttpSession sessao = request.getSession(true);               
                 sessao.setAttribute("funcionario", funcionario);
-                request.getRequestDispatcher("homeFuncionario.jsp").forward(request, response);
+                request.getRequestDispatcher("ListarProduto").forward(request, response);
              }
             else{
                  request.setAttribute("mensagem", "Usuário ou senha invalida");

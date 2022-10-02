@@ -68,8 +68,9 @@
                 <span class="num-preco">R$<%= produto.getVlrVenda()%></span>
                 <span class="num-letra"><%= produto.getDataValidade()%></span>
             </div>
+            <div class="button"><a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">Fazer Pedido</a> </div>
             <div class="button">
-                <button><a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">Fazer Pedido</a>/button>
+                
                 <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
             </div>
         </div>
