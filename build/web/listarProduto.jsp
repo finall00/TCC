@@ -22,7 +22,7 @@
 
     <form action="PesquisarProduto">
         <label for="nomeProduto">nome Produto:</label>
-        <input class="form-control" type="text" id="nomeProduto" name="nomeProduto" placeholder="Nome" />
+        <input class="form-control" type="text" id="pesquisaProduto" name="nomeProduto" placeholder="Nome" />
 
         <input type="submit" value="Pesquisar">
     </form>  
@@ -159,6 +159,7 @@
         </div>
 
     </body>
+    <script src="Scripts/PesquisarProduto.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <%

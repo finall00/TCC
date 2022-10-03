@@ -1,5 +1,7 @@
 package controller.Pesquisar;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dao.ProdutoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,8 +21,14 @@ public class PesquisarProduto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+
+       
+
+        //Pesquisar normal
          try {
             String nomeProduto = request.getParameter("nomeProduto");
+            
+            
 
             ProdutoDAO produtoDAO = new ProdutoDAO();
             List<Produto> produtos = (List<Produto>) (Object) produtoDAO.PesquisarProduto(nomeProduto);
@@ -36,22 +44,18 @@ public class PesquisarProduto extends HttpServlet {
         request.getRequestDispatcher("listarProduto.jsp").forward(request, response);
     }
 
-
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-   
     @Override
     public String getServletInfo() {
         return "Short description";

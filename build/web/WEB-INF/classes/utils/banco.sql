@@ -269,7 +269,9 @@ call cadastrarFuncionario(0, 'aaaaa', '2002-10-10', '3311', '88', '999666', '996
 
 SELECT cadastrarPessoa(0, 'aaaaa', '2002-10-10', '111111111', '8888888888', '999666', '9963255', 'email@email', 'rua 3', 'SP', '15710000', 'jales', 'centro') 
 
-call cadastrarCliente(0, 'aaaaa', '2002-10-10', '111111111', '8888888888', '999666', '9963255', 'email@email', 'rua 3', 'SP', '15710000', 'jales', 'centro', 'legal', 'login', 'senha') 
+call caddastrarCargo(0, 'programador', 'programa'); 
+
+call cadastrarCliente(0, 'aaaaaa', '2002-10-10', '111111111', '8888888888', '999666', '9963255', 'email@email', 'rua 3', 'SP', '15710000', 'jales', 'centro', 'legal', 'vagner', '123') 
 
 
  insert into cliente values(6,  'legal', 'login', '123456');
