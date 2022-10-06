@@ -10,7 +10,7 @@ main .pedidos-recentes > div{
     padding: var(--card-padding);
     border-radius: var(--caard-radius);
     margin-top: 1rem;
-  
+    box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
 

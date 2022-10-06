@@ -23,7 +23,7 @@ public class FornecedorDAO implements DAOGenerica {
     @Override
     public void cadastrar(Object objeto) throws SQLException {
         Fornecedor fornecedor = (Fornecedor) objeto;
-        String sql = "call cadastrarFornecedor(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "call cadastrarFornecedor(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = null;
         try {
             stmt = conexao.prepareStatement(sql);
@@ -41,13 +41,12 @@ public class FornecedorDAO implements DAOGenerica {
             stmt.setString(12, fornecedor.getCidadePessoa());
             stmt.setString(13, fornecedor.getBairroPessoa());
             stmt.setString(14, fornecedor.getRazaoSocial());
-            stmt.setString(15, fornecedor.getContatoVendedor());
-            stmt.setDouble(16, fornecedor.getVlrPedido());
-            stmt.setString(17, fornecedor.getObsFornecedor());
+            stmt.setString(15, fornecedor.getContatoVendedor());         
+            stmt.setString(16, fornecedor.getObsFornecedor());
             stmt.executeQuery();
 
         } catch (SQLException | ParseException ex) {
-            throw new SQLException("Erro ao gravar Fornecedor"+ ex);
+            throw new SQLException("Erro ao gravar Fornecedor");
         } finally {
             Conexao.encerrarConexao(conexao, stmt);
         }
@@ -64,7 +63,7 @@ public class FornecedorDAO implements DAOGenerica {
             stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                fornecedor = new Fornecedor(rs.getString("razaoSocial"), rs.getString("contatoVendedor"), rs.getDouble("vlrPedido"), rs.getString("obsFornecedor"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
+                fornecedor = new Fornecedor(rs.getString("razaoSocial"), rs.getString("contatoVendedor"), rs.getString("obsFornecedor"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
 
             }
         } catch (SQLException ex) {
@@ -86,7 +85,7 @@ public class FornecedorDAO implements DAOGenerica {
             stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                Fornecedor fornecedor = new Fornecedor(rs.getString("razaoSocial"), rs.getString("contatoVendedor"), rs.getDouble("vlrPedido"), rs.getString("obsFornecedor"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
+                Fornecedor fornecedor = new Fornecedor(rs.getString("razaoSocial"), rs.getString("contatoVendedor"),  rs.getString("obsFornecedor"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
                 lista.add(fornecedor);
             }
         } catch (SQLException ex) {

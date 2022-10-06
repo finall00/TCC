@@ -30,8 +30,7 @@
                     <th>Codigo</th>
                     <th>Nome</th>
                     <th>CPF</th>                                                       
-                    <th>Celular</th>
-                    <th>Valor do Pedido</th>
+                    <th>Celular</th>                   
                     <th>Email</th>
                     <th>Contato</th>
                     <th>Sobre</th>
@@ -46,8 +45,7 @@
                     <td><%= fornecedor.getCodigoPessoa()%></td>
                     <td><%= fornecedor.getNomePessoa()%></td>
                     <td><%= fornecedor.getCpfPessoa()%></td>
-                    <td><%= fornecedor.getCelularPessoa()%></td>
-                    <td><%= fornecedor.getVlrPedido()%></td>
+                    <td><%= fornecedor.getCelularPessoa()%></td>                  
                     <td><%= fornecedor.getEmailPessoa()%></td>
                     <td><%= fornecedor.getContatoVendedor()%></td>
                     <td><%= fornecedor.getObsFornecedor()%></td>

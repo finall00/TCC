@@ -54,7 +54,6 @@ create table Fornecedor(
     codigoFornecedor int not null primary key references pessoa(codigoPessoa),
     razaoSocial varchar(40),
     contatoVendedor varchar(30) not null,
-    vlrPedido decimal not null, 
     obsFornecedor varchar(500)
 );
 
@@ -180,7 +179,7 @@ create or replace procedure cadastrarFuncionario(codigo_Pessoa int, nome_Pessoa 
     end;
 $$ language plpgsql;
 
-create or replace procedure cadastrarFornecedor(codigo_Pessoa int, nome_Pessoa varchar, data_Nascimento date, cpf_Pessoa varchar, rg_Pessoa varchar, telefone_Pessoa varchar, celular_Pessoa varchar, email_Pessoa varchar, endereco_Pessoa varchar, estado_Pessoa varchar, cep_Pessoa varchar, cidade_Pessoa varchar, bairro_Pessoa varchar,  razao_Social varchar, contato_Vendedor varchar, vlr_Pedido decimal, obs_Fornecedor varchar) as $$
+create or replace procedure cadastrarFornecedor(codigo_Pessoa int, nome_Pessoa varchar, data_Nascimento date, cpf_Pessoa varchar, rg_Pessoa varchar, telefone_Pessoa varchar, celular_Pessoa varchar, email_Pessoa varchar, endereco_Pessoa varchar, estado_Pessoa varchar, cep_Pessoa varchar, cidade_Pessoa varchar, bairro_Pessoa varchar,  razao_Social varchar, contato_Vendedor varchar, obs_Fornecedor varchar) as $$
     declare
         idFornec int := 0;
         idPessoa int := 0;
@@ -188,10 +187,10 @@ create or replace procedure cadastrarFornecedor(codigo_Pessoa int, nome_Pessoa v
        select into  idFornec codigoFornecedor from fornecedor where codigoFornecedor = codigo_Pessoa;
        select into idPessoa codigopessoa from pessoa where codigoPessoa = codigo_Pessoa;
        if idFornec > 0 and idPessoa > 0 then
-           update fornecedor set codigoFornecedor = (select cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)),  razaoSocial= razao_Social, contatoVendedor = contato_Vendedor, vlrPedido = vlr_Pedido, obsFornecedor = obs_Fornecedor where codigoFornecedor = codigo_Pessoa;
+           update fornecedor set codigoFornecedor = (select cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)),  razaoSocial= razao_Social, contatoVendedor = contato_Vendedor, obsFornecedor = obs_Fornecedor where codigoFornecedor = codigo_Pessoa;
        else
            
-           insert into fornecedor values((SELECT cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)), razao_Social, contato_Vendedor, vlr_Pedido, obs_Fornecedor );
+           insert into fornecedor values((SELECT cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)), razao_Social, contato_Vendedor, obs_Fornecedor );
          end if;
     end;
 $$ language plpgsql;

@@ -50,13 +50,13 @@ public class CadastrarFornecedor extends HttpServlet {
             
             String contatoVendedor = request.getParameter("contatoVendedor");
             
-            double vlrPedido = Double.parseDouble(request.getParameter("vlrPedido"));
+            
             
             String obsFornecedor = request.getParameter("obsFornecedor");
 
             
 
-            Fornecedor fornecedor = new Fornecedor(razaoSocial, contatoVendedor, vlrPedido, obsFornecedor, codigoPessoa,
+            Fornecedor fornecedor = new Fornecedor(razaoSocial, contatoVendedor, obsFornecedor, codigoPessoa,
                     nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa,
                     celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, cepPessoa, cidadePessoa, bairroPessoa);
 

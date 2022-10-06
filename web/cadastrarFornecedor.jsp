@@ -99,11 +99,7 @@
             </div> 
                 
                 
-            <div class="row w-75 mx-auto">                  
-                <div class="form-group col-6">
-                     <label for="vlrPedido">Valor do Pedido</label>
-                    <input class="form-control" type="text" id="vlrPedido" name="vlrPedido" required value="${fornecedor.vlrPedido}" />                
-                </div>
+          
                 <div class="form-group col-6">
                     <label for="razaoSocial">Razão social</label>
                     <input  class="form-control"  id="razaoSocial" name="razaoSocial" required value="${fornecedor.razaoSocial}" />
