@@ -22,6 +22,11 @@ themeToggler.addEventListener('click', () =>{
     themeToggler.querySelector('i:nth-child(2)').classList.toggler('active');
 });
 
+function ThemaEscuro() {
+    document.body.classList.toggle('dark-theme-var');
+}
+
+
 //link ativo
 const activePage = window.location.pathname;
 const activeLinks = document.querySelectorAll('nav a').

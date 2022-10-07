@@ -1,7 +1,7 @@
 const openf= document.getElementById('openF');
 const opencar= document.getElementById('opencar');
 const modal= document.getElementById('modalCc');
-const modalcarcgo= document.getElementById('modalcargo');
+const modalcargo= document.getElementById('modalcargo');
 const close= document.getElementById('closee');
 const closec= document.getElementById('closec');
 const cancel= document.getElementById('cancel');
@@ -12,7 +12,7 @@ openf.addEventListener('click',() =>{
 });
 
 opencar.addEventListener('click',() =>{
-  modalcarcgo.classList.add('showw');
+  modalcargo.classList.add('showw');
 });
 
 
@@ -21,14 +21,14 @@ close.addEventListener('click',() =>{
 });
 
 closec.addEventListener('click',() =>{
-  modalcarcgo.classList.remove('showw');
+  modalcargo.classList.remove('showw');
 });
 
 
 window.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
       modal.classList.remove('showw');
-      modalcarcgo.classList.remove('showw');
+      modalcargo.classList.remove('showw');
     }
   });
  

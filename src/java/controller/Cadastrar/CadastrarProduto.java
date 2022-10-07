@@ -55,33 +55,35 @@ public class CadastrarProduto extends HttpServlet {
             OutputStream os = null;
             InputStream is = null;
 
-            File diretorio = new File(caminho);
-            if (!diretorio.exists()) {
-                diretorio.mkdir();
-            }
-
-            File filePath = new File(caminho, filename);
-
-            if (!filePart.getSubmittedFileName().endsWith(".png") && !filePart.getSubmittedFileName().endsWith(".jpg")) {
-                request.setAttribute("erro", "Seu arquivo não foi aceito");
-            } else {
-
-                if (!filePath.exists()) {
-
-                    os = new FileOutputStream(filePath);
-                    is = filePart.getInputStream();
-
-                    int read = 0;
-                    while ((read = is.read()) != -1) {
-                        os.write(read);
-                    }
+            
+                File diretorio = new File(caminho);
+                if (!diretorio.exists()) {
+                    diretorio.mkdir();
                 }
 
-                ProdutoDAO produtoDAO = new ProdutoDAO();
-                produtoDAO.cadastrar(produto);
-                
-               request.setAttribute("mensagem", "gravado com sucesso!"); 
-            }          
+                File filePath = new File(caminho, filename);
+
+                if (!filePart.getSubmittedFileName().endsWith(".png") && !filePart.getSubmittedFileName().endsWith(".jpg")) {
+                    request.setAttribute("erro", "Seu arquivo não foi aceito");
+                } else {
+
+                    if (!filePath.exists()) {
+
+                        os = new FileOutputStream(filePath);
+                        is = filePart.getInputStream();
+
+                        int read = 0;
+                        while ((read = is.read()) != -1) {
+                            os.write(read);
+                        }
+                    }
+                }
+            
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            produtoDAO.cadastrar(produto);
+
+            request.setAttribute("mensagem", "gravado com sucesso!");
+
         } catch (SQLException | ClassNotFoundException | FileNotFoundException ex) {
             request.setAttribute("mesagem", ex.getMessage());
         }

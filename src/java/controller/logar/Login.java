@@ -45,12 +45,14 @@ public class Login extends HttpServlet {
             if(cliente != null){
              
                 HttpSession sessao = request.getSession(true);
-                sessao.setAttribute("cliente", cliente);               
+                sessao.setAttribute("cliente", cliente);  
+                sessao.setMaxInactiveInterval(5000);
                 request.getRequestDispatcher("homeCliente.jsp").forward(request, response);          
             }
             else if(funcionario != null){
                 HttpSession sessao = request.getSession(true);               
                 sessao.setAttribute("funcionario", funcionario);
+                sessao.setMaxInactiveInterval(5000);
                 request.getRequestDispatcher("ListarProduto").forward(request, response);
              }
             else{

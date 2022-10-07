@@ -43,6 +43,7 @@
                         <div class="left">
                             <p>17/03/2022</p>
                             <h1>R$ 37,00</h1>
+                            
                         </div>
                         <div class="product-photo">
                             <img src="../imgaes/âPngtreeâblue gradient birthday cake 3d_5378657.png" alt=""><!--tentar fazer um proflie na foto do ptroduto-->

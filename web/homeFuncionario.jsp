@@ -12,8 +12,7 @@
        
     </div>
     <div class="card-body text-center">
-        <p> seja bem vindo, <%= funcionario.getNomePessoa()%> </p>
-        <p> seja bem vindo, <%= session.getId()%> </p>
+        <p> seja bem vindo, <%= funcionario.getNomePessoa()%> mo inutil mostra isso aqui mas é pra teste né </p>
        <a href="ListarCargo" class="btn btn-primary">Cargos</a>      
         <a href="ListarProduto" class="btn btn-dark">Produtos</a>
         <a href="ListarCliente" class="btn btn-info">Clientes</a>
@@ -27,6 +26,7 @@
       
 </div>
 <jsp:include page="/rodape.jsp"/>
+<p>a</p>
 <%
     } else {
         response.sendRedirect(request.getContextPath() + "/");
