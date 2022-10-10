@@ -44,7 +44,7 @@ public class CadastrarProduto extends HttpServlet {
             String descricaoProduto = request.getParameter("descricaoProduto");
 
             //Mudar o caminho para o local da pasta q o servidor esta rodadando
-            String caminho = "C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web" + "/imagems" + "/";
+            String caminho = "C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web" + "/imagens" + "/";
 
             Part filePart = request.getPart("file");
             String filename = filePart.getSubmittedFileName();

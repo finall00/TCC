@@ -8,7 +8,7 @@
         <h3>Cadastrar produto</h3>
     </div>
     <div class="card-body">
-        <form action="CadastrarProduto" method="post">
+        <form action="CadastrarProduto" method="post" enctype="multipart/form-data">
             <%
             Produto produto = (Produto) request.getAttribute("produto");
             %>
@@ -59,11 +59,23 @@
                     <label for="codigoBarra">Código de Barra:</label>
                     <input class="form-control" type="text" id="codigoBarra" name="codigoBarra"  value="${produto.codigoBarra}"/>
                 </div>
+                
+                <div class="form-group col-6">
+                    <label for="imagem">Imagem do Produto:</label>
+                    <input class="form-control mx-auto" type="text" readonly value="${produto.imagem}" >
+                    <input class="form-control" type="file" name="file" id="file"  value="${produto.imagem}"/>
+                </div>
+                
+            </div>
+                
+                <div class="row w-75 mx-auto">      
                 <div class="form-group col-6">
                     <label for="descricaoProduto">Descricao do Produto:</label>
                     <input class="form-control" type="text" id="descricaoProduto" name="descricaoProduto"  required value="${produto.descricaoProduto}"/>
                 </div>
-            </div>
+                </div>      
+                
+            
             <div class="row w-75 mx-auto">  
                 <div class="row mt-3">
                     <div class="form-group col-12 text-center">

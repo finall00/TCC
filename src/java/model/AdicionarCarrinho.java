@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
 import java.util.ArrayList;
@@ -50,7 +47,7 @@ public class AdicionarCarrinho {
             for (ItensVenda scItem : itens) {
                 if (scItem.getProduto().getCodigoProduto() == produto.getCodigoProduto()) {
                     if (quant != 0) {
-                        scItem.setQtnProduto(quant);
+                        scItem.setQtdProduto(quant);
                     } else {
                         item = scItem;
                         break;
@@ -67,7 +64,7 @@ public class AdicionarCarrinho {
     public synchronized int getNumeroDoItem(){
     quantIntens = 0;
     for (ItensVenda itemSelecionado : itens ){
-        quantIntens += itemSelecionado.getQtnProduto();
+        quantIntens += itemSelecionado.getQtdProduto();
     }
     return quantIntens;
     }
@@ -77,7 +74,7 @@ public class AdicionarCarrinho {
         
         for (ItensVenda itemSelecinado : itens){
         Produto produto = (Produto) itemSelecinado.getProduto();
-        total += (itemSelecinado.getQtnProduto() * produto.getVlrVenda());
+        total += (itemSelecinado.getQtdProduto() * produto.getVlrVenda());
         }
         
         return total;

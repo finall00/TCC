@@ -7,17 +7,17 @@ public class ItensVenda {
     private int codigoItenV;
     private Produto produto;
     private PedidoVenda pedidoVenda;
-    private Double qtnProduto;
+    private Double qtdProduto;
     private Double vlrProduto;
 
     public ItensVenda() {
     }
 
-    public ItensVenda(int codigoItenV, Produto produto, PedidoVenda pedidoVenda, Double qtnProduto, Double vlrProduto) {
+    public ItensVenda(int codigoItenV, Produto produto, PedidoVenda pedidoVenda, Double qtdProduto, Double vlrProduto) {
         this.codigoItenV = codigoItenV;
         this.produto = produto;
         this.pedidoVenda = pedidoVenda;
-        this.qtnProduto = qtnProduto;
+        this.qtdProduto = qtdProduto;
         this.vlrProduto = vlrProduto;
     }
 
@@ -45,12 +45,12 @@ public class ItensVenda {
         this.pedidoVenda = pedidoVenda;
     }
 
-    public Double getQtnProduto() {
-        return qtnProduto;
+    public Double getQtdProduto() {
+        return qtdProduto;
     }
 
-    public void setQtnProduto(Double qtnProduto) {
-        this.qtnProduto = qtnProduto;
+    public void setQtdProduto(Double qtdProduto) {
+        this.qtdProduto = qtdProduto;
     }
 
     public Double getVlrProduto() {
@@ -63,20 +63,20 @@ public class ItensVenda {
     
     public ItensVenda(Produto produto){
     this.produto = produto;
-    qtnProduto = 1.00;
+    qtdProduto = 1.00;
     }
     
     public void aumentarQuant(){
-    qtnProduto++;
+    qtdProduto++;
     }
     
     public void diminuirQuant(){
-    qtnProduto--;
+    qtdProduto--;
     }
     
     public double getTotal(){
     double vlrTotal = 0;
-    vlrTotal = (this.getQtnProduto() * produto.getVlrVenda());
+    vlrTotal = (this.getQtdProduto() * produto.getVlrVenda());
     return vlrTotal;
     } 
 }

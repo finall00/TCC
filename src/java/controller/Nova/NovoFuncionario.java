@@ -27,7 +27,7 @@ public class NovoFuncionario extends HttpServlet {
             request.setAttribute("mensagem", ex.getMessage());
         }
          
-        request.getRequestDispatcher("cadastrarFuncionario.jsp").forward(request, response);
+        request.getRequestDispatcher("Telas_Funcionario/dashboard.jsp").forward(request, response);
 
     }
 
