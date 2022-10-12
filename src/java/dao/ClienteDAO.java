@@ -22,7 +22,7 @@ public class ClienteDAO implements DAOGenerica {
     @Override
     public void cadastrar(Object objeto) throws SQLException {
         Cliente cliente = (Cliente) objeto;
-        String sql = "call cadastrarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "call cadastrarCliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement stmt = null;
         try {
             stmt = conexao.prepareStatement(sql);
@@ -39,9 +39,10 @@ public class ClienteDAO implements DAOGenerica {
             stmt.setString(11, cliente.getCepPessoa());
             stmt.setString(12, cliente.getCidadePessoa());
             stmt.setString(13, cliente.getBairroPessoa());
-            stmt.setString(14, cliente.getObsCliente());
-            stmt.setString(15, cliente.getLoginCliente());
-            stmt.setString(16, cliente.getSenhaCliente());
+            stmt.setString(14, cliente.getNumeroCasa());
+            stmt.setString(15, cliente.getObsCliente());
+            stmt.setString(16, cliente.getLoginCliente());
+            stmt.setString(17, cliente.getSenhaCliente());
 
             stmt.execute();
         } catch (SQLException | ParseException ex) {
@@ -62,7 +63,7 @@ public class ClienteDAO implements DAOGenerica {
             stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                cliente = new Cliente(rs.getString("obsCliente"), rs.getString("loginCliente"), rs.getString("senhaCliente"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
+                cliente = new Cliente(rs.getString("obsCliente"), rs.getString("loginCliente"), rs.getString("senhaCliente"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"), rs.getString("numeroCasa"));
             }
         } catch (SQLException ex) {
             throw new SQLException("Erro ao consultar cliente");
@@ -82,7 +83,7 @@ public class ClienteDAO implements DAOGenerica {
             stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                Cliente cliente = new Cliente(rs.getString("obsCliente"), rs.getString("loginCliente"), rs.getString("senhaCliente"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate("dataNascimento")), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
+                Cliente cliente = new Cliente(rs.getString("obsCliente"), rs.getString("loginCliente"), rs.getString("senhaCliente"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate("dataNascimento")), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"), rs.getString("numeroCasa"));
                 lista.add(cliente);
             }
         } catch (SQLException ex) {

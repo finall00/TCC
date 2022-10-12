@@ -3,15 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/SideBarR.jsp</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Cadastrar/CadastrarFuncionario.java</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Telas_Funcionario/SideBarR.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Cadastrar/CadastrarFornecedor.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/utils/banco.sql</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/clientes.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/Funcionario.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/funcionario.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/Cliente.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Cadastrar/CadastrarCliente.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/Pessoa.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/ScriptFunc/dash.js</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/dashboard.jsp</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Nova/NovoFuncionario.java</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Cadastrar/CadastrarProduto.java</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Telas_Funcionario/produtos.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Telas_Funcionario/SideBarL.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Telas_Funcionario/funcionario.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/CargoDAO.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/produtos.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/SideBarL.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/cadastrarFuncionario.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/ClienteDAO.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/rodape.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/PessoaDAO.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/FuncionarioDAO.java</file>
         </group>
     </open-files>
 </project-private>

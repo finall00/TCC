@@ -20,7 +20,7 @@
         <a href="ListarContasPagar" class="btn btn-secondary">Contas à Pagar</a>
         <a href="ListarFornecedor" class="btn btn-danger">Fornecedores</a>
         <a href="Logout" class="btn btn-danger">logout</a>
-        <a href="Telas_Funcionario/dashboard.jsp" class="btn btn-danger">home</a>
+        <a href="dashboard.jsp" class="btn btn-danger">home</a>
         <a href="NovoBolo" class="btn btn-danger">Montar seu Bolo</a>
     </div>
       

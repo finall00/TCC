@@ -38,7 +38,9 @@ public class CadastrarFuncionario extends HttpServlet {
             
             String emailPessoa = request.getParameter("emailPessoa");     
             
-            String enderecoPessoa = request.getParameter("enderecoPessoa");  
+            String enderecoPessoa = request.getParameter("enderecoPessoa"); 
+            
+            String numeroCasa = request.getParameter("numeroCasa");  
             
             String estadoPessoa = request.getParameter("estadoPessoa"); 
             
@@ -56,10 +58,7 @@ public class CadastrarFuncionario extends HttpServlet {
         
             Cargo cargo = new Cargo(Integer.parseInt(request.getParameter("codigoCargo")));
             
-            Funcionario funcionario = new Funcionario(obsFuncionario, loginFuncionario,
-                    senhaFuncionario, cargo, codigoPessoa, 
-                    nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa,
-                    celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, cepPessoa, cidadePessoa, bairroPessoa);
+            Funcionario funcionario = new Funcionario(obsFuncionario, loginFuncionario, senhaFuncionario, cargo, codigoPessoa, nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa, celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, numeroCasa, cepPessoa, cidadePessoa, bairroPessoa);
             
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
             funcionarioDAO.cadastrar(funcionario);

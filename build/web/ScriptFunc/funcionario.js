@@ -24,6 +24,10 @@ closec.addEventListener('click',() =>{
   modalcargo.classList.remove('showw');
 });
 
+cancel.addEventListener('click',()=>{
+    modal.classList.remove('show');
+});
+
 
 window.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {

@@ -41,10 +41,11 @@ public class FuncionarioDAO implements DAOGenerica {
             stmt.setString(11, funcionario.getCepPessoa());
             stmt.setString(12, funcionario.getCidadePessoa());
             stmt.setString(13, funcionario.getBairroPessoa());
-            stmt.setString(14, funcionario.getObsFuncionario());
-            stmt.setString(15, funcionario.getLoginFuncionario());
-            stmt.setString(16, funcionario.getSenhaFuncionario());
-            stmt.setInt(17, funcionario.getCargo().getCodigoCargo());
+            stmt.setString(14, funcionario.getNumeroCasa());
+            stmt.setString(15, funcionario.getObsFuncionario());
+            stmt.setString(16, funcionario.getLoginFuncionario());
+            stmt.setString(17, funcionario.getSenhaFuncionario());
+            stmt.setInt(18, funcionario.getCargo().getCodigoCargo());
             stmt.execute();
             
         } catch (SQLException | ParseException ex) {
@@ -65,7 +66,7 @@ public class FuncionarioDAO implements DAOGenerica {
             stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                funcionario = new Funcionario(rs.getString("obsFuncionario"), rs.getString("loginFuncionario"), rs.getString("senhaFuncionario"), (Cargo) new CargoDAO().consultar(rs.getInt("codigoCargo")), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
+                funcionario = new Funcionario(rs.getString("obsFuncionario"), rs.getString("loginFuncionario"), rs.getString("senhaFuncionario"), (Cargo) new CargoDAO().consultar(rs.getInt("codigoCargo")), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"), rs.getString("numeroCasa"));
             }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new SQLException("Erro ao consultar Funcionario");
@@ -85,7 +86,7 @@ public class FuncionarioDAO implements DAOGenerica {
             stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                Funcionario funcionario = new Funcionario(rs.getString("obsFuncionario"), rs.getString("loginFuncionario"), rs.getString("senhaFuncionario"), (Cargo) new CargoDAO().consultar(rs.getInt("codigoCargo")), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
+                Funcionario funcionario = new Funcionario(rs.getString("obsFuncionario"), rs.getString("loginFuncionario"), rs.getString("senhaFuncionario"), (Cargo) new CargoDAO().consultar(rs.getInt("codigoCargo")), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"), rs.getString("numeroCasa"));
 
                 lista.add(funcionario);
             }

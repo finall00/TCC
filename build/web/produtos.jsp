@@ -13,14 +13,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Produtos</title>
-        <link rel="stylesheet" href="../EstilosFunc/TempDash.css">
-        <link rel="stylesheet" href="../EstilosFunc/produtos.css">
+        <link rel="stylesheet" href="EstilosFunc/TempDash.css">
+        <link rel="stylesheet" href="EstilosFunc/produtos.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     </head>
     <body>
-          <a href="../homeFuncionario.jsp" class="goWebpage">
+          <a href="homeFuncionario.jsp" class="goWebpage">
     <i class='bx bxs-store-alt'></i>
     </a>
 
@@ -76,7 +76,7 @@
                     <div class="modal-body">                       
                         <div class="form">
 
-                            <form action="../CadastrarProduto" method="post" enctype="multipart/form-data"><!-- Form pa cadastrar eeee-->
+                            <form action="CadastrarProduto" method="post" enctype="multipart/form-data"><!-- Form pa cadastrar eeee-->
                                 <div class="input-group">
                                     <div class="input-box">
                                         <div hidden="">
@@ -125,14 +125,13 @@
 
                 </div>
             </div>
-
         </main>
 
         <!--**************************Sidebar right*********************************-->
         <%@include file="SideBarR.jsp" %>
     </div>
-    <script src="../ScriptFunc/dash.js"></script>
-    <script src="../ScriptFunc/modal.js"></script>
+    <script src="ScriptFunc/dash.js"></script>
+    <script src="ScriptFunc/modal.js"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
          <script src="${pageContext.request.contextPath}/Scripts/PesquisarPessoa.js"></script> 
 </body> 

@@ -36,6 +36,7 @@ public class PesquisarPessoa extends HttpServlet {
         
         try {
             String cpfPessoa = request.getParameter("cpfPessoa");
+            
             PessoaDAO pessoaDAO = new PessoaDAO();
             Gson json = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
             Pessoa pessoa = (Pessoa) pessoaDAO.PesquisarPessoa(cpfPessoa);

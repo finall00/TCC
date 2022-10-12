@@ -11,8 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes</title>
-    <link rel="stylesheet" href="../EstilosFunc/TempDash.css">
-    <link rel="stylesheet" href="../EstilosFunc/cliente.css">
+    <link rel="stylesheet" href="EstilosFunc/TempDash.css">
+    <link rel="stylesheet" href="EstilosFunc/cliente.css">
 
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -24,7 +24,7 @@
     
     <div class="containerrr">
      <!--***********************SideBar*************************************-->       
-       <%@include file="../Telas_Funcionario/SideBarL.jsp" %>
+       <%@include file="SideBarL.jsp" %>
         <!--****************************Main********************************-->
         <main>
             <h1>Clientes</h1>
@@ -65,9 +65,9 @@
         </main>
 
         <!--**************************Sidebar right*********************************-->
-        <%@include file="../Telas_Funcionario/SideBarR.jsp" %>
+        <%@include file="SideBarR.jsp" %>
     </div>
-    <script src="../ScriptFunc/dash.js"></script>
+    <script src="ScriptFunc/dash.js"></script>
 
 </body> 
 <%

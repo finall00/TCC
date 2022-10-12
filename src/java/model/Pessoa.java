@@ -17,10 +17,11 @@ public class Pessoa {
     private String enderecoPessoa;
     private String estadoPessoa;
     private String cepPessoa;
+    private String numeroCasa;
     private String cidadePessoa;
     private String bairroPessoa;
 
-    public Pessoa(int codigoPessoa, String nomePessoa, String dataNascimento, String cpfPessoa, String rgPessoa, String telefonePessoa, String celularPessoa, String emailPessoa, String enderecoPessoa, String estadoPessoa, String cepPessoa, String cidadePessoa, String bairroPessoa) {
+    public Pessoa(int codigoPessoa, String nomePessoa, String dataNascimento, String cpfPessoa, String rgPessoa, String telefonePessoa, String celularPessoa, String emailPessoa, String enderecoPessoa, String estadoPessoa, String numeroCasa, String cepPessoa, String cidadePessoa, String bairroPessoa) {
         this.codigoPessoa = codigoPessoa;
         this.nomePessoa = nomePessoa;
         this.dataNascimento = dataNascimento;
@@ -30,6 +31,7 @@ public class Pessoa {
         this.celularPessoa = celularPessoa;
         this.emailPessoa = emailPessoa;
         this.enderecoPessoa = enderecoPessoa;
+        this.numeroCasa = numeroCasa;
         this.estadoPessoa = estadoPessoa;
         this.cepPessoa = cepPessoa;
         this.cidadePessoa = cidadePessoa;
@@ -156,6 +158,14 @@ public class Pessoa {
 
     public void setBairroPessoa(String bairroPessoa) {
         this.bairroPessoa = bairroPessoa;
+    }
+
+    public String getNumeroCasa() {
+        return numeroCasa;
+    }
+
+    public void setNumeroCasa(String numeroCasa) {
+        this.numeroCasa = numeroCasa;
     }
 
     

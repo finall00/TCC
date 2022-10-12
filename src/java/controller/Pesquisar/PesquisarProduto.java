@@ -28,9 +28,8 @@ public class PesquisarProduto extends HttpServlet {
          try {
             String nomeProduto = request.getParameter("nomeProduto");
             
-            
-
             ProdutoDAO produtoDAO = new ProdutoDAO();
+            
             List<Produto> produtos = (List<Produto>) (Object) produtoDAO.PesquisarProduto(nomeProduto);
             if (produtos.size() > 0) {
                 request.setAttribute("produto", produtos);

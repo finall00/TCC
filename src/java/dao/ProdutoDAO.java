@@ -113,31 +113,30 @@ public class ProdutoDAO implements DAOGenerica {
 
     public List<Object> PesquisarProduto(String nome /*, String codigo*/) throws SQLException {
         String sql = "select * from produto where nomeProduto iLIKE concat( ?, '%') ";
-       //String sql = "select * from produto where nomeProduto iLIKE concat( '?', '%') or codigobarra = (?);";
-        
+        //String sql = "select * from produto where nomeProduto iLIKE concat( '?', '%') or codigobarra = (?);";
+
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Produto produto = null;
         List<Object> listar = new ArrayList<>();
-        try {
-            stmt = conexao.prepareStatement(sql);
+            try {
+                stmt = conexao.prepareStatement(sql);
             stmt.setString(1,nome);
-           // stmt.setString(2,codigo);
-            rs = stmt.executeQuery();
-            while (rs.next()) {
-                produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), rs.getString("dataValidade"), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"), rs.getString("imagem"));
-            listar.add(produto);
+                // stmt.setString(2,codigo);
+                rs = stmt.executeQuery();
+                while (rs.next()) {
+                    produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), rs.getString("dataValidade"), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"), rs.getString("imagem"));
+                    listar.add(produto);
+                }
+            } catch (SQLException ex) {
+                throw new SQLException("Erro ao consultar Produto");
+            } finally {
+                Conexao.encerrarConexao(conexao, stmt, rs);
             }
-        } catch (SQLException ex) {
-            throw new SQLException("Erro ao consultar Produto");
-        } finally {
-            Conexao.encerrarConexao(conexao, stmt, rs);
-        }
-        
-       
+
+
         return listar;
 
     }
-  
 
 }

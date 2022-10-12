@@ -38,6 +38,8 @@ public class CadastrarFornecedor extends HttpServlet {
             
             String enderecoPessoa = request.getParameter("enderecoPessoa");
             
+            String numeroCasa = request.getParameter("numeroCasa");  
+            
             String estadoPessoa = request.getParameter("estadoPessoa");
             
             String cepPessoa = request.getParameter("cepPessoa");
@@ -56,9 +58,7 @@ public class CadastrarFornecedor extends HttpServlet {
 
             
 
-            Fornecedor fornecedor = new Fornecedor(razaoSocial, contatoVendedor, obsFornecedor, codigoPessoa,
-                    nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa,
-                    celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, cepPessoa, cidadePessoa, bairroPessoa);
+            Fornecedor fornecedor = new Fornecedor(razaoSocial, contatoVendedor, obsFornecedor, codigoPessoa, nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa, celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, cepPessoa, cidadePessoa, bairroPessoa);
 
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
             fornecedorDAO.cadastrar(fornecedor);
