@@ -106,7 +106,7 @@
                                         <input type="text" name="vlrVenda" id="vlrVenda" placeholder="Venda" required>
                                     </div>
                                     <div class="input-box">                                        
-                                        <input type="file" name="imagem" id="imagem">
+                                        <input type="file" name="file" id="file">
                                     </div>
                                     <div class="input-box">
                                         <label for="descricaoProduto">Descrição  </label>

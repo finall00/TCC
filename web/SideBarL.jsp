@@ -28,7 +28,7 @@
                     <i class='bx bx-male'></i>                    
                     <h3>Funcionario</h3>
                 </a>
-                    <a href="../Logout">
+                    <a href="Logout">
                     <i class='bx bx-log-out'></i>
                     <h3>logout</h3>
                 </a>

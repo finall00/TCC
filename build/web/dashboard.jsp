@@ -87,6 +87,7 @@
             </div>
             <!--**************************Sidebar right*********************************-->
             <%@include file="SideBarR.jsp" %>
+            
         </div>
         <script src="ScriptFunc/dash.js"></script>
     </body> 
