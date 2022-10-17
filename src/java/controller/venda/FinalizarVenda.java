@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package controller.venda;
 
 import dao.ItensVendaDAO;
@@ -83,6 +80,7 @@ public class FinalizarVenda extends HttpServlet {
                         itensVenda.setVlrProduto(Double.parseDouble(vlrVenda[i]));
 
                     }
+                    
                     ItensVendaDAO daoItensVenda = new ItensVendaDAO();
                     daoItensVenda.cadastrar(itensVenda);
                 }

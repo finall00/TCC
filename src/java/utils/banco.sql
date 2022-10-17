@@ -68,7 +68,15 @@ create table Bolo(
     formatoBolo int not null references formatoBolo(codigoFormato),
     codigopessoa int not null references pessoa(codigoPessoa)
 );
--- itenas bolo
+
+
+--Falta fazer a tabela de Itens da Venda 
+
+--Tabela de Pedido
+--tabela do carrinho q eu n sei como fazer 
+
+
+-- itens bolo -->
 
 create table CoberturaBolo(
 codigoCobertura serial not null primary key,
