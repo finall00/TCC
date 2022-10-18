@@ -33,7 +33,7 @@ public class PedidoVendaDAO {
 
       public int inserir(Object obj) throws SQLException {
           PedidoVenda pedidoVenda = (PedidoVenda) obj;
-          String sql = "insert into pedidoVenda value(default,?,?,?)";
+          String sql = "insert into pedidoVenda value(default,?,?,?)  ";
           int codigoPedido = 0;
           PreparedStatement stmt = null;
           ResultSet rs = null;

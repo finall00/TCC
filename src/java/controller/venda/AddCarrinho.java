@@ -18,8 +18,8 @@ import model.Produto;
  *
  * @author smili08
  */
-@WebServlet(name = "addCarinho", urlPatterns = {"/addCarinho"})
-public class AddCarinho extends HttpServlet {
+@WebServlet(name = "addCarrinho", urlPatterns = {"/addCarrinho"})
+public class AddCarrinho extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +34,7 @@ public class AddCarinho extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        
-        HttpSession session = request.getSession(true);
+      HttpSession session = request.getSession(true);
         List<ItensVenda> listaAtual  = null;
         
         if(session.getAttribute("codigoProduto")!= null){
@@ -44,8 +44,8 @@ public class AddCarinho extends HttpServlet {
         }
         Integer codigoProduto = Integer.parseInt(request.getParameter("codigoProduto"));
         String nomeProduto = request.getParameter("nomeProduto");
-        Double vlrVenda = Double.parseDouble(request.getParameter("vlrProduto"));
-        Double qtdProduto = Double.parseDouble(request.getParameter("quantProduto"));
+        Double vlrVenda = Double.parseDouble(request.getParameter("vlrVenda"));
+        Double qtdProduto = Double.parseDouble(request.getParameter("qtnProduto"));
 
         Produto produto = new Produto();
         produto.setCodigoProduto(codigoProduto);

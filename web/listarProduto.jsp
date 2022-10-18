@@ -71,6 +71,7 @@
           
                 
                 <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
+                <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>"" class="btn btn-primary">comprar</a>
             </div>
         </div>
         <%

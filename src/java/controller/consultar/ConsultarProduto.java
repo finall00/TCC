@@ -27,7 +27,7 @@ public class ConsultarProduto extends HttpServlet {
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-        request.getRequestDispatcher("alterarProduto.jsp").forward(request, response);
+        request.getRequestDispatcher("mostrarProduto.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

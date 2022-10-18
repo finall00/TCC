@@ -36,8 +36,8 @@ public class ListarItensCarrinho extends HttpServlet {
             
             System.out.println("Quantidade: " + listaProdutos.size());
             
-            request.setAttribute("produtos", listaProdutos);
-            request.getRequestDispatcher("listarItenscarrinho.jsp").forward(request, response);
+            request.setAttribute("Lprodutos", listaProdutos);
+            request.getRequestDispatcher("listarCarrinho.jsp").forward(request, response);
 
         } catch (Exception ex) {
             System.out.println("Erro Listar itens Carrinho! " + ex.getMessage());            

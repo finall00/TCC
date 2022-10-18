@@ -8,18 +8,20 @@ import java.util.List;
  *
  * @author smili08
  */
-public class AdicionarCarrinho {
+public class Carrinho {
 
     List<ItensVenda> itens;
     int quantIntens;
     double vlrTotalCar;
 
-    public AdicionarCarrinho() {
+    public Carrinho() {
         itens = new ArrayList<ItensVenda>();
         quantIntens = 0;
         vlrTotalCar = 0;
     }
 
+    
+   
     public synchronized void addItem(Produto produto) {
         boolean novoItem = true;
 
