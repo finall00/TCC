@@ -25,6 +25,8 @@
         <input class="form-control" type="text" id="pesquisaProduto" name="nomeProduto" placeholder="Nome" />
 
         <input type="submit" value="Pesquisar">
+        <br>
+        <a href="ListarItensCarrinho">listar carrinho</a>
     </form>  
     <%
         List<Produto> lista = (List<Produto>) request.getAttribute("produto");

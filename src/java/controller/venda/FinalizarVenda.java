@@ -41,7 +41,7 @@ public class FinalizarVenda extends HttpServlet {
         PedidoVenda pedidoVenda = new PedidoVenda();
 
         HttpSession sessao = request.getSession(true);
-        Integer codigo = (Integer) sessao.getAttribute("codigoPessoa");
+        Integer codigo = (Integer) sessao.getAttribute("");//trocar isso no futuro por codigo cliente ou codigo pessoa porem pode dar problema no login n sei n vo testar agora 
 
         String[] produtos = request.getParameterValues("codigoProduto");
         String[] vlrVenda = request.getParameterValues("vlrVenda");

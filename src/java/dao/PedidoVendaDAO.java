@@ -33,7 +33,7 @@ public class PedidoVendaDAO {
 
       public int inserir(Object obj) throws SQLException {
           PedidoVenda pedidoVenda = (PedidoVenda) obj;
-          String sql = "insert into pedidoVenda value(default,?,?,?)  ";
+          String sql = "insert into pedidoVenda value(default,?,?,?) return codigoPedido";
           int codigoPedido = 0;
           PreparedStatement stmt = null;
           ResultSet rs = null;
@@ -67,6 +67,8 @@ public class PedidoVendaDAO {
 
     public void excluir(int codigo) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+        
     }
    
 }

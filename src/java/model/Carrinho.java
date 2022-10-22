@@ -11,17 +11,32 @@ import java.util.List;
 public class Carrinho {
 
     List<ItensVenda> itens;
-    int quantIntens;
+    int qtnItens;
     double vlrTotalCar;
 
     public Carrinho() {
         itens = new ArrayList<ItensVenda>();
-        quantIntens = 0;
+        qtnItens = 0;
         vlrTotalCar = 0;
     }
 
+    public Carrinho(List<ItensVenda> itens) {
+        this.itens = itens;
+       
+    }
+
+    public int getQtnItens() {
+        return qtnItens;
+    }
+
+    public void setQtnItens(int qtnItens) {
+        this.qtnItens = qtnItens;
+    }
+
+     
     
    
+  
     public synchronized void addItem(Produto produto) {
         boolean novoItem = true;
 
@@ -29,6 +44,7 @@ public class Carrinho {
             if (itemSelecionado.getProduto().getCodigoProduto() == produto.getCodigoProduto()) {
                 novoItem = false;
                 itemSelecionado.aumentarQuant();
+                
             }
         }
 
@@ -63,12 +79,12 @@ public class Carrinho {
         return itens;
     }
     
-    public synchronized int getNumeroDoItem(){
-    quantIntens = 0;
+    public synchronized int getNumeroDeItens(){
+    qtnItens = 0;
     for (ItensVenda itemSelecionado : itens ){
-        quantIntens += itemSelecionado.getQtdProduto();
+        qtnItens += itemSelecionado.getQtdProduto();
     }
-    return quantIntens;
+    return qtnItens;
     }
     
     public synchronized double  getSubTotal(){
@@ -79,27 +95,22 @@ public class Carrinho {
         total += (itemSelecinado.getQtdProduto() * produto.getVlrVenda());
         }
         
+        
         return total;
     }
     
-    public  synchronized void calcularTotal(String surchanger){
+    public  synchronized void calcularTotal(){
         double total = 0;
-        
-        double s = Double.parseDouble(surchanger);
-        
+           
         total = this.getSubTotal();
-        total += s;
         
         vlrTotalCar = total;
     }
     
-    public synchronized double  getTotal(){
-        return vlrTotalCar;
-    }
     
     public synchronized void clear(){
     itens.clear();
-    quantIntens = 0;
+    qtnItens = 0;
     vlrTotalCar = 0;
     }
 }
