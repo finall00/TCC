@@ -21,8 +21,6 @@ public class ConsultarProduto extends HttpServlet {
 
             ProdutoDAO produtoDAO = new ProdutoDAO();
             request.setAttribute("produto", produtoDAO.consultar(codigoProduto));
-         
-            
 
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());

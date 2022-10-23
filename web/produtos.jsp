@@ -76,7 +76,7 @@
                     <div class="modal-body">                       
                         <div class="form">
 
-                            <form action="CadastrarProduto" method="post" enctype="multipart/form-data"><!-- Form pa cadastrar eeee-->
+                            <form action="CadastrarProduto" method="Post" enctype="multipart/form-data"><!-- Form pa cadastrar eeee-->
                                 <div class="input-group">
                                     <div class="input-box">
                                         <div hidden="">

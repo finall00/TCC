@@ -1,12 +1,11 @@
-package controller.venda;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
+package controller.venda;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +18,8 @@ import model.ItensVenda;
  *
  * @author smili08
  */
-@WebServlet(urlPatterns = {"/RemoverItemCarrinho"})
-public class RemoverItemCarrinho extends HttpServlet {
+@WebServlet(name = "AumentarItem", urlPatterns = {"/AumentarItem"})
+public class AumentarItem extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,27 +33,43 @@ public class RemoverItemCarrinho extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+//        try {
+//            HttpSession sessao = request.getSession(true);
+//            
+//            Carrinho carrinho = new Carrinho();
+//            String limpar = (String) request.getAttribute("limpar");
+//            
+//            
+//          if(limpar.equals("true")){
+//             carrinho.clear();
+//            }
+//        } catch (Exception e) {
+//            request.setAttribute("mensagem", e.getMessage());
+//        }
+
         try {
-            HttpSession sessao = request.getSession();
-            int codigoItem = Integer.parseInt(request.getParameter("codigoItem"));
 
-            ArrayList<ItensVenda> carrinho = (ArrayList<ItensVenda>) sessao.getAttribute("ItensProduto");
-            if (carrinho != null) {
-                for (ItensVenda car : carrinho) {
-                    if (car.getCodigoItenV() == codigoItem) {
-                        //adicionar remover item
-                        //cart_list.remove(cart_list.indexOf(c));
-                       
-                        break;
-                    }
+            HttpSession sessao = request.getSession(true);
+
+            int codigoP = Integer.parseInt(request.getParameter("codigoP"));
+
+            List<ItensVenda> lista = (List<ItensVenda>) sessao.getAttribute("itensProduto");
+
+            for (ItensVenda venda : lista) {
+                if (venda.getProduto().getCodigoProduto() == codigoP) {
+                    venda.aumentarQuant();
+                    break;
                 }
+    
             }
-            sessao.setAttribute("ItensProduto", request);
 
-        } catch (Exception  ex) {
-            request.setAttribute("mensagem", "Erro ao remover adicionar item no carrinho" + ex.getMessage());
+            sessao.setAttribute("itensProduto", lista);
+        } catch (Exception ex) {
+            request.setAttribute("mensagem", "Erro ao adicionar item no carrinho " + ex.getMessage());
+
         }
         request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

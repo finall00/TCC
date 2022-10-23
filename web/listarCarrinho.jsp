@@ -5,7 +5,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="/cabecalho.jsp"/>
 <%
-
+//verifica se funcionario e vazio e te manda pra puta q paril 
     Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
     if (funcionario != null) {
 %>
@@ -13,28 +13,27 @@
     <div class="card-header">
         <h3>Carrinho(era pra ser)</h3>
     </div>
-    <div class="card-body">
-        <div class="alert alert-primary" role="alert">
-            ${mensagem}
-        </div>
+    <div class="card-body">    
         <hr/>
-
         <a class="btn btn-secondary" href="homeFuncionario.jsp">Voltar</a>
         <a class="btn btn-secondary" href="ListarProduto">Comprar mais </a>
         <hr/>
 
 
 
-        <table class="table table-striped table-hover">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>codigo Iten</th>
-                    <th>Nome Produto</th>           
+                    <th>Nome Produto</th>  
+                    <th></th>
                     <th>quantidade Produto</th>  
                     <th></th>
-                    <th>Valor Unitario</th>           
-                    <th>Total</th>       
-                    <th>Total</th>       
+
+                    <th>Vlr item</th>       
+                    <th>Total</th>
+                    <th></th>
+                    <th>Total do carrinho</th>                                  
                 </tr>
             </thead>
             <tbody>
@@ -52,7 +51,7 @@
                 <br>  
                 ${mensagem}
             </div>
-            <%                
+            <%
             } else {
                 Carrinho car = new Carrinho(lista);
                 for (ItensVenda venda : lista) {
@@ -60,34 +59,29 @@
             <tr>                 
 
                 <td><%=venda.getProduto().getCodigoProduto()%></td>
-                <td><%=venda.getProduto().getNomeProduto()%></td>                        
+                <td><%=venda.getProduto().getNomeProduto()%></td>  
+                <td><a class="btn btn-secondary" href="DiminuirItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">-</a></td>
                 <td><%=venda.getQtdProduto()%></td>  
-                <td><a href="AcaoCarrinho?codigoP=<%=venda.getProduto().getCodigoProduto()%>">+</a></td>
-                <td><%=venda.getProduto().getVlrVenda()%></td>
-                <td><%=venda.getTotal()%></td>
+                <td><a class="btn btn-info" href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">+</a></td>               
+                <td>R$ <%=venda.getProduto().getVlrVenda()%></td>
+                <td>R$ <%=venda.getTotal()%></td>
+                <td><a class="btn btn-danger" href="RemoverItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">Remover Item</a></td>
 
+                <% }%>
+                <td>R$ <%= car.getSubTotal()%></td>
+            </tr> 
 
-                <%
-                    }%>
-                <td><%= car.getSubTotal()%></td>
-                <%
-                    }
+            <% }%>
 
-                %>
-
-            </tr>
-            <td><a class="btn btn-info" href="FinalizarVenda?codigoPessoa=<%=funcionario.getCodigoPessoa()%>">Alterar</a></td>
-            <td><a class="btn btn-info" href="limparCarrinho?limparCarrinho =<%="true"%>">Limpar</a></td>
-            </tbody>
+            <td><a class="btn btn-success" href="FinalizarVenda">Fizalilzar comspra!!!!!!</a></td>
+            <td><a class="btn btn-info" href="LimparCarrinho">Limpar</a></td>
+            </tbody>         
         </table>
     </div>
 </div>
 <jsp:include page="/rodape.jsp"/>
 <%
-    }
-
-    
-        else {
+    } else {
         response.sendRedirect(request.getContextPath() + "/");
     }
 %>

@@ -2,24 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.venda;
+package controller.consultar;
 
+import dao.ProdutoDAO;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.ItensVenda;
 
 /**
  *
  * @author smili08
  */
-@WebServlet(name = "AcaoCarrinho", urlPatterns = {"/AcaoCarrinho"})
-public class AcaoCarrinho extends HttpServlet {
+@WebServlet(name = "AlterarProduto", urlPatterns = {"/AlterarProduto"})
+public class AlterarProduto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,42 +33,19 @@ public class AcaoCarrinho extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        try {
-//            HttpSession sessao = request.getSession(true);
-//            
-//            Carrinho carrinho = new Carrinho();
-//            String limpar = (String) request.getAttribute("limpar");
-//            
-//            
-//          if(limpar.equals("true")){
-//             carrinho.clear();
-//            }
-//        } catch (Exception e) {
-//            request.setAttribute("mensagem", e.getMessage());
-//        }
-
+        
         try {
+            int codigoProduto = Integer.parseInt(request.getParameter("codigoProduto"));
 
-            HttpSession sessao = request.getSession(true);
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            request.setAttribute("produto", produtoDAO.consultar(codigoProduto));
+         
+            
 
-            int codigoP = Integer.parseInt(request.getParameter("codigoP"));
-
-            List<ItensVenda> lista = (List<ItensVenda>) sessao.getAttribute("itensProduto");
-
-            for (ItensVenda venda : lista) {
-                if (venda.getCodigoItenV() == codigoP) {
-                    venda.aumentarQuant();
-                    break;
-                }
-            }
-
-            sessao.setAttribute("itensProduto", lista);
-        } catch (Exception ex) {
-            request.setAttribute("mensagem", "Erro ao adicionar item no carrinho " + ex.getMessage());
-
+        } catch (SQLException | ClassNotFoundException ex) {
+            request.setAttribute("mensagem", ex.getMessage());
         }
-        request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
-
+        request.getRequestDispatcher("alterarProduto.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

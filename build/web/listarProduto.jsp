@@ -53,11 +53,12 @@
         <div class="card">
             <div class="carrinho-logo">
                 <img src="" alt="logo teste ">
-                <i class='bx bxs-cart-add'></i> 
+                <a href="addCarrinho?codigoProduto=<%=produto.getCodigoProduto()%>&qtnProduto=1&vlrVenda=<%= produto.getVlrVenda()%>&nomeProduto=<%= produto.getNomeProduto()%>" ><i class='bx bxs-cart-add'></i></a>
+                
             </div>
             <div class="produto">
 
-                <img src="<%= (String) request.getContextPath() + "/imagems/" + produto.getImagem()%>">
+                <img src="<%= (String) request.getContextPath() + "/imagens/" + produto.getImagem()%>">
             </div>
 
             <div class="detalhes">
@@ -72,8 +73,8 @@
             </div>
           
                 
-                <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
-                <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>"" class="btn btn-primary">comprar</a>
+                <a href="AlterarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
+                <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">comprar</a>
             </div>
         </div>
         <%

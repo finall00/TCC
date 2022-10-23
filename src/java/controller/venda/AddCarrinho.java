@@ -66,13 +66,15 @@ public class AddCarrinho extends HttpServlet {
         itensVenda.setQtdProduto(qtnProduto);
         itensVenda.getTotal();
 
-        
-        //adiciona na lista       
-        listaAtual.add(itensVenda);
 
         //cria e passa a lista para o carrinho
         Carrinho carrinho = new Carrinho(listaAtual);
         carrinho.addItem(produto);
+        //se pa que o mais correto n erra mandar a lista em si mais 
+        //adicionar pelo
+        
+        listaAtual = carrinho.getItens();
+       
        
 
         System.out.println("numero de itens " + carrinho.getNumeroDeItens());
@@ -81,6 +83,8 @@ public class AddCarrinho extends HttpServlet {
         System.out.println("Quantidade de Itens: " + listaAtual.size());
 
         sessao.setAttribute("itensProduto", listaAtual);
+        
+        
 
          } catch (Exception | AbstractMethodError ex) {
              request.setAttribute("mensagem", "Erro ao adicionar item no carrinho"+ ex.getMessage());

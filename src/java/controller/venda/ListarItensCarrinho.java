@@ -39,20 +39,7 @@ public class ListarItensCarrinho extends HttpServlet {
             System.out.println("Quantidade: " + listaProdutos.size());
             
             request.setAttribute("produtos", listaProdutos);
-            
-//            for(ItensVenda venda : listaProdutos){
-//            System.out.println("\n\n");
-//            System.out.println("codigo Iten V"+venda.getCodigoItenV());
-//            System.out.println("Nome"+venda.getProduto().getNomeProduto());                        
-//            System.out.println("Nome"+venda.getQtdProduto());                        
-//            System.out.println("vlr produto"+venda.getProduto().getVlrVenda());
-//            System.out.println("vlr total"+venda.getTotal());
-//            System.out.println("codigo Produto"+venda.getProduto().getCodigoProduto());           
-//            
-//        }// n consigo pegar o sub total pq ele ta na model de carrinho
-            
-            
-            
+                 
         } catch (Exception ex) {
             System.out.println("Erro Listar itens Carrinho! " + ex.getMessage());            
         }

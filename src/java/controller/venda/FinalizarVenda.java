@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Funcionario;
 import model.ItensVenda;
 import model.PedidoVenda;
 import model.Pessoa;
@@ -41,11 +42,17 @@ public class FinalizarVenda extends HttpServlet {
         PedidoVenda pedidoVenda = new PedidoVenda();
 
         HttpSession sessao = request.getSession(true);
-        Integer codigo = (Integer) sessao.getAttribute("");//trocar isso no futuro por codigo cliente ou codigo pessoa porem pode dar problema no login n sei n vo testar agora 
-
-        String[] produtos = request.getParameterValues("codigoProduto");
-        String[] vlrVenda = request.getParameterValues("vlrVenda");
-        String[] qtdProdutos = request.getParameterValues("qtdProduto");
+        Funcionario cliente = (Funcionario) sessao.getAttribute("funcionario");//trocar isso no futuro por codigo cliente ou codigo pessoa porem pode dar problema no login n sei n vo testar agora 
+        
+        Integer codigo = cliente.getCodigoPessoa();
+        
+//        String[] produtos = request.getParameterValues("codigoProduto");
+//        String[] vlrVenda = request.getParameterValues("vlrVenda");
+//        String[] qtdProdutos = request.getParameterValues("qtdProduto");
+        
+        String[] produtos = {"5", "1"};
+        String[] vlrVenda = {"1", "1"};
+        String[] qtdProdutos = {"2", "2"};
 
         String mensagem = null;
 
