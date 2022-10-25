@@ -22,17 +22,17 @@ public class PedidoVendaDAO {
     }
     //fazer todo a classe DAO
     
-    
-    public int cadastrar(Object obj) throws SQLException {
-        PedidoVenda pedidoVenda = (PedidoVenda) obj;
-        if (pedidoVenda.getCodigoPedido() == 0){
-        return inserir(pedidoVenda);
-        }else{
-        return alterar(pedidoVenda);
-        }
-   }
+//    N sei se é nesse sario fazer isso 
+//    public int cadastrar(Object obj) throws SQLException {
+//        PedidoVenda pedidoVenda = (PedidoVenda) obj;
+//        if (pedidoVenda.getCodigoPedido() == 0){
+//        return inserir(pedidoVenda);
+//        }else{
+//        return alterar(pedidoVenda);
+//        }
+//   }
 
-      public int inserir(Object obj) throws SQLException {
+      public int cadastrar(Object obj) throws SQLException {
           PedidoVenda pedidoVenda = (PedidoVenda) obj;
           String sql = "insert into compra(codigopessoa, data_venda, vlrtotalvenda, obsvenda) values (?, ?, ?, ?) returning codigoPedido";
           int codigoPedido = 0;

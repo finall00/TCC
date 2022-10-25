@@ -39,7 +39,7 @@ public class FinalizarVenda extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         PedidoVenda pedidoVenda = new PedidoVenda();
-
+        Pessoa pessoa = new Pessoa();
 
         HttpSession sessao = request.getSession(true);
         Funcionario cliente = (Funcionario) sessao.getAttribute("funcionario");//trocar isso no futuro por codigo cliente ou codigo pessoa porem pode dar problema no login n sei n vo testar agora 
@@ -49,67 +49,63 @@ public class FinalizarVenda extends HttpServlet {
         String[] produtos = request.getParameterValues("codigoProduto");
         String[] vlrVenda = request.getParameterValues("vlrVenda");
         String[] qtdProdutos = request.getParameterValues("qtdProduto");
-        
+        Double vlrTotalVenda = Double.parseDouble(request.getParameter("VlrTotal"));
 
         String mensagem = null;
 
-        Pessoa pessoa = new Pessoa();
-        pessoa.setCodigoPessoa(codigo);
-        pedidoVenda.setPessoa(pessoa);
-        
         Date date = new Date();
+        pessoa.setCodigoPessoa(codigo);
+
+        pedidoVenda.setPessoa(pessoa);
+
         pedidoVenda.setDataVenda(date);
-        
-        Double vlrTotalVenda = Double.parseDouble(request.getParameter("VlrTotal"));
-       
         String obsVenda = "";
         pedidoVenda.setObsVenda(obsVenda);
-        pedidoVenda.setVlrVenda(vlrTotalVenda);
+        pedidoVenda.setVlrTotalVenda(vlrTotalVenda);
 
         if (produtos != null && qtdProdutos != null) {
             try {
 
                 ItensVenda itensVenda = new ItensVenda();
                 PedidoVendaDAO PedidoDao = new PedidoVendaDAO();
-                
+
                 Integer codigoVenda = PedidoDao.cadastrar(pedidoVenda);
                 pedidoVenda.setCodigoPedido(codigoVenda);
 
                 if (codigoVenda > 0) {
                     for (int i = 0; i < produtos.length; i++) {
 
-                        itensVenda.setPedidoVenda(pedidoVenda);
                         Produto produto = new Produto();
                         produto.setCodigoProduto(Integer.parseInt(produtos[i]));
+
+                       // itensVenda.setCodigoItenV(codigoVenda);
+                        itensVenda.setPedidoVenda(pedidoVenda);
                         itensVenda.setProduto(produto);
                         itensVenda.setQtdProduto(Double.parseDouble(qtdProdutos[i]));
                         itensVenda.setVlrProduto(Double.parseDouble(vlrVenda[i]));
 
                     }
 
-                    ItensVendaDAO daoItensVenda = new ItensVendaDAO();
-                    if (daoItensVenda.cadastrar(itensVenda)) {
+                    ItensVendaDAO ItensVendaDAO = new ItensVendaDAO();
+                    if (ItensVendaDAO.cadastrar(itensVenda)) {
                         mensagem = "Cadastro realizado com sucesso!";
 
                     } else {
                         mensagem = "Problemas ao realizar cadastro!";
                     }
-
                 } else {
                     mensagem = "Problemas ao realizar cadastro!";
-
                 }
 
                 request.setAttribute("mensagem", mensagem);
-                request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
+                request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 
             } catch (Exception ex) {
                 System.out.println("Erro ao adicionar Itens no Carrinho!");
                 ex.printStackTrace();
             }
-            request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
         }
-
+        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

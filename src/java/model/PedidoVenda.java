@@ -60,7 +60,7 @@ public class PedidoVenda {
         return vlrTotalVenda;
     }
 
-    public void setVlrVenda(double vlrTotalVenda) {
+    public void setVlrTotalVenda(double vlrTotalVenda) {
         this.vlrTotalVenda = vlrTotalVenda;
     }
       

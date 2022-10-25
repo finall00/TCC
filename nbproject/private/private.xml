@@ -5,9 +5,12 @@
         <group>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/venda/AddCarrinho.java</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/utils/banco.sql</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/PedidoVenda.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/ItensVendaDAO.java</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/venda/FinalizarVenda.java</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/venda/ListarItensCarrinho.java</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/listarCarrinho.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/PedidoVendaDAO.java</file>
         </group>
     </open-files>
 </project-private>

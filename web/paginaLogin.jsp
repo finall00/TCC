@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Estilos/login.css">
+        <link rel="stylesheet" href="Estilo/login.css">
         <title>teste login </title>
     </head>
     <body>
         <div class="main-login">
             <div class="left-login">
                 <h1>Faça login <br> entre para o nosso time </h1>
-                <img src="Estilos/animate.svg" class="left-login-image" alt="animate">
+                <img src="Estilo/animate.svg" class="left-login-image" alt="animate">
             </div>
             <div class="right-login">
                 <div class="card-login">

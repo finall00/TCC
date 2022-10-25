@@ -24,18 +24,17 @@ public class ItensVendaDAO {
     }
     //fazer todo a classe DAO
 
+//    public boolean cadastrar(Object obj) throws SQLException {
+//        ItensVenda itensVenda = (ItensVenda) obj;
+//
+//        if (itensVenda.getCodigoItenV() == 0) {
+//            inserir(itensVenda);
+//        } else {
+//            alterar(itensVenda);
+//        }
+//        return true;
+//    }
     public boolean cadastrar(Object obj) throws SQLException {
-        ItensVenda itensVenda = (ItensVenda) obj;
-
-        if (itensVenda.getCodigoItenV() == 0) {
-            inserir(itensVenda);
-        } else {
-            alterar(itensVenda);
-        }
-        return true;
-    }
-
-    public void inserir(Object obj) throws SQLException {
         ItensVenda itensVenda = (ItensVenda) obj;
         String sql = "insert into itenscompra(codigoProduto, codigoVenda, qtdProduto, vlrProduto) values ( ?, ?, ?, ?);";
         PreparedStatement stmt = null;
@@ -52,11 +51,11 @@ public class ItensVendaDAO {
         } finally {
             Conexao.encerrarConexao(conexao, stmt);
         }
+        return true;
     }
-
-    private void alterar(ItensVenda itensVenda) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+//    private void alterar(ItensVenda itensVenda) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 
     public Object consultar(int codigo) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
