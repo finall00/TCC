@@ -24,7 +24,7 @@ public class ItensVendaDAO {
     }
     //fazer todo a classe DAO
 
-    public void cadastrar(Object obj) throws SQLException {
+    public boolean cadastrar(Object obj) throws SQLException {
         ItensVenda itensVenda = (ItensVenda) obj;
 
         if (itensVenda.getCodigoItenV() == 0) {
@@ -32,11 +32,12 @@ public class ItensVendaDAO {
         } else {
             alterar(itensVenda);
         }
+        return true;
     }
 
     public void inserir(Object obj) throws SQLException {
         ItensVenda itensVenda = (ItensVenda) obj;
-        String sql = "insert into itensVenda value(default,?,?,?,?)";
+        String sql = "insert into itenscompra(codigoProduto, codigoVenda, qtdProduto, vlrProduto) values ( ?, ?, ?, ?);";
         PreparedStatement stmt = null;
 
         try {

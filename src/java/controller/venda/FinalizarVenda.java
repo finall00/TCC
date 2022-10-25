@@ -1,4 +1,3 @@
-
 package controller.venda;
 
 import dao.ItensVendaDAO;
@@ -41,39 +40,39 @@ public class FinalizarVenda extends HttpServlet {
 
         PedidoVenda pedidoVenda = new PedidoVenda();
 
+
         HttpSession sessao = request.getSession(true);
         Funcionario cliente = (Funcionario) sessao.getAttribute("funcionario");//trocar isso no futuro por codigo cliente ou codigo pessoa porem pode dar problema no login n sei n vo testar agora 
-        
+
         Integer codigo = cliente.getCodigoPessoa();
+
+        String[] produtos = request.getParameterValues("codigoProduto");
+        String[] vlrVenda = request.getParameterValues("vlrVenda");
+        String[] qtdProdutos = request.getParameterValues("qtdProduto");
         
-//        String[] produtos = request.getParameterValues("codigoProduto");
-//        String[] vlrVenda = request.getParameterValues("vlrVenda");
-//        String[] qtdProdutos = request.getParameterValues("qtdProduto");
-        
-        String[] produtos = {"5", "1"};
-        String[] vlrVenda = {"1", "1"};
-        String[] qtdProdutos = {"2", "2"};
 
         String mensagem = null;
 
         Pessoa pessoa = new Pessoa();
-
         pessoa.setCodigoPessoa(codigo);
         pedidoVenda.setPessoa(pessoa);
-
+        
         Date date = new Date();
         pedidoVenda.setDataVenda(date);
-
-        Double vlrTotalVenda;
-        String tipoPagamento;
-        String obsVenda;
+        
+        Double vlrTotalVenda = Double.parseDouble(request.getParameter("VlrTotal"));
+       
+        String obsVenda = "";
+        pedidoVenda.setObsVenda(obsVenda);
+        pedidoVenda.setVlrVenda(vlrTotalVenda);
 
         if (produtos != null && qtdProdutos != null) {
             try {
 
                 ItensVenda itensVenda = new ItensVenda();
-                PedidoVendaDAO dao = new PedidoVendaDAO();
-                Integer codigoVenda = dao.cadastrar(pedidoVenda);
+                PedidoVendaDAO PedidoDao = new PedidoVendaDAO();
+                
+                Integer codigoVenda = PedidoDao.cadastrar(pedidoVenda);
                 pedidoVenda.setCodigoPedido(codigoVenda);
 
                 if (codigoVenda > 0) {
@@ -87,9 +86,18 @@ public class FinalizarVenda extends HttpServlet {
                         itensVenda.setVlrProduto(Double.parseDouble(vlrVenda[i]));
 
                     }
-                    
+
                     ItensVendaDAO daoItensVenda = new ItensVendaDAO();
-                    daoItensVenda.cadastrar(itensVenda);
+                    if (daoItensVenda.cadastrar(itensVenda)) {
+                        mensagem = "Cadastro realizado com sucesso!";
+
+                    } else {
+                        mensagem = "Problemas ao realizar cadastro!";
+                    }
+
+                } else {
+                    mensagem = "Problemas ao realizar cadastro!";
+
                 }
 
                 request.setAttribute("mensagem", mensagem);
@@ -99,6 +107,7 @@ public class FinalizarVenda extends HttpServlet {
                 System.out.println("Erro ao adicionar Itens no Carrinho!");
                 ex.printStackTrace();
             }
+            request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
         }
 
     }

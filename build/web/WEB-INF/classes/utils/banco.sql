@@ -70,10 +70,21 @@ create table Bolo(
 );
 
 
---Falta fazer a tabela de Itens da Venda 
+create Table compra(
+	codigoPedido serial not null primary key,
+    codigoPessoa int not null references pessoa(codigoPessoa),
+    data_venda date not null,
+    vlrTotalVenda DECIMAL,
+    obsVenda varchar
+);
 
---Tabela de Pedido
---tabela do carrinho q eu n sei como fazer 
+create Table itenscompra(
+	codigoProduto int not null references produto(codigoproduto),
+	codigoVenda int not null primary key references compra(codigopedido),
+	qtdProduto decimal not null, 
+	vlrProduto decimal not null
+);
+
 
 
 -- itens bolo -->

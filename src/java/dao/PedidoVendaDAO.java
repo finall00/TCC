@@ -34,7 +34,7 @@ public class PedidoVendaDAO {
 
       public int inserir(Object obj) throws SQLException {
           PedidoVenda pedidoVenda = (PedidoVenda) obj;
-          String sql = "insert into pedidoVenda value(default,?,?,?) return codigoPedido";
+          String sql = "insert into compra(codigopessoa, data_venda, vlrtotalvenda, obsvenda) values (?, ?, ?, ?) returning codigoPedido";
           int codigoPedido = 0;
           PreparedStatement stmt = null;
           ResultSet rs = null;
@@ -42,11 +42,12 @@ public class PedidoVendaDAO {
           try {
               stmt = conexao.prepareStatement(sql);
               stmt.setInt(1, pedidoVenda.getPessoa().getCodigoPessoa());
-              stmt.setDate(2, (Date) pedidoVenda.getDataVenda());
-              stmt.setString(3, pedidoVenda.getObsVenda());
+              stmt.setDate(2, new java.sql.Date(pedidoVenda.getDataVenda().getTime()));
+              stmt.setDouble(3, pedidoVenda.getVlrTotalVenda());
+              stmt.setString(4, pedidoVenda.getObsVenda());
               rs = stmt.executeQuery();
               while (rs.next()) {
-                  codigoPedido = rs.getInt("codigoPedido");                
+                  codigoPedido = rs.getInt("codigopedido");                
               }
           } catch (SQLException ex) {
                    throw new SQLException("Erro ao inserir pedido da venda");
@@ -67,9 +68,7 @@ public class PedidoVendaDAO {
     }
 
     public void excluir(int codigo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    
-        
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody       
     }
-   
+      
 }

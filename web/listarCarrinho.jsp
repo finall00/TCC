@@ -1,4 +1,4 @@
-<%@page import="model.Funcionario"%>
++<%@page import="model.Funcionario"%>
 <%@page import="model.ItensVenda"%>
 <%@page import="model.Carrinho"%>
 <%@page import="java.util.List"%>

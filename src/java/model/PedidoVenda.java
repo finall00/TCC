@@ -9,16 +9,20 @@ public class PedidoVenda {
     private Pessoa pessoa;
     private Date dataVenda;
     private String obsVenda;
+    private double vlrTotalVenda;
 
     public PedidoVenda() {
     }
 
-    public PedidoVenda(int codigoPedido, Pessoa pessoa, Date dataVenda, String obsVenda) {
+    public PedidoVenda(int codigoPedido, Pessoa pessoa, Date dataVenda, String obsVenda, double vlrTotalVenda) {
         this.codigoPedido = codigoPedido;
         this.pessoa = pessoa;
         this.dataVenda = dataVenda;
         this.obsVenda = obsVenda;
+        this.vlrTotalVenda = vlrTotalVenda;
     }
+
+    
 
     public int getCodigoPedido() {
         return codigoPedido;
@@ -51,6 +55,13 @@ public class PedidoVenda {
     public void setObsVenda(String obsVenda) {
         this.obsVenda = obsVenda;
     }
-    
-    
+
+    public double getVlrTotalVenda() {
+        return vlrTotalVenda;
+    }
+
+    public void setVlrVenda(double vlrTotalVenda) {
+        this.vlrTotalVenda = vlrTotalVenda;
+    }
+      
 }

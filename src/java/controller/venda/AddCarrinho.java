@@ -1,8 +1,6 @@
 package controller.venda;
 
-import com.sun.imageio.plugins.jpeg.JPEG;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
