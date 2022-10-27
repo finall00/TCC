@@ -62,7 +62,7 @@
                 
                 <div class="form-group col-6">
                     <label for="imagem">Imagem do Produto:</label>
-                    <input class="form-control mx-auto" type="text" readonly value="${produto.imagem}" >
+                    <input class="form-control mx-auto" type="text" name="imagem" readonly value="${produto.imagem}" >
                     <input class="form-control" type="file" name="file" id="file"  value="${produto.imagem}"/>
                 </div>
                 

@@ -149,6 +149,10 @@
                                             <label for="endereco">Endereco</label>
                                             <input type="text" name="enderecoPessoa" id="enderecoPessoa" placeholder="Insira seu endereço" required>
                                         </div>
+                                            <div class="input-box">
+                                            <label for="numeroCasa">Numero Casa</label>
+                                            <input type="text" name="numeroCasa" id="numeroCasa" placeholder="Numero" required>
+                                        </div>
                                         <div class="input-box">
                                             <label for="estado">Estado</label>
                                             <input type="text" name="estadoPessoa" id="estadoPessoa" placeholder="" required>
@@ -165,6 +169,7 @@
                                             <label for="bairro">Bairro</label>
                                             <input type="text" name="bairroPessoa" id="bairroPessoa" placeholder="Nome do bairro" required>
                                         </div>
+                                            
                                         <div class="input-box">
                                             <label for="sobre">Sobre</label>
                                             <input type="text" name="obsFuncionario" id="obsFuncionario" placeholder="" required>

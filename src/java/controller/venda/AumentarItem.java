@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.ItensVenda;
+import model.Produto;
 
 /**
  *
@@ -55,12 +56,17 @@ public class AumentarItem extends HttpServlet {
 
             List<ItensVenda> lista = (List<ItensVenda>) sessao.getAttribute("itensProduto");
 
+            ItensVenda i = new ItensVenda();
+            boolean a = false;
             for (ItensVenda venda : lista) {
                 if (venda.getProduto().getCodigoProduto() == codigoP) {
-                    venda.aumentarQuant();
+
+                    a = venda.aumentarQuant();
                     break;
                 }
-    
+            }
+            if (a == false) {
+                request.setAttribute("mensagem", "N tem essa quantidade no estoque");
             }
 
             sessao.setAttribute("itensProduto", lista);
@@ -68,6 +74,7 @@ public class AumentarItem extends HttpServlet {
             request.setAttribute("mensagem", "Erro ao adicionar item no carrinho " + ex.getMessage());
 
         }
+
         request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
 
     }

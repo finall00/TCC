@@ -57,6 +57,26 @@ public class PessoaDAO {
         }
         return funcionario;
     }
-   
+   public Object PesquisarEndereco(String cpfPessoa, int codigoP) throws SQLException {
+        String sql = "select codigopessoa, enderecopessoa, estadopessoa, ceppessoa, cidadepessoa, bairropessoa, numerocasa from pessoa where cpfpessoa = ? or codigoPessoa = ?;";
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Pessoa pessoa = null;
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, cpfPessoa);
+            stmt.setInt(2, codigoP);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+               pessoa = new Pessoa(rs.getInt("codigoPessoa") ,rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"), rs.getString("numeroCasa"), rs.getString("rgPessoa"));
+            }
+        } catch (SQLException ex) {
+            throw new SQLException("Erro ao buscar pessoa");
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt, rs);
+        }
+        return pessoa;
+    }
+     
 
 }

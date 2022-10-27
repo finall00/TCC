@@ -43,19 +43,27 @@ public class CadastrarProduto extends HttpServlet {
             String codigoBarra = request.getParameter("codigoBarra");
             String descricaoProduto = request.getParameter("descricaoProduto");
 
+            String imagemAtu = request.getParameter("imagem");
+            String imagem = null;
             //Mudar o caminho para o local da pasta q o servidor esta rodadando
             String caminho = "C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web" + "/imagens" + "/";
-
+            
+            
             Part filePart = request.getPart("file");
             String filename = filePart.getSubmittedFileName();
-            String imagem = filename;
+
+            if (filename == "") {
+                imagem = imagemAtu;
+            } else {
+                imagem = filename;
+            }
 
             Produto produto = new Produto(codigoProduto, nomeProduto, dataValidade, estoqueProduto, vlrCusto, vlrVenda, codigoBarra, descricaoProduto, imagem);
 
-            OutputStream os = null;
-            InputStream is = null;
+            if (imagem != imagemAtu){
+                OutputStream os = null;
+                InputStream is = null;
 
-            
                 File diretorio = new File(caminho);
                 if (!diretorio.exists()) {
                     diretorio.mkdir();
@@ -78,7 +86,7 @@ public class CadastrarProduto extends HttpServlet {
                         }
                     }
                 }
-            
+            }
             ProdutoDAO produtoDAO = new ProdutoDAO();
             produtoDAO.cadastrar(produto);
 

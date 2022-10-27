@@ -3,10 +3,10 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
- <%
-   
+<%
+
     Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if ( funcionarios != null) {
+    if (funcionarios != null) {
 %>
 <jsp:include page="/cabecalho.jsp"/>
 
@@ -26,7 +26,7 @@
                     <input class="form-control" type="text" id="nomePessoa" name="nomePessoa" placeholder="Nome" required value="${funcionario.nomePessoa}"/>
                 </div>
             </div> 
-                <div class="row w-75 mx-auto">  
+            <div class="row w-75 mx-auto">  
                 <div class="form-group col-6">
                     <label for="codigoCargo">Cargo:</label>
                     <%
@@ -45,7 +45,7 @@
                         %>
                     </select>
                 </div>
-                </div>
+            </div>
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
                     <label for="dataNascimento">Data de nascimento:</label>
@@ -56,15 +56,15 @@
                     <input data-mask="000.000.000-00" class="form-control" type="text" id="cpfPessoa" name="cpfPessoa" placeholder="CPF sem pontos e sem traços" required value="${funcionario.cpfPessoa}"/>
                 </div>
             </div>
-                
+
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
                     <label for="telefonePessoa">Telefone</label>
                     <input  data-mask="(00) 00000-0000" class="form-control" type="text" id="telefonePessoa" name="telefonePessoa" placeholder="(**) *****-****" required value="${funcionario.telefonePessoa}"/>
                 </div>
             </div>
-                
-                
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
                     <label for="celularPessoa">celular</label>
@@ -75,12 +75,16 @@
                     <input class="form-control" type="text" id="emailPessoa" name="emailPessoa" placeholder="email@email.com" required value="${funcionario.emailPessoa}" />
                 </div>
             </div>
-                
-                
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
                     <label for="enderecoPessoa">Endereco</label>
                     <input class="form-control" type="text" id="enderecoPessoa" name="enderecoPessoa" required value="${funcionario.enderecoPessoa}" />
+                </div>
+                <div class="form-group col-6">
+                    <label for="numeroCasa">Numero Casa</label>
+                    <input type="text" name="numeroCasa" id="numeroCasa" placeholder="Numero" required>
                 </div>
                 <div class="form-group col-6">
                     <label for="estadoPessoa">Estado</label>
@@ -88,8 +92,8 @@
 
                 </div>
             </div>
-                    
-                    
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
                     <label for="cepPessoa">Cep</label>
@@ -100,8 +104,8 @@
                     <input class="form-control" type="text" id="cidadePessoa" name="cidadePessoa" required value="${funcionario.cidadePessoa}" />
                 </div>
             </div>
-                
-                
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
                     <label for="bairroPessoa">Bairro</label>
@@ -112,11 +116,11 @@
                     <input class="form-control" type="text" id="obsFuncionario" name="obsFuncionario" required value="${funcionario.obsFuncionario}" />
                 </div>
             </div> 
-                
-                
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
-                     <label for="loginFuncionario">Login</label>
+                    <label for="loginFuncionario">Login</label>
                     <input class="form-control" type="text" id="loginFuncionario" name="loginFuncionario" required value="${funcionario.loginFuncionario}" />                
                 </div>
                 <div class="form-group col-6">
@@ -124,8 +128,8 @@
                     <input minlength="3" maxlength="8" class="form-control" type="password" id="senhaFuncionario" name="senhaFuncionario" required value="${funcionario.senhaFuncionario}" />
                 </div>
             </div> 
-                
-                
+
+
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
                     <button class="btn btn-success" type="submit">Gravar</button>

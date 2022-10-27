@@ -51,12 +51,14 @@ public class AddCarrinho extends HttpServlet {
         String nomeProduto = request.getParameter("nomeProduto");
         Double vlrVenda = Double.parseDouble(request.getParameter("vlrVenda"));
         Double qtnProduto = Double.parseDouble(request.getParameter("qtnProduto"));
-
+        Integer estoqueProduto = Integer.parseInt(request.getParameter("estoqueProduto"));
+        
         //model de protudo
         Produto produto = new Produto();
         produto.setCodigoProduto(codigoProduto);
         produto.setNomeProduto(nomeProduto);
         produto.setVlrVenda(vlrVenda);
+        produto.setEstoqueProduto(estoqueProduto);
 
         //model de itensVenda 
         ItensVenda itensVenda = new ItensVenda();
@@ -68,13 +70,9 @@ public class AddCarrinho extends HttpServlet {
         //cria e passa a lista para o carrinho
         Carrinho carrinho = new Carrinho(listaAtual);
         carrinho.addItem(produto);
-        //se pa que o mais correto n erra mandar a lista em si mais 
-        //adicionar pelo
-        
-        listaAtual = carrinho.getItens();
-       
-       
-
+      
+        listaAtual = carrinho.getItens();     
+      
         System.out.println("numero de itens " + carrinho.getNumeroDeItens());
         System.out.println("total  " + carrinho.getSubTotal());
 

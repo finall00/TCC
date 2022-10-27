@@ -43,7 +43,9 @@ public class Produto {
     public Produto() {
     }
 
-   
+    public Produto(int estoqueProduto) {
+        this.estoqueProduto = estoqueProduto;
+    }
 
     public int getCodigoProduto() {
         return codigoProduto;

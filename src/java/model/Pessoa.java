@@ -38,6 +38,19 @@ public class Pessoa {
         this.bairroPessoa = bairroPessoa;
     }
 
+    public Pessoa(int codigoPessoa,String enderecoPessoa, String estadoPessoa, String cepPessoa, String numeroCasa, String cidadePessoa, String bairroPessoa, String rgPessoa) {
+        this.codigoPessoa = codigoPessoa;
+        this.enderecoPessoa = enderecoPessoa;
+        this.estadoPessoa = estadoPessoa;
+        this.cepPessoa = cepPessoa;
+        this.numeroCasa = numeroCasa;
+        this.cidadePessoa = cidadePessoa;
+        this.bairroPessoa = bairroPessoa;
+        this.rgPessoa = rgPessoa;
+    }
+    
+    
+
     public Pessoa(int codigoPessoa, String nomePessoa, String dataNascimento, String rgPessoa, String celularPessoa, String telefonePessoa, String emailPessoa) {
         this.codigoPessoa = codigoPessoa;
         this.nomePessoa = nomePessoa;
@@ -55,6 +68,8 @@ public class Pessoa {
      public Pessoa() {
        
     }
+     
+
 
     public int getCodigoPessoa() {
         return codigoPessoa;

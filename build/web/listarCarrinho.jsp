@@ -7,11 +7,15 @@
 <%
 //verifica se funcionario e vazio e te manda pra puta q paril 
     Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if (funcionario != null) {
+    if (funcionario == null) {
+        response.sendRedirect(request.getContextPath() + "/");
+    } else {
+
+        List<ItensVenda> lista = (List<ItensVenda>) request.getAttribute("produtos");
 %>
 <div class="card my-5 text-center w-75 mx-auto">
     <div class="card-header">
-        <h3>Carrinho(era pra ser)</h3>
+        <h3>Carrinho</h3>
     </div>
     <div class="card-body">    
         <hr/>
@@ -29,7 +33,6 @@
                     <th></th>
                     <th>quantidade Produto</th>  
                     <th></th>
-
                     <th>Vlr item</th>       
                     <th>Total</th>
                     <th></th>
@@ -37,13 +40,15 @@
                 </tr>
             </thead>
             <tbody>
+            <div class="alert alert-primary" role="alert">
+                <br>  
+                ${mensagem}
+                <br>
+            </div>
 
-
-                <%
-                    List<ItensVenda> lista = (List<ItensVenda>) request.getAttribute("produtos");
-
-                    if (lista == null) {
-                %>
+            <%
+                if (lista == null) {
+            %>
 
             <div class="alert alert-primary" role="alert">
                 <br>
@@ -56,32 +61,40 @@
                 Carrinho car = new Carrinho(lista);
                 for (ItensVenda venda : lista) {
             %>
-            <tr>                 
 
-                <td><%=venda.getProduto().getCodigoProduto()%></td>
+            <tr>                
+
+                <td name="codigoProduto" ><%=venda.getProduto().getCodigoProduto()%></td>
                 <td><%=venda.getProduto().getNomeProduto()%></td>  
                 <td><a class="btn btn-secondary" href="DiminuirItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">-</a></td>
-                <td><%=venda.getQtdProduto()%></td>  
+
+                <td><input name="qtdProduto"readonly="" value="<%=venda.getQtdProduto()%>"/></td>  
+
                 <td><a class="btn btn-info" href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">+</a></td>               
                 <td>R$ <%=venda.getProduto().getVlrVenda()%></td>
                 <td>R$ <%=venda.getTotal()%></td>
-                <td><a class="btn btn-danger" href="RemoverItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">Remover Item</a></td>
 
+                <td><a class="btn btn-danger" href="RemoverItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">Remover Item</a></td>
                 <% }%>
                 <td>R$ <%= car.getSubTotal()%></td>
             </tr> 
+            <td>
+                <input type="hidden" name="" value="<%= car.getItens()%>" class="form-input">
 
+                <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
+            </td>
             <% }%>
-
-            <td><a class="btn btn-success" href="FinalizarVenda">Fizalilzar comspra!!!!!!</a></td>
-            <td><a class="btn btn-info" href="LimparCarrinho">Limpar</a></td>
+            </form>
+            <td><a class="btn btn-info" href="LimparCarrinho">Limpar</a></td>                                              
+            <td><a class="btn btn-info" href="FinalizarVenda">aaaaaaaaaaaaa</a></td>                                              
             </tbody>         
         </table>
     </div>
 </div>
+
+
 <jsp:include page="/rodape.jsp"/>
 <%
-    } else {
-        response.sendRedirect(request.getContextPath() + "/");
     }
 %>
+

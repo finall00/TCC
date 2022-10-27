@@ -53,7 +53,7 @@
         <div class="card">
             <div class="carrinho-logo">
                 <img src="" alt="logo teste ">
-                <a href="addCarrinho?codigoProduto=<%=produto.getCodigoProduto()%>&qtnProduto=1&vlrVenda=<%= produto.getVlrVenda()%>&nomeProduto=<%= produto.getNomeProduto()%>" ><i class='bx bxs-cart-add'></i></a>
+                <a href="addCarrinho?codigoProduto=<%=produto.getCodigoProduto()%>&qtnProduto=1&vlrVenda=<%= produto.getVlrVenda()%>&nomeProduto=<%= produto.getNomeProduto()%>&estoqueProduto=<%= produto.getEstoqueProduto()%>" ><i class='bx bxs-cart-add'></i></a>
                 
             </div>
             <div class="produto">

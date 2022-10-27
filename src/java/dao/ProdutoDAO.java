@@ -71,7 +71,6 @@ public class ProdutoDAO implements DAOGenerica {
             Conexao.encerrarConexao(conexao, stmt, rs);
         }
         return produto;
-
     }
 
     @Override
@@ -137,6 +136,26 @@ public class ProdutoDAO implements DAOGenerica {
 
         return listar;
 
+    }
+    
+    public Object consultarEstoque(int codigo) throws SQLException {
+        String sql = "select estoqueProduto from produto where codigoProduto = ?";
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Produto produto = null;
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, codigo);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                produto = new Produto(rs.getInt("estoqueProduto"));
+            }
+        } catch (SQLException ex) {
+            throw new SQLException("Erro ao consultar Produto");
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt, rs);
+        }
+        return produto;
     }
 
 }

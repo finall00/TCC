@@ -33,10 +33,6 @@ public class Carrinho {
         this.qtnItens = qtnItens;
     }
 
-     
-    
-   
-  
     public synchronized void addItem(Produto produto) {
         boolean novoItem = true;
 
@@ -77,6 +73,17 @@ public class Carrinho {
 
     public synchronized List<ItensVenda> getItens() {
         return itens;
+    }
+    
+     public synchronized int getCodigoItem() {
+         int[] codigoItem = null;
+        int c = 0;
+         List<ItensVenda> item = itens;
+         for(ItensVenda i : item){
+            c = i.getCodigoItenV();
+         }
+         
+        return c;
     }
     
     public synchronized int getNumeroDeItens(){

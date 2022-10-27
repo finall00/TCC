@@ -17,7 +17,8 @@
     <div class="card-body text-center">                           
         <a href="ConsultarCliente?codigoCliente=<%= cliente.getCodigoPessoa()%>" class="btn btn-info">Clientes</a>  
         <a href="ListarContasPagar" class="btn btn-secondary">Contas à Pagar</a>        
-        <a href="Logout" class="btn btn-danger">logout</a>         
+        <a href="Logout" class="btn btn-danger">logout</a>     
+        
       
     </div>
 </div>

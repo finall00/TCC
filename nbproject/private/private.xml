@@ -3,14 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/venda/AddCarrinho.java</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/utils/banco.sql</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/PedidoVenda.java</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/ItensVendaDAO.java</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/venda/FinalizarVenda.java</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/venda/ListarItensCarrinho.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/ProdutoDAO.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/listar/ListarProduto.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/ItensVenda.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/Pessoa.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/homeCliente.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/listarProduto.jsp</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/listarCarrinho.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/PedidoVendaDAO.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/Carrinho.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/venda/AddCarrinho.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/cadastrarCliente.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/venda/AumentarItem.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/consultar/ConsultarProduto.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/alterarFuncionario.jsp</file>
         </group>
     </open-files>
 </project-private>

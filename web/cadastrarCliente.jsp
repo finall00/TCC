@@ -54,6 +54,10 @@
                     <input class="form-control" type="text" id="enderecoPessoa" name="enderecoPessoa" required value="${cliente.enderecoPessoa}" />
                 </div>
                 <div class="form-group col-6">
+                    <label for="numeroCasa">Numero Casa</label>
+                    <input type="text" name="numeroCasa" id="numeroCasa" placeholder="Numero" required>
+                </div>
+                <div class="form-group col-6">
                     <label for="estadoPessoa">Estado</label>
                     <input class="form-control" type="text" id="estadoPessoa" name="estadoPessoa" required value="${cliente.estadoPessoa}" />
 
@@ -81,7 +85,7 @@
             </div>    
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
-                     <label for="loginCliente">Login</label>
+                    <label for="loginCliente">Login</label>
                     <input class="form-control" type="text" id="loginCliente" name="loginCliente" required value="${cliente.loginCliente}" />                
                 </div>
                 <div class="form-group col-6">
