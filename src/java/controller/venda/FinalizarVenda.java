@@ -58,7 +58,6 @@ public class FinalizarVenda extends HttpServlet {
 
         String[] qtdProdutos = request.getParameterValues("qtdProduto");
         String obsVenda = "";
-
         String mensagem = null;
 
         Date date = new Date();
@@ -91,12 +90,13 @@ public class FinalizarVenda extends HttpServlet {
                         itensVenda.setQtdProduto(Double.parseDouble(qtdProdutos[i]));
                         itensVenda.setVlrProduto(Double.parseDouble(vlrVenda[i]));
 
+                        car.getItens().remove(i);
                     }
 
                     ItensVendaDAO ItensVendaDAO = new ItensVendaDAO();
                     if (ItensVendaDAO.cadastrar(itensVenda)) {
-                        car.clear();
-                        mensagem = "Cadastro realizado com sucesso!";
+                       
+                        mensagem = "Compra realizado com sucesso!";
 
                     } else {
                         mensagem = "Problemas ao realizar cadastro!";
@@ -106,14 +106,14 @@ public class FinalizarVenda extends HttpServlet {
                 }
 
                 request.setAttribute("mensagem", mensagem);
-                request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+               
 
             } catch (Exception ex) {
                 System.out.println("Erro ao adicionar Itens no Carrinho!");
                 ex.printStackTrace();
             }
         }
-        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("ListarCompra").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -17,7 +17,7 @@
         <a href="ListarProduto" class="btn btn-dark">Produtos</a>
         <a href="ListarCliente" class="btn btn-info">Clientes</a>
         <a href="ListarFuncionario" class="btn btn-secondary">Funcionarios</a>
-        <a href="ListarContasPagar" class="btn btn-secondary">Contas à Pagar</a>
+        <a href="ListarCompra" class="btn btn-secondary">Compras</a>
         <a href="ListarFornecedor" class="btn btn-danger">Fornecedores</a>
         <a href="Logout" class="btn btn-danger">logout</a>
         <a href="dashboard.jsp" class="btn btn-danger">home</a>

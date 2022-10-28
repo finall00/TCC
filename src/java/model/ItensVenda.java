@@ -21,6 +21,12 @@ public class ItensVenda {
         this.qtdProduto = qtdProduto;
         this.vlrProduto = vlrProduto;
     }
+    public ItensVenda(int codigoItenV, Produto produto, Double qtdProduto, Double vlrProduto) {
+        this.codigoItenV = codigoItenV;
+        this.produto = produto;   
+        this.qtdProduto = qtdProduto;
+        this.vlrProduto = vlrProduto;
+    }
 
     public int getCodigoItenV() {
         return codigoItenV;

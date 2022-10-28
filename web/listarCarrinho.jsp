@@ -65,28 +65,33 @@
             <tr>                
 
                 <td name="codigoProduto" ><%=venda.getProduto().getCodigoProduto()%></td>
+                
                 <td><%=venda.getProduto().getNomeProduto()%></td>  
+                
                 <td><a class="btn btn-secondary" href="DiminuirItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">-</a></td>
 
                 <td><input name="qtdProduto"readonly="" value="<%=venda.getQtdProduto()%>"/></td>  
 
-                <td><a class="btn btn-info" href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">+</a></td>               
+                <td><a class="btn btn-info" href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">+</a></td>   
+                
                 <td>R$ <%=venda.getProduto().getVlrVenda()%></td>
+                
                 <td>R$ <%=venda.getTotal()%></td>
 
                 <td><a class="btn btn-danger" href="RemoverItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">Remover Item</a></td>
+                
+                <td><a class="btn btn-info" href="FinalizarVenda?codigoProduto=<%=venda.getProduto().getCodigoProduto()%>&qtdProduto=<%=venda.getQtdProduto()%>&vlrVenda=<%=venda.getProduto().getVlrVenda()%> ">Comprar</a> </td>
                 <% }%>
                 <td>R$ <%= car.getSubTotal()%></td>
             </tr> 
             <td>
                 <input type="hidden" name="" value="<%= car.getItens()%>" class="form-input">
-
-                <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
+                
             </td>
             <% }%>
             </form>
             <td><a class="btn btn-info" href="LimparCarrinho">Limpar</a></td>                                              
-            <td><a class="btn btn-info" href="FinalizarVenda">aaaaaaaaaaaaa</a></td>                                              
+            <td></td>                                              
             </tbody>         
         </table>
     </div>
