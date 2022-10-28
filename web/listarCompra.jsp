@@ -34,6 +34,7 @@
                     <th>Vlr Unitario</th>
                     <th>quantidade</th>                   
                     <th>vlr total</th>
+                    <th></th>
                     
                  
                 </tr>
@@ -50,6 +51,7 @@
                     <td><%=compra.getProduto().getVlrVenda()%></td>
                     <td><%=compra.getQtdProduto()%></td>
                     <td><%=compra.getVlrTotalVenda()%></td>
+                    <td><a class="btn btn-danger"  href="CancelarVenda?codigoPedido=<%=compra.getCodigoPedido()%>">Cancelar Compra</a></td>
                     
                 </tr>
                 <%

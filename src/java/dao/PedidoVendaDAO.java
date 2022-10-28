@@ -24,7 +24,6 @@ public class PedidoVendaDAO {
 
     }
     //fazer todo a classe DAO
-
 //    N sei se é nessesario fazer isso 
 //    public int cadastrar(Object obj) throws SQLException {
 //        PedidoVenda pedidoVenda = (PedidoVenda) obj;
@@ -94,7 +93,21 @@ public class PedidoVendaDAO {
     }
 
     public void excluir(int codigo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody       
+    String sql = "delete from compra where codigopedido = ?";
+        PreparedStatement stmt = null;
+        try {
+            ItensVendaDAO v = new ItensVendaDAO();
+            boolean B = v.excluir(codigo);
+            if(B == true){
+            stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, codigo);
+            stmt.execute();
+            }
+        } catch (SQLException |ClassNotFoundException ex) {
+            throw new SQLException("Erro ao excluir produto");
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt);
+        }
     }
 
 }

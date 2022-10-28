@@ -99,7 +99,7 @@ public class FinalizarVenda extends HttpServlet {
                         mensagem = "Compra realizado com sucesso!";
 
                     } else {
-                        mensagem = "Problemas ao realizar cadastro!";
+                        mensagem = "Problemas ao realizar compra!";
                     }
                 } else {
                     mensagem = "Problemas ao realizar cadastro!";

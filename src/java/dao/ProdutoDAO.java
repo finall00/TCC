@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import model.ItensVenda;
 import model.Produto;
 import utils.Conexao;
 
@@ -158,4 +159,26 @@ public class ProdutoDAO implements DAOGenerica {
         return produto;
     }
 
+    
+    public void baixaEstoque(int codigo, Object obj) throws SQLException {
+        String sql = "Update produto set estoqueproduto = ? where codigoProduto = ?;";
+        PreparedStatement stmt = null;
+        ItensVenda itensVenda = (ItensVenda) obj;
+        int novoEstoque = 0;
+        
+        try {
+            novoEstoque = (int) (itensVenda.getQtdProduto() - itensVenda.getProduto().getEstoqueProduto());
+            stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, novoEstoque);
+            stmt.setInt(2, codigo);
+            stmt.execute();
+            
+        } catch (SQLException ex) {
+            throw new SQLException("Erro ao consultar Produto");
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt);
+        }
+       
+    }
+    
 }
