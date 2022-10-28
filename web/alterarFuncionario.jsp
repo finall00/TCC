@@ -112,6 +112,10 @@
                     <input class="form-control" type="text" id="bairroPessoa" name="bairroPessoa" required value="${funcionario.bairroPessoa}" />
                 </div>
                 <div class="form-group col-6">
+                    <label for="numeroCasa">Numero</label>
+                    <input class="form-control" type="text" id="numeroCasa" name="numeroCasa" required value="${funcionario.numeroCasa}" />
+                </div>
+                <div class="form-group col-6">
                     <label for="obsFuncionario">Sobre</label>
                     <input class="form-control" type="text" id="obsFuncionario" name="obsFuncionario" required value="${funcionario.obsFuncionario}" />
                 </div>

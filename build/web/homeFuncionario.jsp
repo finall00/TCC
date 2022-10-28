@@ -22,6 +22,7 @@
         <a href="Logout" class="btn btn-danger">logout</a>
         <a href="dashboard.jsp" class="btn btn-danger">home</a>
         <a href="NovoBolo" class="btn btn-danger">Montar seu Bolo</a>
+        <a href="ListarBolo" class="btn btn-danger">Encomendata Bolo</a>
     </div>
       
 </div>

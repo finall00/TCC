@@ -29,7 +29,7 @@ public class ClienteDAO implements DAOGenerica {
             stmt.setInt(1, cliente.getCodigoPessoa());
             stmt.setString(2, cliente.getNomePessoa());
             stmt.setDate(3, new java.sql.Date(new SimpleDateFormat("yyyy-MM-dd").parse(cliente.getDataNascimento()).getTime()));
-            stmt.setString(4, cliente.getCpfPessoa());            
+            stmt.setString(4, cliente.getCpfPessoa());
             stmt.setString(5, cliente.getRgPessoa());
             stmt.setString(6, cliente.getTelefonePessoa());
             stmt.setString(7, cliente.getCelularPessoa());
@@ -40,6 +40,7 @@ public class ClienteDAO implements DAOGenerica {
             stmt.setString(12, cliente.getCidadePessoa());
             stmt.setString(13, cliente.getBairroPessoa());
             stmt.setString(14, cliente.getNumeroCasa());
+
             stmt.setString(15, cliente.getObsCliente());
             stmt.setString(16, cliente.getLoginCliente());
             stmt.setString(17, cliente.getSenhaCliente());
@@ -63,7 +64,7 @@ public class ClienteDAO implements DAOGenerica {
             stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                cliente = new Cliente(rs.getString("obsCliente"), rs.getString("loginCliente"), rs.getString("senhaCliente"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"), rs.getString("numeroCasa"));
+                cliente = new Cliente(rs.getString("obsCliente"), rs.getString("loginCliente"), rs.getString("senhaCliente"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate("dataNascimento")), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("numeroCasa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
             }
         } catch (SQLException ex) {
             throw new SQLException("Erro ao consultar cliente");
@@ -83,7 +84,7 @@ public class ClienteDAO implements DAOGenerica {
             stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                Cliente cliente = new Cliente(rs.getString("obsCliente"), rs.getString("loginCliente"), rs.getString("senhaCliente"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate("dataNascimento")), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"), rs.getString("numeroCasa"));
+                Cliente cliente = new Cliente(rs.getString("obsCliente"), rs.getString("loginCliente"), rs.getString("senhaCliente"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("dd/MM/yyyy").format(rs.getDate("dataNascimento")), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("numeroCasa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
                 lista.add(cliente);
             }
         } catch (SQLException ex) {
@@ -108,9 +109,7 @@ public class ClienteDAO implements DAOGenerica {
             Conexao.encerrarConexao(conexao, stmt);
         }
     }
-    
-    
-    
+
     public Cliente pesquisarCliente(String login, String senha) throws SQLException {
         String sql = "select * from cliente cl inner join pessoa pe on cl.codigoCliente = pe.codigoPessoa where loginCliente = ? and senhaCliente = ?";
         PreparedStatement stmt = null;
@@ -133,7 +132,5 @@ public class ClienteDAO implements DAOGenerica {
 
         return cliente;
     }
-    
-    
 
 }

@@ -167,39 +167,7 @@ create or replace procedure cadastrarProduto(codigo_Produto int, nome_Produto va
 $$ language plpgsql;
 
 
-create or replace procedure cadastrarCliente(codigo_Pessoa int, nome_Pessoa varchar, data_Nascimento date, cpf_Pessoa varchar, rg_Pessoa varchar, telefone_Pessoa varchar, celular_Pessoa varchar, email_Pessoa varchar, endereco_Pessoa varchar, estado_Pessoa varchar, cep_Pessoa varchar, cidade_Pessoa varchar, bairro_Pessoa varchar,  obs_Cliente varchar, login_Cliente varchar, senha_Cliente varchar) as $$
-    declare
-        idCliente int := 0;
-        idPessoa int := 0;
-    begin
-       select into  idCliente codigoCliente from cliente where codigoCliente = codigo_Pessoa;
-       select into idPessoa codigopessoa from pessoa where codigoPessoa = codigo_Pessoa;
-       if idCliente > 0 and idPessoa > 0 then
-           update cliente set codigoCliente = (select cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)),  obsCliente = obs_Cliente, loginCliente = login_Cliente, senhaCliente = senha_Cliente where codigoCliente = codigo_Pessoa;
-       else
-           
-           insert into cliente values((SELECT cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)), obs_Cliente, login_Cliente, senha_Cliente );
-         end if;
-    end;
-$$ language plpgsql;
-
-create or replace procedure cadastrarFuncionario(codigo_Pessoa int, nome_Pessoa varchar, data_Nascimento date, cpf_Pessoa varchar, rg_Pessoa varchar, telefone_Pessoa varchar, celular_Pessoa varchar, email_Pessoa varchar, endereco_Pessoa varchar, estado_Pessoa varchar, cep_Pessoa varchar, cidade_Pessoa varchar, bairro_Pessoa varchar,  obs_Funcionario varchar, login_Funcionario varchar, senha_Funcionario varchar, codigo_Cargo int ) as $$
-    declare
-        idFunc int := 0;
-        idPessoa int := 0;
-    begin
-       select into  idFunc codigoFuncionario from funcionario where codigoFuncionario = codigo_Pessoa;
-       select into idPessoa codigopessoa from pessoa where codigoPessoa = codigo_Pessoa;
-       if idFunc > 0 and idPessoa > 0 then
-           update funcionario set codigoFuncionario = (select cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)),  obsFuncionario = obs_Funcionario, loginFuncionario = login_Funcionario, senhaFuncionario = senha_Funcionario, codigoCargo = codigo_Cargo where codigoFuncionario = codigo_Pessoa;
-       else
-           
-           insert into funcionario values((SELECT cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)), obs_Funcionario, login_Funcionario, senha_Funcionario, codigo_Cargo );
-         end if;
-    end;
-$$ language plpgsql;
-
-create or replace procedure cadastrarFornecedor(codigo_Pessoa int, nome_Pessoa varchar, data_Nascimento date, cpf_Pessoa varchar, rg_Pessoa varchar, telefone_Pessoa varchar, celular_Pessoa varchar, email_Pessoa varchar, endereco_Pessoa varchar, estado_Pessoa varchar, cep_Pessoa varchar, cidade_Pessoa varchar, bairro_Pessoa varchar,  razao_Social varchar, contato_Vendedor varchar, obs_Fornecedor varchar) as $$
+create or replace procedure cadastrarFornecedor(codigo_Pessoa int, nome_Pessoa varchar, data_Nascimento date, cpf_Pessoa varchar, rg_Pessoa varchar, telefone_Pessoa varchar, celular_Pessoa varchar, email_Pessoa varchar, endereco_Pessoa varchar, estado_Pessoa varchar, cep_Pessoa varchar, cidade_Pessoa varchar, bairro_Pessoa varchar, numero_Casa varchar,  razao_Social varchar, contato_Vendedor varchar, obs_Fornecedor varchar) as $$
     declare
         idFornec int := 0;
         idPessoa int := 0;
@@ -207,10 +175,47 @@ create or replace procedure cadastrarFornecedor(codigo_Pessoa int, nome_Pessoa v
        select into  idFornec codigoFornecedor from fornecedor where codigoFornecedor = codigo_Pessoa;
        select into idPessoa codigopessoa from pessoa where codigoPessoa = codigo_Pessoa;
        if idFornec > 0 and idPessoa > 0 then
-           update fornecedor set codigoFornecedor = (select cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)),  razaoSocial= razao_Social, contatoVendedor = contato_Vendedor, obsFornecedor = obs_Fornecedor where codigoFornecedor = codigo_Pessoa;
+           update fornecedor set codigoFornecedor = (select cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa, numero_Casa)),  razaoSocial= razao_Social, contatoVendedor = contato_Vendedor, obsFornecedor = obs_Fornecedor where codigoFornecedor = codigo_Pessoa;
        else
            
-           insert into fornecedor values((SELECT cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa)), razao_Social, contato_Vendedor, obs_Fornecedor );
+           insert into fornecedor values((SELECT cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa, numero_Casa )), razao_Social, contato_Vendedor, obs_Fornecedor );
+         end if;
+    end;
+$$ language plpgsql;
+
+
+
+create or replace procedure cadastrarFuncionario(codigo_Pessoa int, nome_Pessoa varchar, data_Nascimento date, cpf_Pessoa varchar, rg_Pessoa varchar, telefone_Pessoa varchar, celular_Pessoa varchar, email_Pessoa varchar, endereco_Pessoa varchar, estado_Pessoa varchar, cep_Pessoa varchar, cidade_Pessoa varchar, bairro_Pessoa varchar, numero_Casa varchar,  obs_Funcionario varchar, login_Funcionario varchar, senha_Funcionario varchar, codigo_Cargo int ) as $$
+    declare
+        idFunc int := 0;
+        idPessoa int := 0;
+    begin
+       select into  idFunc codigoFuncionario from funcionario where codigoFuncionario = codigo_Pessoa;
+       select into idPessoa codigopessoa from pessoa where codigoPessoa = codigo_Pessoa;
+       if idFunc > 0 and idPessoa > 0 then
+           update funcionario set codigoFuncionario = (select cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa, numero_Casa)),  obsFuncionario = obs_Funcionario, loginFuncionario = login_Funcionario, senhaFuncionario = senha_Funcionario, codigoCargo = codigo_Cargo where codigoFuncionario = codigo_Pessoa;
+       else
+           
+           insert into funcionario values((SELECT cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa, numero_Casa )), obs_Funcionario, login_Funcionario, senha_Funcionario, codigo_Cargo );
+         end if;
+    end;
+$$ language plpgsql;
+
+
+
+
+create or replace procedure cadastrarCliente(codigo_Pessoa int, nome_Pessoa varchar, data_Nascimento date, cpf_Pessoa varchar, rg_Pessoa varchar, telefone_Pessoa varchar, celular_Pessoa varchar, email_Pessoa varchar, endereco_Pessoa varchar, estado_Pessoa varchar, cep_Pessoa varchar, cidade_Pessoa varchar, bairro_Pessoa varchar, numero_Casa varchar,  obs_Cliente varchar, login_Cliente varchar, senha_Cliente varchar) as $$
+    declare
+        idCliente int := 0;
+        idPessoa int := 0;
+    begin
+       select into  idCliente codigoCliente from cliente where codigoCliente = codigo_Pessoa;
+       select into idPessoa codigopessoa from pessoa where codigoPessoa = codigo_Pessoa;
+       if idCliente > 0 and idPessoa > 0 then
+           update cliente set codigoCliente = (select cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa, numero_Casa)),  obsCliente = obs_Cliente, loginCliente = login_Cliente, senhaCliente = senha_Cliente where codigoCliente = codigo_Pessoa;
+       else
+           
+           insert into cliente values((SELECT cadastrarPessoa(codigo_Pessoa, nome_Pessoa, data_Nascimento, cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa, numero_Casa)), obs_Cliente, login_Cliente, senha_Cliente );
          end if;
     end;
 $$ language plpgsql;

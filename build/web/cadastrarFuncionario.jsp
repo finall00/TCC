@@ -101,6 +101,10 @@
                     <input class="form-control" type="text" id="enderecoPessoa" name="enderecoPessoa" required value="${funcionario.enderecoPessoa}" />
                 </div>
                 <div class="form-group col-6">
+                    <label for="numeroCasa">Numero</label>
+                    <input class="form-control" type="text" id="numeroCasa" name="numeroCasa" required value="${funcionario.numeroCasa}" />
+                </div>
+                <div class="form-group col-6">
                     <label for="cidadePessoa">Cidade</label>
                     <input class="form-control" type="text" id="cidadePessoa" name="cidadePessoa" required value="${funcionario.cidadePessoa}" />
                 </div>

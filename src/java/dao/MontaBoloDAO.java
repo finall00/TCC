@@ -53,20 +53,20 @@ public class MontaBoloDAO implements DAOGenerica {
         String sql = "select * from Bolo where codigoBolo = ?";
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        MontaBolo bolo = null;
+        MontaBolo Bolo = null;
         try {
             stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                MontaBolo Bolo = new MontaBolo(rs.getInt("codigoBolo"), rs.getString("decoracao"), (SaborBolo) new itensBoloDAO().consultarSabor(rs.getInt("codigoSabor")), (CoberturaBolo) new itensBoloDAO().consultarCobertura(rs.getInt("codigoCobertura")), (RecheioBolo) new itensBoloDAO().consultarRecheio(rs.getInt("codigoRecheio")), (PesoBolo) new itensBoloDAO().consultarPeso(rs.getInt("codigoPeso")), (FormatoBolo) new itensBoloDAO().consultarFormato(rs.getInt("codigoFormato")), (Pessoa) new PessoaDAO().consultar(rs.getInt("codigoPessoa")));
-            }
+                Bolo = new MontaBolo(rs.getInt("codigoBolo"), rs.getString("decoracaobolo"), (SaborBolo) new itensBoloDAO().consultarSabor(rs.getInt("saborbolo")), (CoberturaBolo) new itensBoloDAO().consultarCobertura(rs.getInt("coberturabolo")), (RecheioBolo) new itensBoloDAO().consultarRecheio(rs.getInt("recheiobolo")), (PesoBolo) new itensBoloDAO().consultarPeso(rs.getInt("pesobolo")), (FormatoBolo) new itensBoloDAO().consultarFormato(rs.getInt("formatobolo")), (Pessoa) new PessoaDAO().consultar(rs.getInt("codigoPessoa")));
+                  }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new SQLException("Erro consultar");
         } finally {
             Conexao.encerrarConexao(conexao, stmt, rs);
         }
-        return bolo;
+        return Bolo;
     }
 
 
@@ -80,11 +80,9 @@ public List<Object> listar() throws SQLException {
             stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                MontaBolo Bolo = new MontaBolo(rs.getInt("codigoBolo"), rs.getString("decoracao"), (SaborBolo) new itensBoloDAO().consultarSabor(rs.getInt("codigoSabor")), (CoberturaBolo) new itensBoloDAO().consultarCobertura(rs.getInt("codigoCobertura")), (RecheioBolo) new itensBoloDAO().consultarRecheio(rs.getInt("codigoRecheio")), (PesoBolo) new itensBoloDAO().consultarPeso(rs.getInt("codigoPeso")), (FormatoBolo) new itensBoloDAO().consultarFormato(rs.getInt("codigoFormato")), (Pessoa) new PessoaDAO().consultar(rs.getInt("codigoPessoa")));
+                MontaBolo Bolo = new MontaBolo(rs.getInt("codigoBolo"), rs.getString("decoracaobolo"), (SaborBolo) new itensBoloDAO().consultarSabor(rs.getInt("saborbolo")), (CoberturaBolo) new itensBoloDAO().consultarCobertura(rs.getInt("coberturabolo")), (RecheioBolo) new itensBoloDAO().consultarRecheio(rs.getInt("recheiobolo")), (PesoBolo) new itensBoloDAO().consultarPeso(rs.getInt("pesobolo")), (FormatoBolo) new itensBoloDAO().consultarFormato(rs.getInt("formatobolo")), (Pessoa) new PessoaDAO().consultar(rs.getInt("codigoPessoa")));
                 lista.add(Bolo);
-            }
-            
-                        
+            }                    
         } catch(SQLException | ClassNotFoundException ex){
             throw new SQLException("Erro ao listar o Bolo");
         } 

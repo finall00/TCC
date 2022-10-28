@@ -54,8 +54,8 @@
                     <input class="form-control" type="text" id="enderecoPessoa" name="enderecoPessoa" required value="${cliente.enderecoPessoa}" />
                 </div>
                 <div class="form-group col-6">
-                    <label for="numeroCasa">Numero Casa</label>
-                    <input type="text" name="numeroCasa" id="numeroCasa" placeholder="Numero" required>
+                    <label for="numeroCasa">Numero</label>
+                    <input class="form-control" type="text" id="numeroCasa" name="numeroCasa" required value="${cliente.numeroCasa}" />
                 </div>
                 <div class="form-group col-6">
                     <label for="estadoPessoa">Estado</label>
