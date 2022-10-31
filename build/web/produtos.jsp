@@ -40,17 +40,18 @@
                             </button>
                         </div>
                         <div class="tittle">
-                            <p>Cadastrar Produto</p>
+                            <p><a href="NovoProduto">Cadastrar Produto</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="actions">
                     <div class="i">
+                        
                         <div class="action-icon">
                             <i class='bx bx-list-check'></i>
                         </div>
                         <div class="tittle">
-                            <p><a href="cadastrarProduto.jsp">Listar Produtos</a></p>
+                            <p><a href="ListarProduto">Listar Produtos</a></p>
                         </div>
                     </div>
                 </div>

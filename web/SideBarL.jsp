@@ -15,7 +15,7 @@
 
     <div class="sidebar">
         <nav>
-            <a href="dashboard.jsp">
+            <a href="ListarCompra">
                 <i class="bx bxs-dashboard"></i>
                 <h3>Painel de Controle</h3>
             </a>
