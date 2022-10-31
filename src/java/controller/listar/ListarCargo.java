@@ -2,7 +2,6 @@ package controller.listar;
 
 import dao.CargoDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +30,7 @@ public class ListarCargo extends HttpServlet {
             request.setAttribute("mensagem", ex.getMessage());
 
         }
-        request.getRequestDispatcher("listarCargo.jsp").forward(request, response);
+        request.getRequestDispatcher("Telas_Funcionario/listarCargo.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

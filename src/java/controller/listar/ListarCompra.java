@@ -50,7 +50,8 @@ public class ListarCompra extends HttpServlet {
             request.setAttribute("mensagem", ex.getMessage());
         }
         request.setAttribute("mensagem", me );
-        request.getRequestDispatcher("listarCompra.jsp").forward(request, response);
+       // request.getRequestDispatcher("listarCompra.jsp").forward(request, response);
+       request.getRequestDispatcher("dashboard.jsp").include(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

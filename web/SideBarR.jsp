@@ -7,10 +7,7 @@
         <button id="menu-btn">
             <i class='bx bx-menu'></i>
         </button>
-        <div class="toogler">
-            <i class='bx bx-sun active'></i>
-            <i class='bx bxs-moon' ></i>
-        </div>
+       
         <div class="perfil-logado">
             <div class="info">
                 <p>Logando com: <b><%=funcionario.getNomePessoa()%></b></p>

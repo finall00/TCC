@@ -7,7 +7,6 @@
     Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
     if (funcionarios != null) {
 %>
-
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -17,17 +16,15 @@
         <title>Produtos</title>
         <link rel="stylesheet" href="Estilo/style.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-
     </head>
 
     <form action="PesquisarProduto">
         <label for="nomeProduto">nome Produto:</label>
         <input class="form-control" type="text" id="pesquisaProduto" name="nomeProduto" placeholder="Nome" />
-
         <input type="submit" value="Pesquisar">
         <br>
         <a href="ListarItensCarrinho">listar carrinho</a>
-    </form>  
+    </form>
     <%
         List<Produto> lista = (List<Produto>) request.getAttribute("produto");
 
@@ -45,6 +42,7 @@
     %>
 
     <body>
+        
         <div class="button-form">
         </div>
         <h2>${erro}</h2>
@@ -76,7 +74,7 @@
                 <a href="AlterarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
                 <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">comprar</a>
             </div>
-        </div>
+        
         <%
                 }
             }
@@ -89,7 +87,6 @@
         </div>
 
     </body>
-    <script src="Scripts/PesquisarProduto.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <%

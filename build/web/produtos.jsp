@@ -34,7 +34,8 @@
                 <div class="actions">
                     <div class="i">
                         <div class="action-icon">
-                            <button id="open">
+                            <button >
+                                
                                 <i class='bx bx-plus'></i>
                             </button>
                         </div>
@@ -49,10 +50,12 @@
                             <i class='bx bx-list-check'></i>
                         </div>
                         <div class="tittle">
-                            <p>Listar Produtos</p>
+                            <p><a href="cadastrarProduto.jsp">Listar Produtos</a></p>
                         </div>
                     </div>
                 </div>
+                
+                
                 <div class="actions">
                     <div class="i">
                         <div class="action-icon">
@@ -65,66 +68,7 @@
                 </div>
             </div>
 
-            <div class="modal-container" id="modalC">
-                <div class="modal">
-                    <div class="modal-header">
-                        <h2>Cadastrar Produto</h2>
-                        <button id="close">
-                            <i class='bx bx-x'></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">                       
-                        <div class="form">
-
-                            <form action="CadastrarProduto" method="Post" enctype="multipart/form-data"><!-- Form pa cadastrar eeee-->
-                                <div class="input-group">
-                                    <div class="input-box">
-                                        <div hidden="">
-                                            <input class="form-control" type="text" id="codigoProduto"  name="codigoProduto" readonly />
-                                        </div>
-                                        <label for="nome">Nome produto</label>
-                                        <input type="text" name="nomeProduto" id="nomeProduto" placeholder="Nome" required>
-                                    </div>
-                                    <div id="data" class="input-box">
-                                        <label for="data">Data Validade   </label>
-                                        <input type="date" name="dataValidade" id="dataValidade" required>
-                                    </div>
-                                    <div class="input-box">
-                                        <label for="estoque">Estoque do produto</label>
-                                        <input type="number" name="estoqueProduto" id="estoqueProduto" placeholder="Quantidade" required>
-                                    </div>
-                                    <div class="input-box">
-                                        <label for="codigo">Codigo de barra</label>
-                                        <input type="text" name="codigoBarra" id="codigoBarra" placeholder="Codigo" required>
-                                    </div>
-                                    <div class="input-box">
-                                        <label for="vlrCusto">Valor de custo  </label>
-                                        <input type="text" name="vlrCusto" id="vlrCusto" placeholder="Custo" required>
-                                    </div>
-                                    <div class="input-box">
-                                        <label for="vlrVenda">Valor de venda  </label>
-                                        <input type="text" name="vlrVenda" id="vlrVenda" placeholder="Venda" required>
-                                    </div>
-                                    <div class="input-box">                                        
-                                        <input type="file" name="file" id="file">
-                                    </div>
-                                    <div class="input-box">
-                                        <label for="descricaoProduto">Descrição  </label>
-                                        <input type="text" name="descricaoProduto" id="descricaoProduto" placeholder="Sobre o produto" required>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="modalBtn">
-                                        <button type="submit">Cadastrar</button>
-                                        <button type="button" id="cancel">Cancelar</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+       
         </main>
 
         <!--**************************Sidebar right*********************************-->

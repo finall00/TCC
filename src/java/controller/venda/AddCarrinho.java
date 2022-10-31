@@ -86,8 +86,8 @@ public class AddCarrinho extends HttpServlet {
              request.setAttribute("mensagem", "Erro ao adicionar item no carrinho"+ ex.getMessage());
         }
 
-        request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
-
+       // request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
+         request.getRequestDispatcher("ListarProduto").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

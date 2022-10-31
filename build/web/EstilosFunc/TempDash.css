@@ -3,44 +3,24 @@
 :root{
     --color-primary: #dc8e46;
     --color-primary-light: #F1CA89;
-    
     --color-dark: #363949;
     --dark-variant: #677483;
-
     --color-light:#ded8d2d1;
     --color-sucess:#F2DAC3;
     --color-background: #f6f6f9;
     --color-white:#fff;
     --fixed-white:#fff;
-
     --color-info-gray:#7d8da1;
- 
     --caard-radius: 2rem;
     --radius-1: 0.4rem;
     --radius-2: 0.8rem;
     --radius-3: 1.2rem;
-
     --card-padding:1.8rem;
     --padding-1:1.2rem;
-
     --box-shadow: 0 2rem 3rem var(--color-light);
-
     --input-background:#eeeeee75;
 }
-/*PURO TESTE E ENTRETENIMENTO DO RENAN*/
-.dark-theme-var{
-    --color-background:#181a1e;
-    --color-white:#202528;
-    --color-dark:#edeffd;
-    --dark-variant:#a3bdcc;
-    --color-light:rgba(0,0,0,0.4);
-    --box-shadow: 0 2rem 3rem var(--color-light);
-    --fixed-white:#fff;
-    --color-info-gray:#7d8da1;
-    --input-background:#eeeeee12;
 
-    
-}
 /*PURO TESTE E ENTRETENIMENTO DO RENAN*/
 
 *{
@@ -48,7 +28,6 @@
     padding: 0 ;
     outline: 0 ;
     appearance: none ;
-    /*    border: 0  ;*/
     text-decoration: none ;
     list-style: none  ;
     box-sizing: border-box ;
@@ -244,7 +223,7 @@ aside .sidebar a.active{
 }
 
 .sidebar a.active::before{
-    content: '';
+    content:'';
     width: 6px;
     height: 100%;
     background-color: var(--color-primary);

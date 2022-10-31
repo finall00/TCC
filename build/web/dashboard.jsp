@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="model.PedidoVenda"%>
+
 <%@page import="model.Funcionario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -7,6 +10,7 @@
 
         Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
         if (funcionario != null) {
+            List<PedidoVenda> lista = (List<PedidoVenda>) request.getAttribute("compra");
     %>    
     <head>
         <meta charset="UTF-8">
@@ -31,63 +35,55 @@
 
                 <%@include file="SideBarL.jsp" %>
                 <!--****************************Main********************************-->
+
                 <main>
                     <h1>Painel de Controle</h1>
+
                     <div class="pedidos-recentes">
+                        <%
+                            if (lista != null) {
+
+                                for (PedidoVenda compra : lista) {
+                        %>
+
+
                         <div class="pedidos">
                             <div class="tittle">
                                 <span class="id-text">ID do pedido:</span>
-                                <p class="Id-pedido">01</p>
+                                <p class="Id-pedido"><strong><%=compra.getCodigoPedido()%></strong></p>
                             </div>
                             <div class="middle">
                                 <div class="left">
-                                    <p>17/03/2022</p>
-                                    <h1>R$ 37,00</h1>
-
+                                    <p><%=compra.getDataVenda()%></p>
+                                    <h1>R$ <%= compra.getVlrTotalVenda()%></h1>
                                 </div>
                                 <div class="product-photo">
-                                    <img src="../imgaes/âPngtreeâblue gradient birthday cake 3d_5378657.png" alt=""><!--tentar fazer um proflie na foto do ptroduto-->
+                                    <img src="<%= (String) request.getContextPath() + "/imagens/" + compra.getProduto().getImagem()%>" alt=""><!--tentar fazer um proflie na foto do ptroduto-->
                                 </div>
                             </div>
-                            <small><a href="#">Vazio</a></small> <!--achar uma func para isso pode ser qualquer coisa como caitar pedido, ou outra coisa-->
+                            <small><a href="/detalhesVenda">Detalhes</a></small> <!--achar uma func para isso pode ser qualquer coisa como caitar pedido, ou outra coisa-->
                         </div>
-
+                        <%  }
+                        } else {
+                        %>
                         <div class="pedidos">
-                            <span class="id-text">ID do pedido:</span>
-                            <p class="Id-pedido">01</p>
-                            <div class="middle">
-                                <div class="left">
-                                    <p>17/03/2022</p>
-                                    <h1>R$ 37,00</h1>
-                                </div>
-                                <div class="product-photo">
-                                    <img src="../imgaes/âPngtreeâblue gradient birthday cake 3d_5378657.png" alt=""><!--tentar fazer um proflie na foto do ptroduto-->
-                                </div>
+                            <div class="tittle">
+                                <span class="id-text">Não há pedidos</span>
                             </div>
-                            <small><a href="#">Vazio</a></small> <!--achar uma func para isso pode ser qualquer coisa como caitar pedido, ou outra coisa-->
                         </div>
+                        <%
+                            }%>
 
-                        <div class="pedidos">
-                            <span class="id-text">ID do pedido:</span>
-                            <p class="Id-pedido">01</p>
-                            <div class="middle">
-                                <div class="left">
-                                    <p>17/03/2022</p>
-                                    <h1>R$ 37,00</h1>
-                                </div>
-                                <div class="product-photo">
-                                    <img src="../imgaes/âPngtreeâblue gradient birthday cake 3d_5378657.png" alt=""><!--tentar fazer um proflie na foto do ptroduto-->
-                                </div>
-                            </div>
-                            <small><a href="#">Vazio</a></small> <!--achar uma func para isso pode ser qualquer coisa como caitar pedido, ou outra coisa-->
-                        </div>
-                    </div>
+                    </div>   
+
 
                 </main>
+
+
+                <!--**************************Sidebar right*********************************-->
+                <%@include file="SideBarR.jsp" %>
+
             </div>
-            <!--**************************Sidebar right*********************************-->
-            <%@include file="SideBarR.jsp" %>
-            
         </div>
         <script src="ScriptFunc/dash.js"></script>
     </body> 
