@@ -51,7 +51,7 @@
                             <i class='bx bx-list-check'></i>
                         </div>
                         <div class="tittle">
-                            <p><a href="ListarProduto">Listar Produtos</a></p>
+                            <p><a href="ListarProdutoLista">Listar Produtos</a></p>
                         </div>
                     </div>
                 </div>

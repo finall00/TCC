@@ -43,50 +43,46 @@ public class CadastrarProduto extends HttpServlet {
             String codigoBarra = request.getParameter("codigoBarra");
             String descricaoProduto = request.getParameter("descricaoProduto");
 
-            String imagemAtu = request.getParameter("imagem");
-            String imagem = null;
+//            String imagemAtu = request.getParameter("imagem");
             //Mudar o caminho para o local da pasta q o servidor esta rodadando
             String caminho = "C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web" + "/imagens" + "/";
-            
-            
+
             Part filePart = request.getPart("file");
             String filename = filePart.getSubmittedFileName();
 
-            if (filename == "") {
-                imagem = imagemAtu;
-            } else {
-                imagem = filename;
+            if (filename.isEmpty()) {
+                filename = request.getParameter("imagem");
             }
 
+            String imagem = filename;
             Produto produto = new Produto(codigoProduto, nomeProduto, dataValidade, estoqueProduto, vlrCusto, vlrVenda, codigoBarra, descricaoProduto, imagem);
 
-            if (imagem != imagemAtu){
-                OutputStream os = null;
-                InputStream is = null;
+            OutputStream os = null;
+            InputStream is = null;
 
-                File diretorio = new File(caminho);
-                if (!diretorio.exists()) {
-                    diretorio.mkdir();
-                }
+            File diretorio = new File(caminho);
+            if (!diretorio.exists()) {
+                diretorio.mkdir();
+            }
 
-                File filePath = new File(caminho, filename);
+            File filePath = new File(caminho, filename);
 
-                if (!filePart.getSubmittedFileName().endsWith(".png") && !filePart.getSubmittedFileName().endsWith(".jpg")) {
-                    request.setAttribute("erro", "Seu arquivo não foi aceito");
-                } else {
+            if (!filePart.getSubmittedFileName().endsWith(".png") && !filePart.getSubmittedFileName().endsWith(".jpg")) {
+                request.setAttribute("erro", "Seu arquivo não foi aceito");
+            } else {
 
-                    if (!filePath.exists()) {
+                if (!filePath.exists()) {
 
-                        os = new FileOutputStream(filePath);
-                        is = filePart.getInputStream();
+                    os = new FileOutputStream(filePath);
+                    is = filePart.getInputStream();
 
-                        int read = 0;
-                        while ((read = is.read()) != -1) {
-                            os.write(read);
-                        }
+                    int read = 0;
+                    while ((read = is.read()) != -1) {
+                        os.write(read);
                     }
                 }
             }
+
             ProdutoDAO produtoDAO = new ProdutoDAO();
             produtoDAO.cadastrar(produto);
 
@@ -94,6 +90,7 @@ public class CadastrarProduto extends HttpServlet {
 
         } catch (SQLException | ClassNotFoundException | FileNotFoundException ex) {
             request.setAttribute("mesagem", ex.getMessage());
+            request.getRequestDispatcher("ListarProduto").forward(request, response);
         }
 
         request.getRequestDispatcher("ListarProduto").forward(request, response);

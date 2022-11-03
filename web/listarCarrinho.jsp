@@ -40,11 +40,6 @@
                 </tr>
             </thead>
             <tbody>
-            <div class="alert alert-primary" role="alert">
-                <br>  
-                ${mensagem}
-                <br>
-            </div>
 
             <%
                 if (lista == null) {

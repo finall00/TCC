@@ -4,23 +4,22 @@
  */
 package controller.listar;
 
-import dao.PedidoVendaDAO;
+import dao.ProdutoDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Funcionario;
 
 /**
  *
  * @author smili08
  */
-@WebServlet(name = "ListarCompra", urlPatterns = {"/ListarCompra"})
-public class ListarCompra extends HttpServlet {
+@WebServlet(name = "ListarProdutoLista", urlPatterns = {"/ListarProdutoLista"})
+public class ListarProdutoLista extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,21 +33,15 @@ public class ListarCompra extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String me = null;
+
         try {
-           HttpSession sessao = request.getSession(true);
-            Funcionario Pessoa = (Funcionario) sessao.getAttribute("funcionario");
-            int codigoPessoa = Pessoa.getCodigoPessoa();
-            
-           me = (String) request.getAttribute("mensagem");
-            PedidoVendaDAO pedidoVenda = new PedidoVendaDAO();        
-            request.setAttribute("compra", pedidoVenda.consultar(codigoPessoa));
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+            request.setAttribute("produto", produtoDAO.listar());
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-        request.setAttribute("mensagem", me );
-       // request.getRequestDispatcher("listarCompra.jsp").forward(request, response);
-       request.getRequestDispatcher("dashboard.jsp").include(request, response);
+        request.getRequestDispatcher("listarProdutoAntico.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
