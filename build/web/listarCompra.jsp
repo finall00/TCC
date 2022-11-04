@@ -1,3 +1,4 @@
+<%@page import="model.Cliente"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 <%@page import="model.PedidoVenda"%>
@@ -6,8 +7,10 @@
 <jsp:include page="/cabecalho.jsp"/>
 <%
    
-    Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if ( funcionario != null) {
+    Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");   
+    Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
+    if ( cliente != null||funcionario != null) {
+   
 %>
 
     

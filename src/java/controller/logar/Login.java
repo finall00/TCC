@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
                 HttpSession sessao = request.getSession(true);
                 sessao.setAttribute("cliente", cliente);  
                 sessao.setMaxInactiveInterval(-1);
-                request.getRequestDispatcher("homeCliente.jsp").forward(request, response);          
+                request.getRequestDispatcher("ListarProduto").forward(request, response);          
             }
             else if(funcionario != null){
                 HttpSession sessao = request.getSession(true);               

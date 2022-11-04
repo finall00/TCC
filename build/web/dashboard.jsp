@@ -56,6 +56,7 @@
                                 <div class="left">
                                     <p><%=compra.getDataVenda()%></p>
                                     <h1>R$ <%= compra.getVlrTotalVenda()%></h1>
+                                    <p style="margin-top: 10px">cliente: <%= compra.getPessoa().getNomePessoa()%></p>
                                 </div>
                                 <div class="product-photo">
                                     <img src="<%= (String) request.getContextPath() + "/imagens/" + compra.getProduto().getImagem()%>" alt=""><!--tentar fazer um proflie na foto do ptroduto-->

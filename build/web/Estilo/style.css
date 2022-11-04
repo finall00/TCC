@@ -68,7 +68,7 @@ body{
 }
 
 .card .detalhes .nome{
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     color: #161616;
 }
@@ -83,10 +83,10 @@ body{
 
 .card .preco {
     margin-top: 15px;
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items:center ;
-    
+    margin-bottom: 15px;
 }
 
 .card .data{

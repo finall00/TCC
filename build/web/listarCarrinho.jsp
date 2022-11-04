@@ -1,3 +1,4 @@
+<%@page import="model.Cliente"%>
 +<%@page import="model.Funcionario"%>
 <%@page import="model.ItensVenda"%>
 <%@page import="model.Carrinho"%>
@@ -6,10 +7,10 @@
 <jsp:include page="/cabecalho.jsp"/>
 <%
 //verifica se funcionario e vazio e te manda pra puta q paril 
-    Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if (funcionario == null) {
-        response.sendRedirect(request.getContextPath() + "/");
-    } else {
+    Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");    
+    Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
+    if ( cliente != null || funcionario != null) {
+       
 
         List<ItensVenda> lista = (List<ItensVenda>) request.getAttribute("produtos");
 %>
@@ -95,6 +96,6 @@
 
 <jsp:include page="/rodape.jsp"/>
 <%
-    }
+    }else {response.sendRedirect(request.getContextPath() + "/");}
 %>
 

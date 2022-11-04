@@ -1,3 +1,4 @@
+<%@page import="model.Cliente"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.ItensVenda"%>
 <%@page import="model.Funcionario"%>
@@ -7,6 +8,8 @@
 <%
     ArrayList<ItensVenda> carrinho = (ArrayList<ItensVenda>) session.getAttribute("itensProduto");
     Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
+    Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
+
 //    if (funcionarios != null) {
 %>
 <!DOCTYPE html>
@@ -28,7 +31,7 @@
             <form action="PesquisarProduto">
                 <label for="nomeProduto">nome Produto:</label>
                 <input class="form-control" type="text" id="pesquisaProduto" name="nomeProduto" placeholder="Nome" />
-                <input type="submit" value="Pesquisar">
+                <button type="submit" class="btn btn-outline-primary">Pesuisar</button>
                 <br>
 
             </form>
@@ -37,10 +40,13 @@
         <div class="button-Carrinho">
             <a href="ListarItensCarrinho">listar carrinho</a>
         </div>
+        <div class="mensagem">
+            <p style="font-size: 14px">${mensagem}</p>
+        </div>
+
         <div class="card-container">
 
-            <%
-                List<Produto> lista = (List<Produto>) request.getAttribute("produto");
+            <%                List<Produto> lista = (List<Produto>) request.getAttribute("produto");
                 if (lista != null) {
             %>
 
@@ -66,12 +72,12 @@
                 <div class="preco">
                     <span class="num-preco">Preço: </span>
                     <span class="num-preco">R$<%= produto.getVlrVenda()%></span>
-                    
+
                 </div>
-                    <div class="data">
-                         <span class="num-letra">Data de Validade:</span>
-                        <span class="num-letra"><%= produto.getDataValidade()%></span>
-                    </div>    
+                <div class="data">
+                    <span class="num-letra">Data de Validade:</span>
+                    <span class="num-letra"><%= produto.getDataValidade()%></span>
+                </div>    
 
                 <div style="margin: 10px">
                     <a href="AlterarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
@@ -88,9 +94,13 @@
 
         </div>
         <div style="margin: 10px">
-            <a class="btn btn-primary" href="Login" > login</a>
 
-            <a class="btn btn-primary" href="homeFuncionario.jsp">Menu</a>            
+            <% if (cliente == null && funcionarios == null) {%><a class="btn btn-primary" href="Login">login</a><%}%>
+
+            <% if (cliente != null) {%><a class="btn btn-primary" href="homeCliente.jsp">Menu</a> 
+            <%} else if (funcionarios != null) {%> <a class="btn btn-primary" href="homeFuncionario.jsp">Menu</a>
+            <%}%>
+
         </div>
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -99,5 +109,5 @@
 //        } else {
 //            response.sendRedirect(request.getContextPath() + "/");
 //        }
-    %>
+%>
 </html>

@@ -15,6 +15,7 @@
     <div class="card-body text-center">                   
         
         <a href="paginaLogin.jsp" class="btn btn-danger">login</a>      
+        <a href="ListarProduto" class="btn btn-info">Produtos</a>      
         
       
     </div>

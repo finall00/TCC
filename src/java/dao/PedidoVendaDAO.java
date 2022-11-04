@@ -1,15 +1,11 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import model.Cargo;
-import model.Funcionario;
 import model.PedidoVenda;
 import model.Pessoa;
 import model.Produto;
@@ -64,9 +60,28 @@ public class PedidoVendaDAO {
     }
 
     public List<Object> listar() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        //"select * from compra co inner join itenscompra ip on ip.codigovenda = co.codigopedido";
+   String sql = "select * from compra co inner join itenscompra ip on ip.codigovenda = co.codigopedido;";
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Object> lista = new ArrayList<>();
+        try {
+            stmt = conexao.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                PedidoVenda pedidoVenda = new PedidoVenda(rs.getInt("codigoPedido"), (Pessoa) new PessoaDAO().consultarP(rs.getInt("codigoPessoa")), rs.getDate("data_Venda"), rs.getString("obsVenda"), rs.getDouble("vlrTotalVenda"), rs.getInt("codigoVenda"), (Produto) new ProdutoDAO().consultar(rs.getInt("codigoProduto")), rs.getDouble("qtdProduto"), rs.getDouble("vlrProduto"));
+               
+                lista.add(pedidoVenda);
+            }
+        } catch (SQLException| ClassNotFoundException ex) {
+            throw new SQLException("Erro ao Listar usuario");
+
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt, rs);
+        }
+
+        return lista;
     }
+    
 
     public List<Object> consultar(int codigo) throws SQLException {
         //select * from compra co inner join itenscompra ip on ip.codigovenda = co.codigopedido WHERE co.codigopedido = ?;  
@@ -79,7 +94,7 @@ public class PedidoVendaDAO {
             stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                PedidoVenda pedidoVenda = new PedidoVenda(rs.getInt("codigoPedido"), (Pessoa) new PessoaDAO().consultar(rs.getInt("codigoPessoa")), rs.getDate("data_Venda"), rs.getString("obsVenda"), rs.getDouble("vlrTotalVenda"), rs.getInt("codigoVenda"), (Produto) new ProdutoDAO().consultar(rs.getInt("codigoProduto")), rs.getDouble("qtdProduto"), rs.getDouble("vlrProduto"));
+                PedidoVenda pedidoVenda = new PedidoVenda(rs.getInt("codigoPedido"), (Pessoa) new PessoaDAO().consultarP(rs.getInt("codigoPessoa")), rs.getDate("data_Venda"), rs.getString("obsVenda"), rs.getDouble("vlrTotalVenda"), rs.getInt("codigoVenda"), (Produto) new ProdutoDAO().consultar(rs.getInt("codigoProduto")), rs.getDouble("qtdProduto"), rs.getDouble("vlrProduto"));
                 lista.add(pedidoVenda);
             }
         } catch (SQLException| ClassNotFoundException ex) {

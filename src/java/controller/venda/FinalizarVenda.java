@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Carrinho;
+import model.Cliente;
 import model.Funcionario;
 import model.ItensVenda;
 import model.PedidoVenda;
@@ -42,8 +43,9 @@ public class FinalizarVenda extends HttpServlet {
         Pessoa pessoa = new Pessoa();
 
         HttpSession sessao = request.getSession(true);
-        Funcionario cliente = (Funcionario) sessao.getAttribute("funcionario");//trocar isso no futuro por codigo cliente ou codigo pessoa porem pode dar problema no login n sei n vo testar agora 
-
+//        Funcionario cliente = (Funcionario) sessao.getAttribute("funcionario");//trocar isso no futuro por codigo cliente ou codigo pessoa porem pode dar problema no login n sei n vo testar agora 
+        Cliente cliente = (Cliente) sessao.getAttribute("cliente");
+        
         Integer codigo = cliente.getCodigoPessoa();
 
         List<ItensVenda> a = (List<ItensVenda>) sessao.getAttribute("itensProduto");
