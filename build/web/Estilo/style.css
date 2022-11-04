@@ -10,8 +10,14 @@
 
 body{
     background-color: white;
-    display: flex;
-    padding: 10px;
+
+    padding: 30px;
+}
+
+.header{
+   display: flex;
+   flex-direction: row;
+   margin-bottom: 40px;
 }
 
 .card{
@@ -20,18 +26,19 @@ body{
     border-radius: 25px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     padding: 20px 30px 30px 30px; 
-    margin: 10px;
+    margin-right:10px;
 }
 
 .carrinho-logo {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .carrinho-logo img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
 }
 
@@ -61,7 +68,7 @@ body{
 }
 
 .card .detalhes .nome{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
     color: #161616;
 }
@@ -71,22 +78,28 @@ body{
     color: #333;
     font-weight: 400;
     text-align: justify;
+    margin-top: 4px;
 }
 
 .card .preco {
+    margin-top: 15px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items:center ;
-    justify-content: space-between;
+    
+}
+
+.card .data{
+    display:flex;
+    flex-direction: column;
 }
 
 .card .preco .num-preco {
-    font-size: 25px;
     font-weight: 600;
     color: #333 ;
 }
 
-.card .preco .num-letra {
+.card .data .num-letra {
     font-size: 13px;
     font-weight: 600;
     color: #333 ;
@@ -112,6 +125,30 @@ body{
     font-weight: 600;
     letter-spacing: 1px;
     color: #fff;
+}
+
+
+.card-container{
+    
+    display: flex;
+    flex-direction: row;
+}
+.img-produto{
+    margin-bottom: 10px;
+}
+.img-produto img{
+    width: 100%;
+    height: 100%;
+}
+
+.button-Carrinho a{
+    text-decoration: none;
+    color: orange;
+}
+
+.button-Carrinho{
+    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 /*************************************** Adiconar o box shadow ****************************/
@@ -141,23 +178,6 @@ body{
     color: black;
 }
    
-/*.modal {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-conteudo {
-    height: 600px;
-    width: 500px;
-    border-radius: 25px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px 30px 30px 30px; 
-    margin: 10px;
-}*/
 
 .modal {
     display: none; 

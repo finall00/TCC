@@ -6,7 +6,6 @@
 <%@page import="java.util.List"%>
 <%
     ArrayList<ItensVenda> carrinho = (ArrayList<ItensVenda>) session.getAttribute("itensProduto");
-
     Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
 //    if (funcionarios != null) {
 %>
@@ -17,39 +16,35 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Produtos</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
         <link rel="stylesheet" href="Estilo/style.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     </head>
 
-    <form action="PesquisarProduto">
-        <label for="nomeProduto">nome Produto:</label>
-        <input class="form-control" type="text" id="pesquisaProduto" name="nomeProduto" placeholder="Nome" />
-        <input type="submit" value="Pesquisar">
-        <br>
-        <a href="ListarItensCarrinho">listar carrinho</a>
-    </form>
-    <%
-        List<Produto> lista = (List<Produto>) request.getAttribute("produto");
 
-        if (lista == null) {
-    %>
-
-    <div class="alert alert-primary" role="alert">
-        <br>
-        <br>
-        <br>  
-        ${mensagem}
-    </div>
-    <%
-    } else {
-    %>
 
     <body>
-        <div >
-            <div class="button-form">
-            </div>
-            <h2>${erro}</h2>
+        <div class="header">
+            <form action="PesquisarProduto">
+                <label for="nomeProduto">nome Produto:</label>
+                <input class="form-control" type="text" id="pesquisaProduto" name="nomeProduto" placeholder="Nome" />
+                <input type="submit" value="Pesquisar">
+                <br>
+
+            </form>
+        </div>    
+
+        <div class="button-Carrinho">
+            <a href="ListarItensCarrinho">listar carrinho</a>
+        </div>
+        <div class="card-container">
+
+            <%
+                List<Produto> lista = (List<Produto>) request.getAttribute("produto");
+                if (lista != null) {
+            %>
+
+
             <%            for (Produto produto : lista) {
             %>
             <div class="card">
@@ -58,9 +53,9 @@
                     <a  href="addCarrinho?codigoProduto=<%=produto.getCodigoProduto()%>&qtnProduto=1&vlrVenda=<%= produto.getVlrVenda()%>&nomeProduto=<%= produto.getNomeProduto()%>&estoqueProduto=<%= produto.getEstoqueProduto()%>" ><i class='bx bxs-cart-add'></i></a>
                 </div>
 
-                
-                    <img class="imagen" style="border-radius: 10px" src="<%= (String) request.getContextPath() + "/imagens/" + produto.getImagem()%>">
-
+                <div class="img-produto">
+                    <img class="imagen" style="border-radius: 10px; height: 100%; width: 100%;" src="<%= (String) request.getContextPath() + "/imagens/" + produto.getImagem()%>">
+                </div>
 
                 <div class="detalhes">
                     <span hidden="" class="nome" ><%= produto.getCodigoProduto()%></span>
@@ -69,13 +64,18 @@
                 </div>
 
                 <div class="preco">
+                    <span class="num-preco">Preço: </span>
                     <span class="num-preco">R$<%= produto.getVlrVenda()%></span>
-                    <span class="num-letra"><%= produto.getDataValidade()%></span>
+                    
                 </div>
+                    <div class="data">
+                         <span class="num-letra">Data de Validade:</span>
+                        <span class="num-letra"><%= produto.getDataValidade()%></span>
+                    </div>    
 
                 <div style="margin: 10px">
-                <a href="AlterarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
-                <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">comprar</a>
+                    <a href="AlterarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">mais info</a>
+                    <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn btn-primary">comprar</a>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
         </div>
         <div style="margin: 10px">
             <a class="btn btn-primary" href="Login" > login</a>
-       
+
             <a class="btn btn-primary" href="homeFuncionario.jsp">Menu</a>            
         </div>
     </body>
