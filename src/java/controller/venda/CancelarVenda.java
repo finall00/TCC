@@ -33,9 +33,7 @@ public class CancelarVenda extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        
-        
+       
         try {
             int codigoVenda = Integer.parseInt(request.getParameter("codigoPedido"));
             PedidoVendaDAO pedidoVendaDAO = new PedidoVendaDAO();

@@ -34,8 +34,7 @@ public class ListarItensCarrinho extends HttpServlet {
         try {
             HttpSession sessao = request.getSession(true);
             List<ItensVenda> listaProdutos = (List<ItensVenda>) sessao.getAttribute("itensProduto");
-            
-            
+                       
             System.out.println("Quantidade: " + listaProdutos.size());
             
             request.setAttribute("produtos", listaProdutos);

@@ -43,7 +43,6 @@ public class FinalizarVenda extends HttpServlet {
         Pessoa pessoa = new Pessoa();
 
         HttpSession sessao = request.getSession(true);
-//        Funcionario cliente = (Funcionario) sessao.getAttribute("funcionario");//trocar isso no futuro por codigo cliente ou codigo pessoa porem pode dar problema no login n sei n vo testar agora 
         Cliente cliente = (Cliente) sessao.getAttribute("cliente");
         
         Integer codigo = cliente.getCodigoPessoa();
@@ -53,7 +52,7 @@ public class FinalizarVenda extends HttpServlet {
         car.getCodigoItem();
         car.getQtnItens();
 
-        //eu n to conseguindo pegar a porra dos dados vai se fudeeeeeeeeeeeeeeeeeeeeeeeeeee
+        
         String[] produtos = request.getParameterValues("codigoProduto");
 
         String[] vlrVenda = request.getParameterValues("vlrVenda");

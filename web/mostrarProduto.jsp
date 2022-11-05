@@ -72,7 +72,6 @@
                     <div class="form-group col-12 text-center">
                         <button class="btn btn-success" type="submit">Comprar</button>
                         <a class="btn btn-secondary" href="ListarProduto">Voltar</a>
-
                     </div>
                 </div>
             </div>

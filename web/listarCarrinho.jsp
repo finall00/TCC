@@ -7,10 +7,9 @@
 <jsp:include page="/cabecalho.jsp"/>
 <%
 //verifica se funcionario e vazio e te manda pra puta q paril 
-    Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");    
+    Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
     Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
-    if ( cliente != null || funcionario != null) {
-       
+    if (cliente != null || funcionario != null) {
 
         List<ItensVenda> lista = (List<ItensVenda>) request.getAttribute("produtos");
 %>
@@ -41,7 +40,9 @@
                 </tr>
             </thead>
             <tbody>
-
+            <div class="alert alert-primary" role="alert">                
+                ${mensagem}
+            </div>
             <%
                 if (lista == null) {
             %>
@@ -60,29 +61,29 @@
 
             <tr>                
 
-                <td name="codigoProduto" ><%=venda.getProduto().getCodigoProduto()%></td>
-                
+                <td name="codigoProduto"><%=venda.getProduto().getCodigoProduto()%></td>
+
                 <td><%=venda.getProduto().getNomeProduto()%></td>  
-                
+
                 <td><a class="btn btn-secondary" href="DiminuirItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">-</a></td>
 
                 <td><input name="qtdProduto"readonly="" value="<%=venda.getQtdProduto()%>"/></td>  
 
                 <td><a class="btn btn-info" href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">+</a></td>   
-                
+
                 <td>R$ <%=venda.getProduto().getVlrVenda()%></td>
-                
+
                 <td>R$ <%=venda.getTotal()%></td>
 
                 <td><a class="btn btn-danger" href="RemoverItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">Remover Item</a></td>
-                
+
                 <td><a class="btn btn-info" href="FinalizarVenda?codigoProduto=<%=venda.getProduto().getCodigoProduto()%>&qtdProduto=<%=venda.getQtdProduto()%>&vlrVenda=<%=venda.getProduto().getVlrVenda()%> ">Comprar</a> </td>
                 <% }%>
                 <td>R$ <%= car.getSubTotal()%></td>
             </tr> 
             <td>
                 <input type="hidden" name="" value="<%= car.getItens()%>" class="form-input">
-                
+
             </td>
             <% }%>
             </form>
@@ -96,6 +97,8 @@
 
 <jsp:include page="/rodape.jsp"/>
 <%
-    }else {response.sendRedirect(request.getContextPath() + "/");}
+    } else {
+        response.sendRedirect(request.getContextPath() + "/");
+    }
 %>
 

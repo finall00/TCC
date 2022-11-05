@@ -43,13 +43,13 @@ public class AddCarrinho extends HttpServlet {
             if (cliente != null || funcionario != null) {
 
                 List<ItensVenda> listaAtual = null;
-                //antes tava "codigoProduto"
+                
                 if (sessao.getAttribute("itensProduto") != null) {
                     listaAtual = (List<ItensVenda>) sessao.getAttribute("itensProduto");
                 } else {
                     listaAtual = new ArrayList<>();
                 }
-                //inves de mandar itens mandar o carrinho 
+                
 
                 //pega os dados do front 
                 Integer codigoProduto = Integer.parseInt(request.getParameter("codigoProduto"));
@@ -77,10 +77,9 @@ public class AddCarrinho extends HttpServlet {
 
                 listaAtual = carrinho.getItens();
 
-                System.out.println("numero de itens " + carrinho.getNumeroDeItens());
-                System.out.println("total  " + carrinho.getSubTotal());
-
-                System.out.println("Quantidade de Itens: " + listaAtual.size());
+//                System.out.println("numero de itens " + carrinho.getNumeroDeItens());
+//                System.out.println("total  " + carrinho.getSubTotal());
+//                System.out.println("Quantidade de Itens: " + listaAtual.size());
 
                 sessao.setAttribute("itensProduto", listaAtual);
             } else {

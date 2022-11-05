@@ -29,17 +29,27 @@
     <body>
         <div class="header">
             <form action="PesquisarProduto">
-                <label for="nomeProduto">nome Produto:</label>
+                <label for="nomeProduto">Produto:</label>
                 <input class="form-control" type="text" id="pesquisaProduto" name="nomeProduto" placeholder="Nome" />
                 <button type="submit" class="btn btn-outline-primary">Pesuisar</button>
                 <br>
 
             </form>
+
+            <div class="button-Carrinho">
+                <a href="ListarItensCarrinho" class="botao" >Carrinho</a>
+
+                <% if (cliente == null && funcionarios == null) {%><a href="Login" class="botao">Login</a><%}%>
+
+                <% if (cliente != null) {%><a href="homeCliente.jsp" class="botao">Menu</a> 
+
+                <%} else if (funcionarios != null) {%> <a href="homeFuncionario.jsp" class="botao">Menu</a>
+                    <%}%>
+                
+            </div>
         </div>    
 
-        <div class="button-Carrinho">
-            <a href="ListarItensCarrinho">listar carrinho</a>
-        </div>
+
         <div class="mensagem">
             <p style="font-size: 14px">${mensagem}</p>
         </div>
@@ -91,15 +101,6 @@
             %>
 
 
-
-        </div>
-        <div style="margin: 10px">
-
-            <% if (cliente == null && funcionarios == null) {%><a class="btn btn-primary" href="Login">login</a><%}%>
-
-            <% if (cliente != null) {%><a class="btn btn-primary" href="homeCliente.jsp">Menu</a> 
-            <%} else if (funcionarios != null) {%> <a class="btn btn-primary" href="homeFuncionario.jsp">Menu</a>
-            <%}%>
 
         </div>
     </body>
