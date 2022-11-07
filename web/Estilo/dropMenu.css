@@ -1,0 +1,251 @@
+:root {
+    --color1: #201b2c;
+    --color2: #2F2841;
+    --color3: #514869;
+    --color4: #00FF88;
+    --color5: #77ffc0;
+    --color6: #00000056;
+    --color7: #f0ffffde;
+    --color8: #f0ffff94;
+    --color9: #00ff8052;
+    --color10: #2b134b;
+    --color11: #808080;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: none;
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: none;
+    border: none;
+}
+
+
+
+
+.navigation.active {
+    width: 100px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+}
+
+
+
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 30px;
+    pointer-events: none;
+}
+
+
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+    color: red;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    text-align: center;
+    padding-top: 13px;
+}
+
+
+.Text {
+    position: relative;
+    top: -40px;
+    text-decoration: none;
+    right: 15px;
+    color: white;
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.75em;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    margin-top: 10px;
+}
+
+
+
+/* main */
+
+.action {
+    margin-top: 20px;
+    padding-right: 40px;
+    top: 20px;
+    right: 30px;
+}
+
+.action .profile {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.action ul li a .icon ion-icon {
+    font-size: 0.7em;
+}
+
+.action ul li a .icon {
+    margin-right: 10px;
+}
+
+/* estilo do menu pra mudar onde fica o menu */
+.action .menu {
+    position: absolute;
+    top: 120px;
+    right: -17px;
+    padding: 20px 20px;
+    background: #e5e1cd;
+    width: 180px;
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: 0.2s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 11;
+    margin-right: 40px;
+}
+
+.action .menu.active {
+    top: 90px;
+    visibility: visible;
+    opacity: 1;
+    margin-right: 40px;
+}
+
+.action .menu::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+    /* tem que ser a mesma cor la do .action .menu */
+    background: #e5e1cd;
+    transform: rotate(45deg);
+}
+
+.action .menu h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 0;
+    font-weight: 500;
+    color: rgb(46, 45, 45);
+    line-height: 1.5em;
+}
+
+.action .menu h3 span {
+    font-size: 18px;
+    color: #7a7777;
+    font-weight: 300;
+}
+
+.action .menu ul li {
+    list-style: none;
+    padding: 16px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+
+.action .menu ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+
+
+@media (max-width: 991px) {
+    .navigation {
+        left: -300px;
+    }
+
+    .navigation.active {
+        width: 300px;
+        left: 0px;
+    }
+
+    .main {
+        width: 100%;
+        left: 0;
+    }
+
+    .main.active {
+        left: 300px;
+    }
+
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 480px) {
+
+
+    .navigation {
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+
+    .navigation.active {
+        width: 100%;
+        left: 0;
+    }
+
+    .toggle {
+        z-index: 10001;
+    }
+
+    .home {
+        text-decoration: none;
+
+    }
+
+
+    .main.active {
+        left: 0;
+    }
+
+    .main.active .toggle {
+        color: #fff;
+        position: fixed;
+        right: 0;
+
+    }
+
+}

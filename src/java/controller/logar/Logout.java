@@ -16,7 +16,7 @@ public class Logout extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         request.getSession(false).invalidate();
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("ListarProduto").forward(request, response);
         
     }
 

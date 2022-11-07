@@ -29,9 +29,6 @@
 }
 
 
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -51,15 +48,14 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 0.88rem;
     background: var(--color-background);
+    user-select: none;
     overflow-x: hidden;
     color: var(--dark);
 }
 
-
 body .goWebpage:hover {
     background-color: var(--color-primary-light);
 }
-
 
 /* cabeçalho */
 .header {
@@ -67,12 +63,15 @@ body .goWebpage:hover {
 }
 
 .header .header-1 {
+    width: 100%;
+    height: 60%;
     background: var(--color-sucess);
-    padding: 1rem 9%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 10px;
 }
+
 
 .header .header-1 .logo {
     font-size: 1.5rem;
@@ -93,19 +92,17 @@ body .goWebpage:hover {
     display: flex;
     align-items: center;
     border-radius: 1.5rem;
-
 }
 
 .header .header-1 .search-form input {
     font-size: 1rem;
-    padding: 0 1.2rem;
+    padding: 0 1rem;
     height: 100%;
     width: 100%;
     text-transform: none;
     color: var(--black);
     border: none;
 }
-
 
 .header .header-1 .search-form button {
     font-size: 1.5rem;
@@ -119,14 +116,27 @@ body .goWebpage:hover {
     border: var(--black);
 }
 
+.header .header-1 .icons #divU {
+    top: +10px;
+}
+
 .header .header-1 .icons div,
 .header .header-1 .icons a {
+    align-items: flex-start;
+    display: inline-block;
     font-size: 2rem;
     margin-left: 1rem;
     color: var(--black);
     cursor: pointer;
 }
 
+.header .header-1 .icons #icon-car {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--black);
+    align-items: flex-end;
+    cursor: pointer;
+}
 
 .header .header-1 .icons div:hover,
 .header .header-1 .icons a:hover {
@@ -177,7 +187,6 @@ h1 {
 
 h2 {
     font-size: 1.4rem;
-
 }
 
 small {
@@ -207,9 +216,9 @@ b {
 /* conteudo */
 
 .container {
-    margin-left: 11rem;
+    margin-left: 9rem;
     margin-right: 9rem;
-    width: 85%;
+    width: 80%;
     height: 100%;
 }
 
