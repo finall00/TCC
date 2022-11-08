@@ -102,7 +102,7 @@
                 </div>
                 <div class="form-group col-6">
                     <label for="numeroCasa">Numero</label>
-                    <input class="form-control" type="text" id="numeroCasa" name="numeroCasa" required value="${funcionario.numeroCasa}" />
+                    <input class="form-control" type="number" id="numeroCasa" name="numeroCasa" required value="${funcionario.numeroCasa}" />
                 </div>
                 <div class="form-group col-6">
                     <label for="cidadePessoa">Cidade</label>
@@ -138,7 +138,8 @@
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
                     <button class="btn btn-success" type="submit">Gravar</button>
-                    <a class="btn btn-secondary" href="ListarFuncionario">Voltar</a>
+                  
+                    <input  class="btn btn-secondary" type="button" value="Voltar" onclick="history.go(-1)">
                 </div>
             </div>     
         </form>

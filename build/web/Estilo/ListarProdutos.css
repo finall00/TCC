@@ -210,15 +210,15 @@ b {
 .logo img {
     width: 3rem;
     height: 3rem;
+    border-radius: 50px;
 }
-
 
 /* conteudo */
 
 .container {
-    margin-left: 9rem;
-    margin-right: 9rem;
-    width: 80%;
+    margin-left: 18rem;
+    margin-right: 5rem;
+    width: 75%;
     height: 100%;
 }
 
@@ -278,10 +278,11 @@ main .todo-produto h3 {
 .card {
     max-width: 400px;
     width: 100%;
-    border-radius: 25px;
+    border-radius: 20px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     padding: 20px 30px 30px 30px;
     margin-right: 10px;
+    margin-bottom: 100px;
 }
 
 .carrinho-logo {
@@ -445,18 +446,23 @@ main .todo-produto h3 {
 
 }
 
+
+
 .btn-comprar {
+    box-shadow: 0px 0px 0px 2px #ffffff;
     background-color: #34944d;
-    border-radius: 28px;
-    border: 1px solid #2c8a36;
-    display: inline-block;
+    border-radius: 10px;
+    position: relative;
     cursor: pointer;
     color: #161616;
-    font-size: 17px;
-    padding: 16px 31px;
+    font-size: 19px;
+    
+    padding: 12px 10rem;
+    
     text-decoration: none;
-    text-shadow: 0px 1px 0px #2f6627;
-    margin-left: 3rem;
+    text-shadow: 0px 1px 0px #899fd6;
+    
+    
 }
 
 .btn-comprar:hover {

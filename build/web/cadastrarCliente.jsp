@@ -158,14 +158,17 @@
                                         </div>
                                     </div>
                                 </form>
+                                        <div class="input-box field padding-bottom--24">
+                                            <!--botão de voltar para a ultima pagina acessada--> 
+                                            <input type="button" value="Voltar" onclick="history.go(-1)">
+                                        </div>
                             </div>
                         </div>
                         <div class="footer-link padding-top--24">
-                            <span>Já tém um conta? <a href="login.html">Entre</a></span>
+                            <span>Já tém um conta? <a href="Login">Entre</a></span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 

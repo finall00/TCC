@@ -47,13 +47,15 @@ public class CadastrarCliente extends HttpServlet {
             
             String  bairroPessoa = request.getParameter("bairroPessoa");  
             
+            String  numeroCasa = request.getParameter("numeroCasa");  
+            
             String  obsCliente = request.getParameter("obsCliente");   
             
             String  loginCliente = request.getParameter("loginCliente");  
             
             String  senhaCliente = request.getParameter("senhaCliente");    
 
-            Cliente cliente = new Cliente(obsCliente, loginCliente, senhaCliente, codigoPessoa, nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa, celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, nomePessoa, cepPessoa, cidadePessoa, bairroPessoa);
+            Cliente cliente = new Cliente(obsCliente, loginCliente, senhaCliente, codigoPessoa, nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa, celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, numeroCasa, cepPessoa, cidadePessoa, bairroPessoa);
 
             ClienteDAO clienteDAO = new ClienteDAO();
             clienteDAO.cadastrar(cliente);

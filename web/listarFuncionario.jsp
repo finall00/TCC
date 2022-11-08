@@ -18,7 +18,9 @@
         </div>
         <hr/>
         <a class="btn btn-success" href="NovoFuncionario">Novo</a>
-        <a class="btn btn-secondary" href="homeFuncionario.jsp">Voltar</a>
+        
+        <input  class="btn btn-secondary" type="button" value="Voltar" onclick="history.go(-1)">
+        
         <hr/>
         <% List<Funcionario> lista = (List<Funcionario>) request.getAttribute("funcionario"); %>
         <table class="table table-striped table-hover">

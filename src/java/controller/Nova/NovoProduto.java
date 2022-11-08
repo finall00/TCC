@@ -18,7 +18,7 @@ public class NovoProduto extends HttpServlet {
         
         request.setAttribute("produto", new Produto());
 
-        request.getRequestDispatcher("cadastrarProduto.jsp").forward(request, response);
+        request.getRequestDispatcher("alterarProduto.jsp").forward(request, response);
     }
 
     @Override

@@ -18,7 +18,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Funcionario</title>
-        <!-- via sep api -->
+
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="EstilosFunc/TempDash.css">
@@ -46,7 +46,7 @@
                                     <button id="openF">
                                         <i class='bx bxs-user-plus' ></i>
                                     </button>
-                                </a>
+                               
 
                             </div>
                             <div class="tittle">
@@ -57,7 +57,7 @@
                     <div class="actions">
                         <div class="i">
                             <div class="action-icon">
-                                <i class='bx bxs-user-detail'></i>
+                                <a href="ListarFuncionario" ><i class='bx bxs-user-detail'></i></a>
                             </div>
                             <div class="tittle">
                                 <p>Listar Funcionario</p>
@@ -207,15 +207,17 @@
                         </div>
                         <div class="modal-body">
                             <div class="form">
-                                <form action="">
+                                <form action="cadastrarCargo" method="post">
                                     <div class="input-group">
+                                        
                                         <div class="input-box">
                                             <label for="nome">Nome Cargo</label>
-                                            <input type="text" name="nome" id="Formatar" placeholder="Nome" required>
+                                            <input type="text" name="nomeCargo" id="nomeCargo" placeholder="Nome" required>
+                                            <input hidden="" type="text" name="codigoCargo" id="codigoCargo" placeholder="Nome" required>
                                         </div>
                                         <div class="input-box">
                                             <label for="funcao">Função</label>
-                                            <input type="text" name="funcao" id="Formatar" placeholder="Data" required>
+                                            <input type="text" name="descCargo" id="descCargo" placeholder="descrição do cargo" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">

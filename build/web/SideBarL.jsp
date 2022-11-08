@@ -27,7 +27,7 @@
                 <i class="bx bxs-user-pin"></i>
                 <h3>Cliente</h3>
             </a>
-            <a href="produtos.jsp">
+            <a href="funcionario.jsp">
                 <i class="bx bx-male"></i>
                 <h3>Funcionario</h3>
             </a>

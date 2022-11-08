@@ -71,7 +71,8 @@
                 <div class="row mt-3">
                     <div class="form-group col-12 text-center">
                         <button class="btn btn-success" type="submit">Comprar</button>
-                        <a class="btn btn-secondary" href="ListarProduto">Voltar</a>
+                        
+                        <input  class="btn btn-secondary" type="button" value="Voltar" onclick="history.go(-1)">
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@
         <header class="header">
             <div class="header-1">
                 <div class="logo">
-                    <img src="imagens/Captura de Tela (11).png" alt="">
+                    <img style="boder-radius: 50px; border: #ccffff; " src="" alt="">
                     <a href="#">Confeitaria</a>
                 </div>
                 <form action="PesquisarProduto" class="search-form">
@@ -78,7 +78,7 @@
 
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="ConsultarFuncionario?codigoFuncionario=<%=funcionarios.getCodigoPessoa()%>">
                                         <span class="icon">
                                             <ion-icon class="fas fa-user"></ion-icon>
                                         </span>
@@ -88,7 +88,7 @@
                             </ul>
                             <ul>
                                 <li>
-                                    <a href="ListarCompra">
+                                    <a href="homeFuncionario.jsp"> <!-- mudar para ListarCompra -->
                                         <span class="icon">
                                             <ion-icon class="fas fa-bars"></ion-icon>
                                         </span>
@@ -96,7 +96,7 @@
                                     </a>
                                 </li>
                             </ul>
-                            
+
                             <a href="Logout" class="login"><h3>logout</h3></a>
                             <%}%>         
 
@@ -109,7 +109,7 @@
         </header>   
 
         <div class="mensagem" style="display: flex; align-items:center; ">
-            <p style="align-items: end;">${mensagem}</p>
+            <p style="font-size: 2rem; text-decoration: none; color: black; margin: 30px; margin-left: 58rem; ">${mensagem}</p>
 
         </div>
 
@@ -148,10 +148,15 @@
                             </div>
                         </div>
 
-                        <div style="margin: 10px">
+                        <div style="margin-top: 4rem">
+                            <% if (funcionarios != null) {%>
                             <a href="AlterarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn-info">mais
                                 info</a>
+                                
+                                <%} else {%>  
+                           
                             <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>"class="btn-comprar">comprar</a>
+                            <%}%>
                         </div>
                     </div>
                     <%
@@ -171,4 +176,12 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
 
-        <jsp:include page="rodape.jsp"/>
+        <footer>
+
+        </footer>
+        <!--maskara do git--> 
+        <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+        <!--script de buscar pessoa-->
+        <script src="${pageContext.request.contextPath}/Scripts/PesquisarPessoa.js"></script> 
+    </body>
+</html>

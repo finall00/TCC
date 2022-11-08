@@ -27,7 +27,7 @@ public class ConsultarFuncionario extends HttpServlet {
 
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
-        }
+        }        
         request.getRequestDispatcher("cadastrarFuncionario.jsp").forward(request, response);
     }
 

@@ -137,7 +137,8 @@
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
                     <button class="btn btn-success" type="submit">Gravar</button>
-                    <a class="btn btn-secondary" href="ListarFuncionario">Voltar</a>
+                    
+                    <input class="btn btn-secondary"  type="button" value="Voltar" onclick="history.go(-1)">
                     <a class="btn btn-danger" href="ExcluirFuncionario?codigoFuncionario=<%= funcionario.getCodigoPessoa()%>">Excluir</a>
                 </div>
             </div>     

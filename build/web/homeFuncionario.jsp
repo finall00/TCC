@@ -12,9 +12,9 @@
        
     </div>
     <div class="card-body text-center">
-        <p> seja bem vindo, <%= funcionario.getNomePessoa()%> mo inutil mostra isso aqui mas é pra teste né </p>
+        <p> seja bem vindo, <%= funcionario.getNomePessoa()%></p>
        <a href="ListarCargo" class="btn btn-primary">Cargos</a>      
-        <a href="ListarProduto" class="btn btn-dark">Produtos</a>
+        <a href="ListarProduto" class="btn btn-dark">Voltar</a>
         <a href="ListarCliente" class="btn btn-info">Clientes</a>
         <a href="ListarFuncionario" class="btn btn-secondary">Funcionarios</a>
         <a href="ListarFornecedor" class="btn btn-danger">Fornecedores</a>

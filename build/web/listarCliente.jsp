@@ -19,7 +19,7 @@
             ${mensagem}
         </div>
         <hr/>
-        <a class="btn btn-success" href="NovoCliente">Novo</a>
+        <a class="btn btn-success" href="cadastrarCliente.jsp">Novo</a>
         <a class="btn btn-secondary" href="homeFuncionario.jsp">Voltar</a>
         <hr/>
         <% List<Cliente> lista = (List<Cliente>) request.getAttribute("cliente"); %>

@@ -40,7 +40,7 @@ public class ClienteDAO implements DAOGenerica {
             stmt.setString(12, cliente.getCidadePessoa());
             stmt.setString(13, cliente.getBairroPessoa());
             stmt.setString(14, cliente.getNumeroCasa());
-
+            
             stmt.setString(15, cliente.getObsCliente());
             stmt.setString(16, cliente.getLoginCliente());
             stmt.setString(17, cliente.getSenhaCliente());
