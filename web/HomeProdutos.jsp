@@ -40,14 +40,18 @@
                 </form>
 
                 <div class="icons">
-                    <a href="ListarItensCarrinho" class="fas fa-shopping-cart"></a>
+                    <a href="ListarItensCarrinho" class="fas fa-shopping-cart"><p id="contagemCarrinho"><%
+                        if (carrinho != null) {%>
+                         <%=carrinho.size()%>
+                       <%}%></p></a>                    
+         
                     <div class="action">
                         <div id="divU" class="profile" onclick="menuToggle();">
                             <a id="login-btn" class="fas fa-user"></a>
                         </div>
                         <div class="menu">
                             <%if (cliente == null && funcionarios == null) {%>
-                            <a href="Login"><h3>Faça Login</h3></a>
+                            <a href="paginaLogin.jsp"><h3>Faça Login</h3></a>
                             <%}%>
 
                             <%if (cliente != null) {%>
@@ -69,6 +73,15 @@
                                         <span>Menu</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="NovoBolo" class="botao">
+                                        <span class="icon">
+                                            <ion-icon class="fas fa-cake"</ion-icon>
+                                        </span>
+                                        <span>Monte seu Bolo</span>
+                                    </a>
+                                </li>
+                                
                             </ul>
                             <a href="Logout"><h3>logout</h3></a>
                             <% }
@@ -152,9 +165,9 @@
                             <% if (funcionarios != null) {%>
                             <a href="AlterarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn-info">mais
                                 info</a>
-                                
-                                <%} else {%>  
-                           
+
+                            <%} else {%>  
+
                             <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>"class="btn-comprar">comprar</a>
                             <%}%>
                         </div>

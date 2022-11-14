@@ -2,10 +2,10 @@
 <%@page import="model.Fornecedor"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
- <%
-   
+<%
+
     Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if ( funcionario != null) {
+    if (funcionario != null) {
 %>
 <jsp:include page="/cabecalho.jsp"/>
 
@@ -26,7 +26,7 @@
                     <input class="form-control" type="text" id="nomePessoa" name="nomePessoa" placeholder="Nome" required value="${fornecedor.nomePessoa}"/>
                 </div>
             </div> 
-                
+
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
                     <label for="dataNascimento">Data de nascimento:</label>
@@ -34,10 +34,10 @@
                 </div>
                 <div class="form-group col-6">
                     <label for="cpfPessoa">CPF:</label>
-                    <input data-mask="000.000.000-00" class="form-control" type="text" id="cpfPessoa" name="cpfPessoa" placeholder="CPF sem pontos e sem traços" required value="${fornecedor.cpfPessoa}"/>
+                    <input class="form-control" type="text" id="cpfPessoa" name="cpfPessoa" placeholder="CPF sem pontos e sem traços" required value="${fornecedor.cpfPessoa}"/>
                 </div>
             </div>
-                
+
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">   
                     <label for="rgPessoa">RG</label>
@@ -48,8 +48,8 @@
                     <input  data-mask="(00) 00000-0000" class="form-control" type="text" id="telefonePessoa" name="telefonePessoa" placeholder="(**) *****-****" required value="${fornecedor.telefonePessoa}"/>
                 </div>
             </div>
-                
-                
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
                     <label for="celularPessoa">celular</label>
@@ -60,8 +60,8 @@
                     <input class="form-control" type="text" id="emailPessoa" name="emailPessoa" placeholder="email@email.com" required value="${fornecedor.emailPessoa}" />
                 </div>
             </div>
-                
-                
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
                     <label for="enderecoPessoa">Endereco</label>
@@ -70,23 +70,26 @@
                 <div class="form-group col-6">
                     <label for="estadoPessoa">Estado</label>
                     <input class="form-control" type="text" id="estadoPessoa" name="estadoPessoa" required value="${fornecedor.estadoPessoa}" />
-
+                </div>
+                <div class="form-group col-6">
+                    <label for="numeroCasa">Numero</label>
+                    <input class="form-control"  type="text" id="numeroCasa" name="numeroCasa" required value="${fornecedor.numeroCasa}" />
                 </div>
             </div>
-                    
-                    
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
                     <label for="cepPessoa">Cep</label>
-                    <input class="form-control" type="text" id="cepPessoa" name="cepPessoa" required value="${fornecedor.cepPessoa}" />
+                    <input class="form-control" data-mask="00000-000" type="text" id="cepPessoa" name="cepPessoa" required value="${fornecedor.cepPessoa}" />
                 </div>
                 <div class="form-group col-6">
                     <label for="cidadePessoa">Cidade</label>
                     <input class="form-control" type="text" id="cidadePessoa" name="cidadePessoa" required value="${fornecedor.cidadePessoa}" />
                 </div>
             </div>
-                
-                
+
+
             <div class="row w-75 mx-auto">                  
                 <div class="form-group col-6">
                     <label for="bairroPessoa">Bairro</label>
@@ -97,22 +100,22 @@
                     <input class="form-control" type="text" id="obsFornecedor" name="obsFornecedor" required value="${fornecedor.obsFornecedor}" />
                 </div>
             </div> 
-                
-                
-          
+
+
+            <div>
                 <div class="form-group col-6">
                     <label for="razaoSocial">Razão social</label>
                     <input  class="form-control"  id="razaoSocial" name="razaoSocial" required value="${fornecedor.razaoSocial}" />
                 </div>
             </div> 
-                <div class="row w-75 mx-auto">   
-                 <div class="form-group col-6">
+            <div class="row w-75 mx-auto">   
+                <div class="form-group col-6">
                     <label for="contatoVendedor">Contato Vendedor</label>
                     <input  class="form-control"  id="contatoVendedor" name="contatoVendedor" required value="${fornecedor.contatoVendedor}" />
                 </div>
-                </div>
-                
-                
+            </div>
+
+
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
                     <button class="btn btn-success" type="submit">Gravar</button>
@@ -122,6 +125,90 @@
         </form>
     </div>
 </div>
+
+<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        function limpa_formulário_cep() {
+            $("#enderecoPessoa").val("");
+            $("#bairroPessoa").val("");
+            $("#cidadePessoa").val("");
+            $("#estadoPessoa").val("");
+
+        }
+
+        $("#cepPessoa").blur(function () {
+
+
+            var cep = $(this).val().replace(/\D/g, '');
+
+            if (cep !== "") {
+
+                var validacep = /^[0-9]{8}$/;
+
+
+                if (validacep.test(cep)) {
+
+                    $("#enderecoPessoa").val("");
+                    $("#bairroPessoa").val("...");
+                    $("#cidadePessoa").val("...");
+                    $("#estadoPessoa").val("...");
+
+                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                        if (!("erro" in dados)) {
+                            //Atualiza os campos com os valores da consulta.
+                            $("#enderecoPessoa").val(dados.logradouro);
+                            $("#bairroPessoa").val(dados.bairro);
+                            $("#cidadePessoa").val(dados.localidade);
+                            $("#estadoPessoa").val(dados.uf);
+
+                            $("#enderecoPessoa").removeAttr("disabled");
+                            $("#bairroPessoa").removeAttr("disabled");
+
+
+                        } else {
+
+                            limpa_formulário_cep();
+                            swal({
+                                title: "Dados invalidos!",
+                                text: "CEP não encontrado!!",
+                                icon: "error",
+                                button: "Ok"
+                            });
+                        }
+                    });
+                } else {
+
+                    limpa_formulário_cep();
+                    swal({
+                        title: "Dados invalidos!",
+                        text: "Formato do CEP invalido!!",
+                        icon: "error",
+                        button: "Voltar"
+                    });
+                }
+            } else {
+
+                limpa_formulário_cep();
+            }
+        });
+    });
+
+
+    var options = {
+        onKeyPress: function (cpf, a, b, op) {
+            var masks = ['000.000.000-000', '00.000.000/0000-00'];
+            $('#cpfPessoa').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+        }
+    };
+
+    $('#cpfPessoa').length > 11 ? $('#cpfPessoa').mask('00.000.000/0000-00', options) : $('#cpfPessoa').mask('000.000.000-00#', options);
+
+</script>              
+
 <jsp:include page="/rodape.jsp"/>
 <%
     } else {

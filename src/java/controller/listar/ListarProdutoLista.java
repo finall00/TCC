@@ -40,7 +40,7 @@ public class ListarProdutoLista extends HttpServlet {
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-        request.getRequestDispatcher("listarProdutoAntico.jsp").forward(request, response);
+        request.getRequestDispatcher("listaProdutos.jsp").forward(request, response);
 
     }
 

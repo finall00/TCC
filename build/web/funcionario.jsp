@@ -43,9 +43,9 @@
                     <div class="actions">
                         <div class="i">
                             <div class="action-icon">                                
-                                    <button id="openF">
+                                <a href="NovoFuncionario">
                                         <i class='bx bxs-user-plus' ></i>
-                                    </button>
+                                </a>
                                
 
                             </div>
@@ -67,9 +67,9 @@
                     <div class="actions">
                         <div class="i">
                             <div class="action-icon">
-                                <button id="opencar">
+                                <a href="NovoCargo">
                                     <i class='bx bx-id-card' ></i>
-                                </button>
+                                </a>
                             </div>
                             <div class="tittle">
                                 <p>Cadastrar cargo</p>
@@ -78,160 +78,7 @@
                     </div>
                 </div>
 
-                <% List<Cargo> lista = (List<Cargo>) request.getAttribute("cargo");%>
-                <%if (lista != null) {%>
-                <div class="modal-container" id="modalCc">
-                    <div class="modal">
-                        <div class="modal-header">
-                            <h2>Cadastrar Funcionario</h2>
-
-                            <button id="closee">
-                                <i class='bx bx-x'></i>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form">
-                                <form action="CadastrarFuncionario">
-                                    <div class="input-group">
-                                        <div class="input-box">
-                                            <label for="nome">Nome</label>
-                                            <input type="text" name="nomePessoa" id="nomePessoa" placeholder="Nome funcionario" required>
-                                        </div>
-                                        
-                                        <div hidden="">                                          
-                                            <input type="text" name="codigoPessoa" id="codigoPessoa" readonly="">
-                                        </div>
-
-                                        <div class="input-box">
-                                            <label for="codigoCargo">Cargo:</label>
-                                            <%
-
-                                                Funcionario func = (Funcionario) request.getAttribute("funcionario");
-                                            %>
-                                            <select id="codigoCargo" 
-                                                    name="codigoCargo" class="form-control" required>
-                                                <option value="">Selecione...</option>
-                                                <%
-                                                    for (Cargo cargo : lista) {
-                                                %>
-                                                <option value="<%= cargo.getCodigoCargo()%>" <%= func.getCargo().getCodigoCargo() == cargo.getCodigoCargo() ? "selected" : ""%> ><%= cargo.getNomeCargo()%></option>
-                                                <%
-                                                    }
-                                                %>
-                                            </select>
-                                        </div>
-
-                                        <div class="input-box">
-                                            <label for="dataNasc">Data de nascimento</label>
-                                            <input type="date" name="dataNascimento" id="dataNascimento" placeholder="data" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="cpf">CPF</label>
-                                            <input type="number" name="cpfPessoa" id="cpfPessoa" placeholder="CPF sem pontos e traços" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="rg">RG</label>
-                                            <input type="number" name="rgPessoa" id="rgPessoa" placeholder="Rg sem pontos e traços" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="telefone">Telefone</label>
-                                            <input type="text" data-mask="(00) 00000-0000" name="telefonePessoa" id="telefonePessoa" placeholder="(**) *****-****" >
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="celular">Celular</label>
-                                            <input type="text" data-mask="(00) 00000-0000" name="celularPessoa" id="celularPessoa" placeholder="(**) *****-****" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="email">Email</label>
-                                            <input type="text" name="emailPessoa" id="emailPessoa" placeholder="email@email.com" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="endereco">Endereco</label>
-                                            <input type="text" name="enderecoPessoa" id="enderecoPessoa" placeholder="Insira seu endereço" required>
-                                        </div>
-                                            <div class="input-box">
-                                            <label for="numeroCasa">Numero Casa</label>
-                                            <input type="text" name="numeroCasa" id="numeroCasa" placeholder="Numero" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="estado">Estado</label>
-                                            <input type="text" name="estadoPessoa" id="estadoPessoa" placeholder="" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="cep">CEP</label>
-                                            <input type="text" name="cepPessoa" id="cepPessoa" placeholder="Silga do estado" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="cidade">Cidade</label>
-                                            <input type="text" name="cidadePessoa" id="cidadePessoa" placeholder="Insira sua cidade" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="bairro">Bairro</label>
-                                            <input type="text" name="bairroPessoa" id="bairroPessoa" placeholder="Nome do bairro" required>
-                                        </div>
-                                            
-                                        <div class="input-box">
-                                            <label for="sobre">Sobre</label>
-                                            <input type="text" name="obsFuncionario" id="obsFuncionario" placeholder="" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="login">Login</label>
-                                            <input type="text" name="loginFuncionario" id="loginFuncionario" placeholder="Insira seu login" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="senha">Senha</label>
-                                            <input type="text" name="senhaFuncionario" id="senhaFuncionario" placeholder="Insira sua senha" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="modalBtn">
-                                            <button type="submit">Cadastrar</button>
-                                            <button type="button" id="cancel">Cancelar</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <% } %>
-
-                <div class="modal-containerc" id="modalcargo">
-                    <div class="modalcargo">
-                        <div class="modal-header">
-                            <h2>Cadastrar Cargo</h2>
-                            <button id="closec">                            
-                                <i class='bx bx-x'></i>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form">
-                                <form action="cadastrarCargo" method="post">
-                                    <div class="input-group">
-                                        
-                                        <div class="input-box">
-                                            <label for="nome">Nome Cargo</label>
-                                            <input type="text" name="nomeCargo" id="nomeCargo" placeholder="Nome" required>
-                                            <input hidden="" type="text" name="codigoCargo" id="codigoCargo" placeholder="Nome" required>
-                                        </div>
-                                        <div class="input-box">
-                                            <label for="funcao">Função</label>
-                                            <input type="text" name="descCargo" id="descCargo" placeholder="descrição do cargo" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="modalBtn">
-                                            <button type="submit">Cadastrar</button>
-                                            <button type="button" id="cancel">Cancelar</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                
 
             </main>
 

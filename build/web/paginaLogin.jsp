@@ -68,7 +68,7 @@
                                         <input type="submit" name="submit" value="Entrar">
                                     </div>
 
-                                    <div class="field">
+                                    <div class="field"> 
                                         <span class="erro">${mensagem}</span>
                                     </div>
 

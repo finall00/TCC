@@ -3,6 +3,7 @@ package controller.venda;
 import dao.ItensVendaDAO;
 import dao.PedidoVendaDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -26,15 +27,6 @@ import model.Produto;
 @WebServlet(name = "FinalizarVenda", urlPatterns = {"/FinalizarVenda"})
 public class FinalizarVenda extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,75 +36,67 @@ public class FinalizarVenda extends HttpServlet {
 
         HttpSession sessao = request.getSession(true);
         Cliente cliente = (Cliente) sessao.getAttribute("cliente");
-        
+
         Integer codigo = cliente.getCodigoPessoa();
 
         List<ItensVenda> a = (List<ItensVenda>) sessao.getAttribute("itensProduto");
-        Carrinho car = new Carrinho(a);
-        car.getCodigoItem();
-        car.getQtnItens();
+        if (a.size() > 0) {
+            Carrinho car = new Carrinho(a);
+            car.getCodigoItem();
+            car.getQtnItens();
 
-        
-        String[] produtos = request.getParameterValues("codigoProduto");
+            String[] produtos = request.getParameterValues("codigoProduto");
 
-        String[] vlrVenda = request.getParameterValues("vlrVenda");
+            String[] vlrVenda = request.getParameterValues("vlrVenda");
 
-        String[] qtdProdutos = request.getParameterValues("qtdProduto");
-        String obsVenda = "";
-        String mensagem = null;
+            String[] qtdProdutos = request.getParameterValues("qtdProduto");
+            String obsVenda = "AGUARDANDO";
 
-        Date date = new Date();
-        pessoa.setCodigoPessoa(codigo);
+            Date date = new Date();
+            pessoa.setCodigoPessoa(codigo);
 
-        //coloca os dados na model de pedido
-        pedidoVenda.setPessoa(pessoa);
-        pedidoVenda.setDataVenda(date);
-        pedidoVenda.setObsVenda(obsVenda);
-        pedidoVenda.setVlrTotalVenda(car.getSubTotal());
+            //coloca os dados na model de pedido
+            pedidoVenda.setPessoa(pessoa);
+            pedidoVenda.setDataVenda(date);
+            pedidoVenda.setObsVenda(obsVenda);
+            pedidoVenda.setVlrTotalVenda(car.getSubTotal());
 
-        if (produtos != null && qtdProdutos != null) {
-            try {
+            if (produtos != null && qtdProdutos != null) {
+                try {
 
-                ItensVenda itensVenda = new ItensVenda();
-                PedidoVendaDAO PedidoDao = new PedidoVendaDAO();
+                    ItensVenda itensVenda = new ItensVenda();
+                    PedidoVendaDAO PedidoDao = new PedidoVendaDAO();
 
-                //cadastra o pedido e retorna o codigo da venda
-                Integer codigoVenda = PedidoDao.cadastrar(pedidoVenda);
-                pedidoVenda.setCodigoPedido(codigoVenda);
+                    //cadastra o pedido e retorna o codigo da venda
+                    Integer codigoVenda = PedidoDao.cadastrar(pedidoVenda);
+                    pedidoVenda.setCodigoPedido(codigoVenda);
 
-                if (codigoVenda > 0) {
-                    for (int i = 0; i < produtos.length; i++) {
+                    if (codigoVenda > 0) {
+                        for (int i = 0; i < produtos.length; i++) {
 
-                        Produto produto = new Produto();
-                        produto.setCodigoProduto(Integer.parseInt(produtos[i]));
+                            Produto produto = new Produto();
+                            produto.setCodigoProduto(Integer.parseInt(produtos[i]));
 
-                        itensVenda.setPedidoVenda(pedidoVenda);
-                        itensVenda.setProduto(produto);
-                        itensVenda.setQtdProduto(Double.parseDouble(qtdProdutos[i]));
-                        itensVenda.setVlrProduto(Double.parseDouble(vlrVenda[i]));
+                            itensVenda.setPedidoVenda(pedidoVenda);
+                            itensVenda.setProduto(produto);
+                            itensVenda.setQtdProduto(Double.parseDouble(qtdProdutos[i]));
+                            itensVenda.setVlrProduto(Double.parseDouble(vlrVenda[i]));
 
-                        car.getItens().remove(i);
+                            car.getItens().remove(i);
+                        }
+
+                        ItensVendaDAO ItensVendaDAO = new ItensVendaDAO();
+                        ItensVendaDAO.cadastrar(itensVenda);
                     }
 
-                    ItensVendaDAO ItensVendaDAO = new ItensVendaDAO();
-                    if (ItensVendaDAO.cadastrar(itensVenda)) {
-                       
-                        mensagem = "Compra realizado com sucesso!";
+                    request.setAttribute("mensagem", "Gravado com sucesso!");
 
-                    } else {
-                        mensagem = "Problemas ao realizar compra!";
-                    }
-                } else {
-                    mensagem = "Problemas ao realizar cadastro!";
+                } catch (SQLException | ClassNotFoundException ex) {
+                    request.setAttribute("mesagem", ex.getMessage());
                 }
-
-                request.setAttribute("mensagem", mensagem);
-               
-
-            } catch (Exception ex) {
-                System.out.println("Erro ao adicionar Itens no Carrinho!");
-                ex.printStackTrace();
             }
+        } else if (a.size() == 0){
+            request.setAttribute("mensagem", "Seu Carrinho esta vazil");
         }
         request.getRequestDispatcher("ListarCompra").forward(request, response);
     }

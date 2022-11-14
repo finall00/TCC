@@ -12,25 +12,28 @@ import model.Cargo;
 
 @WebServlet(name = "CadastrarCargo", urlPatterns = {"/CadastrarCargo"})
 public class CadastrarCargo extends HttpServlet {
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        
 
         try {
+           
+            
             int codigoCargo = request.getParameter("codigoCargo").isEmpty() ? 0 : Integer.parseInt(request.getParameter("codigoCargo"));
-            
+
             String nomeCargo = request.getParameter("nomeCargo");
-            
+
             String descCargo = request.getParameter("descCargo");
-            
+
             Cargo cargo = new Cargo(codigoCargo, nomeCargo, descCargo);
-            
+
             CargoDAO cargoDAO = new CargoDAO();
-            
+
             cargoDAO.cadastrar(cargo);
-            
+
             request.setAttribute("mensagem", "Gravado com sucesso!");
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mesagem", ex.getMessage());

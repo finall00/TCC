@@ -1,6 +1,5 @@
 package dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +22,7 @@ public class FornecedorDAO implements DAOGenerica {
     @Override
     public void cadastrar(Object objeto) throws SQLException {
         Fornecedor fornecedor = (Fornecedor) objeto;
-        String sql = "call cadastrarFornecedor(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "call cadastrarFornecedor(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = null;
         try {
             stmt = conexao.prepareStatement(sql);
@@ -40,12 +39,13 @@ public class FornecedorDAO implements DAOGenerica {
             stmt.setString(11, fornecedor.getCepPessoa());
             stmt.setString(12, fornecedor.getCidadePessoa());
             stmt.setString(13, fornecedor.getBairroPessoa());
-            stmt.setString(14, fornecedor.getRazaoSocial());
-            stmt.setString(15, fornecedor.getContatoVendedor());         
-            stmt.setString(16, fornecedor.getObsFornecedor());
-            stmt.executeQuery();
+            stmt.setString(14, fornecedor.getNumeroCasa());
+            stmt.setString(15, fornecedor.getRazaoSocial());
+            stmt.setString(16, fornecedor.getContatoVendedor());
+            stmt.setString(17, fornecedor.getObsFornecedor());
+            stmt.execute();
 
-        } catch (SQLException | ParseException ex) {
+        } catch (SQLException |ParseException ex) {
             throw new SQLException("Erro ao gravar Fornecedor");
         } finally {
             Conexao.encerrarConexao(conexao, stmt);
@@ -63,7 +63,7 @@ public class FornecedorDAO implements DAOGenerica {
             stmt.setInt(1, codigo);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                fornecedor = new Fornecedor(rs.getString("razaoSocial"), rs.getString("contatoVendedor"), rs.getString("obsFornecedor"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
+                fornecedor = new Fornecedor(rs.getString("razaoSocial"), rs.getString("contatoVendedor"), rs.getString("obsFornecedor"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("numeroCasa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
 
             }
         } catch (SQLException ex) {
@@ -85,7 +85,7 @@ public class FornecedorDAO implements DAOGenerica {
             stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                Fornecedor fornecedor = new Fornecedor(rs.getString("razaoSocial"), rs.getString("contatoVendedor"),  rs.getString("obsFornecedor"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
+                Fornecedor fornecedor = new Fornecedor(rs.getString("razaoSocial"), rs.getString("contatoVendedor"), rs.getString("obsFornecedor"), rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), rs.getString("dataNascimento"), rs.getString("cpfPessoa"), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("enderecoPessoa"), rs.getString("estadoPessoa"), rs.getString("numeroCasa"), rs.getString("cepPessoa"), rs.getString("cidadePessoa"), rs.getString("bairroPessoa"));
                 lista.add(fornecedor);
             }
         } catch (SQLException ex) {

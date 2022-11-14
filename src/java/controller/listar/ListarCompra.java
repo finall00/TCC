@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Cliente;
-import model.Funcionario;
 
 /**
  *
@@ -40,15 +38,17 @@ public class ListarCompra extends HttpServlet {
            HttpSession sessao = request.getSession(true);    
             
            me = (String) request.getAttribute("mensagem");
+           
             PedidoVendaDAO pedidoVenda = new PedidoVendaDAO();        
             request.setAttribute("compra", pedidoVenda.listar());
             
+             request.setAttribute("mensagem", me ); 
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-        request.setAttribute("mensagem", me );
-           
-     request.getRequestDispatcher("dashboard.jsp").include(request, response);
+        
+               
+     request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

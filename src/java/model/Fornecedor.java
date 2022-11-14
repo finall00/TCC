@@ -8,12 +8,16 @@ public class Fornecedor extends Pessoa {
     private String contatoVendedor;    
     private String obsFornecedor;
 
-    public Fornecedor(String razaoSocial, String contatoVendedor, String obsFornecedor, int codigoPessoa, String nomePessoa, String dataNascimento, String cpfPessoa, String rgPessoa, String telefonePessoa, String celularPessoa, String emailPessoa, String enderecoPessoa, String estadoPessoa, String cepPessoa, String cidadePessoa, String bairroPessoa) {
-       super(codigoPessoa, nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa, celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, nomePessoa, cepPessoa, cidadePessoa, bairroPessoa);
+    public Fornecedor(String razaoSocial, String contatoVendedor, String obsFornecedor, int codigoPessoa, String nomePessoa, String dataNascimento, String cpfPessoa, String rgPessoa, String telefonePessoa, String celularPessoa, String emailPessoa, String enderecoPessoa, String estadoPessoa, String numeroCasa, String cepPessoa, String cidadePessoa, String bairroPessoa) {
+        super(codigoPessoa, nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa, celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, numeroCasa, cepPessoa, cidadePessoa, bairroPessoa);
         this.razaoSocial = razaoSocial;
-        this.contatoVendedor = contatoVendedor;        
+        this.contatoVendedor = contatoVendedor;
         this.obsFornecedor = obsFornecedor;
     }
+
+ 
+
+    
 
     public Fornecedor() {
         super(0, "", "", "", "", "", "", "", "", "", "", "","", "");

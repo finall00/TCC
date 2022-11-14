@@ -17,7 +17,8 @@ public class CadastrarFornecedor extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        request.setCharacterEncoding("UTF-8");
+        
         try {
             int codigoPessoa = request.getParameter("codigoPessoa").isEmpty()
                     ? 0 : Integer.parseInt(request.getParameter("codigoPessoa"));
@@ -58,7 +59,7 @@ public class CadastrarFornecedor extends HttpServlet {
 
             
 
-            Fornecedor fornecedor = new Fornecedor(razaoSocial, contatoVendedor, obsFornecedor, codigoPessoa, nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa, celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, cepPessoa, cidadePessoa, bairroPessoa);
+            Fornecedor fornecedor = new Fornecedor(razaoSocial, contatoVendedor, obsFornecedor, codigoPessoa, nomePessoa, dataNascimento, cpfPessoa, rgPessoa, telefonePessoa, celularPessoa, emailPessoa, enderecoPessoa, estadoPessoa, numeroCasa, cepPessoa, cidadePessoa, bairroPessoa);
 
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
             fornecedorDAO.cadastrar(fornecedor);

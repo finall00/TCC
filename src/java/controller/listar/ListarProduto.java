@@ -22,7 +22,7 @@ public class ListarProduto extends HttpServlet {
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-        request.getRequestDispatcher("listarProduto.jsp").forward(request, response);
+        request.getRequestDispatcher("HomeProdutos.jsp").forward(request, response);
     }
 
    

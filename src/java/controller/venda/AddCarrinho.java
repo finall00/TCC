@@ -77,10 +77,6 @@ public class AddCarrinho extends HttpServlet {
 
                 listaAtual = carrinho.getItens();
 
-//                System.out.println("numero de itens " + carrinho.getNumeroDeItens());
-//                System.out.println("total  " + carrinho.getSubTotal());
-//                System.out.println("Quantidade de Itens: " + listaAtual.size());
-
                 sessao.setAttribute("itensProduto", listaAtual);
             } else {
                 request.setAttribute("mensagem", "Você não esta logado ");

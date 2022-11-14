@@ -17,35 +17,18 @@
     <div class="card-body">
         <form action="CadastrarFuncionario" method="post">
             <div class="row w-75 mx-auto">
-                <div  class="form-group col-6">
-                    <label for="codigoPessoa">Código:</label>
-                    <input class="form-control" type="text" id="codigoPessoa" name="codigoPessoa" readonly value="${funcionario.codigoPessoa > 0 ? funcionario.codigoPessoa : ""}"/>
-                </div>
+               
+            <input class="form-control" type="text" id="codigoPessoa" name="codigoPessoa" readonly value="${funcionario.codigoPessoa}"/>
+                
                 <div class="form-group col-6">
                     <label for="nomePessoa">Nome:</label>
                     <input class="form-control" type="text" id="nomePessoa" name="nomePessoa" placeholder="Nome" required value="${funcionario.nomePessoa}"/>
+                    
+                    <label for="nomePessoa">Nome:</label>
+                    <input class="form-control" type="text" id="nomePessoa" name="nomePessoa" placeholder="Nome" required value="${funcionario.nomePessoa}"/>       
                 </div>
             </div> 
-            <div class="row w-75 mx-auto">  
-                <div class="form-group col-6">
-                    <label for="codigoCargo">Cargo:</label>
-                    <%
-                        List<Cargo> lista = (List<Cargo>) request.getAttribute("cargo");
-                        Funcionario funcionario = (Funcionario) request.getAttribute("funcionario");
-                    %>
-                    <select id="codigoCargo" 
-                            name="codigoCargo" class="form-control" required>
-                        <option value="">Selecione...</option>
-                        <%
-                            for (Cargo cargo : lista) {
-                        %>
-                        <option value="<%= cargo.getCodigoCargo()%>" <%= funcionario.getCargo().getCodigoCargo() == cargo.getCodigoCargo() ? "selected" : ""%> ><%= cargo.getNomeCargo()%></option>
-                        <%
-                            }
-                        %>
-                    </select>
-                </div>
-            </div>
+
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
                     <label for="dataNascimento">Data de nascimento:</label>
@@ -136,7 +119,7 @@
 
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
-                    <button class="btn btn-success" type="submit">Gravar</button>
+                    <button class="btn btn-success" type="submit">Alterar</button>
                     
                     <input class="btn btn-secondary"  type="button" value="Voltar" onclick="history.go(-1)">
                     <a class="btn btn-danger" href="ExcluirFuncionario?codigoFuncionario=<%= funcionario.getCodigoPessoa()%>">Excluir</a>

@@ -1,3 +1,5 @@
+
+
 main .pedidos-recentes{
     display: grid;
     grid-template-columns:repeat(3, 1fr);
@@ -44,6 +46,13 @@ main .pedidos-recentes > div .middle{
 main .pedidos-recentes h3{
     font-size: 1rem;
     margin: 1rem 0 0 .6rem;
+}
+
+div .rightt{
+    background-color: red;
+}
+div .card{
+    background: red;
 }
 
 main .pedidos-recentes .product-photo{

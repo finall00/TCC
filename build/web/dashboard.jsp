@@ -25,7 +25,6 @@
     </head>
     <body>   
         <div class="card">
-
             <a href="homeFuncionario.jsp" class="goWebpage">
                 <i class='bx bxs-store-alt'></i>
             </a>
@@ -41,7 +40,7 @@
 
                     <div class="pedidos-recentes">
                         <%
-                            if (lista != null) {
+                            if (lista.equals(null)) {
 
                                 for (PedidoVenda compra : lista) {
                         %>
@@ -76,8 +75,6 @@
                             }%>
 
                     </div>   
-
-
                 </main>
 
 
@@ -90,7 +87,7 @@
     </body> 
     <%
         } else {
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "ListarProduto");
         }
     %>
 </html>

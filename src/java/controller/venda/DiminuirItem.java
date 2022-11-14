@@ -5,7 +5,6 @@
 package controller.venda;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -51,9 +50,7 @@ public class DiminuirItem extends HttpServlet {
                         request.setAttribute("mensagem", "Você n pode diminuir mais");
                     }
                 }
-
             }
-
             sessao.setAttribute("itensProduto", lista);
         } catch (Exception ex) {
             request.setAttribute("mensagem", "Erro ao adicionar item no carrinho " + ex.getMessage());

@@ -2,24 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.venda;
+package controller.Cadastrar;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
+import java.io.InputStream;
+import java.io.OutputStream;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.ItensVenda;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author smili08
  */
-@WebServlet(name = "AumentarItem", urlPatterns = {"/AumentarItem"})
-public class AumentarItem extends HttpServlet {
+@MultipartConfig
+@WebServlet(name = "CadastrarImg", urlPatterns = {"/CadastrarImg"})
+public class CadastrarImg extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,49 +37,42 @@ public class AumentarItem extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//        try {
-//            HttpSession sessao = request.getSession(true);
-//            
-//            Carrinho carrinho = new Carrinho();
-//            String limpar = (String) request.getAttribute("limpar");
-//            
-//            
-//          if(limpar.equals("true")){
-//             carrinho.clear();
-//            }
-//        } catch (Exception e) {
-//            request.setAttribute("mensagem", e.getMessage());
-//        }
-
+        request.setCharacterEncoding("UTF-8");
         try {
+            String caminho = "C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web" + "/imagens" + "/";
 
-            HttpSession sessao = request.getSession(true);
+            Part filePart = request.getPart("file");
+            String filename = filePart.getSubmittedFileName();
 
-            int codigoP = Integer.parseInt(request.getParameter("codigoProduto"));
+            //Cadastro
+            OutputStream os = null;
+            InputStream is = null;
 
-            List<ItensVenda> lista = (List<ItensVenda>) sessao.getAttribute("itensProduto");
+            File diretorio = new File(caminho);
+            if (!diretorio.exists()) {
+                diretorio.mkdir();
+            }
 
-            ItensVenda i = new ItensVenda();
-            boolean a = false;
-            for (ItensVenda venda : lista) {
-                if (venda.getProduto().getCodigoProduto() == codigoP) {
+            File filePath = new File(caminho, filename);
 
-                    a = venda.aumentarQuant();
-                    break;
+            if (!filePart.getSubmittedFileName().endsWith(".png") && !filePart.getSubmittedFileName().endsWith(".jpg")) {
+                request.setAttribute("erro", "Seu arquivo não foi aceito");
+            } else {
+
+                if (!filePath.exists()) {
+
+                    os = new FileOutputStream(filePath);
+                    is = filePart.getInputStream();
+
+                    int read = 0;
+                    while ((read = is.read()) != -1) {
+                        os.write(read);
+                    }
                 }
             }
-            if (a == false) {
-                request.setAttribute("mensagem", "N tem essa quantidade no estoque");
-            }
-
-            sessao.setAttribute("itensProduto", lista);
-        } catch (Exception ex) {
-            request.setAttribute("mensagem", "Erro ao adicionar item no carrinho " + ex.getMessage());
-
+        } catch (Exception e) {
+            request.setAttribute("mensagem", e);
         }
-
-        request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -105,6 +102,7 @@ public class AumentarItem extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**

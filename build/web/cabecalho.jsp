@@ -13,5 +13,5 @@
     </head>
     <body>
         <header class="container-fluid bg-light text-center py-3">            
-            <h1>Confeitaria</h1>
+            <h1></h1>
         </header>

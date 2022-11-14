@@ -17,7 +17,7 @@
         <nav>
             <a href="ListarCompra">
                 <i class="bx bxs-dashboard"></i>
-                <h3>Painel de Controle</h3>
+                <h3>Pedidos e Encomendas</h3>
             </a>
             <a href="produtos.jsp">
                 <i class="bx bxs-package"></i>

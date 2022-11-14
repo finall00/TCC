@@ -16,7 +16,9 @@
         <a class="btn btn-dark" href="NovoProduto">Novo</a>
         <a class="btn btn-success" href="index.jsp">Voltar</a>
         <hr/>
+        
         <% List<Produto> lista = (List<Produto>) request.getAttribute("produto");%>
+        
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -42,8 +44,8 @@
                     <td><%= produto.getNomeProduto()%></td>
                     <td><%= produto.getDataValidade()%></td>
                     <td><%= produto.getEstoqueProduto()%> - Unidades</td>
-                    <td>R$ <%= produto.getVlrCusto()%></td>
-                    <td>R$ <%= produto.getVlrVenda()%></td>
+                    <td>R$ <%=produto.getVlrCusto()%></td>
+                    <td>R$ <%=produto.getVlrVenda()%></td>
                     <td><%= produto.getCodigoBarra()%></td>
                     <td><%= produto.getDescricaoProduto()%></td>
                     <td><a class="btn btn-info" href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>">Alterar</a></td>
@@ -53,7 +55,6 @@
                     }
                 %>
             </tbody>
-
         </table>
     </div>
 

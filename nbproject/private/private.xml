@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/SideBarR.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Pesquisar/PesquisarPessoa.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/cadastrarFornecedor.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Cadastrar/CadastrarFornecedor.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/montarBolo.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/HomeProdutos.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/listarFornecedor.jsp</file>
+        </group>
     </open-files>
 </project-private>

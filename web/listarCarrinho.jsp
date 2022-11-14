@@ -56,7 +56,7 @@
             <%
             } else {
                 Carrinho car = new Carrinho(lista);
-                for (ItensVenda venda : lista) {
+             for (ItensVenda venda : lista) {
             %>
 
             <tr>                
@@ -67,7 +67,8 @@
 
                 <td><a class="btn btn-secondary" href="DiminuirItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">-</a></td>
 
-                <td><input name="qtdProduto"readonly="" value="<%=venda.getQtdProduto()%>"/></td>  
+                <td><input id="qtdProd" name="qtdProduto"readonly="" value="<%=venda.getQtdProduto()%>"/></td>  
+
 
                 <td><a class="btn btn-info" href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">+</a></td>   
 
@@ -83,17 +84,14 @@
             </tr> 
             <td>
                 <input type="hidden" name="" value="<%= car.getItens()%>" class="form-input">
-
             </td>
-            <% }%>
-            </form>
+            <% }%>        
             <td><a class="btn btn-info" href="LimparCarrinho">Limpar</a></td>                                              
             <td></td>                                              
             </tbody>         
         </table>
     </div>
 </div>
-
 
 <jsp:include page="/rodape.jsp"/>
 <%
