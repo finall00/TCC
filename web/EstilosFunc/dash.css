@@ -33,8 +33,9 @@ main .pedidos-recentes > div .tittle span{
 }
 
 main .pedidos-recentes > div .tittle p {
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-dark);
 }
 
 main .pedidos-recentes > div .middle{
@@ -48,9 +49,7 @@ main .pedidos-recentes h3{
     margin: 1rem 0 0 .6rem;
 }
 
-div .rightt{
-    background-color: red;
-}
+
 div .card{
     background: red;
 }

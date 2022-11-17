@@ -124,7 +124,7 @@ create or replace function cadastrarPessoa(codigo_Pessoa int, nome_Pessoa varcha
         retornoPessoa int := 0;
     begin
         if codigo_Pessoa > 0 then
-            update pessoa set  codigoPessoa  = codigo_Pessoa, nomePessoa = nome_Pessoa, dataNascimento = data_Nascimento, cpfPessoa = cpf_Pessoa, rgPessoa = rg_Pessoa, telefonePessoa = telefone_Pessoa, celularPessoa = celular_Pessoa, emailPessoa = email_Pessoa, enderecoPessoa = endereco_Pessoa, estadoPessoa = estado_Pessoa, cepPessoa = cep_Pessoa, cidadePessoa = cidade_Pessoa, bairroPessoa = bairro_Pessoa, numeroCasa = numero_Casa where codigoPessoa = codigo_Pessoa returning codigoPessoa into retornoPessoa;
+            update pessoa set  codigoPessoa = codigo_Pessoa, nomePessoa = nome_Pessoa, dataNascimento = data_Nascimento, cpfPessoa = cpf_Pessoa, rgPessoa = rg_Pessoa, telefonePessoa = telefone_Pessoa, celularPessoa = celular_Pessoa, emailPessoa = email_Pessoa, enderecoPessoa = endereco_Pessoa, estadoPessoa = estado_Pessoa, cepPessoa = cep_Pessoa, cidadePessoa = cidade_Pessoa, bairroPessoa = bairro_Pessoa, numeroCasa = numero_Casa where codigoPessoa = codigo_Pessoa returning codigoPessoa into retornoPessoa;
         else
             insert into pessoa values(default, nome_Pessoa, data_Nascimento,  cpf_Pessoa, rg_Pessoa, telefone_Pessoa, celular_Pessoa, email_Pessoa, endereco_Pessoa, estado_Pessoa, cep_Pessoa, cidade_Pessoa, bairro_Pessoa, numero_Casa) returning codigoPessoa into retornoPessoa;
         end if;

@@ -51,7 +51,7 @@ public class AumentarItem extends HttpServlet {
 
             HttpSession sessao = request.getSession(true);
 
-            int codigoP = Integer.parseInt(request.getParameter("codigoProduto"));
+            int codigoP = Integer.parseInt(request.getParameter("codigoP"));
 
             List<ItensVenda> lista = (List<ItensVenda>) sessao.getAttribute("itensProduto");
 
@@ -65,7 +65,7 @@ public class AumentarItem extends HttpServlet {
                 }
             }
             if (a == false) {
-                request.setAttribute("mensagem", "N tem essa quantidade no estoque");
+                request.setAttribute("mensagem", "Não tem essa quantidade no estoque");
             }
 
             sessao.setAttribute("itensProduto", lista);

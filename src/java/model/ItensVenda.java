@@ -79,8 +79,7 @@ public class ItensVenda {
         if (produto.getEstoqueProduto() > qtdProduto) {
             qtdProduto++;
             a = true;
-        } else {
-            System.out.println("n deu socorro");
+        } else {           
             a = false;
         }
         return a;

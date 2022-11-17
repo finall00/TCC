@@ -25,22 +25,24 @@ public class ItensVendaDAO {
     }
     //fazer todo a classe DAO
 
-//    public boolean cadastrar(Object obj) throws SQLException {
-//        ItensVenda itensVenda = (ItensVenda) obj;
-//
-//        if (itensVenda.getCodigoItenV() == 0) {
-//            inserir(itensVenda);
-//        } else {
-//            alterar(itensVenda);
-//        }
-//        return true;
-//    }
     public boolean cadastrar(Object obj) throws SQLException {
+        ItensVenda itensVenda = (ItensVenda) obj;
+
+        if (itensVenda.getCodigoItenV() == 0) {
+            inserir(itensVenda);
+        } else {
+            alterar(itensVenda);
+        }
+        return true;
+    }
+    
+    public boolean inserir(Object obj) throws SQLException {
         ItensVenda itensVenda = (ItensVenda) obj;
         String sql = "insert into itenscompra(codigoProduto, codigoVenda, qtdProduto, vlrProduto) values ( ?, ?, ?, ?);";
         PreparedStatement stmt = null;
-       int qtnProduto;
+     
         try {
+            
             stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, itensVenda.getProduto().getCodigoProduto());
             stmt.setInt(2, itensVenda.getPedidoVenda().getCodigoPedido());
@@ -50,7 +52,7 @@ public class ItensVendaDAO {
             
             ProdutoDAO p = new ProdutoDAO();
             
-            p.baixaEstoque(itensVenda.getProduto().getCodigoProduto(),   itensVenda);
+            p.baixaEstoque(itensVenda.getProduto().getCodigoProduto(),   obj);
             
         } catch (SQLException |ClassNotFoundException ex) {
             throw new SQLException("Erro ao inserir os Itens da Compra");
@@ -59,9 +61,32 @@ public class ItensVendaDAO {
         }
         return true;
     }
-//    private void alterar(ItensVenda itensVenda) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
+    
+    
+    private boolean alterar(Object obj) throws SQLException {
+      ItensVenda itensVenda = (ItensVenda) obj;
+        String sql = "update itenscompra set codigoProduto = ?, qtdProduto = ?, vlrProduto = ? where codigoVenda = ?;";
+        PreparedStatement stmt = null;
+       
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, itensVenda.getProduto().getCodigoProduto());
+            stmt.setDouble(2, itensVenda.getQtdProduto());
+            stmt.setDouble(3, itensVenda.getVlrProduto());
+            stmt.setInt(4, itensVenda.getPedidoVenda().getCodigoPedido());
+            stmt.execute();
+            
+            ProdutoDAO p = new ProdutoDAO();
+            
+            p.baixaEstoque(itensVenda.getProduto().getCodigoProduto(),   itensVenda);
+            
+        } catch (SQLException |ClassNotFoundException ex) {
+            throw new SQLException("Erro ao alterar os Itens da Compra");
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt);
+        }
+        return true;
+    }
 
     public Object consultar(int codigo) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

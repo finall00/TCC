@@ -37,31 +37,30 @@ public class ConsultarCompra extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-         String me = null;
         try {
-           HttpSession sessao = request.getSession(true);
+            HttpSession sessao = request.getSession(true);
             Funcionario func = (Funcionario) sessao.getAttribute("funcionario");
             Cliente cliente = (Cliente) sessao.getAttribute("cliente");
             
+            PedidoVendaDAO pedidoVenda = new PedidoVendaDAO();
+            
             int codigoPessoa = 0;
             
-            if(cliente != null){
-            codigoPessoa = cliente.getCodigoPessoa();
+            if (cliente != null) {
+                codigoPessoa = cliente.getCodigoPessoa();
+                
+                request.setAttribute("compra", pedidoVenda.consultar(codigoPessoa));
+                
             } else if (func != null) {
-               codigoPessoa = func.getCodigoPessoa();
-            }            
-            
-           me = (String) request.getAttribute("mensagem");
-            PedidoVendaDAO pedidoVenda = new PedidoVendaDAO();        
-            request.setAttribute("compra", pedidoVenda.consultar(codigoPessoa));
-            
+                int codigoPedido = Integer.parseInt(request.getParameter("codigoP")); 
+                
+                request.setAttribute("compra", pedidoVenda.consultarP(codigoPedido));
+            }           
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-        request.setAttribute("mensagem", me );
-            
-     request.getRequestDispatcher("listarCompra.jsp").include(request, response);
-   
+        
+        request.getRequestDispatcher("listarCompra.jsp").include(request, response);        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

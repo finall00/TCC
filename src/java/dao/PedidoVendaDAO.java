@@ -19,17 +19,17 @@ public class PedidoVendaDAO {
         this.conexao = Conexao.abrirConexao();
 
     }
-    //fazer todo a classe DAO
+//    fazer todo a classe DAO
 //    N sei se é nessesario fazer isso 
-//    public int cadastrar(Object obj) throws SQLException {
-//        PedidoVenda pedidoVenda = (PedidoVenda) obj;
-//        if (pedidoVenda.getCodigoPedido() == 0){
-//        return inserir(pedidoVenda);
-//        }else{
-//        return alterar(pedidoVenda);
-//        }
-//   }
     public int cadastrar(Object obj) throws SQLException {
+        PedidoVenda pedidoVenda = (PedidoVenda) obj;
+        if (pedidoVenda.getCodigoPedido() == 0){
+        return inserir(pedidoVenda);
+        }else{
+        return alterar(pedidoVenda);
+        }
+   }
+    public int inserir(Object obj) throws SQLException {
         PedidoVenda pedidoVenda = (PedidoVenda) obj;
         String sql = "insert into compra(codigopessoa, data_venda, vlrtotalvenda, obsvenda) values (?, ?, ?, ?) returning codigoPedido";
         int codigoPedido = 0;
@@ -55,11 +55,33 @@ public class PedidoVendaDAO {
         return codigoPedido;
     }
 
-    private int alterar(PedidoVenda pedidoVenda) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private int alterar(PedidoVenda pedidoVenda) throws SQLException {
+    String sql = "update compra set codigopessoa = ?, data_venda = ?, vlrtotalvenda = ?, obsvenda = ? where codigoPedido = ? returning codigoPedido";
+        int codigoPedido = 0;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, pedidoVenda.getPessoa().getCodigoPessoa());
+            stmt.setDate(2, new java.sql.Date(pedidoVenda.getDataVenda().getTime()));
+            stmt.setDouble(3, pedidoVenda.getVlrTotalVenda());
+            stmt.setString(4, pedidoVenda.getObsVenda());
+            stmt.setInt(5, pedidoVenda.getCodigoPedido());
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                codigoPedido = rs.getInt("codigopedido");
+            }
+        } catch (SQLException ex) {
+            throw new SQLException("Erro ao inserir pedido da venda");
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt, rs);
+        }
+
+        return codigoPedido;
     }
 
-    public List<Object> listar() throws SQLException {
+  public List<Object> listar() throws SQLException {
    String sql = "select * from compra co inner join itenscompra ip on ip.codigovenda = co.codigopedido;";
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -106,7 +128,34 @@ public class PedidoVendaDAO {
 
         return lista;
     }
+    
+    public Object consultarP(int codigo) throws SQLException {
+        String sql = "select * from compra co inner join itenscompra ip on ip.codigovenda = co.codigopedido where co.codigoPedido = ?;";
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Object> lista = new ArrayList<>();
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, codigo);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                PedidoVenda pedidoVenda = new PedidoVenda(rs.getInt("codigoPedido"), (Pessoa) new PessoaDAO().consultarP(rs.getInt("codigoPessoa")), rs.getDate("data_Venda"), rs.getString("obsVenda"), rs.getDouble("vlrTotalVenda"), rs.getInt("codigoVenda"), (Produto) new ProdutoDAO().consultar(rs.getInt("codigoProduto")), rs.getDouble("qtdProduto"), rs.getDouble("vlrProduto"));
+                lista.add(pedidoVenda);
+            }
+        } catch (SQLException| ClassNotFoundException ex) {
+            throw new SQLException("Erro ao Listar usuario");
 
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt, rs);
+        }
+
+        return lista;
+    }
+
+    
+    
+    
+    
     public void excluir(int codigo) throws SQLException {
     String sql = "delete from compra where codigopedido = ?";
         PreparedStatement stmt = null;

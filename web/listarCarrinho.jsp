@@ -25,7 +25,7 @@
 
 
 
-        <table class="table table-striped">
+        <table class="table ">
             <thead>
                 <tr>
                     <th>codigo Iten</th>
@@ -56,7 +56,7 @@
             <%
             } else {
                 Carrinho car = new Carrinho(lista);
-             for (ItensVenda venda : lista) {
+                for (ItensVenda venda : lista) {
             %>
 
             <tr>                
@@ -80,15 +80,17 @@
 
                 <td><a class="btn btn-info" href="FinalizarVenda?codigoProduto=<%=venda.getProduto().getCodigoProduto()%>&qtdProduto=<%=venda.getQtdProduto()%>&vlrVenda=<%=venda.getProduto().getVlrVenda()%> ">Comprar</a> </td>
                 <% }%>
-                <td>R$ <%= car.getSubTotal()%></td>
+                <td>Valor Total: R$ <%= car.getSubTotal()%></td>   
             </tr> 
             <td>
                 <input type="hidden" name="" value="<%= car.getItens()%>" class="form-input">
             </td>
-            <% }%>        
-            <td><a class="btn btn-info" href="LimparCarrinho">Limpar</a></td>                                              
-            <td></td>                                              
-            </tbody>         
+
+            <td><a class="btn btn-info" href="LimparCarrinho">Limpar</a></td> 
+            <% }%> 
+
+            </tbody>  
+
         </table>
     </div>
 </div>

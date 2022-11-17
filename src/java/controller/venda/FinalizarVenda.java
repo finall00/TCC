@@ -2,6 +2,7 @@ package controller.venda;
 
 import dao.ItensVendaDAO;
 import dao.PedidoVendaDAO;
+import dao.ProdutoDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
@@ -49,7 +50,7 @@ public class FinalizarVenda extends HttpServlet {
 
             String[] vlrVenda = request.getParameterValues("vlrVenda");
 
-            String[] qtdProdutos = request.getParameterValues("qtdProduto");
+            String[] qtdProdutos = request.getParameterValues("qtdProduto");            
             String obsVenda = "AGUARDANDO";
 
             Date date = new Date();
@@ -70,17 +71,19 @@ public class FinalizarVenda extends HttpServlet {
                     //cadastra o pedido e retorna o codigo da venda
                     Integer codigoVenda = PedidoDao.cadastrar(pedidoVenda);
                     pedidoVenda.setCodigoPedido(codigoVenda);
-
+                    ProdutoDAO p = new ProdutoDAO();
                     if (codigoVenda > 0) {
                         for (int i = 0; i < produtos.length; i++) {
 
                             Produto produto = new Produto();
                             produto.setCodigoProduto(Integer.parseInt(produtos[i]));
+                            produto.setEstoqueProduto((int) p.consultarEstoque(Integer.parseInt(produtos[i])));
 
                             itensVenda.setPedidoVenda(pedidoVenda);
                             itensVenda.setProduto(produto);
                             itensVenda.setQtdProduto(Double.parseDouble(qtdProdutos[i]));
                             itensVenda.setVlrProduto(Double.parseDouble(vlrVenda[i]));
+                            
 
                             car.getItens().remove(i);
                         }
@@ -98,7 +101,7 @@ public class FinalizarVenda extends HttpServlet {
         } else if (a.size() == 0){
             request.setAttribute("mensagem", "Seu Carrinho esta vazil");
         }
-        request.getRequestDispatcher("ListarCompra").forward(request, response);
+        request.getRequestDispatcher("ConsultarCompra").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

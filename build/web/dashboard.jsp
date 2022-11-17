@@ -20,8 +20,6 @@
         <link rel="stylesheet" href="EstilosFunc/TempDash.css">
         <link rel="stylesheet" href="EstilosFunc/dash.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-
-
     </head>
     <body>   
         <div class="card">
@@ -40,28 +38,29 @@
 
                     <div class="pedidos-recentes">
                         <%
-                            if (lista.equals(null)) {
-
+                            if (lista != null) {
                                 for (PedidoVenda compra : lista) {
                         %>
 
-
                         <div class="pedidos">
-                            <div class="tittle">
+                            <div class="tittle" style="margin-bottom: 20px;">
                                 <span class="id-text">ID do pedido:</span>
-                                <p class="Id-pedido"><strong><%=compra.getCodigoPedido()%></strong></p>
+                                <p class="Id-pedido"><%=compra.getCodigoPedido()%></p>
                             </div>
+                         
                             <div class="middle">
                                 <div class="left">
-                                    <p><%=compra.getDataVenda()%></p>
+                                    <p style="font-size: 1.30rem;"><strong>Cliente:</strong> <%= compra.getPessoa().getNomePessoa()%></p>
+                                    <h3 style="margin-left: -1.5px; font-size: 1rem;"><%=compra.getDataVenda()%></h3>
                                     <h1>R$ <%= compra.getVlrTotalVenda()%></h1>
-                                    <p style="margin-top: 10px">cliente: <%= compra.getPessoa().getNomePessoa()%></p>
+                                                                        
                                 </div>
-                                <div class="product-photo">
-                                    <img src="<%= (String) request.getContextPath() + "/imagens/" + compra.getProduto().getImagem()%>" alt=""><!--tentar fazer um proflie na foto do ptroduto-->
+                                <div class="product-photo" >
+                                    <img src="<%= (String) request.getContextPath() + "/imagens/" + compra.getProduto().getImagem()%>" alt="">
                                 </div>
                             </div>
-                            <small><a href="/detalhesVenda">Detalhes</a></small> <!--achar uma func para isso pode ser qualquer coisa como caitar pedido, ou outra coisa-->
+                            <h3 style="margin-bottom: 0.60rem; margin-left: -2px;"><strong><%=compra.getObsVenda()%></strong></h3>
+                            <a href="ConsultarCompra?codigoP=<%=compra.getCodigoPedido()%>"><h2>Detalhes</h2></a>
                         </div>
                         <%  }
                         } else {
@@ -87,7 +86,7 @@
     </body> 
     <%
         } else {
-            response.sendRedirect(request.getContextPath() + "ListarProduto");
+            response.sendRedirect(request.getContextPath() + "/");
         }
     %>
 </html>

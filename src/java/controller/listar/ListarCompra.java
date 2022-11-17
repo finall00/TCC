@@ -33,21 +33,18 @@ public class ListarCompra extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       String me = null;
+       
         try {
-           HttpSession sessao = request.getSession(true);    
-            
-           me = (String) request.getAttribute("mensagem");
+                      
            
             PedidoVendaDAO pedidoVenda = new PedidoVendaDAO();        
             request.setAttribute("compra", pedidoVenda.listar());
             
-             request.setAttribute("mensagem", me ); 
+           
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-        
-               
+                      
      request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     }
 

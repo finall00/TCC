@@ -9,14 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Carrinho;
 import model.Cliente;
 import model.Funcionario;
 import model.ItensVenda;
 import model.Produto;
 
 /**
- *
  * @author smili08
  */
 @WebServlet(name = "addCarrinho", urlPatterns = {"/addCarrinho"})
@@ -69,20 +67,22 @@ public class AddCarrinho extends HttpServlet {
                 ItensVenda itensVenda = new ItensVenda();
                 itensVenda.setProduto(produto);
                 itensVenda.setQtdProduto(qtnProduto);
-                itensVenda.getTotal();
+                
 
                 //cria e passa a lista para o carrinho
-                Carrinho carrinho = new Carrinho(listaAtual);
-                carrinho.addItem(produto);
+                listaAtual.add(itensVenda);
+                        
+//                Carrinho carrinho = new Carrinho(listaAtual);
+//                carrinho.addItem(produto);
 
-                listaAtual = carrinho.getItens();
+//                listaAtual = carrinho.getItens();
 
                 sessao.setAttribute("itensProduto", listaAtual);
             } else {
-                request.setAttribute("mensagem", "Você não esta logado ");
+                request.setAttribute("mensagem", "Você não esta logado!!!");
             }
         } catch (Exception | AbstractMethodError ex) {
-            request.setAttribute("mensagem", "Erro ao adicionar item no carrinho" + ex.getMessage());
+            request.setAttribute("mensagem", "Erro ao adicionar item no carrinho:" + ex.getMessage());
         }
 
         // request.getRequestDispatcher("ListarItensCarrinho").forward(request, response);

@@ -14,187 +14,158 @@
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Produtos</title>
-
-        <link rel="stylesheet" href="Estilo/ListarProdutos.css">
+        <link rel="stylesheet" href="Estilo/produtos.css">
         <link rel="stylesheet" href="Estilo/dropMenu.css">
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
-    <body>
 
-        <header class="header">
-            <div class="header-1">
-                <div class="logo">
-                    <img style="boder-radius: 50px; border: #ccffff; " src="" alt="">
-                    <a href="#">Confeitaria</a>
-                </div>
+    <body>
+        <section>
+            <header>
+                <a href="ListarProduto"><img src="imagens/2ed7df50cadd44f1b9004c048d6a74df.png" alt="" class="logo"></a>
+
                 <form action="PesquisarProduto" class="search-form">
-                    <input type="search" id="pesquisaProduto" name="nomeProduto" placeholder="Pesquisar...">
-                    <button type="submit" class="fas fa-search"></button>
+                    <input type="search" id="pesquisarProduto" name="nomeProduto" placeholder="Pesquisar...">
+                    <button id="btn-search" type="submit" class="bx bx-search"></button>
                 </form>
 
-                <div class="icons">
-                    <a href="ListarItensCarrinho" class="fas fa-shopping-cart"><p id="contagemCarrinho"><%
-                        if (carrinho != null) {%>
-                         <%=carrinho.size()%>
-                       <%}%></p></a>                    
-         
+                <nav>
+                    <ul id="navbar">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Produtos</a></li>
+                        <li style="display:inline-block;">
+                            <a href="#"><span style="font-size: 1.7rem; " class='bx bxs-cart'></span>
+                                <p id="quantCar"><%if (carrinho != null) {%><%=carrinho.size()%><%}%></p>
+                            </a>
+                        </li>
+                    </ul>
+
                     <div class="action">
-                        <div id="divU" class="profile" onclick="menuToggle();">
-                            <a id="login-btn" class="fas fa-user"></a>
+                        <div class="profile" onclick="menuToggle();">
+                            <i id="dropIcon" class='bx bxs-user'></i>
                         </div>
                         <div class="menu">
                             <%if (cliente == null && funcionarios == null) {%>
-                            <a href="paginaLogin.jsp"><h3>Faça Login</h3></a>
+                            <a href="paginaLogin.jsp" style="text-decoration: none; " ><h3>Faça Login</h3></a>
                             <%}%>
-
                             <%if (cliente != null) {%>
-                            <h3><%=cliente.getNomePessoa()%></h3>
+                            <h3>
+                                <%=cliente.getNomePessoa()%>                        
+                            </h3>
                             <ul>
                                 <li>
-                                    <a href="ConsultarCliente?codigoCliente=<%=cliente.getCodigoPessoa()%>">
-                                        <span class="icon">
-                                            <ion-icon class="fas fa-user"></ion-icon>
-                                        </span>
-                                        <span>perfil</span>
-                                    </a>
+                                    <i class='bx bx-user'></i>
+                                    <a href="ConsultarCliente?codigoCliente=<%=cliente.getCodigoPessoa()%>">Perfil</a>
                                 </li>
                                 <li>
-                                    <a href="homeCliente.jsp" class="botao">
-                                        <span class="icon">
-                                            <ion-icon class="fas fa-bars"</ion-icon>
-                                        </span>
-                                        <span>Menu</span>
-                                    </a>
+                                    <i class='bx bx-cake' ></i>
+                                    <a href="NovoBolo">Montar seu bolo</a>
                                 </li>
                                 <li>
-                                    <a href="NovoBolo" class="botao">
-                                        <span class="icon">
-                                            <ion-icon class="fas fa-cake"</ion-icon>
-                                        </span>
-                                        <span>Monte seu Bolo</span>
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            <a href="Logout"><h3>logout</h3></a>
-                            <% }
-                                if (funcionarios != null) {%>
-
-                            <h3><%= funcionarios.getNomePessoa()%><br/><span><%= funcionarios.getCargo().getNomeCargo()%></span></h3>
-
-                            <ul>
+                                    <i class='bx bx-wallet' ></i>
+                                    <a href="ConsultarCompra">Minhas Compras</a>
+                                </li>  
                                 <li>
-                                    <a href="ConsultarFuncionario?codigoFuncionario=<%=funcionarios.getCodigoPessoa()%>">
-                                        <span class="icon">
-                                            <ion-icon class="fas fa-user"></ion-icon>
-                                        </span>
-                                        <span>perfil</span>
-                                    </a>
+                                    <i class='bx bx-log-out' ></i>
+                                    <a href="Logout">Logout</a>
                                 </li>
                             </ul>
-                            <ul>
-                                <li>
-                                    <a href="homeFuncionario.jsp"> <!-- mudar para ListarCompra -->
-                                        <span class="icon">
-                                            <ion-icon class="fas fa-bars"></ion-icon>
-                                        </span>
-                                        <span>Menu</span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <a href="Logout" class="login"><h3>logout</h3></a>
-                            <%}%>         
-
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </header>   
-
-        <div class="mensagem" style="display: flex; align-items:center; ">
-            <p style="font-size: 2rem; text-decoration: none; color: black; margin: 30px; margin-left: 58rem; ">${mensagem}</p>
-
-        </div>
-
-
-        <div class="container">
-
-            <main>
-
-                <div class="todo-produto">
-                    <%  if (lista != null) {
-                            for (Produto produto : lista) {
-                    %>
-                    <div class="card">
-                        <div class="carrinho-logo" style="border-color: black">
-                            <a  href="addCarrinho?codigoProduto=<%=produto.getCodigoProduto()%>&qtnProduto=1&vlrVenda=<%= produto.getVlrVenda()%>&nomeProduto=<%= produto.getNomeProduto()%>&estoqueProduto=<%= produto.getEstoqueProduto()%>"><i class='fas fa-shopping-cart'>+</i></a>
-                        </div>
-
-                        <div class="img-produto">
-                            <img class="imagen" src="<%= (String) request.getContextPath() + "/imagens/" + produto.getImagem()%>" alt="">
-                        </div>
-
-                        <div class="detalhes">
-                            <span hidden="" class="nome"><%= produto.getCodigoProduto()%></span>
-
-                            <span class="nome"><%= produto.getNomeProduto()%></span>
-                            <p class="obsProduto"><%= produto.getDescricaoProduto()%></p>
-                        </div>
-
-                        <div class="info">
-                            <div class="data">
-                                <span class="num-letra">Data de Validade:</span>
-                                <span class="num-letra" style="font-size:1.5rem; color: black;"><%= produto.getDataValidade()%></span>
-                            </div>
-                            <div class="preco">
-                                <span class="num-preco">R$ <%= produto.getVlrVenda()%></span>
-                            </div>
-                        </div>
-
-                        <div style="margin-top: 4rem">
-                            <% if (funcionarios != null) {%>
-                            <a href="AlterarProduto?codigoProduto=<%= produto.getCodigoProduto()%>" class="btn-info">mais
-                                info</a>
-
-                            <%} else {%>  
-
-                            <a href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>"class="btn-comprar">comprar</a>
                             <%}%>
+                            <%if (funcionarios != null) {%>
+                            <h3>
+                                <%=funcionarios.getNomePessoa()%>
+                                <div>
+                                    <%=funcionarios.getCargo().getNomeCargo()%>
+                                </div>
+                            </h3>
+                            <ul>
+                                <li>
+                                    <i class='bx bx-user'></i>
+                                    <a href="ConsultarFuncionario?codigoFuncionario=<%=funcionarios.getCodigoPessoa()%>">Perfil</a>
+                                </li>
+                                <li>
+                                    <i class='bx bx-menu' ></i>
+                                    <a href="homeFuncionario.jsp">Menu Funcionario</a>
+                                </li>
+                                <li>
+                                    <i class='bx bx-log-out' ></i>
+                                    <a href="Logout">Logout</a>
+                                </li>
+                            </ul>
+                            <%}%>
+
                         </div>
                     </div>
-                    <%
-                            }
-                        }
-                    %>
+                </nav>
 
+                <div id="mobile">
+                    <i class='bx bx-menu' id="bar"></i>
                 </div>
-            </main>
-        </div>
-        <script>
-            function menuToggle() {
-                const toggleMenu = document.querySelector(".menu");
-                toggleMenu.classList.toggle("active");
-            }
-        </script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+            </header>
+        </section>
 
-        <footer>
+        <section id="prod1" class="section-p">
 
-        </footer>
-        <!--maskara do git--> 
-        <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
-        <!--script de buscar pessoa-->
-        <script src="${pageContext.request.contextPath}/Scripts/PesquisarPessoa.js"></script> 
-    </body>
-</html>
+
+            <h2>Produtos Disponiveis</h2>
+            <p>Os melhores bolos e doces você encontra aqui</p>
+            <p style="font-size: 20px; color: red;">${mensagem}</p>
+
+            <div class="container-pro">
+                <%  if (lista != null) {
+                        for (Produto produto : lista) {
+                %>
+                <%if (cliente != null) {%>
+                <div class="pro" onclick="window.location.href = 'ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>'">
+                    <%}%> 
+
+                    <%if (funcionarios != null) {%>
+                    <div class="pro" onclick="window.location.href = 'AlterarProduto?codigoProduto=<%=produto.getCodigoProduto()%>'">
+
+                        <%}
+                            if (funcionarios == null && cliente == null) {%>
+                        <div class="pro" onclick="window.location.href = 'ConsultarProduto?codigoProduto=<%=produto.getCodigoProduto()%>'">
+                            <%}%>
+
+                            <span hidden="" class="nome"><%= produto.getCodigoProduto()%></span>
+                            <img src="<%= (String) request.getContextPath() + "/imagens/" + produto.getImagem()%>" alt="Carregar...">
+                            <div class="des">
+                                <span><%=produto.getEstoqueProduto()%>(estoque)</span>
+                                <h5><%=produto.getNomeProduto()%></h5>
+                                <h4>R$<%=produto.getVlrVenda()%></h4>
+                            </div>
+                            <a href="addCarrinho?codigoProduto=<%=produto.getCodigoProduto()%>&qtnProduto=1&vlrVenda=<%= produto.getVlrVenda()%>&nomeProduto=<%= produto.getNomeProduto()%>&estoqueProduto=<%= produto.getEstoqueProduto()%>"><i class='bx bx-cart cart'></i></a>
+                        </div>
+                        <%}
+                            }%>
+
+                    </div>
+                    </section>
+
+                    <footer class="section-p">
+                        <div class="footer-con">
+                            <h3>Projeto Confeitaria</h3>
+                            <p>Alguma coisa para prencher aqui dps eu vejo</p>
+                            <ul class="socials">
+                                <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+                                <li><a href=""><i class='bx bxl-whatsapp'></i></a></li>
+                                <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-bottom">
+                            <p>Todos os direitos reservados a &copy;2022 Projeto Confeitaria </p>
+                        </div>
+                    </footer>
+
+
+                    <script src="Scripts/prod.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    </body>
+
+                    </html>

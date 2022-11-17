@@ -39,6 +39,7 @@ public class Carrinho {
         for (ItensVenda itemSelecionado : itens) {
             if (itemSelecionado.getProduto().getCodigoProduto() == produto.getCodigoProduto()) {
                 novoItem = false;
+                Double t = itemSelecionado.getQtdProduto();
                 itemSelecionado.aumentarQuant();
                 
             }
@@ -46,6 +47,7 @@ public class Carrinho {
 
         if (novoItem) {
             ItensVenda item = new ItensVenda(produto);
+            Double a = item.getQtdProduto();
             itens.add(item);
         }
     }

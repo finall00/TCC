@@ -14,7 +14,8 @@
 
         <hr/>
         <a class="btn btn-dark" href="NovoProduto">Novo</a>
-        <a class="btn btn-success" href="index.jsp">Voltar</a>
+        <input class="btn btn-info" type="button" value="Voltar" onclick="history.go(-1)">
+        
         <hr/>
         
         <% List<Produto> lista = (List<Produto>) request.getAttribute("produto");%>

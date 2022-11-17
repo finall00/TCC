@@ -119,26 +119,25 @@ public class ProdutoDAO implements DAOGenerica {
         ResultSet rs = null;
         Produto produto = null;
         List<Object> listar = new ArrayList<>();
-            try {
-                stmt = conexao.prepareStatement(sql);
-            stmt.setString(1,nome);
-                // stmt.setString(2,codigo);
-                rs = stmt.executeQuery();
-                while (rs.next()) {
-                    produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), rs.getString("dataValidade"), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"), rs.getString("imagem"));
-                    listar.add(produto);
-                }
-            } catch (SQLException ex) {
-                throw new SQLException("Erro ao consultar Produto");
-            } finally {
-                Conexao.encerrarConexao(conexao, stmt, rs);
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, nome);
+            // stmt.setString(2,codigo);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                produto = new Produto(rs.getInt("codigoProduto"), rs.getString("nomeProduto"), rs.getString("dataValidade"), rs.getInt("estoqueProduto"), rs.getDouble("vlrCusto"), rs.getDouble("vlrVenda"), rs.getString("codigoBarra"), rs.getString("descricaoProduto"), rs.getString("imagem"));
+                listar.add(produto);
             }
-
+        } catch (SQLException ex) {
+            throw new SQLException("Erro ao consultar Produto");
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt, rs);
+        }
 
         return listar;
 
     }
-    
+
     public Object consultarEstoque(int codigo) throws SQLException {
         String sql = "select estoqueProduto from produto where codigoProduto = ?";
         PreparedStatement stmt = null;
@@ -156,29 +155,34 @@ public class ProdutoDAO implements DAOGenerica {
         } finally {
             Conexao.encerrarConexao(conexao, stmt, rs);
         }
-        return produto;
+        return produto.getEstoqueProduto();
     }
 
-    
     public void baixaEstoque(int codigo, Object obj) throws SQLException {
         String sql = "Update produto set estoqueproduto = ? where codigoProduto = ?;";
         PreparedStatement stmt = null;
         ItensVenda itensVenda = (ItensVenda) obj;
+        int estoque = itensVenda.getProduto().getEstoqueProduto();
+
         int novoEstoque = 0;
-        
+        Double v = 0.0;
+
         try {
-            novoEstoque = (int) (itensVenda.getQtdProduto() - itensVenda.getProduto().getEstoqueProduto());
+
+            v = itensVenda.getQtdProduto();
+            novoEstoque = (int) (estoque - v);
+
             stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, novoEstoque);
             stmt.setInt(2, codigo);
             stmt.execute();
-            
+
         } catch (SQLException ex) {
             throw new SQLException("Erro ao consultar Produto");
         } finally {
             Conexao.encerrarConexao(conexao, stmt);
         }
-       
+
     }
-    
+
 }

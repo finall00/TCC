@@ -49,11 +49,11 @@
                 <tr>
                     <td><%=compra.getCodigoPedido() %></td>
                     <td><%=compra.getDataVenda() %></td>
-                    <td><%=compra.getPessoa().getNomePessoa() %></td>
+                    <td><%=compra.getPessoa().getNomePessoa().toUpperCase()%></td>
                     <td><%=compra.getProduto().getNomeProduto()%></td>
-                    <td><%=compra.getProduto().getVlrVenda()%></td>
+                    <td>R$ <%=compra.getProduto().getVlrVenda()%></td>
                     <td><%=compra.getQtdProduto()%></td>
-                    <td><%=compra.getVlrTotalVenda()%></td>
+                    <td>R$ <%=compra.getVlrTotalVenda()%></td>
                     <td><a class="btn btn-danger"  href="CancelarVenda?codigoPedido=<%=compra.getCodigoPedido()%>">Cancelar Compra</a></td>
                     
                 </tr>

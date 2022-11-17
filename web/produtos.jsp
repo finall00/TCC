@@ -40,7 +40,7 @@
                             </button>
                         </div>
                         <div class="tittle">
-                            <p><a href="NovoProduto">Cadastrar Produto</a></p>
+                            <p><a href="cadastrarProduto.jsp">Cadastrar Produto</a></p>
                         </div>
                     </div>
                 </div>
