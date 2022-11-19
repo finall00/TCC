@@ -64,7 +64,7 @@ p {
 }
 
 header {
-    padding: 10px 80px;
+    padding: 20px 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -135,7 +135,7 @@ header nav ul li {
 header nav ul li a {
     display: inline-block;
     color: var(--color-dark);
-    font-weight: 400;
+    font-weight: 600;
     margin-left: 40px;
     text-decoration: none;
     transition: all 300ms ease;
@@ -159,14 +159,47 @@ header nav ul li a:hover {
 }
 
 #quantCar {
-    font-size: 13px;
-    margin-top: -38px;
+    font-size: 15px;
+    margin-top: -40px;
     position: absolute;
-    margin-left: 20px;
+    margin-left: 11px;
     margin-bottom: 50px;
     /* z-index: 1; */
 }
 
+/**********BANNER***********/
+#hero {
+    background-image: url(../imagens/banner2.jpg);
+    height: 60vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 0%;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    /* filter: blur(5px); */
+    z-index: -1;
+}
+
+#hero h4 {
+    padding-bottom: 15px;
+    color: var(--color-white);
+    /* z-index: 2 !important; */
+}
+
+#hero h2 {
+    color: var(--color-white);
+    /* z-index: 999; */
+}
+
+#hero h1 {
+    color: var(--color-salmao);
+    /* z-index: 999; */
+}
+
+/**********BANNER***********/
 
 /**********PRODUTOS***********/
 #prod1 {
@@ -178,7 +211,7 @@ header nav ul li a:hover {
     padding-top: 20px;
     flex-wrap: wrap;
     justify-content: flex-start;
-    
+
 }
 
 
@@ -270,6 +303,7 @@ header nav ul li a:hover {
 #prod1 .product_inner button:hover {
     background: white;
     color: #2B2D42;
+
 }
 
 #prod1 .product_inner button:before {
@@ -364,6 +398,7 @@ header nav ul li a:hover {
     border-radius: 5px;
     background-color: var(--color-salmao);
     padding: 10px;
+    cursor: pointer;
 }
 
 
@@ -445,10 +480,41 @@ footer {
 
 /********Footer********/
 
+@media (max-width:900px) {
+    .section-p {
+        padding: 40px 40px;
+    }
+
+    header .search-form {
+        width: 20rem;
+        height: 3rem;
+        border: var(--border);
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        border-radius: 1.5rem;
+        margin-right: -10rem;
+    }
+}
+
+
 
 @media (max-width:799px) {
     .section-p {
         padding: 40px 40px;
+    }
+
+    header .search-form {
+        width: 20rem;
+        height: 3rem;
+        border: var(--border);
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        border-radius: 1.5rem;
+        margin-right: -10rem;
     }
 
     header .logo {
@@ -542,7 +608,17 @@ footer {
         width: 30px;
     }
 
-
+    header .search-form {
+        width: 10rem;
+        height: 3rem;
+        border: var(--border);
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        border-radius: 1.5rem;
+        margin-right: -10rem;
+    }
     header {
         padding-left: 20px;
     }

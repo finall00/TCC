@@ -102,6 +102,8 @@ public class ItensVendaDAO {
             stmt = conexao.prepareStatement(sql);
             stmt.setInt(1, codigo);
             stmt.execute();
+            
+            
         } catch (SQLException ex) {
             throw new SQLException("Erro ao excluir produto");
         } finally {

@@ -3,7 +3,7 @@
 :root{
     --color-primary: #dc8e46;
     --color-primary-light: #F1CA89;
-    
+
     --color-dark: #363949;
     --dark-variant: #677483;
 
@@ -14,7 +14,7 @@
     --fixed-white:#fff;
 
     --color-info-gray:#7d8da1;
- 
+
     --caard-radius: 2rem;
     --radius-1: 0.4rem;
     --radius-2: 0.8rem;
@@ -39,7 +39,7 @@
     --color-info-gray:#7d8da1;
     --input-background:#eeeeee12;
 
-    
+
 }
 /*PURO TESTE E ENTRETENIMENTO DO RENAN*/
 
@@ -58,6 +58,16 @@ html{
     font-size: 14px ;
 }
 
+main{
+    padding: 8rem 20rem 50rem;
+}
+
+.title #voltar{
+    font-size: 2rem;
+    position: absolute;
+    margin-bottom: 10px;
+}
+
 body{
     height: 100vh;
     display: flex;
@@ -73,26 +83,18 @@ body{
 }
 
 
-i{
-    color: var(--dark-variant) ;}
 
-a{
-    color: var(--color-dark) ;
-}
 
-/*img{
-    display: block  ;
-    width: 100% ;
-}*/
 
 h1{
     font-weight: 800 ;
     font-size: 1.8rem ;
+    margin-left: 40px;
 }
 
 h2{
     font-size: 1.4rem ;
-    
+
 }
 
 h3{
@@ -127,22 +129,23 @@ b{
 /**************************************/
 
 .container{
+    position: absolute;
     max-width: 700px;
-  width: 100%;
-  background-color: var(--color-white);
-  padding: 25px 30px;
-  border-radius: var(--radius-2);
-  box-shadow: var(--box-shadow);
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 25px 30px;
+    border-radius: var(--radius-2);
+    box-shadow: var(--box-shadow);
 }
 
-.container .form-header .title{   
+.container .form-header .title{
 }
 
 .container form .details{
     display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px 0 12px 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
 }
 
 form .details .input-box{
@@ -154,14 +157,14 @@ form .details .input-box{
 /*estilo do input*/
 .details .input-box input{
     height: 45px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: var(--radius-1);
-  padding-left: 15px;
-  border: 1px solid var(--color-light);
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: var(--radius-1);
+    padding-left: 15px;
+    border: 1px solid var(--color-light);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
 }
 
 .details .input-box label{
@@ -173,27 +176,27 @@ form .details .input-box{
 
 .details .input-box input:focus,
 .details .input-box input:valid{
-  border-color:var(--color-primary-light);
+    border-color:var(--color-primary-light);
 }
 
 input[type="file"] {
-    display: none;
+    display:none ;
 }
 
 .details .input-box  .custom-file-upload {
     height: 45px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: var(--radius-1);
-  padding: 12px 12px;
-  border: 1px solid var(--color-light);
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
-  cursor: pointer;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: var(--radius-1);
+    padding: 12px 12px;
+    border: 1px solid var(--color-light);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 
-  margin-top: 20px;
-  color: var(--dark-variant) ;
+    margin-top: 20px;
+    color: var(--dark-variant) ;
 
 }
 
@@ -204,15 +207,15 @@ form .button{
 
 form .button button{
     height: 100%;
-   width: 100%;
-   border-radius: var(--radius-1);
-   border: none;
-   color: var(--fixed-white);
-   font-size: 18px;
-   font-weight: 500;
-   letter-spacing: 1px;
-   cursor: pointer;
-   transition: all 0.3s ease;
-   background-image: linear-gradient(to right, #dc8e46, #e39c50, #e9aa5b, #f0b867, #f6c674);
+    width: 100%;
+    border-radius: var(--radius-1);
+    border: none;
+    color: var(--fixed-white);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-image: linear-gradient(to right, #dc8e46, #e39c50, #e9aa5b, #f0b867, #f6c674);
 }
 

@@ -5,7 +5,7 @@
 <%
 
     Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if (funcionarios != null) {
+    
 %>
 <jsp:include page="/cabecalho.jsp"/>
 
@@ -17,16 +17,12 @@
         <div class="alert alert-primary" role="alert">
             ${mensagem}
         </div>
-        <hr/>
-        <a class="btn btn-success" href="NovoBolo">Novo</a>
-        <a class="btn btn-secondary" href="homeFuncionario.jsp">Voltar</a>
-        <hr/>
+
+
         <% List<MontaBolo> lista = (List<MontaBolo>) request.getAttribute("bolo"); %>
-        <table class="table table-striped table-hover">
+        <table class="table ">
             <thead>
-                <tr>
-                    <th>Codigo</th>
-                    <th>Pessoa</th>
+                <tr>                 
                     <th>Sabor</th>                   
                     <th>Cobertura</th>                 
                     <th>Recheio</th>
@@ -41,9 +37,7 @@
                     if (lista != null) {
                         for (MontaBolo bolo : lista) {
                 %>
-                <tr>
-                    <td><%= bolo.getCodigoBolo()%></td>
-                    <td><%= bolo.getPessoa().getNomePessoa()%></td>
+                <tr>                                       
                     <td><%= bolo.getSaborBolo().getSaborB()%></td>
                     <td><%= bolo.getCoberturaBolo().getCoberturaB()%></td>                    
                     <td><%= bolo.getRecheioBolo().getRecheioB()%></td>                    
@@ -58,12 +52,10 @@
                     }
                 %>
             </tbody>
-        </table> 
+        </table>
+        <br>
+        <a class="btn btn-success" href="NovoBolo">Novo</a>
+        <input  class="btn btn-secondary" type="button" value="Voltar" onclick="history.go(-1)">
     </div>
 </div>
 <jsp:include page="/rodape.jsp"/>
-<%
-    } else {
-        response.sendRedirect(request.getContextPath() + "/");
-    }
-%>

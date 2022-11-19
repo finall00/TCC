@@ -6,7 +6,7 @@
 .action {
     position: absolute;
     right: 30px;
-    top: 10px
+    top: 23px
 }
 
 .action ul {
@@ -128,7 +128,7 @@
     .action {
         position: absolute;
         right: 30px;
-        top: -7px;
+        top: -1px;
     }
 }
 
@@ -136,6 +136,6 @@
     .action {
         position: absolute;
         right: 30px;
-        top: -15px;
+        top: -1px;
     }
 }

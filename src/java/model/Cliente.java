@@ -19,8 +19,9 @@ public class Cliente extends Pessoa {
 
     
 
-    public Cliente(int codigoPessoa, String nomePessoa, String dataNascimento, String rgPessoa, String celularPessoa, String telefonePessoa, String emailPessoa) {
+    public Cliente(int codigoPessoa, String nomePessoa, String dataNascimento, String rgPessoa, String celularPessoa, String telefonePessoa, String emailPessoa, String loginCliente) {
         super(codigoPessoa, nomePessoa, dataNascimento, rgPessoa, celularPessoa, telefonePessoa, emailPessoa);
+        this.loginCliente = loginCliente;
     } 
     public Cliente() {
         super(0, "", "", "", "", "", "", "", "", "", "", "","", "");

@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
     <head>
         <meta charset="UTF-8">
@@ -11,11 +11,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 
         <link rel="stylesheet" href="Estilo/cadastroCliente.css">
     </head>
 
     <body>
+<input class="bx bx-arrow-back" type="button" onclick="history.go(-1)">
         <div class="login-root">
             <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
                 <div class="loginbackground box-background--white padding-top--64">
@@ -111,8 +114,8 @@
                                             <label for="cepPessoa">CEP</label>
                                             <input data-mask="00000-000" type="text" id="cepPessoa" name="cepPessoa" required value="${cliente.cepPessoa}" />
                                         </div>
-                                        
-                                        
+
+
 
                                         <div class="input-box field padding-bottom--24">
                                             <label for="enderecoPessoa">Endereco</label>
@@ -123,7 +126,7 @@
                                             <label for="numeroPessoa">Numero</label>
                                             <input type="text" id="numeroCasa" name="numeroCasa" required value="${cliente.numeroCasa}" />
                                         </div>
-                                        
+
                                         <div class="input-box field padding-bottom--24">
                                             <label for="estadoPessoa">Estado</label>
                                             <input type="text" id="estadoPessoa" name="estadoPessoa" required value="${cliente.estadoPessoa}" />
@@ -150,18 +153,19 @@
                                         </div>
 
 
+
+
                                         <div class="field padding-bottom--24">
+
                                             <input type="submit" name="submit" value="Cadastrar">
+
                                         </div>
                                         <div class="field">
                                             <span class="erro">${mensagem}</span>
                                         </div>
                                     </div>
                                 </form>
-                                        <div class="input-box field padding-bottom--24">
-                                            <!--botão de voltar para a ultima pagina acessada--> 
-                                            <input type="button" value="Voltar" onclick="history.go(-1)">
-                                        </div>
+
                             </div>
                         </div>
                         <div class="footer-link padding-top--24">
@@ -178,83 +182,83 @@
 
         <script>
 //ViaCep
-    $(document).ready(function () {
+                                                $(document).ready(function () {
 
-        function limpa_formulário_cep() {
-            // Limpa valores do formulário de cep.
-            $("#enderecoPessoa").val("");
-            $("#bairroPessoa").val("");
-            $("#cidadePessoa").val("");
-            $("#estadoPessoa").val("");
+                                                    function limpa_formulário_cep() {
+                                                        // Limpa valores do formulário de cep.
+                                                        $("#enderecoPessoa").val("");
+                                                        $("#bairroPessoa").val("");
+                                                        $("#cidadePessoa").val("");
+                                                        $("#estadoPessoa").val("");
 
-        }
+                                                    }
 
-        //Quando o campo cep perde o foco.
-        $("#cepPessoa").blur(function () {
+                                                    //Quando o campo cep perde o foco.
+                                                    $("#cepPessoa").blur(function () {
 
-            //Nova variável "cep" somente com dígitos.
-            var cep = $(this).val().replace(/\D/g, '');
+                                                        //Nova variável "cep" somente com dígitos.
+                                                        var cep = $(this).val().replace(/\D/g, '');
 
-            //Verifica se campo cep possui valor informado.
-            if (cep !== "") {
+                                                        //Verifica se campo cep possui valor informado.
+                                                        if (cep !== "") {
 
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
+                                                            //Expressão regular para validar o CEP.
+                                                            var validacep = /^[0-9]{8}$/;
 
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
+                                                            //Valida o formato do CEP.
+                                                            if (validacep.test(cep)) {
 
-                    //Preenche os campos com "..." enquanto consulta webservice.      
-                    $("#bairroPessoa").val("...");
-                    $("#cidadePessoa").val("...");
-                    $("#estadoPessoa").val("...");
+                                                                //Preenche os campos com "..." enquanto consulta webservice.      
+                                                                $("#bairroPessoa").val("...");
+                                                                $("#cidadePessoa").val("...");
+                                                                $("#estadoPessoa").val("...");
 
 
-                    //Consulta o webservice viacep.com.br/
-                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+                                                                //Consulta o webservice viacep.com.br/
+                                                                $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
-                        if (!("erro" in dados)) {
-                            //Atualiza os campos com os valores da consulta.
-                            
-                            $("#bairroPessoa").val(dados.bairro);
-                            $("#cidadePessoa").val(dados.localidade);
-                            $("#estadoPessoa").val(dados.uf);                     
-                            $("#bairroPessoa").removeAttr("disabled");
-                           
+                                                                    if (!("erro" in dados)) {
+                                                                        //Atualiza os campos com os valores da consulta.
 
-                        } //end if.
-                        else {
-                            //CEP pesquisado não foi encontrado.
-                            limpa_formulário_cep();
-                            swal({
-                                title: "Dados invalidos!",
-                                text: "CEP não encontrado!!",
-                                icon: "error",
-                                button: "Ok"
-                            });
-                        }
-                    });
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    swal({
-                        title: "Dados invalidos!",
-                        text: "Formato do CEP invalido!!",
-                        icon: "error",
-                        button: "Voltar"
-                    });
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        });
-    });
+                                                                        $("#bairroPessoa").val(dados.bairro);
+                                                                        $("#cidadePessoa").val(dados.localidade);
+                                                                        $("#estadoPessoa").val(dados.uf);
+                                                                        $("#bairroPessoa").removeAttr("disabled");
 
-</script>
 
-        
+                                                                    } //end if.
+                                                                    else {
+                                                                        //CEP pesquisado não foi encontrado.
+                                                                        limpa_formulário_cep();
+                                                                        swal({
+                                                                            title: "Dados invalidos!",
+                                                                            text: "CEP não encontrado!!",
+                                                                            icon: "error",
+                                                                            button: "Ok"
+                                                                        });
+                                                                    }
+                                                                });
+                                                            } //end if.
+                                                            else {
+                                                                //cep é inválido.
+                                                                limpa_formulário_cep();
+                                                                swal({
+                                                                    title: "Dados invalidos!",
+                                                                    text: "Formato do CEP invalido!!",
+                                                                    icon: "error",
+                                                                    button: "Voltar"
+                                                                });
+                                                            }
+                                                        } //end if.
+                                                        else {
+                                                            //cep sem valor, limpa formulário.
+                                                            limpa_formulário_cep();
+                                                        }
+                                                    });
+                                                });
+
+        </script>
+
+
     </body>
 </html>

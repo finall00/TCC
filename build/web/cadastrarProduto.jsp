@@ -31,63 +31,64 @@
             <%@include file="SideBarL.jsp" %>
             <!--****************************Main********************************-->
             <main>
-                <div class="form-header">
-                    <div class="title">
-                        <h1>Cadastrar Produto</h1>
+                <div class="container">         
+                    <div class="form-header">
+                        <div class="title">
+                            <button id="voltar" class="bx bx-arrow-back"onclick="history.go(-1)"></button><h1>Cadastrar Produto</h1>
+                        </div>
                     </div>
+                    <form action="CadastrarProduto" method="post" enctype="multipart/form-data">
+                        <input type="text" hidden="" id="codigoProduto" name="codigoProduto" readonly value="${produto.codigoProduto > 0 ? produto.codigoProduto : ""}"/>
+
+                        <div class="details">
+                            <div class="input-box">
+                                <label for="nomeProduto">Nome produto</label>
+                                <input type="text" id="nomeProduto" name="nomeProduto" placeholder="Nome" required/>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="dataValidade">Data do produto </label>
+                                <input type="date" id="dataValidade" name="dataValidade" placeholder="Data" required/>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="estoqueProduto">Estoque do produto</label>
+                                <input type="number" id="estoqueProduto" name="estoqueProduto"  placeholder="Quantidade" required/>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="codigoBarra">Codigo de barra</label>
+                                <input type="number" id="codigoBarra" name="codigoBarra" placeholder="Codigo" required/>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="vlrCusto">Valor de custo </label>
+                                <input type="text" id="vlrCusto" name="vlrCusto" placeholder="Custo" required/>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="vlrVenda">Valor de venda </label>
+                                <input type="text" id="vlrVenda" name="vlrVenda" placeholder="Venda" required/>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="descricaoProduto">Descricao do produto</label>
+                                <input type="text" id="descricaoProduto" name="descricaoProduto"  placeholder="Descricao" required/>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="file" class="custom-file-upload">Selecione foto do produto</label>
+                                <input type="file" name="file" id="file" placeholder="" required />
+                            </div>
+                        </div>
+
+                        <div class="button">
+                            <button type="submit">Cadastrar</button>
+                           
+                        </div>
+
+                    </form>
                 </div>
-                <form action="CadastrarProduto" method="post" enctype="multipart/form-data">
-                    <input type="text" hidden="" id="codigoProduto" name="codigoProduto" readonly value="${produto.codigoProduto > 0 ? produto.codigoProduto : ""}"/>
-                    
-                    <div class="details">
-                        <div class="input-box">
-                            <label for="nomeProduto">Nome produto</label>
-                            <input type="text" id="nomeProduto" name="nomeProduto" placeholder="Nome" required/>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="dataValidade">Data do produto </label>
-                            <input type="date" id="dataValidade" name="dataValidade" placeholder="Data" required/>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="estoqueProduto">Estoque do produto</label>
-                            <input type="number" id="estoqueProduto" name="estoqueProduto"  placeholder="Quantidade" required/>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="codigoBarra">Codigo de barra</label>
-                            <input type="number" id="codigoBarra" name="codigoBarra" placeholder="Codigo" required/>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="vlrCusto">Valor de custo </label>
-                            <input type="text" id="vlrCusto" name="vlrCusto" placeholder="Custo" required/>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="vlrVenda">Valor de venda </label>
-                            <input type="text" id="vlrVenda" name="vlrVenda" placeholder="Venda" required/>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="descricaoProduto">Descricao do produto</label>
-                            <input type="text" id="descricaoProduto" name="descricaoProduto"  placeholder="Descricao" required/>
-                        </div>
-
-                        <div class="input-box">
-                            <label for="file" class="custom-file-upload">Selecione foto do produto</label>
-                            <input type="file" name="file" id="file" placeholder="" required />
-                        </div>
-                    </div>
-
-                    <div class="button">
-                        <button type="submit">Cadastrar</button>
-                        <input type="button" value="Voltar" onclick="history.go(-1)">
-                    </div>
-
-                </form>
-
             </main>
             <!--**************************Sidebar right*********************************-->
             <%@include file="SideBarR.jsp" %>

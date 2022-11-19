@@ -160,255 +160,19 @@ header nav ul li a:hover {
 
 #quantCar {
     font-size: 15px;
-    margin-top: -40px;
+    margin-top: -45px;
     position: absolute;
     margin-left: 11px;
     margin-bottom: 50px;
-    /* z-index: 1; */
-}
-
-/**********BANNER***********/
-#hero {
-    background-image: url(../imagens/banner2.jpg);
-    height: 60vh;
-    width: 100%;
-    background-size: cover;
-    background-position: top 25% right 0%;
-    padding: 0 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    /* filter: blur(5px); */
-    z-index: -1;
-}
-
-#hero h4 {
-    padding-bottom: 15px;
-    color: var(--color-white);
-    /* z-index: 2 !important; */
-}
-
-#hero h2 {
-    color: var(--color-white);
-    /* z-index: 999; */
-}
-
-#hero h1 {
-    color: var(--color-salmao);
-    /* z-index: 999; */
-}
-
-/**********BANNER***********/
-
-/**********PRODUTOS***********/
-#prod1 {
-    text-align: center;
-}
-
-#prod1 .container-pro {
-    display: flex;
-    padding-top: 20px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 
 }
 
 
-#prod1 .pro {
-    width: 23%;
-    min-width: 250px;
-    padding: 10px 12px;
-    border: 1px solid #cce7d0;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
-    margin: 15px 0;
-    transition: all 300ms ease;
-    position: relative;
-    margin-right: 32px;
-    background-color: var(--color-background);
-}
-
-#prod1 .pro:hover {
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.13);
-    transform: translateY(-5px);
-}
-
-#prod1 .pro img {
-    width: 100%;
-    height: 350px;
-    border-radius: 20px;
-}
-
-#prod1 .pro .des {
-    text-align: start;
-    padding: 10px 0;
-}
-
-#prod1 .pro .des span {
-    font-size: 12px;
-    color: var(--dark-variant);
+main{
+    padding-bottom: 10rem;
 }
 
 
-#prod1 .pro .des h5 {
-    padding-top: 7px;
-    color: var(--color-dark);
-    font-size: 18px;
-}
-
-#prod1 .pro .des h4 {
-    padding-top: 7px;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--color-salmao);
-}
-
-#prod1 .pro .cart {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 50px;
-    /* background-color: var(--color-salmao); */
-    font-weight: 500;
-    color: var(--color-salmao-variant);
-    border: 1px solid var(--color-salmao-variant);
-    position: absolute;
-    bottom: 20px;
-    right: 10px;
-    font-size: 20px;
-    transition: background ease-in 0.25s;
-}
-
-#prod1 .pro .cart:hover {
-    background: var(--color-salmao-claro);
-    color: var(--color-white);
-    border: 1px solid var(--color-salmao-claro);
-}
-
-
-
-#prod1 .product_inner button {
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    color: #FFF;
-    border-radius: 3px;
-    padding: 1em 3em;
-    margin: 1em 0 0 0;
-    background: none;
-    cursor: pointer;
-    transition: background ease-in 0.25s;
-}
-
-#prod1 .product_inner button:hover {
-    background: white;
-    color: #2B2D42;
-
-}
-
-#prod1 .product_inner button:before {
-    font-family: FontAwesome;
-    content: "";
-    color: #FFF;
-    position: absolute;
-    font-size: 1.5em;
-    margin: 0 -1.5em;
-}
-
-#prod1 .product_inner button:hover:before {
-    color: #2B2D42;
-}
-
-#prod1 .product_overlay {
-    background: rgba(255, 255, 255, 0.9);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    transform: translateY(-500px);
-    opacity: 0;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-#prod1 .product_overlay h2 {
-    color: rgba(43, 45, 66, 0.7);
-    font-size: 1.2em;
-    margin: 1em 0;
-}
-
-#prod1 .product_overlay i {
-    color: rgba(43, 45, 66, 0.7);
-    font-size: 1.5em;
-}
-
-/**********PRODUTOS***********/
-
-
-
-/**********PRODUTOS-DETALHES***********/
-#prodeatils {
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 2rem;
-}
-
-#prodeatils .single-img {
-    width: 40%;
-    height: 350px;
-    margin-right: 50px;
-}
-
-#prodeatils .single-details {
-    width: 50%;
-    padding-top: 30px;
-}
-
-#prodeatils .single-details h4 {
-    padding: 40px 0 20px 0;
-}
-
-#prodeatils .single-details h2 {
-    font-size: 26px;
-}
-
-
-#prodeatils .single-details input {
-    width: 50px;
-    height: 47px;
-    padding-left: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-    margin-top: 10px;
-    border: 1px solid var(--color-salmao);
-}
-
-#prodeatils .single-details input:focus {
-    outline: none;
-}
-
-#prodeatils .single-details button {
-    text-decoration: none;
-    color: var(--color-white);
-    border: 1px solid var(--color-salmao);
-    border-radius: 5px;
-    background-color: var(--color-salmao);
-    padding: 10px;
-    cursor: pointer;
-}
-
-
-#prodeatils .single-details span {
-    line-height: 25px;
-}
-
-/**********PRODUTOS-DETALHES***********/
-
-/********Footer********/
 footer {
     background-color: var(--color-salmao);
     min-height: 100px;
@@ -477,13 +241,19 @@ footer {
     color: var(--color-white);
     font-size: 20px;
 }
+header .action {
+    position: absolute;
+    right: 30px;
+    top: 15px;
+}
+header .action .menu ul li {
+    margin-left: -20px;
+}
 
 /********Footer********/
 
 @media (max-width:900px) {
-    .section-p {
-        padding: 40px 40px;
-    }
+
 
     header .search-form {
         width: 20rem;
@@ -501,9 +271,7 @@ footer {
 
 
 @media (max-width:799px) {
-    .section-p {
-        padding: 40px 40px;
-    }
+
 
     header .search-form {
         width: 20rem;
@@ -571,38 +339,13 @@ footer {
         font-size: 24px;
     }
 
-    #prod1 .container-pro {
-        justify-content: center;
-    }
 
-    #prod1 .pro {
-        margin: 15px;
-    }
-
-    /* Single Product */
-    #prodeatils {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #prodeatils .single-img {
-        width: 100%;
-        margin-right: 0px;
-    }
-
-    #prodeatils .single-details {
-        width: 100%;
-        /* padding-top: 30px; */
-    }
 
 
 
 }
 
 @media (max-width:477px) {
-    .section-p {
-        padding: 20px;
-    }
 
     .logo {
         width: 30px;
@@ -623,24 +366,6 @@ footer {
         padding-left: 20px;
     }
 
-    #prod1 .pro {
-        width: 100%;
-    }
 
-    /* Single Product */
-    #prodeatils {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #prodeatils .single-img {
-        width: 100%;
-        margin-right: 0px;
-    }
-
-    #prodeatils .single-details {
-        width: 100%;
-        /* padding-top: 30px; */
-    }
 
 }

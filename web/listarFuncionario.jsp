@@ -1,29 +1,24 @@
 <%@page import="model.Funcionario" %>
 <%@page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
- <%
-   
+<%
+
     Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
-    if ( funcionarios != null) {
+    if (funcionarios != null) {
 %>
 <jsp:include page="/cabecalho.jsp"/>
- 
+
 <div class="card my-5 text-center w-75 mx-auto">
     <div class="card-header">
         <h3>Funcionario</h3>
     </div>   
     <div class="card-body">
-        <div class="alert alert-primary" role="alert">
+        <div role="alert">
             ${mensagem}
         </div>
-        <hr/>
-        <a class="btn btn-success" href="NovoFuncionario">Novo</a>
-        
-        <input  class="btn btn-secondary" type="button" value="Voltar" onclick="history.go(-1)">
-        
-        <hr/>
+
         <% List<Funcionario> lista = (List<Funcionario>) request.getAttribute("funcionario"); %>
-        <table class="table table-striped table-hover">
+        <table class="table table-responsive">
             <thead>
                 <tr>
                     <th>Codigo</th>
@@ -40,7 +35,7 @@
                 <%
                     for (Funcionario funcionario : lista) {
                 %>
-               <tr>
+                <tr>
                     <td><%= funcionario.getCodigoPessoa()%></td>
                     <td><%= funcionario.getNomePessoa()%></td>
                     <td><%= funcionario.getCargo().getNomeCargo()%></td>
@@ -55,9 +50,12 @@
                 <%
                     }
                 %>
-            </tbody>
-            
+            </tbody>           
         </table> 
+        
+        <a class="btn btn-success" href="NovoFuncionario">Novo</a>
+        <input  class="btn btn-secondary" type="button" value="Voltar" onclick="history.go(-1)">
+       
     </div>
 </div>
 <jsp:include page="/rodape.jsp"/>

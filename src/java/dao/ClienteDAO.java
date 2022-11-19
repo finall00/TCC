@@ -121,7 +121,7 @@ public class ClienteDAO implements DAOGenerica {
             stmt.setString(2, senha);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                cliente = new Cliente(rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("yyyy-MM-dd").format(rs.getDate("dataNascimento")), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"));
+                cliente = new Cliente(rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("yyyy-MM-dd").format(rs.getDate("dataNascimento")), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"), rs.getString("loginCliente"));
             }
         } catch (SQLException ex) {
             throw new SQLException("Erro ao buscar usuario");

@@ -3,8 +3,8 @@
     <div class="top">
         <div class="logo">
             <img
-                src="../imgaes/—Pngtree—blue gradient birthday cake 3d_5378657.png"
-                alt=""
+                src="imagens/2ed7df50cadd44f1b9004c048d6a74df.png"
+                alt="Carregando..."
                 />
             <h2>Nlogo</h2>
         </div>

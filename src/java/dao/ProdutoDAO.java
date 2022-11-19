@@ -182,7 +182,34 @@ public class ProdutoDAO implements DAOGenerica {
         } finally {
             Conexao.encerrarConexao(conexao, stmt);
         }
-
     }
+    
+    public void addEstoque(int codigo) throws SQLException {
+        String sql = "Update produto set estoqueproduto = ? where codigoProduto = ?;";
+        PreparedStatement stmt = null;        
+       
+        
+        int estoque = 0;
+        int novoEstoque = 0;
+        Double v = 0.0;
+
+        try {           
+            
+            
+            novoEstoque = (int) (estoque + v);
+
+            stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, novoEstoque);
+            stmt.setInt(2, codigo);
+            stmt.execute();
+
+        } catch (SQLException ex) {
+            throw new SQLException("Erro ao consultar Produto");
+        } finally {
+            Conexao.encerrarConexao(conexao, stmt);
+        }
+    }
+    
+    
 
 }

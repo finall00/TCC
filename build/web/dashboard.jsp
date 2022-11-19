@@ -82,7 +82,7 @@
 
             </div>
         </div>
-        <script src="ScriptFunc/dash.js"></script>
+                <script src="Scripts/dash.js"></script>
     </body> 
     <%
         } else {

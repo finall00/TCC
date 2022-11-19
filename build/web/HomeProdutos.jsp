@@ -37,10 +37,10 @@
 
                 <nav>
                     <ul id="navbar">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Produtos</a></li>
+                        <li><a href="ListarProduto">Home</a></li>
+
                         <li style="display:inline-block;">
-                            <a href="#"><span style="font-size: 1.7rem; " class='bx bxs-cart'></span>
+                            <a href="ListarItensCarrinho"><span style="font-size: 1.7rem; color:var(--color-dark);" class='bx bxs-cart'></span>
                                 <p id="quantCar"><%if (carrinho != null) {%><%=carrinho.size()%><%}%></p>
                             </a>
                         </li>
@@ -56,7 +56,7 @@
                             <%}%>
                             <%if (cliente != null) {%>
                             <h3>
-                                <%=cliente.getNomePessoa()%>                        
+                                <%=cliente.getLoginCliente()%>                        
                             </h3>
                             <ul>
                                 <li>
@@ -79,7 +79,7 @@
                             <%}%>
                             <%if (funcionarios != null) {%>
                             <h3>
-                                <%=funcionarios.getNomePessoa()%>
+                                <%=funcionarios.getLoginFuncionario()%>
                                 <div>
                                     <%=funcionarios.getCargo().getNomeCargo()%>
                                 </div>
@@ -110,6 +110,11 @@
             </header>
         </section>
 
+        <section id="hero">
+            <h4>Melhores Preços</h4>
+            <h2>E super promoções</h2>
+            <h1>Em todos os prodrutos</h1>
+        </section>
         <section id="prod1" class="section-p">
 
 

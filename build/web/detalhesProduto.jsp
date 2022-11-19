@@ -36,10 +36,9 @@
 
                 <nav>
                     <ul id="navbar">
-                        <li><a href="ListarProduto">Home</a></li>
-                        <li><a href="ListarProduto">Produtos</a></li>
+                        <li><a href="ListarProduto">Home</a></li>                        
                         <li style="display:inline-block;">
-                            <a href="#"><span style="font-size: 1.7rem; color: black;" class='bx bxs-cart'></span>
+                            <a href="ListarItensCarrinho"><span style="font-size: 1.7rem; color: black;" class='bx bxs-cart'></span>
                                 <p id="quantCar"><%if (carrinho != null) {%><%=carrinho.size()%><%}%></p>                          
                             </a>
                         </li>
@@ -47,7 +46,7 @@
                     </ul>
                     <div class="action">
                         <div class="profile" onclick="menuToggle();">
-                            <span id="dropIcon" class="material-icons icons-size">person</span>
+                            <i id="dropIcon" class='bx bxs-user'></i>
                         </div>
                         <div class="menu">
                             <%if (cliente == null && funcionarios == null) {%>
@@ -69,7 +68,7 @@
                                 </li>
                                 <li>
                                    <i class='bx bx-wallet' ></i>
-                                    <a href="ConsultarCliente?codigoCliente=<%= cliente.getCodigoPessoa()%>">Minhas Compras</a>
+                                    <a href="ConsultarCompra">Minhas Compras</a>
                                 </li>                                
                                 <li>
                                     <i class='bx bx-log-out' ></i>

@@ -26,8 +26,9 @@ public class Funcionario extends Pessoa {
         this.cargo = cargo;
     }
 
-    public Funcionario(int codigoPessoa, String nomePessoa, String dataNascimento, String rgPessoa, String celularPessoa, String telefonePessoa, String emailPessoa, Cargo cargo) {
+    public Funcionario(int codigoPessoa, String nomePessoa, String dataNascimento, String rgPessoa, String celularPessoa, String telefonePessoa, String emailPessoa, String loginFuncionario,Cargo cargo) {
         super(codigoPessoa, nomePessoa, dataNascimento, rgPessoa, celularPessoa, telefonePessoa, emailPessoa);
+        this.loginFuncionario = loginFuncionario;
         this.cargo = cargo;
     }
     

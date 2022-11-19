@@ -158,10 +158,14 @@
                 <div class="row mt-3">
                     <div class="form-group col-6 text-center">
                         <button class="btn btn-success" type="submit">Gravar</button>
-                        <a class="btn btn-secondary" href="homeFuncionario.jsp">Voltar</a>
+                         <input  class="btn btn-secondary" type="button" value="Voltar" onclick="history.go(-1)">
+                         <a class="btn btn-primary" href="ListarBolo" > Bolos Montados</a>
                     </div>
                 </div>
+            </div>
+                    
         </form>
+       
 
 
         <div>
