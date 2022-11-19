@@ -47,7 +47,7 @@ public class DiminuirItem extends HttpServlet {
                         venda.diminuirQuant();
                         break;
                     } else {
-                        request.setAttribute("mensagem", "Você n pode diminuir mais");
+                        request.setAttribute("mensagem", "Você não pode diminuir mais");
                     }
                 }
             }

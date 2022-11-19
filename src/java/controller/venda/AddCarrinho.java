@@ -52,6 +52,7 @@ public class AddCarrinho extends HttpServlet {
                 //pega os dados do front 
                 Integer codigoProduto = Integer.parseInt(request.getParameter("codigoProduto"));
                 String nomeProduto = request.getParameter("nomeProduto");
+                String Imagem = request.getParameter("imagem");
                 Double vlrVenda = Double.parseDouble(request.getParameter("vlrVenda"));
                 Double qtnProduto = Double.parseDouble(request.getParameter("qtnProduto"));
                 Integer estoqueProduto = Integer.parseInt(request.getParameter("estoqueProduto"));
@@ -62,6 +63,7 @@ public class AddCarrinho extends HttpServlet {
                 produto.setNomeProduto(nomeProduto);
                 produto.setVlrVenda(vlrVenda);
                 produto.setEstoqueProduto(estoqueProduto);
+                produto.setImagem(Imagem);
 
                 //model de itensVenda 
                 ItensVenda itensVenda = new ItensVenda();

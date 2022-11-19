@@ -150,7 +150,7 @@
             function add() {
                 let quant = document.querySelector('#quantidade').value;
 
-                window.location.href = "addCarrinho?codigoProduto=${produto.codigoProduto}&vlrVenda=${produto.vlrVenda}&nomeProduto=${produto.nomeProduto}&estoqueProduto=${produto.estoqueProduto}&qtnProduto=" + quant;
+                window.location.href = "addCarrinho?codigoProduto=${produto.codigoProduto}&vlrVenda=${produto.vlrVenda}&imagem=${produto.imagem}&nomeProduto=${produto.nomeProduto}&estoqueProduto=${produto.estoqueProduto}&qtnProduto=" + quant;
             }
 
             $("input#quantidade").blur(

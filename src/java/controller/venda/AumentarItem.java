@@ -65,7 +65,7 @@ public class AumentarItem extends HttpServlet {
                 }
             }
             if (a == false) {
-                request.setAttribute("mensagem", "Não tem essa quantidade no estoque");
+                request.setAttribute("mensagem", "O estoque não possui essa quantidade de itens");
             }
 
             sessao.setAttribute("itensProduto", lista);

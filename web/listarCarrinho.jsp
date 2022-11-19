@@ -11,87 +11,91 @@
     Funcionario funcionario = (Funcionario) request.getSession(false).getAttribute("funcionario");
     Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
     DecimalFormat df = new DecimalFormat("#,###.00");
-    
+
     if (cliente != null || funcionario != null) {
 
         List<ItensVenda> lista = (List<ItensVenda>) request.getAttribute("produtos");
 %>
-<main>
-    <div class="card my-5 text-center w-75 mx-auto">
-        <div class="card-header">
-            <h3>Carrinho</h3>
-        </div>
-        
-        <div class="card-body">    
-<hr>
-            <table class="table ">
-                <thead>
-                    <tr>
-                        <th>codigo Iten</th>
-                        <th>Nome Produto</th>  
-                        <th></th>
-                        <th>quantidade Produto</th>  
-                        <th></th>
-                        <th>Vlr item</th>       
-                        <th>Total</th>
-                        <th></th>
-                        <th>Total do carrinho</th>                                  
-                    </tr>
-                </thead>
-                <tbody>
-                <div role="alert">                
-                    <h2 style="font-size: 20px; margin-bottom: 2rem;"> ${mensagem} </h2>
-                </div>
-                <%
-                    if (lista == null) {
-                %>
-                
-                <%
-                } else {
-                    Carrinho car = new Carrinho(lista);
-                    for (ItensVenda venda : lista) {
-                %>
-
-                <tr>                
-
-                    <td name="codigoProduto"><%=venda.getProduto().getCodigoProduto()%></td>
-
-                    <td><%=venda.getProduto().getNomeProduto()%></td>  
-
-                    <td><a class="btn btn-secondary" href="DiminuirItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">-</a></td>
-
-                    <td><input id="qtdProd" name="qtdProduto"readonly="" value="<%=venda.getQtdProduto()%>"/></td>  
 
 
-                    <td><a class="btn btn-info" href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">+</a></td>   
+<section id="cart" class="section-p">
+    <h2 style="padding-left: 40%;
+        padding-bottom: 30px;">${mensagem}</h2>
+    <div class="conteudo">
 
-                    <td>R$ <%=venda.getProduto().getVlrVenda()%></td>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remover</td>
+                    <td>Imagem</td>
+                    <td>Produto</td>
+                    <td>Preço</td>
+                    <td>Quantidade</td>
+                    <td>Total</td>
+                    <td>Comprar</td>
 
-                    <td>R$ <%= df.format(venda.getTotal())%></td>
+                </tr>
+            </thead>
 
-                    <td><a class="btn btn-danger" href="RemoverItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>">Remover Item</a></td>
+            <tbody>
+                <% if (lista == null) { %>
 
-                    <td><a class="btn btn-info" href="FinalizarVenda?codigoProduto=<%=venda.getProduto().getCodigoProduto()%>&qtdProduto=<%=venda.getQtdProduto()%>&vlrVenda=<%=venda.getProduto().getVlrVenda()%> ">Comprar</a> </td>
-                    <% }%>
-                    <td>Valor Total: R$ <%= df.format(car.getSubTotal())%></td>   
-                </tr> 
-                <td>
-                    <input type="hidden" name="" value="<%= car.getItens()%>" class="form-input">
-                </td>
+                <% }
+                    if (lista != null) {
+                        Carrinho car = new Carrinho(lista);
+                        for (ItensVenda venda : lista) {%>
+                <tr>
+                    <td><a href="RemoverItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>"><i
+                                class='bx bx-trash'></i></a></td>
+                    <td><img id="imgProd" src="<%= (String) request.getContextPath() + "/imagens/" + venda.getProduto().getImagem()%>" alt=""></td>
+                    <td>
+                        <%=venda.getProduto().getNomeProduto()%>
+                    </td>
+                    <td>R$ <%=venda.getProduto().getVlrVenda()%>
+                    </td>
 
-                <td><a class="btn btn-info" href="LimparCarrinho">Limpar</a></td> 
-                <% }%> 
+                    <td>
+                        
 
-                </tbody>  
+                        <input id="qtdProd" name="qtdProduto" readonly=""value="<%=venda.getQtdProduto()%>">
+                        
+                        <a href="DiminuirItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>" ><i id="add-sub" style=" padding-top: 24px;" class='bx bxs-down-arrow' ></i></a>
+                        <a href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>" ><i id="add-sub"style="  padding-top: 3px;" class='bx bxs-up-arrow' ></i></a>
+                    </td>
+                    <td>R$ <%= df.format(venda.getTotal())%>
+                    </td>
+                    <td><a href="FinalizarVenda?codigoProduto=<%=venda.getProduto().getCodigoProduto()%>&qtdProduto=<%=venda.getQtdProduto()%>&vlrVenda=<%=venda.getProduto().getVlrVenda()%>">Comprar</a></td>
 
-            </table>
-                <hr>
-                <input class="btn btn-primary" value="Voltar" type="button" onclick="history.go(-1)">
-            <a class="btn btn-secondary" href="ListarProduto">Comprar mais </a>
+                </tr>
+                <% }%>
 
-        </div>
+            </tbody>
+        </table>
     </div>
-</main>
+</section>
+
+<section id="vtotal" class="section-p">
+    <div id="total">
+        <h3>Total do Carrinho</h3>
+        <table>
+            <tr>
+                <td><strong>Total</strong></td>
+
+                <td><strong>R$ <%= df.format(car.getSubTotal())%></strong></td>
+
+            </tr>
+        </table>
+    </div>
+    <% }%>
+    
+
+
+
+</section>
+
+
+
+
 <jsp:include page="/rodape.jsp"/>
 <%
     } else {
