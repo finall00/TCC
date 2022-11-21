@@ -38,7 +38,7 @@ public class CancelarVenda extends HttpServlet {
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
-          request.getRequestDispatcher("ListarCompra").forward(request, response);
+          request.getRequestDispatcher("ConsultarCompra").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

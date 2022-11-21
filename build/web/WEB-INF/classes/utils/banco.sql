@@ -71,7 +71,7 @@ create table Bolo(
 
 
 create Table compra(
-	codigoPedido serial not null primary key,
+codigoPedido serial not null primary key,
     codigoPessoa int not null references pessoa(codigoPessoa),
     data_venda date not null,
     vlrTotalVenda DECIMAL,
@@ -79,7 +79,7 @@ create Table compra(
 );
 
 create Table itenscompra(
-	codigoProduto int not null references produto(codigoproduto),
+	codigoProduto int not null,
 	codigoVenda int not null primary key references compra(codigopedido),
 	qtdProduto decimal not null, 
 	vlrProduto decimal not null

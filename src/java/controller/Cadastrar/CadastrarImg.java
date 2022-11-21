@@ -55,7 +55,7 @@ public class CadastrarImg extends HttpServlet {
 
             File filePath = new File(caminho, filename);
 
-            if (!filePart.getSubmittedFileName().endsWith(".png") && !filePart.getSubmittedFileName().endsWith(".jpg")) {
+            if (!filePart.getSubmittedFileName().endsWith(".png") && !filePart.getSubmittedFileName().endsWith(".jpg") && !filePart.getSubmittedFileName().endsWith(".jpeg")) {
                 request.setAttribute("erro", "Seu arquivo não foi aceito");
             } else {
 

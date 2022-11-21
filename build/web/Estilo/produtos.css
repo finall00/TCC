@@ -64,7 +64,7 @@ p {
 }
 
 header {
-    padding: 20px 80px;
+    padding: 4px 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -170,7 +170,7 @@ header nav ul li a:hover {
 /**********BANNER***********/
 #hero {
     background-image: url(../imagens/banner2.jpg);
-    height: 60vh;
+    height: 50vh;
     width: 100%;
     background-size: cover;
     background-position: top 25% right 0%;
@@ -354,7 +354,8 @@ header nav ul li a:hover {
 #prodeatils {
     display: flex;
     margin-top: 20px;
-    margin-bottom: 2rem;
+   
+        margin-bottom: 8rem;
 }
 
 #prodeatils .single-img {

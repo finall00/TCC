@@ -25,9 +25,10 @@
     </head>
 
     <body>
+        
         <section>
             <header>
-                <a href="ListarProduto"><img src="imagens/2ed7df50cadd44f1b9004c048d6a74df.png" alt="carregando.." class="logo"></a>
+                <a href="ListarProduto"><img src="imagens/logo.png" alt="carregando.." class="logo"></a>
 
                 <form action="PesquisarProduto" class="search-form">
                     <input type="search" id="pesquisarProduto" name="nomeProduto" placeholder="Pesquisar...">
@@ -114,7 +115,7 @@
             <input hidden="" readonly="" type="text" id="codigoProduto" name="codigoProduto" value="${produto.codigoProduto}"/>
 
             <div class="single-img">
-                <img src=" ${pageContext.request.contextPath}/imagens/${produto.imagem}" alt="Carregando.." width="100%" id="MainImg">    
+                <img src=" ${pageContext.request.contextPath}/imagens/${produto.imagem}" alt="Carregando.." style=" width: 76%; height: 152%;" id="MainImg">    
             </div>
 
             <div class="single-details">
@@ -132,7 +133,7 @@
         </section>
 
 
-        <footer class="section-p">
+        <footer class="section-b">
             <div class="footer-con">
                 <h3>Projeto Confeitaria</h3>
                 <p>Alguma coisa para prencher aqui dps eu vejo</p>

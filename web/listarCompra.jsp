@@ -72,6 +72,6 @@
 <jsp:include page="/rodape.jsp"/>
 <%
     } else {
-        response.sendRedirect(request.getContextPath() + "/paginaLogin.jsp");
+        response.sendRedirect(request.getContextPath() + "/");
     }
 %>

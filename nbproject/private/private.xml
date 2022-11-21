@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/ProdutoDAO.java</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Estilo/dropMenu.css</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/cabecalho.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/cadastrarProduto.jsp</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Estilo/cabeçalho-rodape.css</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/listarCarrinho.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Cadastrar/CadastrarProduto.java</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/detalhesProduto.jsp</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Estilo/produtos.css</file>
             <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/HomeProdutos.jsp</file>
+            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Cadastrar/CadastrarImg.java</file>
         </group>
     </open-files>
 </project-private>

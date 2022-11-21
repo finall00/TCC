@@ -55,10 +55,10 @@
                     </td>
 
                     <td>
-                        
+
 
                         <input id="qtdProd" name="qtdProduto" readonly=""value="<%=venda.getQtdProduto()%>">
-                        
+
                         <a href="DiminuirItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>" ><i id="add-sub" style=" padding-top: 24px;" class='bx bxs-down-arrow' ></i></a>
                         <a href="AumentarItem?codigoP=<%=venda.getProduto().getCodigoProduto()%>" ><i id="add-sub"style="  padding-top: 3px;" class='bx bxs-up-arrow' ></i></a>
                     </td>
@@ -85,9 +85,26 @@
 
             </tr>
         </table>
+
+
     </div>
-    <% }%>
-    
+
+    <% } else {%>
+    <div id="total">
+        <h3>Total do Carrinho</h3>
+        <table>
+            <tr>
+                <td><strong>Total</strong></td>
+
+                <td><strong>R$ 0.00</strong></td>
+
+            </tr>
+        </table>
+
+
+    </div>
+    <%}%>
+
 
 
 
