@@ -28,7 +28,7 @@
     <body>
         <section>
             <header>
-                <a href="ListarProduto"><img src="imagens/logo.png" alt="" class="logo"></a>
+                <a href="index.html"><img src="imagens/logo.png" alt="" class="logo"></a>
 
                 <form action="PesquisarProduto" class="search-form">
                     <input type="search" id="pesquisarProduto" name="nomeProduto" placeholder="Pesquisar...">

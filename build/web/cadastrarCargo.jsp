@@ -33,7 +33,8 @@
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
                     <button class="btn btn-success" type="submit">Gravar</button>
-                    <input class="btn btn-success" type="button" value="Voltar" onclick="history.go(-1)">
+                    <a href="ListarFuncionario"  class="btn btn-success" >Voltar</a>
+                    
                 </div>
             </div>
         </form>

@@ -88,9 +88,11 @@
 
 
     </div>
+</section>
+<% } else {%>
 
-    <% } else {%>
-    <div id="total">
+<section id="vtotal" class="section-p"  style=" display: none;" >
+    <div id="total" >
         <h3>Total do Carrinho</h3>
         <table>
             <tr>
@@ -100,15 +102,13 @@
 
             </tr>
         </table>
-
-
     </div>
-    <%}%>
-
-
-
-
 </section>
+<%}%>
+
+
+
+
 
 
 

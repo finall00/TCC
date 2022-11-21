@@ -3,7 +3,7 @@
 :root {
     --color-primary: #dc8e46;
     --color-primary-light: #F1CA89;
-    --color-background: #F5FFFA;
+    --color-background: #f6f6f9;
 
     /*Paleta */
     --color-salmao: #ff968a;
@@ -69,13 +69,14 @@ header {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    background-color: var(--color-salmao-variant);
+/*    background-color: var(--color-salmao-variant);*/
 }
 
 
-header .logo {
-    max-width: 65px;
-}
+header .logo{
+    position: relative;
+    max-width: 70px;
+  }
 
 header .search-form {
     width: 35rem;

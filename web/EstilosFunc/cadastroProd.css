@@ -179,9 +179,9 @@ form .details .input-box{
     border-color:var(--color-primary-light);
 }
 
-input[type="file"] {
+/*input[type="file"] {
     display:none ;
-}
+}*/
 
 .details .input-box  .custom-file-upload {
     height: 45px;

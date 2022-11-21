@@ -76,9 +76,9 @@
                                 <input type="text" id="descricaoProduto" name="descricaoProduto"  placeholder="Descricao" required/>
                             </div>
 
-                            <div class="input-box">
-                                <label for="file" class="custom-file-upload">Selecione foto do produto</label>
-                                <input type="file" name="file" id="file" placeholder="" required />
+                            <div class="input-box">                               
+                                <input class="custom-file-upload" type="file" name="file" id="file" placeholder="" required />
+                                  <span id='file-name'></span>
                             </div>
                         </div>
 
