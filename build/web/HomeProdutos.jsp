@@ -38,6 +38,7 @@
                 <nav>
                     <ul id="navbar">
                         <li><a href="ListarProduto">Home</a></li>
+                        <li><a href="contato.html">Contato</a></li>
 
                         <li style="display:inline-block;">
                             <a href="ListarItensCarrinho"><span style="font-size: 1.7rem; color:var(--color-dark);" class='bx bxs-cart'></span>

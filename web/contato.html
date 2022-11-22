@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contato</title>
+        <link rel="stylesheet" href="Estilo/produtos.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+
+    <body>
+        <section>
+            <header style="padding: 25px 80px;">
+                <a href="#"><img src="imagens/logo.png" alt="" class="logo"></a>
+                <nav>
+                    <ul id="navbar">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a  href="ListarProduto">Produtos</a></li>                  
+                        <li><a class="active" href="#">Contato</a></li>
+                        
+
+                    </ul>
+                </nav>
+                <div id="mobile">
+                    <!-- <i class='bx bxs-user'></i> -->
+                    <i class='bx bx-menu' id="bar"></i>
+                </div>
+            </header>
+        </section>
+
+        <section id="contact-header">
+            <h2>Como nos achar !</h2>
+            <p>Veja nossa localização ou nos envie um email</p>
+        </section>
+
+        <section id="contact-detals" class="section-p">
+            <div class="details">
+                <span>ATENTE-SE NAS INFORMAÇÕES</span>
+                <h2>Visite nossa loja ou nos contate</h2>
+                <div>
+                    <li>
+                        <i class='bx bx-map'></i>
+                        <p>Colocar o local da loja</p>
+                    </li>
+                    <li>
+                        <i class='bx bx-envelope'></i>
+                        <p>Vou criar o meail da loja</p>
+                    </li>
+                    <li>
+                        <i class='bx bxs-phone-call'></i>
+                        <p>(17)996699753</p>
+                    </li>
+                    <li>
+                        <i class='bx bx-timer'></i>
+                        <p>Aberto as 12:00</p>
+                    </li>
+                </div>
+            </div>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.7747453143093!2d-50.54884979348105!3d-20.272062200386646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94982f2dd04a6605%3A0x60077344fca5f635!2sAv.%20Francisco%20Jalles%2C%202240%20-%20Centro%2C%20Jales%20-%20SP%2C%2015700-028!5e0!3m2!1spt-BR!2sbr!4v1669059227499!5m2!1spt-BR!2sbr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section id="form-details">
+            <form action="https://formsubmit.co/confeitariaweb433@gmail.com" method="POST">
+                <span>MANDE UMA MENSAGEM</span>
+                <h2>QUALQUER SUGESTÃO E MAIS DO QUE BEM-VINDA</h2>
+                <input type="text" name="Nome" placeholder="Nome" required>
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="text" name="assunto" placeholder="assunto"required>
+                <textarea name="mensagem" id="" cols="30" rows="10" placeholder="Sua mensagem aqui"></textarea>
+                <button type="submit">Enviar</button>
+
+                <input type="hidden" name="_subject" value="Nova mensagem!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="http://127.0.0.1:5501/pages/contact.html">
+            </form>
+            <div class="img">
+                <div>
+                    <img src="imgSistema/livro-de-enderecos.png" alt="">
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="section-p">
+            <div class="footer-con">
+                <h3>Projeto Confeitaria</h3>
+                <p>Alguma coisa para prencher aqui dps eu vejo</p>
+                <ul class="socials">
+                    <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+                    <li><a href=""><i class='bx bxl-whatsapp'></i></a></li>
+                    <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Todos os direitos reservados a &copy;2022 Projeto Confeitaria </p>
+            </div>
+        </footer>
+
+
+        <script src="Scripts/prod.js"></script>
+    </body>
+
+</html>

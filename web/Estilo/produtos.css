@@ -1,34 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-:root {
+:root{
     --color-primary: #dc8e46;
     --color-primary-light: #F1CA89;
-    --color-background: #f6f6f9;
 
     /*Paleta */
-    --color-salmao: #ff968a;
-    --color-salmao-variant: #ffaea5;
-    --color-salmao-claro: #ffc5bf;
-    --color-bege-claro-: #ffd8be;
-    --color-bege: #ffc8a2;
+    --color-salmao:#ff968a;
+    --color-salmao-variant:#ffaea5 ;
+    --color-salmao-claro:#ffc5bf ;
+    --color-bege-claro-:#ffd8be ;
+    --color-bege:#ffc8a2;
     /*Paleta */
 
     --color-dark: #363949;
     --dark-variant: #677483;
-    --color-light: #ded8d2d1;
-    --color-sucess: #F2DAC3;
+    --color-light:#ded8d2d1;
+    --color-sucess:#F2DAC3;
     --color-background: #f6f6f9;
-    --color-white: #fff;
-    --fixed-white: #fff;
-    --color-info-gray: #7d8da1;
+    --color-white:#fff;
+    --fixed-white:#fff;
+    --color-info-gray:#7d8da1;
     --caard-radius: 2rem;
     --radius-1: 0.4rem;
     --radius-2: 0.8rem;
     --radius-3: 1.2rem;
-    --card-padding: 1.8rem;
-    --padding-1: 1.2rem;
+    --card-padding:1.8rem;
+    --padding-1:1.2rem;
     --box-shadow: 0 2rem 3rem var(--color-light);
-    --input-background: #eeeeee75;
+    --input-background:#eeeeee75;
 }
 
 
@@ -481,6 +480,160 @@ footer {
 }
 
 /********Footer********/
+
+
+/******************* Contact ***********************/
+
+#contact-header{
+  background-image: url(../imagens/banner.jpg);
+  width: 100%;
+  height: 50vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 14px;
+}
+
+#contact-header h2,
+#contact-header p{
+  color: var(--color-white);
+  text-transform: uppercase;
+  
+}
+
+#contact-detals{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#contact-detals .details{
+  width: 40%;
+}
+
+
+#contact-detals .details span,
+#form-details form span{
+  font-size: 12px;
+  color: var(--dark-variant);
+}
+
+#contact-detals .details h2,
+#form-details form h2{
+  font-size: 26px;
+  line-height: 35px;
+  padding: 20px 0 ;
+}
+
+#contact-detals .details li{
+  list-style: none;
+  display: flex;
+  padding: 10px 0;
+}
+
+
+#contact-detals .details li i{
+  padding-right: 22px;
+  font-size: 24px;
+  color: var(--color-salmao);
+}
+
+#contact-detals .details li p{
+  margin: 0;
+  font-size: 17px;
+  color: var(--dark-variant);
+}
+
+#contact-detals .map{
+  width: 55%;
+  height: 400px;
+}
+
+#contact-detals .map iframe{
+  width: 100%;
+  height: 100%;
+}
+
+#form-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  padding: 80px;
+  border: 1px solid var(--color-salmao);
+}
+
+#form-details form{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#form-details form input,
+#form-details form textarea{
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  margin-bottom: 20px;
+  border: 1px solid var(--color-salmao) ;
+  background-color: var(--color-background);
+  transition: background 0.3s ease;
+}
+
+#form-details form input:focus,
+#form-details form textarea:focus{
+  background-color: var(--color-salmao-claro);
+  color: var(--fixed-white);
+  font-weight: bold;
+}
+
+#form-details form input:focus::placeholder
+#form-details form textarea:focus::placeholder{
+  color: white;
+}
+
+
+
+#form-details form button{
+  width: 100px;
+  height: 45px;
+  background-color: var(--color-salmao);
+  border: none;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+  color: var(--color-white);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+#form-details form button:hover{
+  background-color:var(--color-white);
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+
+}
+
+#form-details .img div{
+  padding-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#form-details .img img{
+  width: 65%;
+}
+
+
+/******************* Contact ***********************/
+
+
+
 
 @media (max-width:900px) {
     .section-p {
