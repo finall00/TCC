@@ -112,7 +112,7 @@ public class ProdutoDAO implements DAOGenerica {
     }
 
     public List<Object> PesquisarProduto(String nome /*, String codigo*/) throws SQLException {
-        String sql = "select * from produto where nomeProduto iLIKE concat( ?, '%') ";
+        String sql = "select * from produto where nomeProduto iLIKE concat('%', ?, '%') ";
         //String sql = "select * from produto where nomeProduto iLIKE concat( '?', '%') or codigobarra = (?);";
 
         PreparedStatement stmt = null;

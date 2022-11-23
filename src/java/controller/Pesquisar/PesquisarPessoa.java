@@ -34,11 +34,14 @@ public class PesquisarPessoa extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        try {            String cpfPessoa = request.getParameter("cpfPessoa");
+        try { 
+            String cpfPessoa = request.getParameter("cpfPessoa");
+            String emailPessoa = request.getParameter("emailPessoa");
+            
             
             PessoaDAO pessoaDAO = new PessoaDAO();
             Gson json = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-            Pessoa pessoa = (Pessoa) pessoaDAO.PesquisarPessoa(cpfPessoa);
+            Pessoa pessoa = (Pessoa) pessoaDAO.PesquisarPessoa(cpfPessoa, emailPessoa);
             response.getWriter().write(json.toJson(pessoa));
             
         } catch (SQLException | ClassNotFoundException ex) {

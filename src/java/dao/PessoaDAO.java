@@ -19,17 +19,18 @@ public class PessoaDAO {
         this.conexao = Conexao.abrirConexao();
     }
 
-    public Object PesquisarPessoa(String cpfPessoa) throws SQLException {
-        String sql = "select codigopessoa, nomepessoa, datanascimento, rgPessoa, celularPessoa, telefonePessoa, emailPessoa from pessoa where cpfpessoa = ?";
+    public Object PesquisarPessoa(String cpfPessoa, String emailPessoa) throws SQLException {
+        String sql = "select codigopessoa, cpfPessoa, nomepessoa, datanascimento, rgPessoa, celularPessoa, telefonePessoa, emailPessoa from pessoa where cpfpessoa = ? OR emailPessoa = ?";
         PreparedStatement stmt = null;
         ResultSet rs = null;
         Pessoa pessoa = null;
         try {
             stmt = conexao.prepareStatement(sql);
             stmt.setString(1, cpfPessoa);
+            stmt.setString(2, emailPessoa);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                pessoa = new Pessoa(rs.getInt("codigoPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("yyyy-MM-dd").format(rs.getDate("dataNascimento")), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"));
+                pessoa = new Pessoa(rs.getInt("codigoPessoa"),rs.getString("cpfPessoa"), rs.getString("nomePessoa"), new SimpleDateFormat("yyyy-MM-dd").format(rs.getDate("dataNascimento")), rs.getString("rgPessoa"), rs.getString("telefonePessoa"), rs.getString("celularPessoa"), rs.getString("emailPessoa"));
             }
         } catch (SQLException ex) {
             throw new SQLException("Erro ao buscar pessoa");

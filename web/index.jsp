@@ -1,22 +1,29 @@
+
+<%@page import="model.Cliente"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Confeitaria</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
         <link rel="stylesheet" href="Estilo/index.css">
+        
     </head>
 
+    <%Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
+    %>
     <body>
         <section>
             <div class="circle"></div>
             <header>
-                <a href="#"><img src="imagens/logo.png" alt="" class="logo"></a>
+                <a href="#"><img src="imgSistema/logo.png" alt="" class="logo"></a>
                 <nav>
                     <ul>
                         <li><a href="ListarProduto">Produtos</a></li>
+                        <% if(cliente == null){%>
                         <li><a href="paginaLogin.jsp">Login</a></li>
+                        <%}%>
                     </ul>
                 </nav>
             </header>        
