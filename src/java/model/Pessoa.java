@@ -46,11 +46,24 @@ public class Pessoa {
         this.numeroCasa = numeroCasa;
         this.cidadePessoa = cidadePessoa;
         this.bairroPessoa = bairroPessoa;
-        this.rgPessoa = rgPessoa;      
+        this.rgPessoa = rgPessoa;
+        this.cpfPessoa = cpfPessoa;
     }
     
-    
 
+    public Pessoa(int codigoPessoa, String nomePessoa, String dataNascimento, String rgPessoa, String celularPessoa, String telefonePessoa, String emailPessoa) {
+        this.codigoPessoa = codigoPessoa;
+        this.nomePessoa = nomePessoa;
+        this.dataNascimento = dataNascimento;
+        this.rgPessoa = rgPessoa;
+        this.celularPessoa = celularPessoa;
+        this.telefonePessoa = telefonePessoa; 
+        this.emailPessoa = emailPessoa;
+    }
+
+    
+            
+            
     public Pessoa(int codigoPessoa, String cpfPessoa, String nomePessoa, String dataNascimento, String rgPessoa, String celularPessoa, String telefonePessoa, String emailPessoa) {
         this.codigoPessoa = codigoPessoa;
         this.cpfPessoa = cpfPessoa;

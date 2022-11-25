@@ -17,11 +17,10 @@ public class CadastrarCargo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        
 
+        String pg = request.getParameter("out");
         try {
-           
-            
+
             int codigoCargo = request.getParameter("codigoCargo").isEmpty() ? 0 : Integer.parseInt(request.getParameter("codigoCargo"));
 
             String nomeCargo = request.getParameter("nomeCargo");
@@ -38,7 +37,14 @@ public class CadastrarCargo extends HttpServlet {
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mesagem", ex.getMessage());
         }
-        request.getRequestDispatcher("ListarCargo").forward(request, response);
+        if (pg.equals("novo")) {
+
+            request.getRequestDispatcher("NovoFuncionario").forward(request, response);
+        } else {
+            
+            request.getRequestDispatcher("ListarCargo").forward(request, response);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

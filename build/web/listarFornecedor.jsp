@@ -21,7 +21,7 @@
         </div>
         <hr/>
         <a class="btn btn-success" href="NovoFornecedor">Novo</a>
-        <a class="btn btn-secondary" href="homeFuncionario.jsp">Voltar</a>
+        <a class="btn btn-secondary" href="ListarCompra">Voltar</a>
         <hr/>
         <% List<Fornecedor> lista = (List<Fornecedor>) request.getAttribute("fornecedor"); %>
         <table class="table table-striped table-hover">

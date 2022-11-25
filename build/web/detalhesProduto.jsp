@@ -91,7 +91,7 @@
                                 </li>
                                 <li>
                                     <i class='bx bx-menu' ></i>
-                                    <a href="homeFuncionario.jsp">Menu Funcionario</a>
+                                    <a href="ListarCompra">Menu Funcionario</a>
                                 </li>
                                 <li>
                                     <i class='bx bx-user'></i>

@@ -19,7 +19,7 @@
         </div>
         <hr/>
         <a href="cadastrarCargo.jsp" class="btn btn-primary">Novo Cargo</a>
-        <a href="homeFuncionario.jsp" class="btn btn-secondary">Voltar</a><hr/>
+        <a href="funcionario.jsp" class="btn btn-secondary">Voltar</a><hr/>
         <% List<Cargo> lista = (List<Cargo>) request.getAttribute("cargo");%>
         <table class="table table-striped table-hover">
             <thead>

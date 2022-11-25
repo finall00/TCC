@@ -1,0 +1,72 @@
+
+
+main .pedidos-recentes{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 1.6rem;
+    margin-top: 0.8rem;
+}
+
+main .pedidos-recentes > div{
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--caard-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .pedidos-recentes > div:hover{
+    box-shadow: none;
+}
+
+main .pedidos-recentes > div .tittle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+main .pedidos-recentes > div .tittle span{
+    font-size: 1rem;
+    color:var(--color-dark) ;
+}
+
+main .pedidos-recentes > div .tittle p {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+main .pedidos-recentes > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .pedidos-recentes h3{
+    font-size: 1rem;
+    margin: 1rem 0 0 .6rem;
+}
+
+
+div .card{
+    background: red;
+}
+
+main .pedidos-recentes .product-photo{
+    position: relative;
+    height: 92px;
+    width: 92px;
+    border-radius: 50%;
+}
+
+main .pedidos-recentes .pedidos .tittle p{
+    font-size: 0.8rem;
+}
+
+main{
+    margin-top: 1.4rem;
+}
+
+

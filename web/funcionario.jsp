@@ -1,3 +1,4 @@
+<%@page import="model.Funcionario"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="model.Cargo"%>
 <%@page import="java.util.List"%>
@@ -21,210 +22,294 @@
 
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link rel="stylesheet" href="EstilosFunc/TempDash.css">
-        <link rel="stylesheet" href="EstilosFunc/funcionario.css">
-
-
+        <link rel="stylesheet" href="EstilosFunc/dash.css">
         <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
     </head>
+
     <body>
-        <a href="homeFuncionario.jsp" class="goWebpage">
+        <a href="ListarProduto" class="goWebpage">
             <i class='bx bxs-store-alt'></i>
         </a>
 
         <div class="containerrr">
-            <!--***********************SideBar*************************************-->    
-            <%@include file="SideBarL.jsp" %>
-            <!--****************************Main********************************-->
-            <main>
-                
-                <h1>Funcionario</h1>
-                <div class="products-action">
-                    <div class="actions">
-                        <div class="i">
-                            <div class="action-icon">                                
-                                <a href="NovoFuncionario">
-                                        <i class='bx bxs-user-plus' ></i>
-                                </a>
-                               
-
-                            </div>
-                            <div class="tittle">
-                                <p>Cadastar Funcionario</p>
-                            </div>
-                        </div>
+            <aside>
+                <div class="top">
+                    <div class="logo">
+                        <img src="imgSistema/logo.png" alt="">
+                        <h2>Nlogo</h2>
                     </div>
-                    <div class="actions">
-                        <div class="i">
-                            <div class="action-icon">
-                                <a href="ListarFuncionario" ><i class='bx bxs-user-detail'></i></a>
-                            </div>
-                            <div class="tittle">
-                                <p>Listar Funcionario</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="actions">
-                        <div class="i">
-                            <div class="action-icon">
-                                <a href="NovoCargo">
-                                    <i class='bx bx-id-card' ></i>
-                                </a>
-                            </div>
-                            <div class="tittle">
-                                <p>Cadastrar cargo</p>
-                            </div>
-                        </div>
+                    <div class="close" id="btn-close">
+                        <i class='bx bx-x'></i>
                     </div>
                 </div>
+                <!--***********************SideBar*************************************-->
+                <div class="sidebar">
+                    <nav>
+                        <a href="ListaCompra">
+                            <i class='bx bxs-dashboard'></i>
+                            <h3>Painel de Controle</h3>
+                        </a>
+                        <a href="produtos.jsp">
+                            <i class='bx bxs-package'></i>
+                            <h3>Produtos</h3>
+                        </a>
+                        <a  href="clientes.jsp">
+                            <i class='bx bxs-user-pin '></i>
+                            <h3>Cliente</h3>
+                        </a>
+                        <a class="active" href="funcionario.jsp">
+                            <i class='bx bx-male'></i>
+                            <h3>Funcionario</h3>
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+            <!--****************************Main********************************-->
+            <main>
+                <section id="interface">
+                    <div class="navigation">
+                        <div class="n1">
+                            <div class="search">
+                                <i class='bx bx-search-alt' ></i>
+                                <input type="text" placeholder="Pesquisar">
+                            </div>
+                        </div>
+                        <div class="profile">     
+                            <div class="action">
+                                <div class="profile" onclick="menuToggle();">
+                                    <i id="dropIcon" class='bx bxs-user'></i>
+                                </div>
+                                <div class="menu">
 
-                
+                                    <%if (funcionario != null) {%>
+                                    <h3>
+                                        <%=funcionario.getNomePessoa()%>
+                                        <div>
+                                            <%=funcionario.getCargo().getNomeCargo()%>
+                                        </div>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <i class='bx bx-user'></i>
+                                            <a href="ConsultarFuncionario?codigoFuncionario=<%=funcionario.getCodigoPessoa()%>">Perfil</a>
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-menu' ></i>
+                                            <a href="ListarCompra">Menu Funcionario</a>
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-log-out' ></i>
+                                            <a href="Logout">Logout</a>
+                                        </li>
+                                    </ul>
+                                    <%}%>
 
-            </main>
-
+                                </div>
+                            </div>                   
+                        </div>
+                    </div>
+                </section>
+                <section id="actions">
+                    <div class="products-action">
+                        <div class="actions">
+                            <div class="i">
+                                <div class="action-icon">
+                                    <a href="NovoFuncionario">
+                                        <i class='bx bxs-user-plus' ></i>
+                                    </a>
+                                </div>
+                                <div class="tittle">
+                                    <p>Cadastar Funcionario</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <div class="i">
+                                <div class="action-icon">
+                                    <a href="ListarFuncionario">
+                                        <i class='bx bxs-user-detail'></i>
+                                    </a>
+                                </div>
+                                <div class="tittle">
+                                    <p>Listar Funcionario</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <div class="i">
+                                <div class="action-icon">
+                                    <a href="ListarCargo">
+                                        <i class='bx bx-id-card' ></i>
+                                    </a>
+                                </div>
+                                <div class="tittle">
+                                    <p>Cargos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>  
             <!--**************************Sidebar right*********************************-->
-            <%@include file="SideBarR.jsp" %>
+
         </div>
-        <script src="ScriptFunc/dash.js"></script>
-        <script src="ScriptFunc/funcionario.js"></script>
-      
-    </body> 
-    
+
+    </body>
+
     <script>
-//ViaCep
-    $(document).ready(function () {
+        function menuToggle() {
+            const toggleMenu = document.querySelector('.menu');
+            toggleMenu.classList.toggle('active');
+        }
+    </script>
 
-        function limpa_formulário_cep() {
-            // Limpa valores do formulário de cep.
-            $("#enderecoPessoa").val("");
-            $("#bairroPessoa").val("");
-            $("#cidadePessoa").val("");
-            $("#estadoPessoa").val("");
-
+    <style>
+        .icons-size {
+            color: #333;
+            font-size: 50px;
         }
 
-        //Quando o campo cep perde o foco.
-        $("#cepPessoa").blur(function () {
+        .action {
+            position: absolute;
+            right: 20px;
+            top: 2px
+        }
 
-            //Nova variável "cep" somente com dígitos.
-            var cep = $(this).val().replace(/\D/g, '');
-
-            //Verifica se campo cep possui valor informado.
-            if (cep !== "") {
-
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    $("#enderecoPessoa").val("");
-                    $("#bairroPessoa").val("...");
-                    $("#cidadePessoa").val("...");
-                    $("#estadoPessoa").val("...");
+        .action ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 0.58em;
+            margin-block-end: 0.75em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
 
 
-                    //Consulta o webservice viacep.com.br/
-                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+        .action .profile {
+            cursor: pointer;
+            height: 40px;
+            overflow: hidden;
+            position: relative;
+            width: 40px;
+            top: 15px;
+            margin-right: 50px;
+        }
 
-                        if (!("erro" in dados)) {
-                            //Atualiza os campos com os valores da consulta.
-                            $("#enderecoPessoa").val(dados.logradouro);
-                            $("#bairroPessoa").val(dados.bairro);
-                            $("#cidadePessoa").val(dados.localidade);
-                            $("#estadoPessoa").val(dados.uf);
+        .action .profile #dropIcon {
+            font-size: 3rem;
+            top: auto;
+            position: absolute;
+            left: 0;
+        }
 
-                            $("#enderecoPessoa").removeAttr("disabled");
-                            $("#bairroPessoa").removeAttr("disabled");
-                           
+        .action .menu {
+            background-color: #FFF;
+            box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 10px 20px;
+            position: absolute;
+            right: -10px;
+            width: 200px;
+            transition: 0.5s;
+            top: 120px;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1;
+        }
 
-                        } //end if.
-                        else {
-                            //CEP pesquisado não foi encontrado.
-                            limpa_formulário_cep();
-                            swal({
-                                title: "Dados invalidos!",
-                                text: "CEP não encontrado!!",
-                                icon: "error",
-                                button: "Ok"
-                            });
-                        }
-                    });
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    swal({
-                        title: "Dados invalidos!",
-                        text: "Formato do CEP invalido!!",
-                        icon: "error",
-                        button: "Voltar"
-                    });
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
+        .action .menu.active {
+            opacity: 1;
+            top: 80px;
+            right: 25px;
+            visibility: visible;
+            z-index: 1;
+        }
+
+        .action .menu::before {
+            background-color: #fff;
+            content: '';
+            height: 20px;
+            position: absolute;
+            right: 30px;
+            transform: rotate(45deg);
+            top: -5px;
+            width: 20px;
+        }
+
+        .action .menu h3 {
+            color: #555;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.3em;
+            padding: 20px 0px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .action .menu h3 div {
+            color: #818181;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .action .menu ul li {
+            align-items: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: left;
+            list-style: none;
+            padding: 10px 5px;
+        }
+
+        .action .menu ul li img {
+            max-width: 20px;
+            margin-right: 10px;
+            opacity: 0.5;
+            transition: 0.5s
+        }
+
+        .action .menu ul li i{
+            font-size: 1.8rem;
+            margin-right: 15px;
+        }
+
+        .action .menu ul li a {
+            display: inline-block;
+            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+            padding-left: 1px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.5s;
+        }
+
+        .action .menu ul li:hover img {
+            opacity: 1;
+        }
+
+        .action .menu ul li:hover a {
+            color: orangered;
+        }
+
+        @media (max-width:799px) {
+            .action {
+                position: absolute;
+                right: 30px;
+                top: -1px;
             }
-        });
-    });
+        }
 
-    // post form
-    $body = $("body");
-
-    $(document).ready(function () {
-
-        $('#enviar').click(function () {
-            var frm = $("#form");
-
-            frm.submit(function (e) {
-
-                e.preventDefault();
-                $body.addClass("loading");
-                $.ajax({
-                    type: frm.attr('method'),
-                    url: frm.attr('action'),
-                    data: frm.serialize(),
-                    dataType: "json",
-
-                    success: function (retorno) {
-                        $body.removeClass("loading");
-                        console.log(retorno);
-                        if (retorno.erro === undefined) {
-                            swal({
-                                title: "Good job!",
-                                text: "You clicked the button!",
-                                icon: "success",
-                                timer: 2000,
-                                showConfirmButton: false
-                            });
-                        } else {
-                            swal({
-                                title: "Dados Invalidos!",
-                                text: retorno.erro,
-                                icon: "success",
-                                timer: 2000,
-                                showConfirmButton: false
-                            });
-                        }
-
-                    },
-                    error: function (resp) {
-                        $body.removeClass("loading");
-                        var erro = resp.erro;
-                        alert(erro);
-                    }
-                });
-            });
-        });
-
-    });
-
-
-
-</script>
-<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+        @media (max-width:477px) {
+            .action {
+                position: absolute;
+                right: 30px;
+                top: -1px;
+            }
+        }</style>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
     <%
         } else {
             response.sendRedirect(request.getContextPath() + "/");

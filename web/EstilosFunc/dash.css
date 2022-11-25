@@ -1,66 +1,855 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --color-primary: #dc8e46;
+    --color-primary-light: #F1CA89;
+
+    --color-dark: #363949;
+    --dark-variant: #677483;
+
+    /*Paleta */
+    --color-salmao: #ff968a;
+    --color-salmao-variant: #ffaea5;
+    --color-salmao-claro: #ffc5bf;
+    --color-bege-claro-: #f4d4bf;
+    --color-bege: #ffc8a2;
+    /*Paleta */
+
+    --color-light: #ded8d2d1;
+    --color-sucess: #F2DAC3;
+    --color-background: #f6f6f9;
+    --color-white: #fff;
+    --fixed-white: #fff;
+
+    --color-info-gray: #7d8da1;
+
+    --caard-radius: 2rem;
+    --radius-1: 0.4rem;
+    --radius-2: 0.8rem;
+    --radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+
+    --input-background: #eeeeee75;
+}
+
+/*PURO TESTE E ENTRETENIMENTO DO RENAN*/
+.dark-theme-var {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --fixed-white: #fff;
+    --color-info-gray: #7d8da1;
+    --input-background: #eeeeee12;
 
 
-main .pedidos-recentes{
+}
+
+/*PURO TESTE E ENTRETENIMENTO DO RENAN*/
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    /*    border: 0  ;*/
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+}
+
+/*outro elemento de puro teste e entretenimento do renan*/
+body .goWebpage {
+    position: fixed;
+    width: 3.75rem;
+    height: 3.75rem;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1.875rem;
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+    transition: all 300ms ease;
+}
+
+body .goWebpage:hover {
+    background-color: var(--color-primary-light);
+}
+
+.goWebpage i {
+    margin-top: 16px;
+    color: var(--fixed-white);
+}
+
+/*outro elemento de puro teste e entretenimento do renan*/
+.containerrr {
     display: grid;
-    grid-template-columns:repeat(3, 1fr);
+    width: 100%;
+    margin: 0 auto;
+
+    /* gap: 1.8rem  ; */
+    grid-template-columns: 14rem auto;
+}
+
+input {
+    background-color: var(--color-white);
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.text-muted {
+    color: var(--color-info-gray);
+}
+
+p {
+    color: var(--dark-variant);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+aside {
+    height: 100vh;
+    background-color: var(--color-bege-claro-);
+}
+
+aside .top {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+
+
+}
+
+aside .logo {
+    display: flex;
+    gap: 0.8rem;
+}
+
+aside .logo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+aside .close {
+    display: none;
+    font-size: 2rem;
+}
+
+/***** Sidebar ******/
+
+aside .sidebar {
+
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a i {
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+    color: var(--color-dark);
+}
+
+/* aside .sidebar a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+} */
+
+aside .sidebar a.active {
+    background: var(--color-salmao-claro);
+    color: var(--color-white);
+    margin-left: 0;
+
+}
+
+.sidebar a.active::before {
+    content: '';
+    width: 6px;
+    height: 100%;
+    background-color: var(--color-salmao);
+}
+
+aside .sidebar a.active i {
+    color: var(--color-white);
+    margin-left: calc(1rem - -0.25px);
+}
+
+aside .sidebar a:hover {
+    color: var(--color-white);
+}
+
+aside .sidebar a:hover i {
+    margin-left: 1rem;
+    color: white;
+}
+
+
+
+/***** Main ******/
+
+
+#interface {
+    width: calc(100%-300px);
+}
+
+#interface .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    padding: 15px 30px;
+    border-bottom: 3px solid var(--color-salmao);
+}
+
+
+#interface .navigation .search {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid #d7dbe6;
+    border-radius: 4px;
+}
+
+#interface .navigation .search i {
+    margin-right: 14px;
+    font-size: 19px;
+}
+
+#interface .navigation .search input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+#interface .navigation .profile {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#interface .navigation .profile i {
+    font-size: 30px;
+    font-weight: 400;
+    margin-right: 19px;
+}
+
+/* Funciomamentos Funcionario */
+
+
+/************** Cadastrar Produto *************************/
+
+#cadastro {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-white);
+    padding: 25px 30px;
+}
+
+#cadastro form .details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#cadastro .form-header .title {
+    margin-bottom: 30px;
+}
+
+form .details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+
+/*estilo do input*/
+.details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: var(--radius-1);
+    padding-left: 15px;
+    border: 1px solid var(--color-light);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.details .input-box label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+}
+
+.details .input-box input:focus,
+.details .input-box input:valid {
+    border-color: var(--color-salmao);
+}
+
+input[type="file"] {
+/*    display: none;*/
+}
+
+.details .input-box .custom-file-upload {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: var(--radius-1);
+    padding: 12px 12px;
+    border: 1px solid var(--color-light);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    margin-top: 20px;
+    color: var(--dark-variant);
+
+}
+
+form .button {
+    height: 45px;
+    margin: 20px;
+}
+
+form .button button {
+    height: 100%;
+    width: 100%;
+    border-radius: var(--radius-1);
+    border: none;
+    color: var(--fixed-white);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-image: linear-gradient(to right, var(--color-salmao), var(--color-salmao-variant), var(--color-salmao), var(--color-salmao-variant), var(--color-salmao-claro));
+}
+
+/************** Cadastrar Produto *************************/
+
+
+/************** Cadastar Funcionario *******************8*/
+
+#cadastroFuncionario {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-white);
+    padding: 25px 30px;
+}
+
+
+
+#cadastroFuncionario form .details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .details .input-box {
+    margin-bottom: 15px;
+    width: calc(100% / 3 - 20px);
+}
+
+
+/*estilo do input*/
+.details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: var(--radius-1);
+    padding-left: 15px;
+    border: 1px solid var(--color-light);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background-color: var(--color-white);
+}
+
+.details .input-box label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 500;
+}
+
+.details .input-box input:focus,
+.details .input-box input:valid {
+    border-color: var(--color-salmao);
+}
+
+input[type="date"] {
+    color: var(--dark-variant);
+}
+
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+
+form .button {
+    height: 45px;
+    margin: 20px;
+}
+
+
+
+
+
+.details .cargo {
+    margin-bottom: 15px;
+    width: calc(100% / 3 - 20px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.details select {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: var(--radius-1);
+    padding-left: 15px;
+    border: 1px solid var(--color-light);
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+
+    margin-top: 10px;
+    color: var(--dark-variant);
+
+
+}
+
+.details select:focus {
+    border-color: var(--color-primary);
+}
+
+.details select option {
+    color: var(--dark-variant);
+    font-size: 1.1rem;
+}
+
+.details .cargo button {
+    border: 1px solid var(--color-light);
+    height: 35px;
+    width: 35px;
+    border-radius: var(--radius-1);
+    margin-left: 10px;
+    cursor: pointer;
+    background: none;
+    transition: all 0.3s ease;
+}
+
+.details .cargo button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.details .cargo button i {
+    color: var(--color-dark);
+    font-size: 2rem;
+}
+
+.details .cargo button i:hover {
+    color: var(--color-white);
+}
+
+
+.modal-container-cargo {
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.modal-container-cargo.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-container-cargo .modal-content-cargo {
+    max-width: 400px;
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 25px 30px;
+    border-radius: var(--radius-2);
+    box-shadow: var(--box-shadow);
+}
+
+.modal-container-cargo .modal-content-cargo .form-header .modal-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modal-container-cargo .modal-content-cargo .form-header .modal-title button {
+    border: none;
+    background: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+/************** Cadastar Funcionario *******************8*/
+
+
+main .products-action {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.6rem;
     margin-top: 0.8rem;
 }
 
-main .pedidos-recentes > div{
+main .products-action>div {
     background: var(--color-white);
     padding: var(--card-padding);
     border-radius: var(--caard-radius);
     margin-top: 1rem;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+    margin: 0 20px 20px;
 }
 
-main .pedidos-recentes > div:hover{
+main .products-action>div:hover {
     box-shadow: none;
 }
 
-main .pedidos-recentes > div .tittle{
+main .products-action>div .i {
     display: flex;
+    flex-direction: column;
+
     align-items: center;
-    justify-content: space-between;
-
+    justify-content: center;
 }
 
-main .pedidos-recentes > div .tittle span{
+main .products-action>div .i .action-icon i {
+    font-size: 5.5rem;
+    font-weight: 500;
+    color: var(--dark-variant);
+}
+
+main .products-action>div .i .tittle p {
     font-size: 1rem;
-    color:var(--color-dark) ;
 }
 
-main .pedidos-recentes > div .tittle p {
+
+
+/* ******************listar funcionario ******************/
+
+.content-table {
+    border-collapse: collapse;
+    margin: 15px;
     font-size: 1rem;
-    font-weight: 700;
-    color: var(--color-dark);
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow-y: hidden;
 }
 
-main .pedidos-recentes > div .middle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.content-table thead tr {
+    background-color: var(--color-salmao);
+    color: var(--color-white);
+    text-align: left;
+    font-weight: bold;
 }
 
-main .pedidos-recentes h3{
-    font-size: 1rem;
-    margin: 1rem 0 0 .6rem;
+.content-table th {
+    text-align: center;
 }
 
-
-div .card{
-    background: red;
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
 }
 
-main .pedidos-recentes .product-photo{
-    position: relative;
-    height: 92px;
-    width: 92px;
-    border-radius: 50%;
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
 }
 
-main .pedidos-recentes .pedidos .tittle p{
-    font-size: 0.8rem;
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #eeeef2;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--color-salmao);
+}
+
+/*
+ borda em cima
+.content-table tbody tr:first-of-type {
+    border-top: 2px solid var(--color-primary);
+}*/
+
+
+.content-table tbody td .alter {
+    border: 1px solid var(--color-salmao);
+    border-radius: 0.2rem;
+    font-size: 12px;
+    background-color: var(--color-salmao);
+    color: var(--color-white);
+    padding: 3px;
+    transition: all 300ms ease;
+}
+
+.content-table tbody td .delete {
+    border: 1px solid var(--dark-variant);
+    border-radius: 0.2rem;
+    font-size: 12px;
+    background-color: var(--dark-variant);
+    color: var(--color-white);
+    padding: 3px;
+    transition: all 300ms ease;
+}
+
+.content-table tbody td .alter:hover {
+    background-color: var(--color-salmao-variant);
+    border: 1px solid var(--color-salmao-variant);
+}
+
+.content-table tbody td .delete:hover {
+    background-color: var(--color-light);
+    border: 1px solid var(--color-light);
+}
+
+/* ******************listar funcionario ******************/
+
+/* Funciomamentos Funcionario */
+
+/*****MEDIA QUERRYS** monitor**/
+@media screen and (max-width :1200px) {
+    .containerrr {
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+
+    aside .logo h2 {
+        display: none;
+    }
+
+    aside .sidebar h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5.6rem;
+    }
+
+    aside .sidebar a:last-child {
+        position: relative;
+        margin-top: 1.8rem;
+    }
+
+    main .pedidos-recentes {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/*****MEDIA QUERRYS** mobile**/
+@media screen and (max-width :768px) {
+    .containerrr {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        position: fixed;
+        left: -100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    }
+
+    aside .logo {
+        margin-left: 1rem;
+    }
+
+    aside .logo h2 {
+        display: inline;
+    }
+
+    aside .sidebar h3 {
+        display: inline;
+    }
+
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+
+    aside .sidebar a:last-child {
+        position: absolute;
+        margin-bottom: 5rem;
+    }
+
+    aside .close {
+        display: block;
+        cursor: pointer;
+    }
+
+    main {
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+
+    main .pedidos-recentes {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+
+    .right {
+        width: 94%;
+        margin: o auto 4rem;
+    }
+
+    .right .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+
+    .right .top .toogler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .right .perfil-logado .info {
+        display: none;
+    }
+
+    .right .top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .right .top button i {
+        font-size: 2rem;
+    }
 }

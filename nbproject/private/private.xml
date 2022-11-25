@@ -2,19 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/controller/Pesquisar/PesquisarPessoa.java</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/produtos.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/cadastrarFornecedor.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/index.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/cadastrarFuncionario.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/cadastrarProduto.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/listarCarrinho.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/model/Pessoa.java</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/rodape.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/Scripts/PesquisarPessoa.js</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/web/HomeProdutos.jsp</file>
-            <file>file:/C:/Users/smili08/Documents/NetBeansProjects/confeitaria/src/java/dao/PessoaDAO.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
