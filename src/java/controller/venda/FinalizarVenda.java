@@ -99,7 +99,7 @@ public class FinalizarVenda extends HttpServlet {
                 }
             }
         } else if (a.size() == 0){
-            request.setAttribute("mensagem", "Seu Carrinho esta vazil");
+            request.setAttribute("mensagem", "Seu Carrinho esta vazio");
         }
         request.getRequestDispatcher("ConsultarCompra").forward(request, response);
     }

@@ -2,11 +2,12 @@
 <aside>
     <div class="top">
         <div class="logo">
-            <img
-                src="imagens/2ed7df50cadd44f1b9004c048d6a74df.png"
-                alt="Carregando..."
-                />
-            <h2>Nlogo</h2>
+            <a href="ListarProduto">
+                <div class="logo">
+                    <img src="imgSistema/logo.png" alt="">
+
+                </div>
+            </a>
         </div>
         <div class="close" id="btn-close">
             <i class="bx bx-x"></i>

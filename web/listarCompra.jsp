@@ -17,16 +17,16 @@
 <main>
 
     <div class="card my-5 text-center w-75 mx-auto">
-        <div class="card-header">
-            <h3>Minhas compras</h3>
+        <div class="card-header" style="background: #ff968a;">
+            <h3 style="color: white">Minhas compras</h3>
         </div>   
         <div class="card-body">
             <div role="alert">
-                <h2>${mensagem}</h2>
+                <h2 style="color: red">${mensagem}</h2>
             </div>
             
-            <a class="btn btn-success" href="NovoCliente">Novo</a>
-            <a class="btn btn-secondary" href="ListarCompra">Voltar</a>
+            
+            <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-secondary" href="ListarProduto">Voltar</a>
             <hr/>
             <% List<PedidoVenda> lista = (List<PedidoVenda>) request.getAttribute("compra"); %>
             <table class="table table-striped table-hover">

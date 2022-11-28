@@ -29,11 +29,12 @@
     <div class="containerrr">
         <aside>
             <div class="top">
-                <div class="logo">
-                    <img src="/imgSistema/logo.png" alt="">
-                    <h2>Nlogo</h2>
-                </div>
+                <a href="ListarProduto">
+                        <div class="logo">
+                            <img src="imgSistema/logo.png" alt="">
 
+                        </div>
+                    </a>
                 <div class="close" id="btn-close">
                     <i class='bx bx-x'></i>
                 </div>
@@ -50,11 +51,11 @@
                         <i class='bx bxs-package'></i>
                         <h3>Produtos</h3>
                     </a>
-                    <a href="clientes.jsp">
+                    <a class="active" href="clientes.jsp">
                         <i class='bx bxs-user-pin '></i>
                         <h3>Cliente</h3>
                     </a>
-                    <a class="active" href="funcionario.jsp">
+                    <a  href="funcionario.jsp">
                         <i class='bx bx-male'></i>
                         <h3>Funcionario</h3>
                     </a>

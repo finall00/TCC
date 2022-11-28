@@ -11,7 +11,7 @@ public class Conexao {
     public static Connection abrirConexao() throws ClassNotFoundException, SQLException {
         try {
             Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/confeitaria", "postgres", "123456");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/confeitaria_bd", "postgres", "123456");
         } catch (ClassNotFoundException ex) {
             throw new ClassNotFoundException("Driver do banco de dados não encontrado!");
         } catch (SQLException ex) {

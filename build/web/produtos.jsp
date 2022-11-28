@@ -19,133 +19,135 @@
 
     </head>
     <body>
-    <a href="ListarProduto" class="goWebpage">
-        <i class='bx bxs-store-alt'></i>
-    </a>
+        <a href="ListarProduto" class="goWebpage">
+            <i class='bx bxs-store-alt'></i>
+        </a>
 
-    <div class="containerrr">
-        <aside>
-            <div class="top">
-                <div class="logo">
-                    <img src="imgSistema/logo.png" alt="">
-                    <h2>Nlogo</h2>
-                </div>
-                <div class="close" id="btn-close">
-                    <i class='bx bx-x'></i>
-                </div>
-            </div>
-            <!--***********************SideBar*************************************-->
-            <div class="sidebar">
-                <nav>
-                    <a  href="ListarCompra">
-                        <i class='bx bxs-dashboard'></i>
-                        <h3>Painel de Controle</h3>
+        <div class="containerrr">
+            <aside>
+                <div class="top">
+                    <a href="ListarProduto">
+                        <div class="logo">
+                            <img src="imgSistema/logo.png" alt="">
+
+                        </div>
                     </a>
-                    <a  class="active" href="produtos.jsp">
-                        <i class='bx bxs-package'></i>
-                        <h3>Produtos</h3>
-                    </a>
-                    <a href="clientes.jsp">
-                        <i class='bx bxs-user-pin '></i>
-                        <h3>Cliente</h3>
-                    </a>
-                    <a href="funcionario.jsp">
-                        <i class='bx bx-male'></i>
-                        <h3>Funcionario</h3>
-                    </a>
-                </nav>
-            </div>
-        </aside>
-        <!--****************************Main********************************-->
-        <main>
-        <section id="interface">
-            <div class="navigation">
-                <div class="n1">
-                    <div class="search">
-                        <i class='bx bx-search-alt' ></i>
-                        <input type="text" placeholder="Pesquisar">
+                    <div class="close" id="btn-close">
+                        <i class='bx bx-x'></i>
                     </div>
                 </div>
-                <div class="profile">
-                    <div class="action">
-                            <div class="profile" onclick="menuToggle();">
-                                <i id="dropIcon" class='bx bxs-user'></i>
-                            </div>
-                            <div class="menu">
-
-                                <%if (funcionario != null) {%>
-                                <h3>
-                                    <%=funcionario.getNomePessoa()%>
-                                    <div>
-                                        <%=funcionario.getCargo().getNomeCargo()%>
-                                    </div>
-                                </h3>
-                                <ul>
-                                    <li>
-                                        <i class='bx bx-user'></i>
-                                        <a href="ConsultarFuncionario?codigoFuncionario=<%=funcionario.getCodigoPessoa()%>">Perfil</a>
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-menu' ></i>
-                                        <a href="ListarCompra">Menu Funcionario</a>
-                                    </li>
-                                    <li>
-                                        <i class='bx bx-log-out' ></i>
-                                        <a href="Logout">Logout</a>
-                                    </li>
-                                </ul>
-                                <%}%>
-
+                <!--***********************SideBar*************************************-->
+                <div class="sidebar">
+                    <nav>
+                        <a  href="ListarCompra">
+                            <i class='bx bxs-dashboard'></i>
+                            <h3>Painel de Controle</h3>
+                        </a>
+                        <a  class="active" href="produtos.jsp">
+                            <i class='bx bxs-package'></i>
+                            <h3>Produtos</h3>
+                        </a>
+                        <a href="clientes.jsp">
+                            <i class='bx bxs-user-pin '></i>
+                            <h3>Cliente</h3>
+                        </a>
+                        <a href="funcionario.jsp">
+                            <i class='bx bx-male'></i>
+                            <h3>Funcionario</h3>
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+            <!--****************************Main********************************-->
+            <main>
+                <section id="interface">
+                    <div class="navigation">
+                        <div class="n1">
+                            <div class="search">
+                                <i class='bx bx-search-alt' ></i>
+                                <input type="text" placeholder="Pesquisar">
                             </div>
                         </div>
-                </div>
-            </div>
-        </section>
-        <section id="actions">
-        <div class="products-action">
-            <div class="actions">
-                <div class="i">
-                    <div class="action-icon">
-                        <a href="cadastrarProduto.jsp">
-                            <i class='bx bx-plus'></i>
-                        </a>
+                        <div class="profile">
+                            <div class="action">
+                                <div class="profile" onclick="menuToggle();">
+                                    <i id="dropIcon" class='bx bxs-user'></i>
+                                </div>
+                                <div class="menu">
+
+                                    <%if (funcionario != null) {%>
+                                    <h3>
+                                        <%=funcionario.getNomePessoa()%>
+                                        <div>
+                                            <%=funcionario.getCargo().getNomeCargo()%>
+                                        </div>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <i class='bx bx-user'></i>
+                                            <a href="ConsultarFuncionario?codigoFuncionario=<%=funcionario.getCodigoPessoa()%>">Perfil</a>
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-menu' ></i>
+                                            <a href="ListarCompra">Menu Funcionario</a>
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-log-out' ></i>
+                                            <a href="Logout">Logout</a>
+                                        </li>
+                                    </ul>
+                                    <%}%>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tittle">
-                        <p>Cadastar Produto</p>
+                </section>
+                <section id="actions">
+                    <div class="products-action">
+                        <div class="actions">
+                            <div class="i">
+                                <div class="action-icon">
+                                    <a href="cadastrarProduto.jsp">
+                                        <i class='bx bx-plus'></i>
+                                    </a>
+                                </div>
+                                <div class="tittle">
+                                    <p>Cadastar Produto</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <div class="i">
+                                <div class="action-icon">
+                                    <a href="ListarProdutoLista">
+                                        <i class='bx bx-list-check'></i>
+                                    </a>
+                                </div>
+                                <div class="tittle">
+                                    <p>Listar Produtos</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <div class="i">
+                                <div class="action-icon">
+                                    <a href="ListarBolo">
+                                        <i class='bx bx-id-card' ></i>
+                                    </a>
+                                </div>
+                                <div class="tittle">
+                                    <p>Bolos montados</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="actions">
-                <div class="i">
-                    <div class="action-icon">
-                        <a href="ListarProdutoLista">
-                            <i class='bx bx-list-check'></i>
-                        </a>
-                    </div>
-                    <div class="tittle">
-                        <p>Listar Produtos</p>
-                    </div>
-                </div>
-            </div>
-            <div class="actions">
-                <div class="i">
-                    <div class="action-icon">
-                        <a href="ListarBolo">
-                        <i class='bx bx-id-card' ></i>
-                        </a>
-                    </div>
-                    <div class="tittle">
-                        <p>Bolos montados</p>
-                    </div>
-                </div>
-            </div>
+                </section>
+            </main>  
+            <!--**************************Sidebar right*********************************-->
+
         </div>
-    </section>
-    </main>  
-        <!--**************************Sidebar right*********************************-->
-  
-    </div>
-                                <script>
+        <script>
             function menuToggle() {
                 const toggleMenu = document.querySelector('.menu');
                 toggleMenu.classList.toggle('active');
@@ -296,10 +298,10 @@
                     top: -1px;
                 }
             }</style>
-</body>
-<%
-    } else {
-        response.sendRedirect(request.getContextPath() + "/");
-    }
-%>
+    </body>
+    <%
+        } else {
+            response.sendRedirect(request.getContextPath() + "/");
+        }
+    %>
 </html>

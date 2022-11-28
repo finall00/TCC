@@ -28,10 +28,12 @@
         <div class="containerrr">
             <aside>
                 <div class="top">
-                    <div class="logo">
-                        <img src="imgSistema/logo.png" alt="">
-                        <h2>Nlogo</h2>
-                    </div>
+                    <a href="ListarProduto">
+                        <div class="logo">
+                            <img src="imgSistema/logo.png" alt="">
+
+                        </div>
+                    </a>
                     <div class="close" id="btn-close">
                         <i class='bx bx-x'></i>
                     </div>
@@ -39,19 +41,19 @@
                 <!--***********************SideBar*************************************-->
                 <div class="sidebar">
                     <nav>
-                        <a  href="../dashboard.html">
+                        <a  href="ListarCompra">
                             <i class='bx bxs-dashboard'></i>
                             <h3>Painel de Controle</h3>
                         </a>
-                        <a  class="active" href="../produtos.html">
+                        <a  class="active" href="produtos.jsp">
                             <i class='bx bxs-package'></i>
                             <h3>Produtos</h3>
                         </a>
-                        <a href="../cliente.html">
+                        <a href="clientes.jsp">
                             <i class='bx bxs-user-pin '></i>
                             <h3>Cliente</h3>
                         </a>
-                        <a href="../funcionario.html">
+                        <a href="funcionario.jsp">
                             <i class='bx bx-male'></i>
                             <h3>Funcionario</h3>
                         </a>
@@ -112,9 +114,9 @@
                                     <input class="custom-file-upload" type="file" name="file" id="file" placeholder="" required />
                                     <span id='file-name' placeholder=""></span>
                                 </div>
-                                <div  class="input-box" style=" border: none;">
-                                    <label for="descricaoProduto"></label>
-                                    <input readonly="" type="text" id="" name=""/>
+                                <div  class="input-box">
+                                    <label  for=""></label>
+                                    <input id="iv" style="border: none;" readonly="" type="text" id="" name=""/>
                                 </div>
                             </div>
 
@@ -126,9 +128,9 @@
                 </section>
             </main>
             <!--**************************Sidebar right*********************************-->
-           
+
         </div>
-     
+
         <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
 
     </body> 

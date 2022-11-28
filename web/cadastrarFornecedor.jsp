@@ -11,8 +11,8 @@
 
 
 <div class="card">
-    <div class="card-header text-center">
-        <h3>Cadastrar fornecedor</h3>
+    <div class="card-header text-center" style="background: #ff968a;">
+        <h3 style="color: white">Cadastrar fornecedor</h3>
     </div>
     <div class="card-body">
         <form action="CadastrarFornecedor" method="post">
@@ -29,7 +29,7 @@
 
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
-                    <label for="dataNascimento">Data de nascimento:</label>
+                    <label for="dataNascimento">Data do Contrato:</label>
                     <input class="form-control" type="date" id="dataNascimento" name="dataNascimento" required value="${fornecedor.dataNascimento}"/>
                 </div>
                 <div class="form-group col-6">
@@ -62,64 +62,71 @@
             </div>
 
 
-            <div class="row w-75 mx-auto">                  
-                <div class="form-group col-6">
-                    <label for="enderecoPessoa">Endereco</label>
-                    <input class="form-control" type="text" id="enderecoPessoa" name="enderecoPessoa" required value="${fornecedor.enderecoPessoa}" />
-                </div>
-                <div class="form-group col-6">
-                    <label for="estadoPessoa">Estado</label>
-                    <input class="form-control" type="text" id="estadoPessoa" name="estadoPessoa" required value="${fornecedor.estadoPessoa}" />
-                </div>
-                <div class="form-group col-6">
-                    <label for="numeroCasa">Numero</label>
-                    <input class="form-control"  type="text" id="numeroCasa" name="numeroCasa" required value="${fornecedor.numeroCasa}" />
-                </div>
-            </div>
-
-
-            <div class="row w-75 mx-auto">                  
+            <div class="row w-75 mx-auto">  
                 <div class="form-group col-6">
                     <label for="cepPessoa">Cep</label>
                     <input class="form-control" data-mask="00000-000" type="text" id="cepPessoa" name="cepPessoa" required value="${fornecedor.cepPessoa}" />
                 </div>
                 <div class="form-group col-6">
-                    <label for="cidadePessoa">Cidade</label>
-                    <input class="form-control" type="text" id="cidadePessoa" name="cidadePessoa" required value="${fornecedor.cidadePessoa}" />
+                    <label for="estadoPessoa">Estado</label>
+                    <input class="form-control" type="text" id="estadoPessoa" name="estadoPessoa" required value="${fornecedor.estadoPessoa}" />
                 </div>
+
+
+
             </div>
 
 
-            <div class="row w-75 mx-auto">                  
+            <div class="row w-75 mx-auto">  
+                <div class="form-group col-6">
+                    <label for="enderecoPessoa">Endereco</label>
+                    <input class="form-control" type="text" id="enderecoPessoa" name="enderecoPessoa" required value="${fornecedor.enderecoPessoa}" />
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="numeroCasa">Numero</label>
+                    <input class="form-control"  type="text" id="numeroCasa" name="numeroCasa" required value="${fornecedor.numeroCasa}" />
+                </div>
+
+
+            </div>
+
+
+            <div class="row w-75 mx-auto">
+                <div class="form-group col-6">
+                    <label for="cidadePessoa">Cidade</label>
+                    <input class="form-control" type="text" id="cidadePessoa" name="cidadePessoa" required value="${fornecedor.cidadePessoa}" />
+                </div>  
                 <div class="form-group col-6">
                     <label for="bairroPessoa">Bairro</label>
                     <input class="form-control" type="text" id="bairroPessoa" name="bairroPessoa" required value="${fornecedor.bairroPessoa}" />
                 </div>
+            </div> 
+
+            <div class="row w-75 mx-auto"> 
                 <div class="form-group col-6">
                     <label for="obsFornecedor">Sobre</label>
                     <input class="form-control" type="text" id="obsFornecedor" name="obsFornecedor" required value="${fornecedor.obsFornecedor}" />
                 </div>
-            </div> 
-
-
-            <div>
                 <div class="form-group col-6">
                     <label for="razaoSocial">Razão social</label>
                     <input  class="form-control"  id="razaoSocial" name="razaoSocial" required value="${fornecedor.razaoSocial}" />
                 </div>
-            </div> 
-            <div class="row w-75 mx-auto">   
+
+            </div>
+            <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
                     <label for="contatoVendedor">Contato Vendedor</label>
                     <input  class="form-control"  id="contatoVendedor" name="contatoVendedor" required value="${fornecedor.contatoVendedor}" />
                 </div>
+
             </div>
 
 
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
-                    <button class="btn btn-success" type="submit">Gravar</button>
-                    <a class="btn btn-secondary" href="ListarFornecedor">Voltar</a>
+                    <button style="background: #ff968a ; border: 1px solid #ff968a" class="btn btn-success" type="submit">Gravar</button>
+                    <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-secondary" href="ListarFornecedor">Voltar</a>
                 </div>
             </div>     
         </form>

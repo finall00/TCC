@@ -36,10 +36,12 @@
         <div class="containerrr">
             <aside>
                 <div class="top">
+                   <a href="ListarProduto">
                     <div class="logo">
                         <img src="imgSistema/logo.png" alt="">
-                        <h2>Nlogo</h2>
+                        
                     </div>
+                    </a>
                     <div class="close" id="btn-close">
                         <i class='bx bx-x'></i>
                     </div>
@@ -47,7 +49,7 @@
                 <!--***********************SideBar*************************************-->
                 <div class="sidebar">
                     <nav>
-                        <a href="ListaCompra">
+                        <a href="ListarCompra">
                             <i class='bx bxs-dashboard'></i>
                             <h3>Painel de Controle</h3>
                         </a>

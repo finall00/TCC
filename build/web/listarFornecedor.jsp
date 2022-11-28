@@ -12,15 +12,15 @@
 <jsp:include page="/cabecalho.jsp"/>
  
 <div class="card my-5 text-center w-75 mx-auto">
-    <div class="card-header">
-        <h3>Fornecedor</h3>
+    <div class="card-header" style="background: #ff968a;">
+        <h3 style="color: white">Fornecedor</h3>
     </div>   
     <div class="card-body">
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-primary" role="alert" style="background:#ffd8be; border: 1px solid #ffd8be">
             ${mensagem}
         </div>
         <hr/>
-        <a class="btn btn-success" href="NovoFornecedor">Novo</a>
+        <a style="background: #ff968a ; border: 1px solid #ff968a" class="btn btn-success" href="NovoFornecedor">Novo</a>
         <a class="btn btn-secondary" href="ListarCompra">Voltar</a>
         <hr/>
         <% List<Fornecedor> lista = (List<Fornecedor>) request.getAttribute("fornecedor"); %>
@@ -50,8 +50,8 @@
                     <td><%= fornecedor.getContatoVendedor()%></td>
                     <td><%= fornecedor.getObsFornecedor()%></td>
                     
-                    <td><a class="btn btn-info" href="ConsultarFornecedor?codigoFornecedor=<%= fornecedor.getCodigoPessoa()%>">Alterar</a></td>
-                    <td><a class="btn btn-danger" href="ExcluirFornecedor?codigoFornecedor=<%= fornecedor.getCodigoPessoa()%>">Excluir</a></td>              
+                    <td><a style="background: #ff968a ; border: 1px solid #ff968a; color: white" class="btn btn-info" href="ConsultarFornecedor?codigoFornecedor=<%= fornecedor.getCodigoPessoa()%>">Alterar</a></td>
+                    <td><a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-danger" href="ExcluirFornecedor?codigoFornecedor=<%= fornecedor.getCodigoPessoa()%>">Excluir</a></td>              
                 </tr>
                 <%
                     }

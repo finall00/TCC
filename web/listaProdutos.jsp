@@ -4,17 +4,17 @@
 <jsp:include page="/cabecalho.jsp"/>
 
 <div class="card-header text-center">
-    <div class="card-header">
-        <h3>Listar Produto</h3> 
+    <div class="card-header" style="background: #ff968a;">
+        <h3 style="color: white">Listar Produto</h3> 
     </div>
     <div class="card-body">
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-primary" role="alert" style="background:#ffd8be; border: 1px solid #ffd8be">
             ${mensagem}
         </div>
 
         <hr/>
-        <a class="btn btn-dark" href="NovoProduto">Novo</a>
-        <input class="btn btn-info" type="button" value="Voltar" onclick="history.go(-1)">
+        <a style="background: #ff968a ; border: 1px solid #ff968a" class="btn btn-dark" href="NovoProduto">Novo</a>
+        <input style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-info" type="button" value="Voltar" onclick="history.go(-1)">
         
         <hr/>
         
@@ -49,8 +49,8 @@
                     <td>R$ <%=produto.getVlrVenda()%></td>
                     <td><%= produto.getCodigoBarra()%></td>
                     <td><%= produto.getDescricaoProduto()%></td>
-                    <td><a class="btn btn-info" href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>">Alterar</a></td>
-                    <td><a class="btn btn-danger" href="ExcluirProduto?codigoProduto=<%= produto.getCodigoProduto()%>">Excluir</a></td>
+                    <td><a style="background: #ff968a ; border: 1px solid #ff968a" class="btn btn-success" href="ConsultarProduto?codigoProduto=<%= produto.getCodigoProduto()%>">Alterar</a></td>
+                    <td><a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-danger" href="ExcluirProduto?codigoProduto=<%= produto.getCodigoProduto()%>">Excluir</a></td>
                 </tr>
                 <%
                     }

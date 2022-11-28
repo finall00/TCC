@@ -26,10 +26,12 @@
     <div class="containerrr">
         <aside>
             <div class="top">
-                <div class="logo">
-                    <img src="/imgSistema/logo.png" alt="">
-                    <h2>Nlogo</h2>
-                </div>
+                <a href="ListarProduto">
+                    <div class="logo">
+                        <img src="imgSistema/logo.png" alt="">
+
+                    </div>
+                </a>
 
                 <div class="close" id="btn-close">
                     <i class='bx bx-x'></i>

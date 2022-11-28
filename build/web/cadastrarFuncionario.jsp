@@ -30,10 +30,12 @@
         <div class="containerrr">
             <aside>
                 <div class="top">
-                    <div class="logo">
-                        <img src="imgSistema/logo.png" alt="">
-                        <h2>Nlogo</h2>
-                    </div>
+                    <a href="ListarProduto">
+                        <div class="logo">
+                            <img src="imgSistema/logo.png" alt="">
+
+                        </div>
+                    </a>
                     <div class="close" id="btn-close">
                         <i class='bx bx-x'></i>
                     </div>
@@ -102,7 +104,7 @@
                             </div>
                             <div class="input-box">
                                 <label for="cepPessoa">CEP</label>
-                                <input type="text" data-masck="00000-000" name="cepPessoa" id="cepPessoa" placeholder="Cep" required>
+                                <input type="text" data-mask="00000-000" name="cepPessoa" id="cepPessoa" placeholder="Cep" required>
                             </div>
                             <div class="input-box">
                                 <label for="enderecoPessoa">Endereco</label>
@@ -134,7 +136,7 @@
                             </div>
 
                             <div class="cargo">
-                              
+
                                 <%
                                     List<Cargo> lista = (List<Cargo>) request.getAttribute("cargo");
                                     Funcionario funcionario = (Funcionario) request.getAttribute("funcionario");
@@ -179,7 +181,7 @@
                                         <div class="input-box">
                                             <input type="text" hidden="" name="codigoCargo" id="codigoCargo">
                                             <input type="text" hidden="" name="out" id="out" value="novo">
-                                      
+
                                             <label for="nomeCargo">Cargo</label>
                                             <input type="text" name="nomeCargo" id="nomeCargo" placeholder="Nome do cargo" required>
                                         </div>
@@ -187,7 +189,7 @@
                                             <label for="descCargo">Cargo</label>
                                             <input type="text" name="descCargo" id="descCargo" placeholder="Descrição do cargo" required>
                                         </div>
-                                        
+
                                         <div class="button">
                                             <button type="submit">Cadastrar</button>
                                         </div>
@@ -205,7 +207,7 @@
 
         </div>
         <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
-        
+
         <script src="Scripts/PesquisarPessoa.js"></script>
         <script src="Scripts/modalCargo.js"></script>
     </body>

@@ -23,16 +23,16 @@ create table pessoa(
     codigoPessoa serial not null primary key,
     nomePessoa varchar(60) not null,
     dataNascimento date not null,
-    cpfPessoa varchar(17) not null unique,
+    cpfPessoa varchar(25) not null unique,
     rgPessoa varchar(14) not null unique,
     telefonePessoa varchar(17),
     celularPessoa varchar(17) not null,
     emailPessoa varchar(40) not null unique,
-    enderecoPessoa varchar(100) not null,
+    enderecoPessoa varchar(200) not null,
     estadoPessoa varchar(2) not null,
     cepPessoa  varchar(20) not null,
-    cidadePessoa varchar(20) not null,
-    bairroPessoa varchar(30) not null,
+    cidadePessoa varchar(30) not null,
+    bairroPessoa varchar(50) not null,
     numeroCasa varchar(5) not null
 );
 
@@ -57,35 +57,6 @@ create table Fornecedor(
     contatoVendedor varchar(30) not null,
     obsFornecedor varchar(500)
 );
-
-create table Bolo(
-	codigoBolo serial not null primary key,
-    decoracaobolo varchar,
-    saborBolo int not null references saborbolo(codigoSabor),
-    coberturaBolo int not null references coberturabolo(codigoCobertura),
-    recheioBolo int not null references recheioBolo(codigoRecheio),
-    pesoBolo int not null references pesoBolo(codigoPeso),
-    formatoBolo int not null references formatoBolo(codigoFormato),
-    codigopessoa int not null references pessoa(codigoPessoa)
-);
-
-
-create Table compra(
-codigoPedido serial not null primary key,
-    codigoPessoa int not null references pessoa(codigoPessoa),
-    data_venda date not null,
-    vlrTotalVenda DECIMAL,
-    obsVenda varchar
-);
-
-create Table itenscompra(
-	codigoProduto int not null,
-	codigoVenda int not null primary key references compra(codigopedido),
-	qtdProduto decimal not null, 
-	vlrProduto decimal not null
-);
-
-
 
 -- itens bolo -->
 
@@ -114,7 +85,35 @@ create table Saborbolo (
   saborB varchar   
 );
 
--- falta a tabela de montaBolo
+
+
+create table Bolo(
+	codigoBolo serial not null primary key,
+    decoracaobolo varchar,
+    saborBolo int not null references saborbolo(codigoSabor),
+    coberturaBolo int not null references coberturabolo(codigoCobertura),
+    recheioBolo int not null references recheioBolo(codigoRecheio),
+    pesoBolo int not null references pesoBolo(codigoPeso),
+    formatoBolo int not null references formatoBolo(codigoFormato),
+    codigopessoa int not null references pessoa(codigoPessoa)
+);
+
+
+create Table compra(
+codigoPedido serial not null primary key,
+    codigoPessoa int not null references pessoa(codigoPessoa),
+    data_venda date not null,
+    vlrTotalVenda DECIMAL,
+    obsVenda varchar
+);
+
+create Table itenscompra(
+	codigoProduto int not null,
+	codigoVenda int not null primary key references compra(codigopedido),
+	qtdProduto decimal not null, 
+	vlrProduto decimal not null
+);
+
 
 
  -- functions
@@ -285,23 +284,8 @@ $$ language plpgsql;
 
 
 --> teste
-select * from funcionario fu inner join pessoa pe on fu.codigoFuncionario = pe.codigoPessoa
 
-call cadastrarFuncionario(0, 'aaaaa', '2002-10-10', '3311', '88', '999666', '9963255', 'eemail', 'rua 3', 'SP', '15710000', 'jales', 'centro', 'legal', 'login', 'senha', 1) 
+call caddastrarCargo(0, 'Admin', 'Administra'); 
 
+call cadastrarfuncionario(0, 'ADM', '1000-01-01', '0', '88', '0000000', '0000', 'adm@email.com', '0', '0', '0', '0', '0', '0','0', 'Admin', 'admin', 1);
 
-
-SELECT cadastrarPessoa(0, 'aaaaa', '2002-10-10', '111111111', '8888888888', '999666', '9963255', 'email@email', 'rua 3', 'SP', '15710000', 'jales', 'centro') 
-
-call caddastrarCargo(0, 'programador', 'programa'); 
-
-call cadastrarCliente(0, 'aaaaaa', '2002-10-10', '111111111', '8888888888', '999666', '9963255', 'email@email', 'rua 3', 'SP', '15710000', 'jales', 'centro', 'legal', 'vagner', '123') 
-
-
- insert into cliente values(6,  'legal', 'login', '123456');
-      
-select * from cliente cl inner join pessoa pe on cl.codigoCliente = pe.codigoPessoa
-
-SELECT * FROM pessoa
-
-SELECT * FROM cliente

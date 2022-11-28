@@ -4,7 +4,7 @@ main .pedidos-recentes{
     display: grid;
     grid-template-columns:repeat(3, 1fr);
     gap: 1.6rem;
-    margin-top: 0.8rem;
+    margin: 20px 0px 0px 20px;
 }
 
 main .pedidos-recentes > div{
@@ -23,8 +23,8 @@ main .pedidos-recentes > div:hover{
 main .pedidos-recentes > div .tittle{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
+    justify-content: space-between;     
+    
 }
 
 main .pedidos-recentes > div .tittle span{
@@ -41,7 +41,7 @@ main .pedidos-recentes > div .tittle p {
 main .pedidos-recentes > div .middle{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+   
 }
 
 main .pedidos-recentes h3{
@@ -64,9 +64,12 @@ main .pedidos-recentes .product-photo{
 main .pedidos-recentes .pedidos .tittle p{
     font-size: 0.8rem;
 }
+main .pedidos-recentes .pedidos .product-photo {
+    margin-left: 85px;
+}
+
+
 
 main{
     margin-top: 1.4rem;
 }
-
-

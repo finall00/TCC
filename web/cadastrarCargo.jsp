@@ -7,10 +7,10 @@
 %>
 <jsp:include page="/cabecalho.jsp"/>
 <div class="card">
-    <div class="card-header text-center">
+    <div class="card-header text-center" >
         <h3>Cadastrar Cargo</h3>
     </div>
-    <div class="card-body">
+    <div class="card-body" style="padding-bottom: 10rem;">
 
         <form action="CadastrarCargo" method="post">
             <div class="row w-75 mx-auto">
@@ -32,8 +32,8 @@
             </div>
             <div class="row mt-3">
                 <div class="form-group col-12 text-center">
-                    <button class="btn btn-success" type="submit">Gravar</button>
-                    <a href="ListarFuncionario"  class="btn btn-success" >Voltar</a>
+                    <button style="background: #ff968a ; border: 1px solid #ff968a" class="btn btn-success" type="submit">Gravar</button>
+                    <a href="ListarCargo" style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn" >Voltar</a>
                     
                 </div>
             </div>

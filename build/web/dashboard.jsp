@@ -33,10 +33,11 @@
         <div class="containerrr">
             <aside>
                 <div class="top">
+                    <a href="ListarProduto">
                     <div class="logo">
-                        <img src="imgSistema/logo.png" alt="">
-                        <h2>Nlogo</h2>
+                        <img src="imgSistema/logo.png" alt="Carregando...">                       
                     </div>
+                    </a>
                     <div class="close" id="btn-close">
                         <i class='bx bx-x'></i>
                     </div>
@@ -122,20 +123,20 @@
                             <p class="Id-pedido"><%=compra.getCodigoPedido()%></p>
                         </div>
 
-                        <div class="middle">
+                        <div style="justify-content: flex-start" class="middle">
                             <div class="left">
-                                <p style="font-size: 1.30rem;"><strong>Cliente:</strong> <%= compra.getPessoa().getNomePessoa()%></p>
+                                <p style="font-size: 1.5rem;color:#ff968a "><strong style="color:#363949">Cliente:</strong> <%= compra.getPessoa().getNomePessoa()%></p>
                                 <h3 style="margin-left: -1.5px; font-size: 1rem;"><%=compra.getDataVenda()%></h3>
-                                <h1>R$ <%= compra.getVlrTotalVenda()%></h1>
+                                <h1 style="margin-top: 10px">R$ <%= compra.getVlrTotalVenda()%></h1>
 
                             </div>
-                            <div class="product-photo" >
+                                <div style="margin-left: 85px; width: 150px;height: 150px" class="product-photo" >
                                 <img src="<%= (String) request.getContextPath() + "/imagens/" + compra.getProduto().getImagem()%>" style="height: 100%;
                                      width: 100%;" alt="">
                             </div>
                         </div>
-                        <h3 style="margin-bottom: 0.60rem; margin-left: -2px;"><strong><%=compra.getObsVenda()%></strong></h3>
-                        <a href="ConsultarCompra?codigoP=<%=compra.getCodigoPedido()%>"><h2>Detalhes</h2></a>
+                        <h3 style=" margin-left: -2px;"><strong><%=compra.getObsVenda()%></strong></h3>
+                        <a  style="color: #ff968a" href="ConsultarCompra?codigoP=<%=compra.getCodigoPedido()%>"><h2>Detalhes</h2></a>
                     </div>
                     <%  }
                     } else {
@@ -168,7 +169,7 @@
             .action {
                 position: absolute;
                 right: 20px;
-                top: 2px
+                top: 15px
             }
 
             .action ul {
@@ -285,7 +286,7 @@
             }
 
             .action .menu ul li:hover a {
-                color: orangered;
+                color: #ff968a;
             }
 
             @media (max-width:799px) {

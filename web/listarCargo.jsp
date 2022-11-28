@@ -10,15 +10,15 @@
 <jsp:include page="/cabecalho.jsp"/>
 
 <div class="card my-5 text-center w-75 mx-auto">
-    <div class="card-header">
-        <h3>Cargos</h3>
+    <div class="card-header" style="background: #ff968a;">
+        <h3 style="color: white">Cargos</h3>
     </div>   
     <div class="card-body">
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-primary"  role="alert" style="background:#ffd8be; border: 1px solid #ffd8be">
             ${mensagem}
         </div>
         <hr/>
-        <a href="cadastrarCargo.jsp" class="btn btn-primary">Novo Cargo</a>
+        <a style="background: #ff968a ; border: 1px solid #ff968a" href="cadastrarCargo.jsp" class="btn btn-primary">Novo Cargo</a>
         <a href="funcionario.jsp" class="btn btn-secondary">Voltar</a><hr/>
         <% List<Cargo> lista = (List<Cargo>) request.getAttribute("cargo");%>
         <table class="table table-striped table-hover">
@@ -37,8 +37,8 @@
                     <td><%= cargo.getCodigoCargo()%></td>
                     <td><%= cargo.getNomeCargo()%></td>
                     <td><%= cargo.getDescCargo()%></td>
-                    <td><a href="ConsultarCargo?codigoCargo=<%= cargo.getCodigoCargo()%>" class="btn btn-info">Alterar</a></td>
-                    <td><a href="ExcluirCargo?codigoCargo=<%= cargo.getCodigoCargo()%>" class="btn btn-danger">Excluir</a></td>
+                    <td><a style="background: #ff968a ; border: 1px solid #ff968a; color: white" href="ConsultarCargo?codigoCargo=<%= cargo.getCodigoCargo()%>" class="btn btn-info">Alterar</a></td>
+                    <td><a style="background: #6c757d ; border: 1px solid #6c757d; color: white" href="ExcluirCargo?codigoCargo=<%= cargo.getCodigoCargo()%>" class="btn btn-danger">Excluir</a></td>
 
                 </tr>
                 <%
