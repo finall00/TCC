@@ -146,7 +146,9 @@
                                 <h5><%=produto.getNomeProduto()%></h5>
                                 <h4>R$<%=produto.getVlrVenda()%></h4>
                             </div>
+                            <%if(funcionarios == null){%>
                             <a href="addCarrinho?codigoProduto=<%=produto.getCodigoProduto()%>&qtnProduto=1&imagem=<%=produto.getImagem()%>&vlrVenda=<%= produto.getVlrVenda()%>&nomeProduto=<%= produto.getNomeProduto()%>&estoqueProduto=<%= produto.getEstoqueProduto()%>"><i class='bx bx-cart cart'></i></a>
+                        <%}%>
                         </div>
                         <%}
                             }%>

@@ -6,7 +6,7 @@
     if ( funcionario != null) {
 %>
 <jsp:include page="/cabecalho.jsp"/>
-<div class="card">
+<div class="card" style="padding-top: 4rem; padding-bottom: 5rem">
     <div class="card-header text-center">
         <h3>Cadastrar Peso</h3>
     </div>

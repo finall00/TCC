@@ -1,4 +1,5 @@
 
+<%@page import="model.Funcionario"%>
 <%@page import="model.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,7 +12,9 @@
         
     </head>
 
-    <%Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
+    <%
+        Cliente cliente = (Cliente) request.getSession(false).getAttribute("cliente");
+    Funcionario funcionarios = (Funcionario) request.getSession(false).getAttribute("funcionario");
     %>
     <body>
         <section>
@@ -21,7 +24,7 @@
                 <nav>
                     <ul>
                         <li><a href="ListarProduto">Produtos</a></li>
-                        <% if(cliente == null){%>
+                        <% if(cliente == null || funcionarios == null){%>
                         <li><a href="paginaLogin.jsp">Login</a></li>
                         <%}%>
                     </ul>

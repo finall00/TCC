@@ -23,7 +23,7 @@
         <div style="background: #ff968a;" class="card-header text-center">
             <h3 style="color: white" >Monte seu bolo</h3>
         </div>
-        <div class="card-body">
+        <div class="card-body ">
 
 
             <form action="CadastrarBolo" method="post">
@@ -39,7 +39,10 @@
 
                 <div class="row w-50 mx-auto">
 
-                    <div class="form-group col-6">                                        
+                    <div class="form-group col-6"> 
+                        <%if (funcionario != null) {%>
+                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovoPesoB">+</a>
+                        <%}%>
                         <label for="">Peso:</label>
                         <%
                             List<PesoBolo> listaP = (List<PesoBolo>) request.getAttribute("peso");
@@ -64,7 +67,9 @@
                 <div class="row w-50 mx-auto">  
 
                     <div class="form-group col-6">
-
+                        <%if (funcionario != null) {%>
+                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovoSaborB">+</a>
+                        <%}%>
                         <label for="">Sabor do Bolo:</label>
                         <%
                             List<SaborBolo> listaS = (List<SaborBolo>) request.getAttribute("sabor");
@@ -85,7 +90,9 @@
                 </div>
                 <div class="row w-50 mx-auto">  
                     <div class="form-group col-6">
-
+                        <%if (funcionario != null) {%>
+                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovoRecheioB">+</a>
+                        <%}%>
                         <label for="">Recheio:</label>
                         <%
                             List<RecheioBolo> listaR = (List<RecheioBolo>) request.getAttribute("recheio");
@@ -107,7 +114,9 @@
                 </div>
                 <div class="row w-50 mx-auto">  
                     <div class="form-group col-6">
-
+                        <%if (funcionario != null) {%>
+                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovaCoberturaB">+</a>
+                        <%}%>
                         <label for="">Cobertura:</label>
                         <%
                             List<CoberturaBolo> listaC = (List<CoberturaBolo>) request.getAttribute("cobertura");
@@ -129,7 +138,9 @@
                 </div> 
                 <div class="row w-50 mx-auto">  
                     <div class="form-group col-6">
-
+                        <%if (funcionario != null) {%>
+                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovoFormatoB">+</a> 
+                        <%}%>
                         <label for="">Formato:</label>
 
                         <%
@@ -150,6 +161,7 @@
                     </div>
 
                 </div>
+
                 <div class="row w-50 mx-auto">  
                     <div class="col-6" >
                         <label for="">Descreva a decoracao:</label>
@@ -167,19 +179,6 @@
 
             </form>
 
-            <div>
-                <%if (funcionario != null) {%>
-                <div class="row mt-3">
-                    <div class="form-group col-6 text-center"> 
-                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovoPesoB">+ PESO</a>
-                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovoFormatoB">Novo Formato</a> 
-                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovaCoberturaB">Adicionar Cobertura</a>
-                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovoRecheioB">Add Recheio</a>
-                        <a style="background: #6c757d ; border: 1px solid #6c757d; color: white" class="btn btn-primary" href="NovoSaborB">Sabor</a>
-                    </div>
-                </div>
-                <%}%>
-            </div>
 
         </div>
     </div>

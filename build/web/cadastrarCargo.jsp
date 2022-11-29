@@ -15,7 +15,7 @@
         <form action="CadastrarCargo" method="post">
             <div class="row w-75 mx-auto">
                 <div class="form-group col-6">
-
+                   <input type="text" hidden="" name="out" id="out" value="volta">
                     <label for="codigoCargo">Código:</label>
                     <input class="form-control" type="text" id="codigoCargo" name="codigoCargo" readonly value="${cargo.codigoCargo > 0 ? cargo.codigoCargo : ""}"/>
                 </div>

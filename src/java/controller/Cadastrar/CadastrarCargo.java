@@ -18,7 +18,8 @@ public class CadastrarCargo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
 
-        String pg = request.getParameter("out");
+        String pg = null;
+        pg = request.getParameter("out");
         try {
 
             int codigoCargo = request.getParameter("codigoCargo").isEmpty() ? 0 : Integer.parseInt(request.getParameter("codigoCargo"));
